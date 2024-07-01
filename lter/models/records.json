@@ -1,0 +1,1705 @@
+{
+    "model": {
+        "type": "model",
+        "requests": {
+            "types": {
+                "delete-record": {
+                    "base-classes": [
+                        "oarepo_requests.types.delete_record.DeleteRecordRequestType"
+                    ],
+                    "allowed-receiver-ref-types": [
+                        "user",
+                        "group"
+                    ],
+                    "module": "lter.records.requests.delete_record.types",
+                    "class": "lter.records.requests.delete_record.types.DeleteRecordRequestType",
+                    "generate": true,
+                    "id": "lter_delete_record",
+                    "actions": {}
+                },
+                "edit-record": {
+                    "base-classes": [
+                        "oarepo_requests.types.edit_record.EditRecordRequestType"
+                    ],
+                    "allowed-receiver-ref-types": [
+                        "user",
+                        "group"
+                    ],
+                    "module": "lter.records.requests.edit_record.types",
+                    "class": "lter.records.requests.edit_record.types.EditRecordRequestType",
+                    "generate": true,
+                    "id": "lter_edit_record",
+                    "actions": {}
+                }
+            },
+            "api-blueprint": {
+                "generate": true,
+                "alias": "lter_requests",
+                "module": "lter.views.requests.api",
+                "function": "lter.views.requests.api.create_api_blueprint",
+                "imports": []
+            },
+            "app-blueprint": {
+                "generate": true,
+                "alias": "lter_requests",
+                "extra_code": "",
+                "module": "lter.views.requests.app",
+                "function": "lter.views.requests.app.create_app_blueprint",
+                "imports": []
+            },
+            "resource": {
+                "generate": true,
+                "config-key": "LTER_REQUESTS_RESOURCE_CLASS",
+                "class": "oarepo_requests.resources.draft.resource.DraftRecordRequestsResource",
+                "additional-args": [
+                    "record_requests_config={{oarepo_requests.resources.draft.config.DraftRecordRequestsResourceConfig}}()"
+                ],
+                "skip": false
+            },
+            "service": {
+                "generate": true,
+                "config-key": "LTER_REQUESTS_SERVICE_CLASS",
+                "class": "oarepo_requests.services.draft.service.DraftRecordRequestsService",
+                "additional-args": [
+                    "record_service=self.service_records",
+                    "oarepo_requests_service={{oarepo_requests.proxies.current_oarepo_requests_service}}"
+                ],
+                "skip": false
+            },
+            "additional-resolvers": [
+                "{{oarepo_runtime.records.entity_resolvers.UserResolver}}()",
+                "{{oarepo_runtime.records.entity_resolvers.GroupResolver}}()"
+            ],
+            "additional-ui-resolvers": {
+                "\"user\"": "{{oarepo_requests.resolvers.ui.UserEntityReferenceUIResolver}}(\"user\")",
+                "\"fallback\"": "{{oarepo_requests.resolvers.ui.FallbackEntityReferenceUIResolver}}(\"fallback\")",
+                "\"group\"": "{{oarepo_requests.resolvers.ui.GroupEntityReferenceUIResolver}}(\"group\")"
+            },
+            "ui-serialization-referenced-fields": [
+                "\"created_by\"",
+                "\"receiver\"",
+                "\"topic\""
+            ]
+        },
+        "searchable": true,
+        "custom-fields": [],
+        "permissions": {
+            "presets": [
+                "authenticated"
+            ],
+            "generate": true,
+            "extra-code": "",
+            "module": "lter.services.records.permissions",
+            "class": "lter.services.records.permissions.LterPermissionPolicy",
+            "base-classes": [
+                "invenio_records_permissions.RecordPermissionPolicy"
+            ],
+            "imports": []
+        },
+        "marshmallow": {
+            "imports": [],
+            "base-classes": [
+                "oarepo_requests.services.schema.RequestsSchemaMixin",
+                "oarepo_runtime.services.schema.marshmallow.BaseRecordSchema"
+            ],
+            "generate": true,
+            "module": "lter.services.records.schema",
+            "class": "lter.services.records.schema.LterSchema",
+            "extra-code": ""
+        },
+        "pid": {
+            "type": "lter",
+            "provider-base-classes": [
+                "invenio_drafts_resources.records.api.DraftRecordIdProviderV2"
+            ],
+            "imports": [
+                {
+                    "import": "invenio_records_resources.records.systemfields.pid.PIDField"
+                },
+                {
+                    "import": "invenio_records_resources.records.systemfields.pid.PIDFieldContext"
+                }
+            ],
+            "generate": true,
+            "module": "lter.records.api",
+            "provider-class": "lter.records.api.LterIdProvider",
+            "field-class": "invenio_records_resources.records.systemfields.pid.PIDField",
+            "context-class": "invenio_records_resources.records.systemfields.pid.PIDFieldContext",
+            "field-args": [
+                "create=True"
+            ],
+            "extra-code": ""
+        },
+        "ui": {
+            "marshmallow": {
+                "imports": [],
+                "base-classes": [
+                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
+                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
+                ],
+                "generate": true,
+                "module": "lter.services.records.ui_schema",
+                "class": "lter.services.records.ui_schema.LterUISchema",
+                "extra-code": ""
+            },
+            "module": "lter.models",
+            "file": "lter/models/ui.json",
+            "alias": "lter"
+        },
+        "resource-config": {
+            "base-html-url": "/lter/",
+            "base-classes": [
+                "invenio_drafts_resources.resources.RecordResourceConfig"
+            ],
+            "generate": true,
+            "base-url": "/lter/",
+            "config-key": "LTER_RECORD_RESOURCE_CONFIG",
+            "module": "lter.resources.records.config",
+            "class": "lter.resources.records.config.LterResourceConfig",
+            "extra-code": "",
+            "imports": [],
+            "additional-args": []
+        },
+        "module": {
+            "qualified": "lter",
+            "alias": "lter",
+            "path": "lter",
+            "base": "lter",
+            "base-upper": "LTER",
+            "base-title": "Lter",
+            "kebab-module": "lter",
+            "prefix": "Lter",
+            "prefix-upper": "LTER",
+            "prefix-snake": "lter",
+            "suffix": "lter",
+            "suffix-upper": "LTER",
+            "suffix-snake": "lter"
+        },
+        "draft-files": {
+            "type": "draft-file",
+            "properties": {},
+            "searchable": true,
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            }
+        },
+        "draft": {
+            "type": "draft_record",
+            "properties": {},
+            "requests": {
+                "types": {
+                    "publish-draft": {
+                        "base-classes": [
+                            "oarepo_requests.types.publish_draft.PublishDraftRequestType"
+                        ],
+                        "allowed-receiver-ref-types": [
+                            "user",
+                            "group"
+                        ]
+                    }
+                }
+            },
+            "searchable": true,
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            }
+        },
+        "files": {
+            "type": "file",
+            "properties": {
+                "id": {
+                    "type": "keyword",
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    },
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                },
+                "created": {
+                    "type": "date",
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "marshmallow": {
+                        "read": true,
+                        "write": false
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                },
+                "updated": {
+                    "type": "date",
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "marshmallow": {
+                        "read": true,
+                        "write": false
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                },
+                "$schema": {
+                    "type": "keyword",
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    },
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                },
+                "caption": {
+                    "type": "keyword"
+                }
+            },
+            "searchable": true,
+            "marshmallow": {
+                "imports": [
+                    {
+                        "import": "invenio_records_resources.services.files.schema.FileSchema",
+                        "alias": "InvenioFileSchema"
+                    }
+                ],
+                "base-classes": [
+                    "InvenioFileSchema"
+                ]
+            },
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            }
+        },
+        "tests": {
+            "extra-fixtures": [],
+            "extra-code": "",
+            "module": "tests"
+        },
+        "sample": {
+            "file": "data/sample_data.yaml"
+        },
+        "ext-resource": {
+            "generate": true,
+            "skip": false
+        },
+        "model-name": "Lter",
+        "config": {
+            "generate": true,
+            "module": "lter.config",
+            "extra_code": "",
+            "imports": []
+        },
+        "ext": {
+            "generate": true,
+            "module": "lter.ext",
+            "class": "lter.ext.LterExt",
+            "base-classes": [],
+            "extra_code": "",
+            "alias": "lter",
+            "imports": []
+        },
+        "api-blueprint": {
+            "generate": true,
+            "alias": "lter",
+            "extra_code": "",
+            "module": "lter.views.records.api",
+            "function": "lter.views.records.api.create_api_blueprint",
+            "imports": []
+        },
+        "app-blueprint": {
+            "generate": true,
+            "alias": "lter",
+            "extra_code": "",
+            "module": "lter.views.records.app",
+            "function": "lter.views.records.app.create_app_blueprint",
+            "imports": []
+        },
+        "facets": {
+            "generate": true,
+            "module": "lter.services.records.facets",
+            "extra-code": "",
+            "groups": true
+        },
+        "saved-model": {
+            "file": "lter/models/records.json",
+            "module": "lter.models",
+            "alias": "lter"
+        },
+        "proxy": {
+            "module": "lter.proxies",
+            "generate": true
+        },
+        "record": {
+            "base-classes": [
+                "invenio_drafts_resources.records.api.Record{InvenioRecord}"
+            ],
+            "generate": true,
+            "module": "lter.records.api",
+            "class": "lter.records.api.LterRecord",
+            "imports": [],
+            "extra-code": "",
+            "fields": {}
+        },
+        "resource": {
+            "base-classes": [
+                "invenio_drafts_resources.resources.RecordResource"
+            ],
+            "generate": true,
+            "config-key": "LTER_RECORD_RESOURCE_CLASS",
+            "module": "lter.resources.records.resource",
+            "class": "lter.resources.records.resource.LterResource",
+            "proxy": "current_resource",
+            "extra-code": "",
+            "imports": [],
+            "additional-args": []
+        },
+        "search-options": {
+            "module": "lter.services.records.search",
+            "class": "lter.services.records.search.LterSearchOptions",
+            "generate": true,
+            "extra-code": "",
+            "base-classes": [
+                "invenio_records_resources.services.SearchOptions{InvenioSearchOptions}"
+            ],
+            "imports": [],
+            "fields": {},
+            "sort-options-field": "sort_options"
+        },
+        "json-schema-settings": {
+            "generate": true,
+            "alias": "lter",
+            "version": "1.0.0",
+            "module": "lter.records.jsonschemas",
+            "name": "lter-1.0.0.json",
+            "file": "lter/records/jsonschemas/lter-1.0.0.json"
+        },
+        "json-serializer": {
+            "module": "lter.resources.records.ui",
+            "class": "lter.resources.records.ui.LterUIJSONSerializer",
+            "base-classes": [
+                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
+            ],
+            "imports": [],
+            "extra-code": "",
+            "generate": true,
+            "list_schema_cls": "flask_resources.BaseListSchema",
+            "format_serializer_cls": "flask_resources.serializers.JSONSerializer",
+            "schema-context-args": {
+                "\"object_key\"": "\"ui\"",
+                "\"identity\"": "{{ flask.g{g.identity} }}"
+            }
+        },
+        "translations": {
+            "module": "lter.translations",
+            "alias": "lter"
+        },
+        "files-field": {
+            "generate": true,
+            "field-class": "invenio_records_resources.records.systemfields.FilesField",
+            "file-class": "lter.records.api.LterRecord",
+            "field-args": [
+                "store=False"
+            ],
+            "imports": []
+        },
+        "record-metadata": {
+            "generate": true,
+            "module": "lter.records.models",
+            "class": "lter.records.models.LterMetadata",
+            "base-classes": [
+                "invenio_db.db{db.Model}",
+                "invenio_records.models.RecordMetadataBase",
+                "invenio_drafts_resources.records.ParentRecordMixin"
+            ],
+            "extra-code": "",
+            "imports": [],
+            "table": "lter_metadata",
+            "alias": "lter",
+            "use-versioning": true,
+            "alembic": "lter.alembic"
+        },
+        "service": {
+            "imports": [],
+            "base-classes": [
+                "invenio_drafts_resources.services.RecordService{InvenioRecordService}"
+            ],
+            "generate": true,
+            "config-key": "LTER_RECORD_SERVICE_CLASS",
+            "proxy": "current_service",
+            "module": "lter.services.records.service",
+            "class": "lter.services.records.service.LterService",
+            "extra-code": "",
+            "additional-args": [
+                "files_service=self.service_files",
+                "draft_files_service=self.service_draft_files"
+            ]
+        },
+        "service-config": {
+            "base-classes": [
+                "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
+                "invenio_drafts_resources.services.RecordServiceConfig{InvenioRecordDraftsServiceConfig}"
+            ],
+            "generate": true,
+            "config-key": "LTER_RECORD_SERVICE_CONFIG",
+            "module": "lter.services.records.config",
+            "class": "lter.services.records.config.LterServiceConfig",
+            "extra-code": "",
+            "service-id": "lter",
+            "components": [
+                "{{oarepo_runtime.services.components.OwnersComponent}}",
+                "{{invenio_records_resources.services.records.components.DataComponent}}",
+                "{{oarepo_runtime.services.files.FilesComponent}}",
+                "{{invenio_drafts_resources.services.records.components.DraftFilesComponent}}"
+            ],
+            "additional-args": []
+        },
+        "record-dumper": {
+            "generate": true,
+            "module": "lter.records.dumpers.dumper",
+            "class": "lter.records.dumpers.dumper.LterDumper",
+            "base-classes": [
+                "oarepo_runtime.records.dumpers.SearchDumper"
+            ],
+            "extra-code": "",
+            "extensions": [
+                "{{oarepo_runtime.records.systemfields.mapping.SystemFieldDumperExt}}()",
+                "{{lter.records.dumpers.edtf.LterEDTFIntervalDumperExt}}()"
+            ],
+            "imports": []
+        },
+        "edtf-interval-dumper": {
+            "generate": true,
+            "module": "lter.records.dumpers.edtf",
+            "class": "lter.records.dumpers.edtf.LterEDTFIntervalDumperExt",
+            "base-classes": [
+                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
+            ],
+            "extra-code": "",
+            "extensions": [],
+            "imports": []
+        },
+        "record-list": {
+            "generate": true,
+            "module": "lter.services.records.results",
+            "class": "lter.services.records.results.LterRecordList",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_runtime.services.results.RecordList"
+            ],
+            "components": [],
+            "imports": []
+        },
+        "record-item": {
+            "generate": true,
+            "module": "lter.services.records.results",
+            "class": "lter.services.records.results.LterRecordItem",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_runtime.services.results.RecordItem"
+            ],
+            "components": [
+                "{{oarepo_requests.services.results.RequestsComponent}}()",
+                "{{oarepo_requests.services.results.RequestTypesComponent}}()"
+            ],
+            "imports": []
+        },
+        "draft-parent-record": {
+            "class": "lter.records.api.LterParentRecord",
+            "base-classes": [
+                "invenio_drafts_resources.records.api.ParentRecord"
+            ],
+            "imports": [],
+            "module": "lter.records.api",
+            "generate": true
+        },
+        "draft-parent-record-state": {
+            "class": "lter.records.models.LterParentState",
+            "base-classes": [
+                "invenio_db.db{db.Model}",
+                "invenio_drafts_resources.records.ParentRecordStateMixin"
+            ],
+            "imports": [],
+            "module": "lter.records.models",
+            "generate": true,
+            "table": "lter_parent_state_metadata"
+        },
+        "draft-parent-record-metadata": {
+            "class": "lter.records.models.LterParentMetadata",
+            "base-classes": [
+                "invenio_db.db{db.Model}",
+                "invenio_records.models.RecordMetadataBase"
+            ],
+            "imports": [],
+            "table": "lter_parent_record_metadata",
+            "module": "lter.records.models",
+            "generate": true
+        },
+        "draft-parent-record-schema": {
+            "name": "parent-v1.0.0.json",
+            "file": "lter/records/jsonschemas/parent-v1.0.0.json",
+            "generate": true
+        },
+        "mapping": {
+            "generate": true,
+            "alias": "lter",
+            "module": "lter.records.mappings",
+            "index": "lter-lter-1.0.0",
+            "file": "lter/records/mappings/os-v2/lter/lter-1.0.0.json",
+            "index-field-args": []
+        },
+        "published-service-config": {
+            "config-key": "LTER_RECORD_PUBLISHED_SERVICE_CONFIG",
+            "module": "lter.services.records.published.config",
+            "class": "lter.services.records.published.config.LterPublishedServiceConfig",
+            "extra-code": "",
+            "service-id": "published_lter",
+            "base-classes": [
+                "oarepo_published_service.services.config.PublishedServiceConfig",
+                "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin"
+            ],
+            "components": [
+                "{{oarepo_runtime.services.files.FilesComponent}}",
+                "{{oarepo_published_service.services.records.components.bucket.CreatePublishedBucketComponent}}"
+            ],
+            "generate": true
+        },
+        "published-service": {
+            "generate": true,
+            "config-key": "LTER_RECORD_PUBLISHED_SERVICE_CLASS",
+            "proxy": "current_published_service",
+            "module": "lter.services.records.published.service",
+            "class": "lter.services.records.published.service.LterPublishedService",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_published_service.services.service.PublishedService"
+            ],
+            "imports": []
+        },
+        "parent-record-marshmallow": {
+            "module": "lter.services.records.schema",
+            "class": "lter.services.records.schema.GeneratedParentSchema",
+            "generate": true,
+            "base-classes": [
+                "invenio_drafts_resources.services.records.schema.ParentSchema{InvenioParentSchema}"
+            ]
+        },
+        "record-resolver": {
+            "generate": true,
+            "module": "lter.records.requests.resolvers",
+            "class": "lter.records.requests.resolvers.LterResolver",
+            "base-classes": [
+                "oarepo_runtime.records.entity_resolvers.RecordResolver"
+            ],
+            "imports": []
+        },
+        "ui-record-resolver": {
+            "generate": true,
+            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
+        },
+        "sortable": [],
+        "properties": {
+            "$schema": {
+                "type": "keyword",
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "sample": {
+                    "skip": true
+                }
+            },
+            "created": {
+                "type": "datetime",
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "sample": {
+                    "skip": true
+                }
+            },
+            "id": {
+                "type": "keyword",
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "sample": {
+                    "skip": true
+                }
+            },
+            "metadata": {
+                "type": "object",
+                "marshmallow": {
+                    "module": "lter.services.records.schema",
+                    "generate": true,
+                    "class": "lter.services.records.schema.LterMetadataSchema",
+                    "extra-code": "",
+                    "base-classes": [
+                        "marshmallow.Schema"
+                    ]
+                },
+                "ui": {
+                    "marshmallow": {
+                        "generate": true,
+                        "module": "lter.services.records.ui_schema",
+                        "class": "lter.services.records.ui_schema.LterMetadataUISchema",
+                        "extra-code": "",
+                        "base-classes": [
+                            "marshmallow.Schema"
+                        ]
+                    }
+                },
+                "properties": {
+                    "contributors": {
+                        "type": "array",
+                        "label.en": "Contributors",
+                        "items": {
+                            "type": "object",
+                            "label.cs": "Přispěvatel",
+                            "label.en": "Contributor",
+                            "marshmallow": {
+                                "generate": true,
+                                "class": "lter.services.records.schema.ContributorsItemSchema"
+                            },
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": true,
+                                    "class": "lter.services.records.ui_schema.ContributorsItemUISchema"
+                                }
+                            },
+                            "properties": {
+                                "affiliation": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "label.cs": "Afiliace",
+                                        "label.en": "Affiliation",
+                                        "marshmallow": {
+                                            "generate": true,
+                                            "class": "lter.services.records.schema.AffiliationItemSchema"
+                                        },
+                                        "ui": {
+                                            "marshmallow": {
+                                                "generate": true,
+                                                "class": "lter.services.records.ui_schema.AffiliationItemUISchema"
+                                            }
+                                        },
+                                        "properties": {
+                                            "affiliationIdentifier": {
+                                                "type": "keyword",
+                                                "label.cs": "Identifikátor afiliace",
+                                                "label.en": "Affiliation identifier"
+                                            },
+                                            "affiliationIdentifierScheme": {
+                                                "type": "keyword",
+                                                "label.cs": "Schéma identifikátoru afiliace",
+                                                "label.en": "Affiliation identifier scheme"
+                                            },
+                                            "name": {
+                                                "type": "keyword",
+                                                "required": true,
+                                                "label.cs": "Název",
+                                                "label.en": "Name"
+                                            },
+                                            "schemeURI": {
+                                                "type": "url",
+                                                "label.cs": "URI schématu",
+                                                "label.en": "Scheme URI"
+                                            }
+                                        }
+                                    }
+                                },
+                                "contributorType": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "enum": [
+                                        "ContactPerson",
+                                        "DataCollector",
+                                        "DataCurator",
+                                        "DataManager",
+                                        "Distributor",
+                                        "Editor",
+                                        "HostingInstitution",
+                                        "Producer",
+                                        "ProjectLeader",
+                                        "ProjectManager",
+                                        "ProjectMember",
+                                        "RegistrationAgency",
+                                        "RegistrationAuthority",
+                                        "RelatedPerson",
+                                        "Researcher",
+                                        "ResearchGroup",
+                                        "RightsHolder",
+                                        "Sponsor",
+                                        "Supervisor",
+                                        "WorkPackageLeader",
+                                        "Other"
+                                    ],
+                                    "label.cs": "Typ přispěvatele",
+                                    "label.en": "Contributor type"
+                                },
+                                "familyName": {
+                                    "type": "keyword",
+                                    "label.cs": "Příjmení",
+                                    "label.en": "Family name"
+                                },
+                                "givenName": {
+                                    "type": "keyword",
+                                    "label.cs": "Křestní jméno",
+                                    "label.en": "Given name"
+                                },
+                                "lang": {
+                                    "type": "keyword",
+                                    "label.cs": "Jazyk",
+                                    "label.en": "Language"
+                                },
+                                "name": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "label.cs": "Jméno",
+                                    "label.en": "Name"
+                                },
+                                "nameIdentifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "label.cs": "Identifikátor jména",
+                                        "label.en": "Name identifier",
+                                        "marshmallow": {
+                                            "generate": true,
+                                            "class": "lter.services.records.schema.NameIdentifiersItemSchema"
+                                        },
+                                        "ui": {
+                                            "marshmallow": {
+                                                "generate": true,
+                                                "class": "lter.services.records.ui_schema.NameIdentifiersItemUISchema"
+                                            }
+                                        },
+                                        "properties": {
+                                            "nameIdentifier": {
+                                                "type": "keyword",
+                                                "required": true,
+                                                "label.cs": "Identifikátor",
+                                                "label.en": "Identifier"
+                                            },
+                                            "nameIdentifierScheme": {
+                                                "type": "keyword",
+                                                "required": true,
+                                                "label.cs": "Schéma identifikátoru",
+                                                "label.en": "Identifier scheme"
+                                            },
+                                            "schemeURI": {
+                                                "type": "url",
+                                                "label.cs": "URI schématu",
+                                                "label.en": "Scheme URI"
+                                            }
+                                        }
+                                    }
+                                },
+                                "nameType": {
+                                    "type": "keyword",
+                                    "enum": [
+                                        "Organizational",
+                                        "Personal"
+                                    ],
+                                    "label.cs": "Typ jména",
+                                    "label.en": "Name type"
+                                }
+                            }
+                        }
+                    },
+                    "creators": {
+                        "type": "array",
+                        "label.en": "Authors",
+                        "items": {
+                            "type": "object",
+                            "label.cs": "Tvůrce",
+                            "label.en": "Creator",
+                            "marshmallow": {
+                                "generate": true,
+                                "class": "lter.services.records.schema.CreatorsItemSchema"
+                            },
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": true,
+                                    "class": "lter.services.records.ui_schema.CreatorsItemUISchema"
+                                }
+                            },
+                            "properties": {
+                                "affiliation": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "label.cs": "Afiliace",
+                                        "label.en": "Affiliation",
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "lter.services.records.schema.AffiliationItemSchema"
+                                        },
+                                        "ui": {
+                                            "marshmallow": {
+                                                "generate": false,
+                                                "class": "lter.services.records.ui_schema.AffiliationItemUISchema"
+                                            }
+                                        },
+                                        "properties": {
+                                            "affiliationIdentifier": {
+                                                "type": "keyword",
+                                                "label.cs": "Identifikátor afiliace",
+                                                "label.en": "Affiliation identifier"
+                                            },
+                                            "affiliationIdentifierScheme": {
+                                                "type": "keyword",
+                                                "label.cs": "Schéma identifikátoru afiliace",
+                                                "label.en": "Affiliation identifier scheme"
+                                            },
+                                            "name": {
+                                                "type": "keyword",
+                                                "required": true,
+                                                "label.cs": "Název",
+                                                "label.en": "Name"
+                                            },
+                                            "schemeURI": {
+                                                "type": "url",
+                                                "label.cs": "URI schématu",
+                                                "label.en": "Scheme URI"
+                                            }
+                                        }
+                                    }
+                                },
+                                "familyName": {
+                                    "type": "keyword",
+                                    "label.cs": "Příjmení",
+                                    "label.en": "Family name"
+                                },
+                                "givenName": {
+                                    "type": "keyword",
+                                    "label.cs": "Křestní jméno",
+                                    "label.en": "Given name"
+                                },
+                                "lang": {
+                                    "type": "keyword",
+                                    "label.cs": "Jazyk",
+                                    "label.en": "Language"
+                                },
+                                "name": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "label.cs": "Jméno",
+                                    "label.en": "Name"
+                                },
+                                "nameIdentifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "label.cs": "Identifikátor jména",
+                                        "label.en": "Name identifier",
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "lter.services.records.schema.NameIdentifiersItemSchema"
+                                        },
+                                        "ui": {
+                                            "marshmallow": {
+                                                "generate": false,
+                                                "class": "lter.services.records.ui_schema.NameIdentifiersItemUISchema"
+                                            }
+                                        },
+                                        "properties": {
+                                            "nameIdentifier": {
+                                                "type": "keyword",
+                                                "required": true,
+                                                "label.cs": "Identifikátor",
+                                                "label.en": "Identifier"
+                                            },
+                                            "nameIdentifierScheme": {
+                                                "type": "keyword",
+                                                "required": true,
+                                                "label.cs": "Schéma identifikátoru",
+                                                "label.en": "Identifier scheme"
+                                            },
+                                            "schemeURI": {
+                                                "type": "url",
+                                                "label.cs": "URI schématu",
+                                                "label.en": "Scheme URI"
+                                            }
+                                        }
+                                    }
+                                },
+                                "nameType": {
+                                    "type": "keyword",
+                                    "enum": [
+                                        "Organizational",
+                                        "Personal"
+                                    ],
+                                    "label.cs": "Typ jména",
+                                    "label.en": "Name type"
+                                }
+                            }
+                        }
+                    },
+                    "descriptions": {
+                        "type": "array",
+                        "label.en": "Descriptions",
+                        "items": {
+                            "type": "object",
+                            "label.cs": "Popis",
+                            "label.en": "Description",
+                            "marshmallow": {
+                                "generate": true,
+                                "class": "lter.services.records.schema.DescriptionsItemSchema"
+                            },
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": true,
+                                    "class": "lter.services.records.ui_schema.DescriptionsItemUISchema"
+                                }
+                            },
+                            "properties": {
+                                "description": {
+                                    "type": "fulltext",
+                                    "required": true,
+                                    "label.cs": "Popis",
+                                    "label.en": "Description"
+                                },
+                                "descriptionType": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "enum": [
+                                        "Abstract",
+                                        "Methods",
+                                        "SeriesInformation",
+                                        "TableOfContents",
+                                        "TechnicalInfo",
+                                        "Other"
+                                    ],
+                                    "label.cs": "Typ popisu",
+                                    "label.en": "Description type"
+                                },
+                                "lang": {
+                                    "type": "keyword",
+                                    "label.cs": "Jazyk",
+                                    "label.en": "Language"
+                                }
+                            }
+                        }
+                    },
+                    "doi": {
+                        "type": "keyword",
+                        "label.en": "DOI"
+                    },
+                    "geoLocations": {
+                        "type": "array",
+                        "label.en": "GeoLocations",
+                        "items": {
+                            "type": "object",
+                            "label.cs": "Zeměpisná poloha",
+                            "label.en": "GeoLocation",
+                            "marshmallow": {
+                                "generate": true,
+                                "class": "lter.services.records.schema.GeoLocationsItemSchema"
+                            },
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": true,
+                                    "class": "lter.services.records.ui_schema.GeoLocationsItemUISchema"
+                                }
+                            },
+                            "properties": {
+                                "geoLocationBox": {
+                                    "type": "object",
+                                    "label.cs": "Obdélník zeměpisné polohy",
+                                    "label.en": "GeoLocation box",
+                                    "marshmallow": {
+                                        "generate": true,
+                                        "class": "lter.services.records.schema.GeoLocationBoxSchema"
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "generate": true,
+                                            "class": "lter.services.records.ui_schema.GeoLocationBoxUISchema"
+                                        }
+                                    },
+                                    "properties": {
+                                        "eastBoundLongitude": {
+                                            "type": "float",
+                                            "required": true,
+                                            "minimum": -180.0,
+                                            "maximum": 180.0,
+                                            "label.cs": "Východní zeměpisná délka",
+                                            "label.en": "East bound longitude",
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Range(min=-180.0, max=180.0)"
+                                                ]
+                                            }
+                                        },
+                                        "northBoundLatitude": {
+                                            "type": "float",
+                                            "required": true,
+                                            "minimum": -90.0,
+                                            "maximum": 90.0,
+                                            "label.cs": "Severní zeměpisná šířka",
+                                            "label.en": "North bound latitude",
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Range(min=-90.0, max=90.0)"
+                                                ]
+                                            }
+                                        },
+                                        "southBoundLatitude": {
+                                            "type": "float",
+                                            "required": true,
+                                            "minimum": -90.0,
+                                            "maximum": 90.0,
+                                            "label.cs": "Jižní zeměpisná šířka",
+                                            "label.en": "South bound latitude",
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Range(min=-90.0, max=90.0)"
+                                                ]
+                                            }
+                                        },
+                                        "westBoundLongitude": {
+                                            "type": "float",
+                                            "required": true,
+                                            "minimum": -180.0,
+                                            "maximum": 180.0,
+                                            "label.cs": "Západní zeměpisná délka",
+                                            "label.en": "West bound longitude",
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Range(min=-180.0, max=180.0)"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "geoLocationPlace": {
+                                    "type": "keyword",
+                                    "label.cs": "Místo zeměpisné polohy",
+                                    "label.en": "GeoLocation place"
+                                },
+                                "geoLocationPoint": {
+                                    "type": "object",
+                                    "label.cs": "Bod zeměpisné polohy",
+                                    "label.en": "GeoLocation point",
+                                    "marshmallow": {
+                                        "generate": true,
+                                        "class": "lter.services.records.schema.GeoLocationPointSchema"
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "generate": true,
+                                            "class": "lter.services.records.ui_schema.GeoLocationPointUISchema"
+                                        }
+                                    },
+                                    "properties": {
+                                        "pointLatitude": {
+                                            "type": "float",
+                                            "minimum": -90.0,
+                                            "maximum": 90.0,
+                                            "label.cs": "Zeměpisná šířka",
+                                            "label.en": "Latitude",
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Range(min=-90.0, max=90.0)"
+                                                ]
+                                            }
+                                        },
+                                        "pointLongitude": {
+                                            "type": "float",
+                                            "minimum": -180.0,
+                                            "maximum": 180.0,
+                                            "label.cs": "Zeměpisná délka",
+                                            "label.en": "Longitude",
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Range(min=-180.0, max=180.0)"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "geoLocationPolygons": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "label.cs": "Polygony zeměpisné polohy",
+                                        "label.en": "GeoLocation polygons",
+                                        "marshmallow": {
+                                            "generate": true,
+                                            "class": "lter.services.records.schema.GeoLocationPolygonsItemSchema"
+                                        },
+                                        "ui": {
+                                            "marshmallow": {
+                                                "generate": true,
+                                                "class": "lter.services.records.ui_schema.GeoLocationPolygonsItemUISchema"
+                                            }
+                                        },
+                                        "properties": {
+                                            "inPolygonPoint": {
+                                                "type": "object",
+                                                "label.cs": "Bod uvnitř polygonu",
+                                                "label.en": "In polygon point",
+                                                "marshmallow": {
+                                                    "generate": false,
+                                                    "class": "lter.services.records.schema.GeoLocationPointSchema"
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "generate": false,
+                                                        "class": "lter.services.records.ui_schema.GeoLocationPointUISchema"
+                                                    }
+                                                },
+                                                "properties": {
+                                                    "pointLatitude": {
+                                                        "type": "float",
+                                                        "minimum": -90.0,
+                                                        "maximum": 90.0,
+                                                        "label.cs": "Zeměpisná šířka",
+                                                        "label.en": "Latitude",
+                                                        "marshmallow": {
+                                                            "validators": [
+                                                                "ma.validate.Range(min=-90.0, max=90.0)"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "pointLongitude": {
+                                                        "type": "float",
+                                                        "minimum": -180.0,
+                                                        "maximum": 180.0,
+                                                        "label.cs": "Zeměpisná délka",
+                                                        "label.en": "Longitude",
+                                                        "marshmallow": {
+                                                            "validators": [
+                                                                "ma.validate.Range(min=-180.0, max=180.0)"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "polygonPoints": {
+                                                "type": "array",
+                                                "required": true,
+                                                "label.cs": "Body polygonu",
+                                                "label.en": "Polygon points",
+                                                "items": {
+                                                    "type": "object",
+                                                    "label.cs": "Bod zeměpisné polohy",
+                                                    "label.en": "GeoLocationPoint",
+                                                    "marshmallow": {
+                                                        "generate": false,
+                                                        "class": "lter.services.records.schema.GeoLocationPointSchema"
+                                                    },
+                                                    "ui": {
+                                                        "marshmallow": {
+                                                            "generate": false,
+                                                            "class": "lter.services.records.ui_schema.GeoLocationPointUISchema"
+                                                        }
+                                                    },
+                                                    "properties": {
+                                                        "pointLatitude": {
+                                                            "type": "float",
+                                                            "minimum": -90.0,
+                                                            "maximum": 90.0,
+                                                            "label.cs": "Zeměpisná šířka",
+                                                            "label.en": "Latitude",
+                                                            "marshmallow": {
+                                                                "validators": [
+                                                                    "ma.validate.Range(min=-90.0, max=90.0)"
+                                                                ]
+                                                            }
+                                                        },
+                                                        "pointLongitude": {
+                                                            "type": "float",
+                                                            "minimum": -180.0,
+                                                            "maximum": 180.0,
+                                                            "label.cs": "Zeměpisná délka",
+                                                            "label.en": "Longitude",
+                                                            "marshmallow": {
+                                                                "validators": [
+                                                                    "ma.validate.Range(min=-180.0, max=180.0)"
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "identifiers": {
+                        "type": "array",
+                        "label.en": "Identifiers",
+                        "items": {
+                            "type": "object",
+                            "label.cs": "Související identifikátor",
+                            "label.en": "Related identifier",
+                            "marshmallow": {
+                                "generate": true,
+                                "class": "lter.services.records.schema.IdentifiersItemSchema"
+                            },
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": true,
+                                    "class": "lter.services.records.ui_schema.IdentifiersItemUISchema"
+                                }
+                            },
+                            "properties": {
+                                "relatedIdentifier": {
+                                    "type": "keyword",
+                                    "label.cs": "Identifikátor",
+                                    "label.en": "Identifier"
+                                },
+                                "relatedIdentifierType": {
+                                    "type": "keyword",
+                                    "enum": [
+                                        "ARK",
+                                        "arXiv",
+                                        "bibcode",
+                                        "DOI",
+                                        "EAN13",
+                                        "EISSN",
+                                        "Handle",
+                                        "IGSN",
+                                        "ISBN",
+                                        "ISSN",
+                                        "ISTC",
+                                        "LISSN",
+                                        "LSID",
+                                        "PMID",
+                                        "PURL",
+                                        "UPC",
+                                        "URL",
+                                        "URN",
+                                        "w3id"
+                                    ],
+                                    "label.cs": "Typ identifikátoru",
+                                    "label.en": "Identifier type"
+                                },
+                                "relatedMetadataScheme": {
+                                    "type": "keyword",
+                                    "label.cs": "Schéma metadat",
+                                    "label.en": "Metadata scheme"
+                                },
+                                "relationType": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "enum": [
+                                        "IsCitedBy",
+                                        "Cites",
+                                        "IsCollectedBy",
+                                        "Collects",
+                                        "IsSupplementTo",
+                                        "IsSupplementedBy",
+                                        "IsContinuedBy",
+                                        "Continues",
+                                        "IsDescribedBy",
+                                        "Describes",
+                                        "HasMetadata",
+                                        "IsMetadataFor",
+                                        "HasVersion",
+                                        "IsVersionOf",
+                                        "IsNewVersionOf",
+                                        "IsPartOf",
+                                        "IsPreviousVersionOf",
+                                        "IsPublishedIn",
+                                        "HasPart",
+                                        "IsReferencedBy",
+                                        "References",
+                                        "IsDocumentedBy",
+                                        "Documents",
+                                        "IsCompiledBy",
+                                        "Compiles",
+                                        "IsVariantFormOf",
+                                        "IsOriginalFormOf",
+                                        "IsIdenticalTo",
+                                        "IsReviewedBy",
+                                        "Reviews",
+                                        "IsDerivedFrom",
+                                        "IsSourceOf",
+                                        "IsRequiredBy",
+                                        "Requires",
+                                        "IsObsoletedBy",
+                                        "Obsoletes"
+                                    ],
+                                    "label.cs": "Typ vztahu",
+                                    "label.en": "Relation type"
+                                },
+                                "resourceTypeGeneral": {
+                                    "type": "keyword",
+                                    "enum": [
+                                        "Audiovisual",
+                                        "Book",
+                                        "BookChapter",
+                                        "Collection",
+                                        "ComputationalNotebook",
+                                        "ConferencePaper",
+                                        "ConferenceProceeding",
+                                        "DataPaper",
+                                        "Dataset",
+                                        "Dissertation",
+                                        "Event",
+                                        "Image",
+                                        "Instrument",
+                                        "InteractiveResource",
+                                        "Journal",
+                                        "JournalArticle",
+                                        "Model",
+                                        "OutputManagementPlan",
+                                        "PeerReview",
+                                        "PhysicalObject",
+                                        "Preprint",
+                                        "Report",
+                                        "Service",
+                                        "Software",
+                                        "Sound",
+                                        "Standard",
+                                        "StudyRegistration",
+                                        "Text",
+                                        "Workflow",
+                                        "Other"
+                                    ],
+                                    "label.cs": "Obecný typ zdroje",
+                                    "label.en": "General resource type"
+                                },
+                                "schemeType": {
+                                    "type": "keyword",
+                                    "label.cs": "Typ schématu",
+                                    "label.en": "Scheme type"
+                                },
+                                "schemeURI": {
+                                    "type": "url",
+                                    "label.cs": "URI schématu",
+                                    "label.en": "Scheme URI"
+                                }
+                            }
+                        }
+                    },
+                    "keywords": {
+                        "type": "array",
+                        "label.en": "Keywords",
+                        "items": {
+                            "type": "keyword"
+                        }
+                    },
+                    "language": {
+                        "type": "keyword",
+                        "label.en": "Language"
+                    },
+                    "project": {
+                        "type": "keyword",
+                        "label.en": "Project"
+                    },
+                    "publicationYear": {
+                        "type": "keyword",
+                        "label.en": "Publication year"
+                    },
+                    "resourceTypes": {
+                        "type": "array",
+                        "label.en": "Resource types",
+                        "items": {
+                            "type": "object",
+                            "label.cs": "Typ zdroje",
+                            "label.en": "Resource type",
+                            "marshmallow": {
+                                "generate": true,
+                                "class": "lter.services.records.schema.ResourceTypesItemSchema"
+                            },
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": true,
+                                    "class": "lter.services.records.ui_schema.ResourceTypesItemUISchema"
+                                }
+                            },
+                            "properties": {
+                                "resourceType": {
+                                    "type": "keyword",
+                                    "label.cs": "Typ zdroje",
+                                    "label.en": "Resource type"
+                                },
+                                "resourceTypeGeneral": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "enum": [
+                                        "Audiovisual",
+                                        "Book",
+                                        "BookChapter",
+                                        "Collection",
+                                        "ComputationalNotebook",
+                                        "ConferencePaper",
+                                        "ConferenceProceeding",
+                                        "DataPaper",
+                                        "Dataset",
+                                        "Dissertation",
+                                        "Event",
+                                        "Image",
+                                        "Instrument",
+                                        "InteractiveResource",
+                                        "Journal",
+                                        "JournalArticle",
+                                        "Model",
+                                        "OutputManagementPlan",
+                                        "PeerReview",
+                                        "PhysicalObject",
+                                        "Preprint",
+                                        "Report",
+                                        "Service",
+                                        "Software",
+                                        "Sound",
+                                        "Standard",
+                                        "StudyRegistration",
+                                        "Text",
+                                        "Workflow",
+                                        "Other"
+                                    ],
+                                    "label.cs": "Obecný typ zdroje",
+                                    "label.en": "General resource type"
+                                }
+                            }
+                        }
+                    },
+                    "rightsList": {
+                        "type": "array",
+                        "label.en": "Rights",
+                        "items": {
+                            "type": "object",
+                            "label.cs": "Práva",
+                            "label.en": "Rights",
+                            "marshmallow": {
+                                "generate": true,
+                                "class": "lter.services.records.schema.RightsListItemSchema"
+                            },
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": true,
+                                    "class": "lter.services.records.ui_schema.RightsListItemUISchema"
+                                }
+                            },
+                            "properties": {
+                                "lang": {
+                                    "type": "keyword",
+                                    "label.cs": "Jazyk",
+                                    "label.en": "Language"
+                                },
+                                "rights": {
+                                    "type": "keyword",
+                                    "label.cs": "Práva",
+                                    "label.en": "Rights"
+                                },
+                                "rightsIdentifier": {
+                                    "type": "keyword",
+                                    "label.cs": "Identifikátor práv",
+                                    "label.en": "Rights identifier"
+                                },
+                                "rightsIdentifierScheme": {
+                                    "type": "keyword",
+                                    "label.cs": "Schéma identifikátoru práv",
+                                    "label.en": "Rights identifier scheme"
+                                },
+                                "rightsURI": {
+                                    "type": "url",
+                                    "label.cs": "URI práv",
+                                    "label.en": "Rights URI"
+                                },
+                                "schemeURI": {
+                                    "type": "url",
+                                    "label.cs": "URI schématu",
+                                    "label.en": "Scheme URI"
+                                }
+                            }
+                        }
+                    },
+                    "shortName": {
+                        "type": "keyword",
+                        "label.en": "Short name"
+                    },
+                    "taxanomicCoverages": {
+                        "type": "array",
+                        "label.en": "Taxanomic Coverages",
+                        "items": {
+                            "type": "object",
+                            "label.cs": "Téma",
+                            "label.en": "Subject",
+                            "marshmallow": {
+                                "generate": true,
+                                "class": "lter.services.records.schema.TaxanomicCoveragesItemSchema"
+                            },
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": true,
+                                    "class": "lter.services.records.ui_schema.TaxanomicCoveragesItemUISchema"
+                                }
+                            },
+                            "properties": {
+                                "classificationCode": {
+                                    "type": "keyword",
+                                    "label.cs": "Klasifikační kód",
+                                    "label.en": "Classification code"
+                                },
+                                "lang": {
+                                    "type": "keyword",
+                                    "label.cs": "Jazyk",
+                                    "label.en": "Language"
+                                },
+                                "schemeURI": {
+                                    "type": "url",
+                                    "label.cs": "URI schématu",
+                                    "label.en": "Scheme URI"
+                                },
+                                "subject": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "label.cs": "Téma",
+                                    "label.en": "Subject"
+                                },
+                                "subjectScheme": {
+                                    "type": "keyword",
+                                    "label.cs": "Schéma tématu",
+                                    "label.en": "Subject scheme"
+                                },
+                                "valueURI": {
+                                    "type": "url",
+                                    "label.cs": "URI hodnoty",
+                                    "label.en": "Value URI"
+                                }
+                            }
+                        }
+                    },
+                    "temporalCoverages": {
+                        "type": "array",
+                        "label.en": "Temporal Coverages",
+                        "items": {
+                            "type": "object",
+                            "label.cs": "Datum",
+                            "label.en": "Date",
+                            "marshmallow": {
+                                "generate": true,
+                                "class": "lter.services.records.schema.TemporalCoveragesItemSchema"
+                            },
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": true,
+                                    "class": "lter.services.records.ui_schema.TemporalCoveragesItemUISchema"
+                                }
+                            },
+                            "properties": {
+                                "date": {
+                                    "type": "edtf-time",
+                                    "required": true,
+                                    "label.cs": "Datum",
+                                    "label.en": "Date"
+                                },
+                                "dateInformation": {
+                                    "type": "keyword",
+                                    "label.cs": "Informace o datu",
+                                    "label.en": "Date information"
+                                },
+                                "dateType": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "enum": [
+                                        "Accepted",
+                                        "Available",
+                                        "Copyrighted",
+                                        "Collected",
+                                        "Created",
+                                        "Issued",
+                                        "Submitted",
+                                        "Updated",
+                                        "Valid",
+                                        "Withdrawn",
+                                        "Other"
+                                    ],
+                                    "label.cs": "Typ data",
+                                    "label.en": "Date type"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "updated": {
+                "type": "datetime",
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "sample": {
+                    "skip": true
+                }
+            }
+        }
+    }
+}

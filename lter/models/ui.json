@@ -1,0 +1,883 @@
+{
+    "module": "lter.models",
+    "file": "lter/models/ui.json",
+    "alias": "lter",
+    "detail": "model",
+    "input": "model",
+    "help": ".help",
+    "label": ".label",
+    "hint": ".hint",
+    "children": {
+        "$schema": {
+            "detail": "keyword",
+            "input": "keyword",
+            "help": "$schema.help",
+            "label": "$schema.label",
+            "hint": "$schema.hint"
+        },
+        "created": {
+            "detail": "datetime",
+            "input": "datetime",
+            "help": "created.help",
+            "label": "created.label",
+            "hint": "created.hint"
+        },
+        "id": {
+            "detail": "keyword",
+            "input": "keyword",
+            "help": "id.help",
+            "label": "id.label",
+            "hint": "id.hint"
+        },
+        "metadata": {
+            "detail": "metadatum",
+            "input": "metadatum",
+            "help": "metadata.help",
+            "label": "metadata.label",
+            "hint": "metadata.hint",
+            "children": {
+                "contributors": {
+                    "detail": "array",
+                    "input": "array",
+                    "help": "metadata/contributors.help",
+                    "label": "metadata/contributors.label",
+                    "hint": "metadata/contributors.hint",
+                    "child": {
+                        "detail": "contributor",
+                        "input": "contributor",
+                        "help": "metadata/contributors.help",
+                        "label": "metadata/contributors.label",
+                        "hint": "metadata/contributors.hint",
+                        "children": {
+                            "affiliation": {
+                                "detail": "array",
+                                "input": "array",
+                                "help": "metadata/contributors/affiliation.help",
+                                "label": "metadata/contributors/affiliation.label",
+                                "hint": "metadata/contributors/affiliation.hint",
+                                "child": {
+                                    "detail": false,
+                                    "input": false,
+                                    "help": "metadata/contributors/affiliation.help",
+                                    "label": "metadata/contributors/affiliation.label",
+                                    "hint": "metadata/contributors/affiliation.hint",
+                                    "children": {
+                                        "affiliationIdentifier": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/contributors/affiliation/affiliationIdentifier.help",
+                                            "label": "metadata/contributors/affiliation/affiliationIdentifier.label",
+                                            "hint": "metadata/contributors/affiliation/affiliationIdentifier.hint",
+                                            "facet": "metadata_contributors_affiliation_affiliationIdentifier"
+                                        },
+                                        "affiliationIdentifierScheme": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/contributors/affiliation/affiliationIdentifierScheme.help",
+                                            "label": "metadata/contributors/affiliation/affiliationIdentifierScheme.label",
+                                            "hint": "metadata/contributors/affiliation/affiliationIdentifierScheme.hint",
+                                            "facet": "metadata_contributors_affiliation_affiliationIdentifierScheme"
+                                        },
+                                        "name": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/contributors/affiliation/name.help",
+                                            "label": "metadata/contributors/affiliation/name.label",
+                                            "hint": "metadata/contributors/affiliation/name.hint",
+                                            "facet": "metadata_contributors_affiliation_name"
+                                        },
+                                        "schemeURI": {
+                                            "detail": "url",
+                                            "input": "url",
+                                            "help": "metadata/contributors/affiliation/schemeURI.help",
+                                            "label": "metadata/contributors/affiliation/schemeURI.label",
+                                            "hint": "metadata/contributors/affiliation/schemeURI.hint",
+                                            "facet": "metadata_contributors_affiliation_schemeURI"
+                                        }
+                                    }
+                                }
+                            },
+                            "contributorType": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/contributors/contributorType.help",
+                                "label": "metadata/contributors/contributorType.label",
+                                "hint": "metadata/contributors/contributorType.hint",
+                                "enum": "metadata/contributors/contributorType.enum",
+                                "facet": "metadata_contributors_contributorType"
+                            },
+                            "familyName": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/contributors/familyName.help",
+                                "label": "metadata/contributors/familyName.label",
+                                "hint": "metadata/contributors/familyName.hint",
+                                "facet": "metadata_contributors_familyName"
+                            },
+                            "givenName": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/contributors/givenName.help",
+                                "label": "metadata/contributors/givenName.label",
+                                "hint": "metadata/contributors/givenName.hint",
+                                "facet": "metadata_contributors_givenName"
+                            },
+                            "lang": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/contributors/lang.help",
+                                "label": "metadata/contributors/lang.label",
+                                "hint": "metadata/contributors/lang.hint",
+                                "facet": "metadata_contributors_lang"
+                            },
+                            "name": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/contributors/name.help",
+                                "label": "metadata/contributors/name.label",
+                                "hint": "metadata/contributors/name.hint",
+                                "facet": "metadata_contributors_name"
+                            },
+                            "nameIdentifiers": {
+                                "detail": "array",
+                                "input": "array",
+                                "help": "metadata/contributors/nameIdentifiers.help",
+                                "label": "metadata/contributors/nameIdentifiers.label",
+                                "hint": "metadata/contributors/nameIdentifiers.hint",
+                                "child": {
+                                    "detail": "nameidentifier",
+                                    "input": "nameidentifier",
+                                    "help": "metadata/contributors/nameIdentifiers.help",
+                                    "label": "metadata/contributors/nameIdentifiers.label",
+                                    "hint": "metadata/contributors/nameIdentifiers.hint",
+                                    "children": {
+                                        "nameIdentifier": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/contributors/nameIdentifiers/nameIdentifier.help",
+                                            "label": "metadata/contributors/nameIdentifiers/nameIdentifier.label",
+                                            "hint": "metadata/contributors/nameIdentifiers/nameIdentifier.hint",
+                                            "facet": "metadata_contributors_nameIdentifiers_nameIdentifier"
+                                        },
+                                        "nameIdentifierScheme": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/contributors/nameIdentifiers/nameIdentifierScheme.help",
+                                            "label": "metadata/contributors/nameIdentifiers/nameIdentifierScheme.label",
+                                            "hint": "metadata/contributors/nameIdentifiers/nameIdentifierScheme.hint",
+                                            "facet": "metadata_contributors_nameIdentifiers_nameIdentifierScheme"
+                                        },
+                                        "schemeURI": {
+                                            "detail": "url",
+                                            "input": "url",
+                                            "help": "metadata/contributors/nameIdentifiers/schemeURI.help",
+                                            "label": "metadata/contributors/nameIdentifiers/schemeURI.label",
+                                            "hint": "metadata/contributors/nameIdentifiers/schemeURI.hint",
+                                            "facet": "metadata_contributors_nameIdentifiers_schemeURI"
+                                        }
+                                    }
+                                }
+                            },
+                            "nameType": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/contributors/nameType.help",
+                                "label": "metadata/contributors/nameType.label",
+                                "hint": "metadata/contributors/nameType.hint",
+                                "enum": "metadata/contributors/nameType.enum",
+                                "facet": "metadata_contributors_nameType"
+                            }
+                        }
+                    }
+                },
+                "creators": {
+                    "detail": "array",
+                    "input": "array",
+                    "help": "metadata/creators.help",
+                    "label": "metadata/creators.label",
+                    "hint": "metadata/creators.hint",
+                    "child": {
+                        "detail": "creator",
+                        "input": "creator",
+                        "help": "metadata/creators.help",
+                        "label": "metadata/creators.label",
+                        "hint": "metadata/creators.hint",
+                        "children": {
+                            "affiliation": {
+                                "detail": "array",
+                                "input": "array",
+                                "help": "metadata/creators/affiliation.help",
+                                "label": "metadata/creators/affiliation.label",
+                                "hint": "metadata/creators/affiliation.hint",
+                                "child": {
+                                    "detail": false,
+                                    "input": false,
+                                    "help": "metadata/creators/affiliation.help",
+                                    "label": "metadata/creators/affiliation.label",
+                                    "hint": "metadata/creators/affiliation.hint",
+                                    "children": {
+                                        "affiliationIdentifier": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/creators/affiliation/affiliationIdentifier.help",
+                                            "label": "metadata/creators/affiliation/affiliationIdentifier.label",
+                                            "hint": "metadata/creators/affiliation/affiliationIdentifier.hint",
+                                            "facet": "metadata_creators_affiliation_affiliationIdentifier"
+                                        },
+                                        "affiliationIdentifierScheme": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/creators/affiliation/affiliationIdentifierScheme.help",
+                                            "label": "metadata/creators/affiliation/affiliationIdentifierScheme.label",
+                                            "hint": "metadata/creators/affiliation/affiliationIdentifierScheme.hint",
+                                            "facet": "metadata_creators_affiliation_affiliationIdentifierScheme"
+                                        },
+                                        "name": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/creators/affiliation/name.help",
+                                            "label": "metadata/creators/affiliation/name.label",
+                                            "hint": "metadata/creators/affiliation/name.hint",
+                                            "facet": "metadata_creators_affiliation_name"
+                                        },
+                                        "schemeURI": {
+                                            "detail": "url",
+                                            "input": "url",
+                                            "help": "metadata/creators/affiliation/schemeURI.help",
+                                            "label": "metadata/creators/affiliation/schemeURI.label",
+                                            "hint": "metadata/creators/affiliation/schemeURI.hint",
+                                            "facet": "metadata_creators_affiliation_schemeURI"
+                                        }
+                                    }
+                                }
+                            },
+                            "familyName": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/creators/familyName.help",
+                                "label": "metadata/creators/familyName.label",
+                                "hint": "metadata/creators/familyName.hint",
+                                "facet": "metadata_creators_familyName"
+                            },
+                            "givenName": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/creators/givenName.help",
+                                "label": "metadata/creators/givenName.label",
+                                "hint": "metadata/creators/givenName.hint",
+                                "facet": "metadata_creators_givenName"
+                            },
+                            "lang": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/creators/lang.help",
+                                "label": "metadata/creators/lang.label",
+                                "hint": "metadata/creators/lang.hint",
+                                "facet": "metadata_creators_lang"
+                            },
+                            "name": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/creators/name.help",
+                                "label": "metadata/creators/name.label",
+                                "hint": "metadata/creators/name.hint",
+                                "facet": "metadata_creators_name"
+                            },
+                            "nameIdentifiers": {
+                                "detail": "array",
+                                "input": "array",
+                                "help": "metadata/creators/nameIdentifiers.help",
+                                "label": "metadata/creators/nameIdentifiers.label",
+                                "hint": "metadata/creators/nameIdentifiers.hint",
+                                "child": {
+                                    "detail": "nameidentifier",
+                                    "input": "nameidentifier",
+                                    "help": "metadata/creators/nameIdentifiers.help",
+                                    "label": "metadata/creators/nameIdentifiers.label",
+                                    "hint": "metadata/creators/nameIdentifiers.hint",
+                                    "children": {
+                                        "nameIdentifier": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/creators/nameIdentifiers/nameIdentifier.help",
+                                            "label": "metadata/creators/nameIdentifiers/nameIdentifier.label",
+                                            "hint": "metadata/creators/nameIdentifiers/nameIdentifier.hint",
+                                            "facet": "metadata_creators_nameIdentifiers_nameIdentifier"
+                                        },
+                                        "nameIdentifierScheme": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/creators/nameIdentifiers/nameIdentifierScheme.help",
+                                            "label": "metadata/creators/nameIdentifiers/nameIdentifierScheme.label",
+                                            "hint": "metadata/creators/nameIdentifiers/nameIdentifierScheme.hint",
+                                            "facet": "metadata_creators_nameIdentifiers_nameIdentifierScheme"
+                                        },
+                                        "schemeURI": {
+                                            "detail": "url",
+                                            "input": "url",
+                                            "help": "metadata/creators/nameIdentifiers/schemeURI.help",
+                                            "label": "metadata/creators/nameIdentifiers/schemeURI.label",
+                                            "hint": "metadata/creators/nameIdentifiers/schemeURI.hint",
+                                            "facet": "metadata_creators_nameIdentifiers_schemeURI"
+                                        }
+                                    }
+                                }
+                            },
+                            "nameType": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/creators/nameType.help",
+                                "label": "metadata/creators/nameType.label",
+                                "hint": "metadata/creators/nameType.hint",
+                                "enum": "metadata/creators/nameType.enum",
+                                "facet": "metadata_creators_nameType"
+                            }
+                        }
+                    }
+                },
+                "descriptions": {
+                    "detail": "array",
+                    "input": "array",
+                    "help": "metadata/descriptions.help",
+                    "label": "metadata/descriptions.label",
+                    "hint": "metadata/descriptions.hint",
+                    "child": {
+                        "detail": "description",
+                        "input": "description",
+                        "help": "metadata/descriptions.help",
+                        "label": "metadata/descriptions.label",
+                        "hint": "metadata/descriptions.hint",
+                        "children": {
+                            "description": {
+                                "detail": "fulltext",
+                                "input": "fulltext",
+                                "help": "metadata/descriptions/description.help",
+                                "label": "metadata/descriptions/description.label",
+                                "hint": "metadata/descriptions/description.hint"
+                            },
+                            "descriptionType": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/descriptions/descriptionType.help",
+                                "label": "metadata/descriptions/descriptionType.label",
+                                "hint": "metadata/descriptions/descriptionType.hint",
+                                "enum": "metadata/descriptions/descriptionType.enum",
+                                "facet": "metadata_descriptions_descriptionType"
+                            },
+                            "lang": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/descriptions/lang.help",
+                                "label": "metadata/descriptions/lang.label",
+                                "hint": "metadata/descriptions/lang.hint",
+                                "facet": "metadata_descriptions_lang"
+                            }
+                        }
+                    }
+                },
+                "doi": {
+                    "detail": "keyword",
+                    "input": "keyword",
+                    "help": "metadata/doi.help",
+                    "label": "metadata/doi.label",
+                    "hint": "metadata/doi.hint",
+                    "facet": "metadata_doi"
+                },
+                "geoLocations": {
+                    "detail": "array",
+                    "input": "array",
+                    "help": "metadata/geoLocations.help",
+                    "label": "metadata/geoLocations.label",
+                    "hint": "metadata/geoLocations.hint",
+                    "child": {
+                        "detail": "geolocation",
+                        "input": "geolocation",
+                        "help": "metadata/geoLocations.help",
+                        "label": "metadata/geoLocations.label",
+                        "hint": "metadata/geoLocations.hint",
+                        "children": {
+                            "geoLocationBox": {
+                                "detail": false,
+                                "input": false,
+                                "help": "metadata/geoLocations/geoLocationBox.help",
+                                "label": "metadata/geoLocations/geoLocationBox.label",
+                                "hint": "metadata/geoLocations/geoLocationBox.hint",
+                                "children": {
+                                    "eastBoundLongitude": {
+                                        "detail": "float",
+                                        "input": "float",
+                                        "help": "metadata/geoLocations/geoLocationBox/eastBoundLongitude.help",
+                                        "label": "metadata/geoLocations/geoLocationBox/eastBoundLongitude.label",
+                                        "hint": "metadata/geoLocations/geoLocationBox/eastBoundLongitude.hint",
+                                        "facet": "metadata_geoLocations_geoLocationBox_eastBoundLongitude"
+                                    },
+                                    "northBoundLatitude": {
+                                        "detail": "float",
+                                        "input": "float",
+                                        "help": "metadata/geoLocations/geoLocationBox/northBoundLatitude.help",
+                                        "label": "metadata/geoLocations/geoLocationBox/northBoundLatitude.label",
+                                        "hint": "metadata/geoLocations/geoLocationBox/northBoundLatitude.hint",
+                                        "facet": "metadata_geoLocations_geoLocationBox_northBoundLatitude"
+                                    },
+                                    "southBoundLatitude": {
+                                        "detail": "float",
+                                        "input": "float",
+                                        "help": "metadata/geoLocations/geoLocationBox/southBoundLatitude.help",
+                                        "label": "metadata/geoLocations/geoLocationBox/southBoundLatitude.label",
+                                        "hint": "metadata/geoLocations/geoLocationBox/southBoundLatitude.hint",
+                                        "facet": "metadata_geoLocations_geoLocationBox_southBoundLatitude"
+                                    },
+                                    "westBoundLongitude": {
+                                        "detail": "float",
+                                        "input": "float",
+                                        "help": "metadata/geoLocations/geoLocationBox/westBoundLongitude.help",
+                                        "label": "metadata/geoLocations/geoLocationBox/westBoundLongitude.label",
+                                        "hint": "metadata/geoLocations/geoLocationBox/westBoundLongitude.hint",
+                                        "facet": "metadata_geoLocations_geoLocationBox_westBoundLongitude"
+                                    }
+                                }
+                            },
+                            "geoLocationPlace": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/geoLocations/geoLocationPlace.help",
+                                "label": "metadata/geoLocations/geoLocationPlace.label",
+                                "hint": "metadata/geoLocations/geoLocationPlace.hint",
+                                "facet": "metadata_geoLocations_geoLocationPlace"
+                            },
+                            "geoLocationPoint": {
+                                "detail": false,
+                                "input": false,
+                                "help": "metadata/geoLocations/geoLocationPoint.help",
+                                "label": "metadata/geoLocations/geoLocationPoint.label",
+                                "hint": "metadata/geoLocations/geoLocationPoint.hint",
+                                "children": {
+                                    "pointLatitude": {
+                                        "detail": "float",
+                                        "input": "float",
+                                        "help": "metadata/geoLocations/geoLocationPoint/pointLatitude.help",
+                                        "label": "metadata/geoLocations/geoLocationPoint/pointLatitude.label",
+                                        "hint": "metadata/geoLocations/geoLocationPoint/pointLatitude.hint",
+                                        "facet": "metadata_geoLocations_geoLocationPoint_pointLatitude"
+                                    },
+                                    "pointLongitude": {
+                                        "detail": "float",
+                                        "input": "float",
+                                        "help": "metadata/geoLocations/geoLocationPoint/pointLongitude.help",
+                                        "label": "metadata/geoLocations/geoLocationPoint/pointLongitude.label",
+                                        "hint": "metadata/geoLocations/geoLocationPoint/pointLongitude.hint",
+                                        "facet": "metadata_geoLocations_geoLocationPoint_pointLongitude"
+                                    }
+                                }
+                            },
+                            "geoLocationPolygons": {
+                                "detail": "array",
+                                "input": "array",
+                                "help": "metadata/geoLocations/geoLocationPolygons.help",
+                                "label": "metadata/geoLocations/geoLocationPolygons.label",
+                                "hint": "metadata/geoLocations/geoLocationPolygons.hint",
+                                "child": {
+                                    "detail": "geolocationpolygon",
+                                    "input": "geolocationpolygon",
+                                    "help": "metadata/geoLocations/geoLocationPolygons.help",
+                                    "label": "metadata/geoLocations/geoLocationPolygons.label",
+                                    "hint": "metadata/geoLocations/geoLocationPolygons.hint",
+                                    "children": {
+                                        "inPolygonPoint": {
+                                            "detail": false,
+                                            "input": false,
+                                            "help": "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.help",
+                                            "label": "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.label",
+                                            "hint": "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.hint",
+                                            "children": {
+                                                "pointLatitude": {
+                                                    "detail": "float",
+                                                    "input": "float",
+                                                    "help": "metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.help",
+                                                    "label": "metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.label",
+                                                    "hint": "metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.hint",
+                                                    "facet": "metadata_geoLocations_geoLocationPolygons_inPolygonPoint_pointLatitude"
+                                                },
+                                                "pointLongitude": {
+                                                    "detail": "float",
+                                                    "input": "float",
+                                                    "help": "metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.help",
+                                                    "label": "metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.label",
+                                                    "hint": "metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.hint",
+                                                    "facet": "metadata_geoLocations_geoLocationPolygons_inPolygonPoint_pointLongitude"
+                                                }
+                                            }
+                                        },
+                                        "polygonPoints": {
+                                            "detail": "array",
+                                            "input": "array",
+                                            "help": "metadata/geoLocations/geoLocationPolygons/polygonPoints.help",
+                                            "label": "metadata/geoLocations/geoLocationPolygons/polygonPoints.label",
+                                            "hint": "metadata/geoLocations/geoLocationPolygons/polygonPoints.hint",
+                                            "child": {
+                                                "detail": "polygonpoint",
+                                                "input": "polygonpoint",
+                                                "help": "metadata/geoLocations/geoLocationPolygons/polygonPoints.help",
+                                                "label": "metadata/geoLocations/geoLocationPolygons/polygonPoints.label",
+                                                "hint": "metadata/geoLocations/geoLocationPolygons/polygonPoints.hint",
+                                                "children": {
+                                                    "pointLatitude": {
+                                                        "detail": "float",
+                                                        "input": "float",
+                                                        "help": "metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.help",
+                                                        "label": "metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.label",
+                                                        "hint": "metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.hint",
+                                                        "facet": "metadata_geoLocations_geoLocationPolygons_polygonPoints_pointLatitude"
+                                                    },
+                                                    "pointLongitude": {
+                                                        "detail": "float",
+                                                        "input": "float",
+                                                        "help": "metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.help",
+                                                        "label": "metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.label",
+                                                        "hint": "metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.hint",
+                                                        "facet": "metadata_geoLocations_geoLocationPolygons_polygonPoints_pointLongitude"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "identifiers": {
+                    "detail": "array",
+                    "input": "array",
+                    "help": "metadata/identifiers.help",
+                    "label": "metadata/identifiers.label",
+                    "hint": "metadata/identifiers.hint",
+                    "child": {
+                        "detail": "identifier",
+                        "input": "identifier",
+                        "help": "metadata/identifiers.help",
+                        "label": "metadata/identifiers.label",
+                        "hint": "metadata/identifiers.hint",
+                        "children": {
+                            "relatedIdentifier": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/identifiers/relatedIdentifier.help",
+                                "label": "metadata/identifiers/relatedIdentifier.label",
+                                "hint": "metadata/identifiers/relatedIdentifier.hint",
+                                "facet": "metadata_identifiers_relatedIdentifier"
+                            },
+                            "relatedIdentifierType": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/identifiers/relatedIdentifierType.help",
+                                "label": "metadata/identifiers/relatedIdentifierType.label",
+                                "hint": "metadata/identifiers/relatedIdentifierType.hint",
+                                "enum": "metadata/identifiers/relatedIdentifierType.enum",
+                                "facet": "metadata_identifiers_relatedIdentifierType"
+                            },
+                            "relatedMetadataScheme": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/identifiers/relatedMetadataScheme.help",
+                                "label": "metadata/identifiers/relatedMetadataScheme.label",
+                                "hint": "metadata/identifiers/relatedMetadataScheme.hint",
+                                "facet": "metadata_identifiers_relatedMetadataScheme"
+                            },
+                            "relationType": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/identifiers/relationType.help",
+                                "label": "metadata/identifiers/relationType.label",
+                                "hint": "metadata/identifiers/relationType.hint",
+                                "enum": "metadata/identifiers/relationType.enum",
+                                "facet": "metadata_identifiers_relationType"
+                            },
+                            "resourceTypeGeneral": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/identifiers/resourceTypeGeneral.help",
+                                "label": "metadata/identifiers/resourceTypeGeneral.label",
+                                "hint": "metadata/identifiers/resourceTypeGeneral.hint",
+                                "enum": "metadata/identifiers/resourceTypeGeneral.enum",
+                                "facet": "metadata_identifiers_resourceTypeGeneral"
+                            },
+                            "schemeType": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/identifiers/schemeType.help",
+                                "label": "metadata/identifiers/schemeType.label",
+                                "hint": "metadata/identifiers/schemeType.hint",
+                                "facet": "metadata_identifiers_schemeType"
+                            },
+                            "schemeURI": {
+                                "detail": "url",
+                                "input": "url",
+                                "help": "metadata/identifiers/schemeURI.help",
+                                "label": "metadata/identifiers/schemeURI.label",
+                                "hint": "metadata/identifiers/schemeURI.hint",
+                                "facet": "metadata_identifiers_schemeURI"
+                            }
+                        }
+                    }
+                },
+                "keywords": {
+                    "detail": "array",
+                    "input": "array",
+                    "help": "metadata/keywords.help",
+                    "label": "metadata/keywords.label",
+                    "hint": "metadata/keywords.hint",
+                    "child": {
+                        "detail": "keyword",
+                        "input": "keyword",
+                        "help": "metadata/keywords.help",
+                        "label": "metadata/keywords.label",
+                        "hint": "metadata/keywords.hint",
+                        "facet": "metadata_keywords"
+                    }
+                },
+                "language": {
+                    "detail": "keyword",
+                    "input": "keyword",
+                    "help": "metadata/language.help",
+                    "label": "metadata/language.label",
+                    "hint": "metadata/language.hint",
+                    "facet": "metadata_language"
+                },
+                "project": {
+                    "detail": "keyword",
+                    "input": "keyword",
+                    "help": "metadata/project.help",
+                    "label": "metadata/project.label",
+                    "hint": "metadata/project.hint",
+                    "facet": "metadata_project"
+                },
+                "publicationYear": {
+                    "detail": "keyword",
+                    "input": "keyword",
+                    "help": "metadata/publicationYear.help",
+                    "label": "metadata/publicationYear.label",
+                    "hint": "metadata/publicationYear.hint",
+                    "facet": "metadata_publicationYear"
+                },
+                "resourceTypes": {
+                    "detail": "array",
+                    "input": "array",
+                    "help": "metadata/resourceTypes.help",
+                    "label": "metadata/resourceTypes.label",
+                    "hint": "metadata/resourceTypes.hint",
+                    "child": {
+                        "detail": "resourcetype",
+                        "input": "resourcetype",
+                        "help": "metadata/resourceTypes.help",
+                        "label": "metadata/resourceTypes.label",
+                        "hint": "metadata/resourceTypes.hint",
+                        "children": {
+                            "resourceType": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/resourceTypes/resourceType.help",
+                                "label": "metadata/resourceTypes/resourceType.label",
+                                "hint": "metadata/resourceTypes/resourceType.hint",
+                                "facet": "metadata_resourceTypes_resourceType"
+                            },
+                            "resourceTypeGeneral": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/resourceTypes/resourceTypeGeneral.help",
+                                "label": "metadata/resourceTypes/resourceTypeGeneral.label",
+                                "hint": "metadata/resourceTypes/resourceTypeGeneral.hint",
+                                "enum": "metadata/resourceTypes/resourceTypeGeneral.enum",
+                                "facet": "metadata_resourceTypes_resourceTypeGeneral"
+                            }
+                        }
+                    }
+                },
+                "rightsList": {
+                    "detail": "array",
+                    "input": "array",
+                    "help": "metadata/rightsList.help",
+                    "label": "metadata/rightsList.label",
+                    "hint": "metadata/rightsList.hint",
+                    "child": {
+                        "detail": false,
+                        "input": false,
+                        "help": "metadata/rightsList.help",
+                        "label": "metadata/rightsList.label",
+                        "hint": "metadata/rightsList.hint",
+                        "children": {
+                            "lang": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/rightsList/lang.help",
+                                "label": "metadata/rightsList/lang.label",
+                                "hint": "metadata/rightsList/lang.hint",
+                                "facet": "metadata_rightsList_lang"
+                            },
+                            "rights": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/rightsList/rights.help",
+                                "label": "metadata/rightsList/rights.label",
+                                "hint": "metadata/rightsList/rights.hint",
+                                "facet": "metadata_rightsList_rights"
+                            },
+                            "rightsIdentifier": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/rightsList/rightsIdentifier.help",
+                                "label": "metadata/rightsList/rightsIdentifier.label",
+                                "hint": "metadata/rightsList/rightsIdentifier.hint",
+                                "facet": "metadata_rightsList_rightsIdentifier"
+                            },
+                            "rightsIdentifierScheme": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/rightsList/rightsIdentifierScheme.help",
+                                "label": "metadata/rightsList/rightsIdentifierScheme.label",
+                                "hint": "metadata/rightsList/rightsIdentifierScheme.hint",
+                                "facet": "metadata_rightsList_rightsIdentifierScheme"
+                            },
+                            "rightsURI": {
+                                "detail": "url",
+                                "input": "url",
+                                "help": "metadata/rightsList/rightsURI.help",
+                                "label": "metadata/rightsList/rightsURI.label",
+                                "hint": "metadata/rightsList/rightsURI.hint",
+                                "facet": "metadata_rightsList_rightsURI"
+                            },
+                            "schemeURI": {
+                                "detail": "url",
+                                "input": "url",
+                                "help": "metadata/rightsList/schemeURI.help",
+                                "label": "metadata/rightsList/schemeURI.label",
+                                "hint": "metadata/rightsList/schemeURI.hint",
+                                "facet": "metadata_rightsList_schemeURI"
+                            }
+                        }
+                    }
+                },
+                "shortName": {
+                    "detail": "keyword",
+                    "input": "keyword",
+                    "help": "metadata/shortName.help",
+                    "label": "metadata/shortName.label",
+                    "hint": "metadata/shortName.hint",
+                    "facet": "metadata_shortName"
+                },
+                "taxanomicCoverages": {
+                    "detail": "array",
+                    "input": "array",
+                    "help": "metadata/taxanomicCoverages.help",
+                    "label": "metadata/taxanomicCoverages.label",
+                    "hint": "metadata/taxanomicCoverages.hint",
+                    "child": {
+                        "detail": "taxanomiccoverage",
+                        "input": "taxanomiccoverage",
+                        "help": "metadata/taxanomicCoverages.help",
+                        "label": "metadata/taxanomicCoverages.label",
+                        "hint": "metadata/taxanomicCoverages.hint",
+                        "children": {
+                            "classificationCode": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/taxanomicCoverages/classificationCode.help",
+                                "label": "metadata/taxanomicCoverages/classificationCode.label",
+                                "hint": "metadata/taxanomicCoverages/classificationCode.hint",
+                                "facet": "metadata_taxanomicCoverages_classificationCode"
+                            },
+                            "lang": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/taxanomicCoverages/lang.help",
+                                "label": "metadata/taxanomicCoverages/lang.label",
+                                "hint": "metadata/taxanomicCoverages/lang.hint",
+                                "facet": "metadata_taxanomicCoverages_lang"
+                            },
+                            "schemeURI": {
+                                "detail": "url",
+                                "input": "url",
+                                "help": "metadata/taxanomicCoverages/schemeURI.help",
+                                "label": "metadata/taxanomicCoverages/schemeURI.label",
+                                "hint": "metadata/taxanomicCoverages/schemeURI.hint",
+                                "facet": "metadata_taxanomicCoverages_schemeURI"
+                            },
+                            "subject": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/taxanomicCoverages/subject.help",
+                                "label": "metadata/taxanomicCoverages/subject.label",
+                                "hint": "metadata/taxanomicCoverages/subject.hint",
+                                "facet": "metadata_taxanomicCoverages_subject"
+                            },
+                            "subjectScheme": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/taxanomicCoverages/subjectScheme.help",
+                                "label": "metadata/taxanomicCoverages/subjectScheme.label",
+                                "hint": "metadata/taxanomicCoverages/subjectScheme.hint",
+                                "facet": "metadata_taxanomicCoverages_subjectScheme"
+                            },
+                            "valueURI": {
+                                "detail": "url",
+                                "input": "url",
+                                "help": "metadata/taxanomicCoverages/valueURI.help",
+                                "label": "metadata/taxanomicCoverages/valueURI.label",
+                                "hint": "metadata/taxanomicCoverages/valueURI.hint",
+                                "facet": "metadata_taxanomicCoverages_valueURI"
+                            }
+                        }
+                    }
+                },
+                "temporalCoverages": {
+                    "detail": "array",
+                    "input": "array",
+                    "help": "metadata/temporalCoverages.help",
+                    "label": "metadata/temporalCoverages.label",
+                    "hint": "metadata/temporalCoverages.hint",
+                    "child": {
+                        "detail": "temporalcoverage",
+                        "input": "temporalcoverage",
+                        "help": "metadata/temporalCoverages.help",
+                        "label": "metadata/temporalCoverages.label",
+                        "hint": "metadata/temporalCoverages.hint",
+                        "children": {
+                            "date": {
+                                "detail": "edtf-time",
+                                "input": "edtf-time",
+                                "help": "metadata/temporalCoverages/date.help",
+                                "label": "metadata/temporalCoverages/date.label",
+                                "hint": "metadata/temporalCoverages/date.hint",
+                                "facet": "metadata_temporalCoverages_date"
+                            },
+                            "dateInformation": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/temporalCoverages/dateInformation.help",
+                                "label": "metadata/temporalCoverages/dateInformation.label",
+                                "hint": "metadata/temporalCoverages/dateInformation.hint",
+                                "facet": "metadata_temporalCoverages_dateInformation"
+                            },
+                            "dateType": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/temporalCoverages/dateType.help",
+                                "label": "metadata/temporalCoverages/dateType.label",
+                                "hint": "metadata/temporalCoverages/dateType.hint",
+                                "enum": "metadata/temporalCoverages/dateType.enum",
+                                "facet": "metadata_temporalCoverages_dateType"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "updated": {
+            "detail": "datetime",
+            "input": "datetime",
+            "help": "updated.help",
+            "label": "updated.label",
+            "hint": "updated.hint"
+        }
+    }
+}

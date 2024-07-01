@@ -1,0 +1,29 @@
+forks: {}
+i18n:
+  babel_input_translations: []
+  babel_output_translations: i18n/translations
+  babel_source_paths:
+  - shared
+  - ui
+  i18next_input_translations: []
+  i18next_output_translations: i18n/semantic-ui/translations
+  i18next_source_paths:
+  - ui
+  languages:
+  - en
+models:
+- api_prefix: lter
+  base_model: empty
+  features: [files, relations, vocabularies, custom_fields, requests, tests, drafts]
+  model_description: data model for lter datasets
+  model_name: lter
+  model_package: lter
+  pid_type: lter
+repository:
+  model_package: models
+  oarepo_version: 12
+  repository_human_name: Elter Catalog
+  repository_package: elter_dar
+  shared_package: shared
+  ui_package: ui
+uis: []

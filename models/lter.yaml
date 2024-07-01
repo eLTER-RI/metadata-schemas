@@ -1,0 +1,50 @@
+plugins:
+  builder:
+    disable:
+    - script_sample_data
+    - invenio_record_metadata_alembic_setup_cfg
+  packages:
+  - oarepo-model-builder-vocabularies
+  - oarepo-model-builder-drafts-files
+  - oarepo-model-builder-drafts
+  - oarepo-model-builder-files
+  - oarepo-model-builder-relations
+  - oarepo-model-builder-cf
+  - oarepo-model-builder-ui
+  - oarepo-model-builder-requests
+profiles:
+- record
+- draft
+- files
+- draft_files
+record:
+  draft: {}
+  draft-files: {}
+  files:
+    properties:
+      use:
+      - ./lter-files.yaml
+    use:
+    - invenio_files
+  module:
+    qualified: lter
+  permissions:
+    presets:
+      - everyone
+#    - authenticated
+  pid:
+    type: lter
+  properties:
+    metadata:
+      use: ./lter-metadata.yaml#LTERMetadata
+  resource-config:
+    base-html-url: /lter/
+  use:
+  - invenio
+  - ./lter-requests.yaml
+  - ./lter-custom_fields.yaml
+runtime-dependencies:
+  nr-vocabularies: 2.0.0
+settings:
+  i18n-languages:
+  - en

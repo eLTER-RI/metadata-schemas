@@ -1,0 +1,21 @@
+GET https://127.0.0.1:5000/api/lter
+
+###
+POST https://127.0.0.1:5000/api/lter
+Content-Type: application/json
+
+{
+  "metadata": {
+    "shortName": "Test1",
+    "notIncluded": false
+  },
+  "files": {
+    "enabled": false
+  }
+}
+
+###
+GET https://127.0.0.1:5000/api/user/lter?q=metadata.shortName:Te???
+
+###
+POST https://127.0.0.1:5000/api/lter/ezrb4-ab021/draft/actions/publish

@@ -1,0 +1,1320 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"POT-Creation-Date: 2024-06-11T11:45:53.461634\n"
+"PO-Revision-Date: 2024-06-11T11:45:53.461636\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "$schema.help"
+msgstr ""
+
+msgid "$schema.label"
+msgstr ""
+
+msgid "$schema.hint"
+msgstr ""
+
+msgid "created.help"
+msgstr ""
+
+msgid "created.label"
+msgstr ""
+
+msgid "created.hint"
+msgstr ""
+
+msgid "id.help"
+msgstr ""
+
+msgid "id.label"
+msgstr ""
+
+msgid "id.hint"
+msgstr ""
+
+msgid "metadata.help"
+msgstr ""
+
+msgid "metadata.label"
+msgstr ""
+
+msgid "metadata.hint"
+msgstr ""
+
+msgid "metadata/contributors.label"
+msgstr ""
+
+msgid "metadata/contributors.help"
+msgstr ""
+
+msgid "metadata/contributors.hint"
+msgstr ""
+
+msgid "metadata/contributors/affiliation.help"
+msgstr ""
+
+msgid "metadata/contributors/affiliation.label"
+msgstr ""
+
+msgid "metadata/contributors/affiliation.hint"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/affiliationIdentifier.label"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/affiliationIdentifier.help"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/affiliationIdentifier.hint"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/affiliationIdentifierScheme.label"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/affiliationIdentifierScheme.help"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/affiliationIdentifierScheme.hint"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/name.label"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/name.help"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/name.hint"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/schemeURI.label"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/schemeURI.help"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.label"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.help"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.hint"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.ContactPerson"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.DataCollector"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.DataCurator"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.DataManager"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.Distributor"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.Editor"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.HostingInstitution"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.Producer"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.ProjectLeader"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.ProjectManager"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.ProjectMember"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.RegistrationAgency"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.RegistrationAuthority"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.RelatedPerson"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.Researcher"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.ResearchGroup"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.RightsHolder"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.Sponsor"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.Supervisor"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.WorkPackageLeader"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.Other"
+msgstr ""
+
+msgid "metadata/contributors/familyName.label"
+msgstr ""
+
+msgid "metadata/contributors/familyName.help"
+msgstr ""
+
+msgid "metadata/contributors/familyName.hint"
+msgstr ""
+
+msgid "metadata/contributors/givenName.label"
+msgstr ""
+
+msgid "metadata/contributors/givenName.help"
+msgstr ""
+
+msgid "metadata/contributors/givenName.hint"
+msgstr ""
+
+msgid "metadata/contributors/lang.label"
+msgstr ""
+
+msgid "metadata/contributors/lang.help"
+msgstr ""
+
+msgid "metadata/contributors/lang.hint"
+msgstr ""
+
+msgid "metadata/contributors/name.label"
+msgstr ""
+
+msgid "metadata/contributors/name.help"
+msgstr ""
+
+msgid "metadata/contributors/name.hint"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers.help"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers.label"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers.hint"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers/nameIdentifier.label"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers/nameIdentifier.help"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers/nameIdentifier.hint"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers/nameIdentifierScheme.label"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers/nameIdentifierScheme.help"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers/nameIdentifierScheme.hint"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers/schemeURI.label"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers/schemeURI.help"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/contributors/nameType.label"
+msgstr ""
+
+msgid "metadata/contributors/nameType.help"
+msgstr ""
+
+msgid "metadata/contributors/nameType.hint"
+msgstr ""
+
+msgid "metadata/contributors/nameType.enum.Organizational"
+msgstr ""
+
+msgid "metadata/contributors/nameType.enum.Personal"
+msgstr ""
+
+msgid "metadata/creators.label"
+msgstr ""
+
+msgid "metadata/creators.help"
+msgstr ""
+
+msgid "metadata/creators.hint"
+msgstr ""
+
+msgid "metadata/creators/affiliation.help"
+msgstr ""
+
+msgid "metadata/creators/affiliation.label"
+msgstr ""
+
+msgid "metadata/creators/affiliation.hint"
+msgstr ""
+
+msgid "metadata/creators/affiliation/affiliationIdentifier.label"
+msgstr ""
+
+msgid "metadata/creators/affiliation/affiliationIdentifier.help"
+msgstr ""
+
+msgid "metadata/creators/affiliation/affiliationIdentifier.hint"
+msgstr ""
+
+msgid "metadata/creators/affiliation/affiliationIdentifierScheme.label"
+msgstr ""
+
+msgid "metadata/creators/affiliation/affiliationIdentifierScheme.help"
+msgstr ""
+
+msgid "metadata/creators/affiliation/affiliationIdentifierScheme.hint"
+msgstr ""
+
+msgid "metadata/creators/affiliation/name.label"
+msgstr ""
+
+msgid "metadata/creators/affiliation/name.help"
+msgstr ""
+
+msgid "metadata/creators/affiliation/name.hint"
+msgstr ""
+
+msgid "metadata/creators/affiliation/schemeURI.label"
+msgstr ""
+
+msgid "metadata/creators/affiliation/schemeURI.help"
+msgstr ""
+
+msgid "metadata/creators/affiliation/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/creators/familyName.label"
+msgstr ""
+
+msgid "metadata/creators/familyName.help"
+msgstr ""
+
+msgid "metadata/creators/familyName.hint"
+msgstr ""
+
+msgid "metadata/creators/givenName.label"
+msgstr ""
+
+msgid "metadata/creators/givenName.help"
+msgstr ""
+
+msgid "metadata/creators/givenName.hint"
+msgstr ""
+
+msgid "metadata/creators/lang.label"
+msgstr ""
+
+msgid "metadata/creators/lang.help"
+msgstr ""
+
+msgid "metadata/creators/lang.hint"
+msgstr ""
+
+msgid "metadata/creators/name.label"
+msgstr ""
+
+msgid "metadata/creators/name.help"
+msgstr ""
+
+msgid "metadata/creators/name.hint"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers.help"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers.label"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers.hint"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers/nameIdentifier.label"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers/nameIdentifier.help"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers/nameIdentifier.hint"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers/nameIdentifierScheme.label"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers/nameIdentifierScheme.help"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers/nameIdentifierScheme.hint"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers/schemeURI.label"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers/schemeURI.help"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/creators/nameType.label"
+msgstr ""
+
+msgid "metadata/creators/nameType.help"
+msgstr ""
+
+msgid "metadata/creators/nameType.hint"
+msgstr ""
+
+msgid "metadata/creators/nameType.enum.Organizational"
+msgstr ""
+
+msgid "metadata/creators/nameType.enum.Personal"
+msgstr ""
+
+msgid "metadata/descriptions.label"
+msgstr ""
+
+msgid "metadata/descriptions.help"
+msgstr ""
+
+msgid "metadata/descriptions.hint"
+msgstr ""
+
+msgid "metadata/descriptions/description.label"
+msgstr ""
+
+msgid "metadata/descriptions/description.help"
+msgstr ""
+
+msgid "metadata/descriptions/description.hint"
+msgstr ""
+
+msgid "metadata/descriptions/descriptionType.label"
+msgstr ""
+
+msgid "metadata/descriptions/descriptionType.help"
+msgstr ""
+
+msgid "metadata/descriptions/descriptionType.hint"
+msgstr ""
+
+msgid "metadata/descriptions/descriptionType.enum.Abstract"
+msgstr ""
+
+msgid "metadata/descriptions/descriptionType.enum.Methods"
+msgstr ""
+
+msgid "metadata/descriptions/descriptionType.enum.SeriesInformation"
+msgstr ""
+
+msgid "metadata/descriptions/descriptionType.enum.TableOfContents"
+msgstr ""
+
+msgid "metadata/descriptions/descriptionType.enum.TechnicalInfo"
+msgstr ""
+
+msgid "metadata/descriptions/descriptionType.enum.Other"
+msgstr ""
+
+msgid "metadata/descriptions/lang.label"
+msgstr ""
+
+msgid "metadata/descriptions/lang.help"
+msgstr ""
+
+msgid "metadata/descriptions/lang.hint"
+msgstr ""
+
+msgid "metadata/doi.label"
+msgstr ""
+
+msgid "metadata/doi.help"
+msgstr ""
+
+msgid "metadata/doi.hint"
+msgstr ""
+
+msgid "metadata/geoLocations.label"
+msgstr ""
+
+msgid "metadata/geoLocations.help"
+msgstr ""
+
+msgid "metadata/geoLocations.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox.label"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/eastBoundLongitude.label"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/eastBoundLongitude.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/eastBoundLongitude.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/northBoundLatitude.label"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/northBoundLatitude.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/northBoundLatitude.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/southBoundLatitude.label"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/southBoundLatitude.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/southBoundLatitude.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/westBoundLongitude.label"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/westBoundLongitude.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/westBoundLongitude.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPlace.label"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPlace.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPlace.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPoint.label"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPoint.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPoint.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPoint/pointLatitude.label"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPoint/pointLatitude.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPoint/pointLatitude.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.label"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPolygons.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPolygons.label"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPolygons.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.label"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.hint"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.label"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.help"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.hint"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.label"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.help"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.label"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.hint"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.label"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.help"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.hint"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.label"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.help"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.hint"
+msgstr ""
+
+msgid "metadata/identifiers.label"
+msgstr ""
+
+msgid "metadata/identifiers.help"
+msgstr ""
+
+msgid "metadata/identifiers.hint"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifier.label"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifier.help"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifier.hint"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.label"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.help"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.hint"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.ARK"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.arXiv"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.bibcode"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.DOI"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.EAN13"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.EISSN"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.Handle"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.IGSN"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.ISBN"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.ISSN"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.ISTC"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.LISSN"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.LSID"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.PMID"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.PURL"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.UPC"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.URL"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.URN"
+msgstr ""
+
+msgid "metadata/identifiers/relatedIdentifierType.enum.w3id"
+msgstr ""
+
+msgid "metadata/identifiers/relatedMetadataScheme.label"
+msgstr ""
+
+msgid "metadata/identifiers/relatedMetadataScheme.help"
+msgstr ""
+
+msgid "metadata/identifiers/relatedMetadataScheme.hint"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.label"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.help"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.hint"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsCitedBy"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.Cites"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsCollectedBy"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.Collects"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsSupplementTo"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsSupplementedBy"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsContinuedBy"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.Continues"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsDescribedBy"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.Describes"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.HasMetadata"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsMetadataFor"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.HasVersion"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsVersionOf"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsNewVersionOf"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsPartOf"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsPreviousVersionOf"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsPublishedIn"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.HasPart"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsReferencedBy"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.References"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsDocumentedBy"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.Documents"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsCompiledBy"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.Compiles"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsVariantFormOf"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsOriginalFormOf"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsIdenticalTo"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsReviewedBy"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.Reviews"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsDerivedFrom"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsSourceOf"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsRequiredBy"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.Requires"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.IsObsoletedBy"
+msgstr ""
+
+msgid "metadata/identifiers/relationType.enum.Obsoletes"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.label"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.help"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.hint"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Audiovisual"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Book"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.BookChapter"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Collection"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.ComputationalNotebook"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.ConferencePaper"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.ConferenceProceeding"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.DataPaper"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Dataset"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Dissertation"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Event"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Image"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Instrument"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.InteractiveResource"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Journal"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.JournalArticle"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Model"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.OutputManagementPlan"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.PeerReview"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.PhysicalObject"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Preprint"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Report"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Service"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Software"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Sound"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Standard"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.StudyRegistration"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Text"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Workflow"
+msgstr ""
+
+msgid "metadata/identifiers/resourceTypeGeneral.enum.Other"
+msgstr ""
+
+msgid "metadata/identifiers/schemeType.label"
+msgstr ""
+
+msgid "metadata/identifiers/schemeType.help"
+msgstr ""
+
+msgid "metadata/identifiers/schemeType.hint"
+msgstr ""
+
+msgid "metadata/identifiers/schemeURI.label"
+msgstr ""
+
+msgid "metadata/identifiers/schemeURI.help"
+msgstr ""
+
+msgid "metadata/identifiers/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/keywords.label"
+msgstr ""
+
+msgid "metadata/keywords.help"
+msgstr ""
+
+msgid "metadata/keywords.hint"
+msgstr ""
+
+msgid "metadata/language.label"
+msgstr ""
+
+msgid "metadata/language.help"
+msgstr ""
+
+msgid "metadata/language.hint"
+msgstr ""
+
+msgid "metadata/project.label"
+msgstr ""
+
+msgid "metadata/project.help"
+msgstr ""
+
+msgid "metadata/project.hint"
+msgstr ""
+
+msgid "metadata/publicationYear.label"
+msgstr ""
+
+msgid "metadata/publicationYear.help"
+msgstr ""
+
+msgid "metadata/publicationYear.hint"
+msgstr ""
+
+msgid "metadata/resourceTypes.label"
+msgstr ""
+
+msgid "metadata/resourceTypes.help"
+msgstr ""
+
+msgid "metadata/resourceTypes.hint"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceType.label"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceType.help"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceType.hint"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.label"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.help"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.hint"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Audiovisual"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Book"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.BookChapter"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Collection"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.ComputationalNotebook"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.ConferencePaper"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.ConferenceProceeding"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.DataPaper"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Dataset"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Dissertation"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Event"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Image"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Instrument"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.InteractiveResource"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Journal"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.JournalArticle"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Model"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.OutputManagementPlan"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.PeerReview"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.PhysicalObject"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Preprint"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Report"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Service"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Software"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Sound"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Standard"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.StudyRegistration"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Text"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Workflow"
+msgstr ""
+
+msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Other"
+msgstr ""
+
+msgid "metadata/rightsList.label"
+msgstr ""
+
+msgid "metadata/rightsList.help"
+msgstr ""
+
+msgid "metadata/rightsList.hint"
+msgstr ""
+
+msgid "metadata/rightsList/lang.label"
+msgstr ""
+
+msgid "metadata/rightsList/lang.help"
+msgstr ""
+
+msgid "metadata/rightsList/lang.hint"
+msgstr ""
+
+msgid "metadata/rightsList/rights.label"
+msgstr ""
+
+msgid "metadata/rightsList/rights.help"
+msgstr ""
+
+msgid "metadata/rightsList/rights.hint"
+msgstr ""
+
+msgid "metadata/rightsList/rightsIdentifier.label"
+msgstr ""
+
+msgid "metadata/rightsList/rightsIdentifier.help"
+msgstr ""
+
+msgid "metadata/rightsList/rightsIdentifier.hint"
+msgstr ""
+
+msgid "metadata/rightsList/rightsIdentifierScheme.label"
+msgstr ""
+
+msgid "metadata/rightsList/rightsIdentifierScheme.help"
+msgstr ""
+
+msgid "metadata/rightsList/rightsIdentifierScheme.hint"
+msgstr ""
+
+msgid "metadata/rightsList/rightsURI.label"
+msgstr ""
+
+msgid "metadata/rightsList/rightsURI.help"
+msgstr ""
+
+msgid "metadata/rightsList/rightsURI.hint"
+msgstr ""
+
+msgid "metadata/rightsList/schemeURI.label"
+msgstr ""
+
+msgid "metadata/rightsList/schemeURI.help"
+msgstr ""
+
+msgid "metadata/rightsList/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/shortName.label"
+msgstr ""
+
+msgid "metadata/shortName.help"
+msgstr ""
+
+msgid "metadata/shortName.hint"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages.label"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages.help"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages.hint"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages/classificationCode.label"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages/classificationCode.help"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages/classificationCode.hint"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages/lang.label"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages/lang.help"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages/lang.hint"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages/schemeURI.label"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages/schemeURI.help"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages/subject.label"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages/subject.help"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages/subject.hint"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages/subjectScheme.label"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages/subjectScheme.help"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages/subjectScheme.hint"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages/valueURI.label"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages/valueURI.help"
+msgstr ""
+
+msgid "metadata/taxanomicCoverages/valueURI.hint"
+msgstr ""
+
+msgid "metadata/temporalCoverages.label"
+msgstr ""
+
+msgid "metadata/temporalCoverages.help"
+msgstr ""
+
+msgid "metadata/temporalCoverages.hint"
+msgstr ""
+
+msgid "metadata/temporalCoverages/date.label"
+msgstr ""
+
+msgid "metadata/temporalCoverages/date.help"
+msgstr ""
+
+msgid "metadata/temporalCoverages/date.hint"
+msgstr ""
+
+msgid "metadata/temporalCoverages/dateInformation.label"
+msgstr ""
+
+msgid "metadata/temporalCoverages/dateInformation.help"
+msgstr ""
+
+msgid "metadata/temporalCoverages/dateInformation.hint"
+msgstr ""
+
+msgid "metadata/temporalCoverages/dateType.label"
+msgstr ""
+
+msgid "metadata/temporalCoverages/dateType.help"
+msgstr ""
+
+msgid "metadata/temporalCoverages/dateType.hint"
+msgstr ""
+
+msgid "metadata/temporalCoverages/dateType.enum.Accepted"
+msgstr ""
+
+msgid "metadata/temporalCoverages/dateType.enum.Available"
+msgstr ""
+
+msgid "metadata/temporalCoverages/dateType.enum.Copyrighted"
+msgstr ""
+
+msgid "metadata/temporalCoverages/dateType.enum.Collected"
+msgstr ""
+
+msgid "metadata/temporalCoverages/dateType.enum.Created"
+msgstr ""
+
+msgid "metadata/temporalCoverages/dateType.enum.Issued"
+msgstr ""
+
+msgid "metadata/temporalCoverages/dateType.enum.Submitted"
+msgstr ""
+
+msgid "metadata/temporalCoverages/dateType.enum.Updated"
+msgstr ""
+
+msgid "metadata/temporalCoverages/dateType.enum.Valid"
+msgstr ""
+
+msgid "metadata/temporalCoverages/dateType.enum.Withdrawn"
+msgstr ""
+
+msgid "metadata/temporalCoverages/dateType.enum.Other"
+msgstr ""
+
+msgid "updated.help"
+msgstr ""
+
+msgid "updated.label"
+msgstr ""
+
+msgid "updated.hint"
+msgstr ""

@@ -1,0 +1,72 @@
+LTERMetadata:
+  $id: LTERMetadata
+
+  properties:
+    identifiers[]:
+      use: "./lter-datatypes.yaml#RelatedIdentifier"
+      ^label.en: Identifiers
+
+    doi:
+      type: keyword
+      label.en: DOI
+
+    shortName:
+      type: keyword
+      label.en: Short name
+
+    creators[]:
+      use: "./lter-datatypes.yaml#Creator"
+      ^label.en: Authors
+
+    contributors[]:
+      use: "./lter-datatypes.yaml#Contributor"
+      ^label.en: Contributors
+
+    publicationYear:
+      type: keyword
+      label.en: Publication year
+
+    language:
+      type: keyword
+      label.en: Language
+
+    descriptions[]:
+      use: "./lter-datatypes.yaml#Description"
+      ^label.en: Descriptions
+
+    keywords[]:
+      type: keyword
+      ^label.en: Keywords
+
+    rightsList[]:
+      use: "./lter-datatypes.yaml#Rights"
+      ^label.en: Rights
+
+    geoLocations[]:
+      use: "./lter-datatypes.yaml#GeoLocation"
+      ^label.en: GeoLocations
+
+    temporalCoverages[]: # TODO
+      use: "./lter-datatypes.yaml#Date"
+      ^label.en: Temporal Coverages
+
+    taxanomicCoverages[]: #TODO
+      use: "./lter-datatypes.yaml#Subject"
+      ^label.en: Taxanomic Coverages
+
+    project:
+      type: keyword
+      label.en: Project
+
+    # siteReference:
+    # SOReference:
+    # dataLevel:
+
+    resourceTypes[]:
+      use: "./lter-datatypes.yaml#ResourceType"
+      ^label.en: Resource types
+
+    # temporalResolution:
+    # citation:
+    # ecosystem:
+    # files:
