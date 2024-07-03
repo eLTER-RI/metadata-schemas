@@ -1,0 +1,441 @@
+
+# region Base information
+
+AlternateIdentifier:
+  $id: AlternateIdentifier
+  label.en: Alternate identifier
+  properties:
+    alternateIdentifier:
+      type: keyword
+      required: true
+      label.en: Identifier
+    alternateIdentifierType:
+      type: keyword
+      required: true
+      label.en: Identifier type
+    source:
+      type: keyword
+      required: false
+      label.en: Identifier source
+    uri:
+      type: uri
+      required: false
+      label.en: URI
+
+ShortName:
+  $id: ShortName
+  label.en: Short name
+  properties:
+    language:
+      type: keyword
+      label.en: Language
+    shortNameText:
+      type: keyword
+      label.en: Short Name
+
+NameIdentifier:
+  $id: NameIdentifier
+  label.en: Name identifier
+  properties:
+    nameIdentifier:
+      type: keyword
+      required: true
+      label.en: Identifier
+    nameIdentifierScheme:
+      type: keyword
+      required: true
+      label.en: Identifier scheme
+    schemeURI:
+      type: url
+      label.en: Scheme URI
+
+Title:
+  $id: Title
+  label.en: Title
+  properties:
+    language:
+      type: keyword
+      label.en: Language
+    titleText:
+      type: keyword
+      label.en: Title
+
+# endregion
+
+# region UsersInfo
+
+Creator:
+  $id: Creator
+  label.en: Creator
+  properties:
+    fullName:
+      type: keyword
+      label.en: Full name
+    givenName:
+      type: keyword
+      label.en: Given name
+    familyName:
+      type: keyword
+      label.en: Family name
+    email:
+      type: fulltext
+      format: email
+      label.en: Email
+    nameIdentifiers[]:
+      "$ref": "./lter-datatypes.yaml#NameIdentifier"
+
+ContributorType:
+  $id: ContributorType
+  type: keyword
+  enum:
+    - ContactPerson
+    - DataCollector
+    - DataCurator
+    - DataManager
+    - MetadataProvider
+    - Producer
+    - ProjectLeader
+    - ProjectManager
+    - ProjectMember
+    - RegistrationAuthority
+    - RelatedPerson
+    - Researcher
+    - ResearchGroup
+    - Other
+
+Contributor:
+  $id: Contributor
+  use: './lter-datatypes.yaml#Creator'
+  label.en: Contributor
+  properties:
+    contributorType:
+      "$ref": "./lter-datatypes.yaml#ContributorType"
+      required: true
+      label.en: Contributor type
+
+# endregion
+
+# region Description
+
+DescriptionType:
+  $id: DescriptionType
+  type: keyword
+  enum:
+    - Abstract
+    - AdditionalInfo
+    - Methods
+    - SeriesInformation
+    - TableOfContents
+    - TechnicalInfo
+    - Other
+
+Description:
+  $id: Description
+  label.en: Description
+  properties:
+    description:
+      type: fulltext
+      required: true
+      label.en: Description
+    descriptionType:
+      use: "./lter-datatypes.yaml#DescriptionType"
+      required: true
+      label.en: Description type
+    language:
+      type: keyword
+      required: true
+      label.en: Language
+
+Keyword:
+  $id: Keyword
+  type: keyword
+  label.en: Keyword
+
+# endregion
+
+# region Licenses
+PropertyRight:
+  $id: PropertyRight
+  label.en: Property Right
+  properties:
+    name:
+      type: keyword
+      required: true
+      label.en: License name
+    url:
+      type: url
+      label.en: Link
+
+Licenses:
+  $id: License
+  label.en: License
+  properties:
+    name:
+      type: keyword
+      required: true
+      label.en: License name
+    url:
+      type: url
+      label.en: Link
+# endregion
+
+# region Location
+
+Latitude:
+  $id: Latitude
+  type: float
+  maximum: 90
+  minimum: -90
+  label.en: Latitude
+
+Longitude:
+  $id: Longitude
+  type: float
+  maximum: 180
+  minimum: -180
+  label.en: Longitude
+
+GeoLocationPoint:
+  $id: GeoLocationPoint
+  label.en: GeoLocationPoint
+  properties:
+    longitude:
+      "$ref": "./lter-datatypes.yaml#Longitude"
+      label.en: Longitude
+
+    latitude:
+      "$ref": "./lter-datatypes.yaml#Latitude"
+      label.en: Latitude
+
+GeoLocationBox:
+  $id: GeoLocationBox
+  label.en: GeoLocationBox
+  properties:
+    westLongitude:
+      use: "./lter-datatypes.yaml#Longitude"
+      required: true
+      label.en: West bound longitude
+
+    eastLongitude:
+      use: "./lter-datatypes.yaml#Longitude"
+      required: true
+      label.en: East bound longitude
+
+    southLatitude:
+      use: "./lter-datatypes.yaml#Latitude"
+      required: true
+      label.en: South bound latitude
+
+    northLatitude:
+      use: "./lter-datatypes.yaml#Latitude"
+      required: true
+      label.en: North bound latitude
+
+GeoLocationPolygon:
+  $id: GeoLocationPolygon
+  label.en: GeoLocationPolygon
+  properties:
+    points[]:
+      use: "./lter-datatypes.yaml#GeoLocationPoint"
+      ^required: true
+      ^label.en: Polygon points
+    inPolygonPoint:
+      use: "./lter-datatypes.yaml#GeoLocationPoint"
+      label.en: In polygon point
+
+GeoLocation:
+  $id: GeoLocation
+  label.en: GeoLocation
+  properties:
+    description:
+      type: fulltext
+      label.en: GeoLocation place
+    point:
+      use: "./lter-datatypes.yaml#GeoLocationPoint"
+      label.en: GeoLocation point
+    box:
+      use: "./lter-datatypes.yaml#GeoLocationBox"
+      label.en: GeoLocation box
+    polygon[]:
+      use: "./lter-datatypes.yaml#GeoLocationPolygon"
+      label.en: GeoLocation polygons
+
+# endregion
+
+# region Temporal Coverage
+
+TempCoverage:
+  $id: TempCoverage
+  label.en: Temporal Coverage
+  properties:
+    startDate:
+      type: date
+      label.en: Start date
+    endDate:
+      type: date
+      label.en: End date
+
+# endregion
+
+# region Tax Coverage
+
+TaxonomicClassification:
+  $id: TaxonomicClassification
+  label.en: Taxonomic classification
+  properties:
+    identifier:
+      type: keyword
+      label.en: Taxonomic class identifier
+    rankName:
+      type: keyword
+      label.en: Taxonomic class rank name
+    rankValue:
+      type: keyword
+      label.en: Taxonomic class rank value
+    commonName:
+      type: keyword
+      label.en: Taxonomic class common name
+
+TaxonomicCoverage:
+  $id: TaxonomicCoverage
+  label.en: Taxonomic Coverage
+  properties:
+    description:
+      type: fulltext
+      label.en: Taxonomic description
+    classification:
+      use: "./lter-datatypes.yaml#TaxonomicClassification"
+
+# endregion
+
+# region Methods
+
+MethodStep:
+  $id: MethodStep
+  label.en: Method step
+  properties:
+    title:
+      type: keyword
+      required: true
+      label.en: Step title
+    description:
+      type: fulltext
+      label.en: Step description
+
+MethodSampling:
+  $id: MethodSampling
+  label.en: Sampling
+  properties:
+    studyDescription:
+      type: fulltext
+      label.en: Sampling study description
+    samplingDescription:
+      type: fulltext
+      label.en: Sampling description
+
+Methods:
+  $id: Methods
+  label.en: Methods
+  properties:
+    PID:
+      type: keyword
+      label.en: PID
+    steps[]:
+      use: "./lter-datatypes.yaml#MethodStep"
+    sampling:
+      use: "./lter-datatypes.yaml#MethodSampling"
+    qualityControlDescription:
+      type: fulltext
+      label.en: Quality control description
+    instrumentationDescription:
+      type: fulltext
+      label.en: Instrumentation description
+
+
+# endregion
+
+Project:
+  $id: Project
+  label.en: Project information
+  properties:
+    name:
+      type: keyword
+      required: true
+      label.en: Project name
+    PID:
+      type: keyword
+      required: true
+      label.en: Project PID
+    DOI:
+      type: fulltext
+      label.en: Project DOI
+
+
+SiteReference:
+  $id: SiteReference
+  label.en: Site information
+  properties:
+    name:
+      type: keyword
+      required: true
+      label.en: Site name
+    PID:
+      type: keyword
+      required: true
+      label.en: Site identifier
+
+SOReference:
+  $id: SOReference
+  label.en: SO Reference
+  properties:
+    name:
+      type: keyword
+      label.en: SO name
+    url:
+      type: url
+      label.en: SO url reference
+
+# Temporal resolution is the time in minutes that takes to complete observation/analyze provided data ?
+TemporalResolution:
+  $id: TemporalResolution
+  label.en: Temporal resolution
+  type: number
+  minimum: 0
+
+
+# TODO - decide whether this value will be generated This will be probably generated - for now it is a string
+Citation:
+  $id: Citation
+  label.en: Bibtex citation
+  type: fulltext
+
+Ecosystem:
+  $id: Ecosystem
+  label.en: Ecosystem
+  properties:
+    name:
+      type: keyword
+      label.en: Ecosystem name
+    PID:
+      type: keyword
+      label.en: Ecosystem identifier
+
+File:
+  $id: File
+  label.en: File information
+  properties:
+    md5:
+      type: fulltext
+      label.en: md5 checksum hash
+    format:
+      type: keyword
+      label.en: File format
+    size:
+      type: number
+      label.en: File size
+    name:
+      type: keyword
+      label.en: File name
+    sourceUrl:
+      type: keyword
+      label.en: File source Url
