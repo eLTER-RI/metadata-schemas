@@ -5,11 +5,11 @@ AlternateIdentifier:
   $id: AlternateIdentifier
   label.en: Alternate identifier
   properties:
-    alternateIdentifier:
+    identifier:
       type: keyword
       required: true
       label.en: Identifier
-    alternateIdentifierType:
+    type:
       type: keyword
       required: true
       label.en: Identifier type
@@ -17,8 +17,8 @@ AlternateIdentifier:
       type: keyword
       required: false
       label.en: Identifier source
-    uri:
-      type: uri
+    url:
+      type: url
       required: false
       label.en: URI
 
@@ -264,7 +264,7 @@ GeoLocation:
 
 # region Temporal Coverage
 
-TempCoverage:
+TemporalCoverage:
   $id: TempCoverage
   label.en: Temporal Coverage
   properties:
