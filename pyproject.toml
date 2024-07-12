@@ -21,6 +21,7 @@ requires-python = ">=3.10,<3.11"
 branding = "ui.branding.webpack:theme"
 i18n = "i18n.webpack:theme"
 components = "ui.components.webpack:theme"
+ui_lter = "ui.lter.webpack:theme"
 
 [project.entry-points."invenio_base.blueprints"]
 branding = "ui.branding:create_blueprint"
@@ -28,8 +29,7 @@ titlepage = "ui.titlepage:create_blueprint"
 components = "ui.components:create_blueprint"
 lter = "lter.views.records.app:create_app_blueprint"
 lter_requests = "lter.views.requests.api:create_api_blueprint"
-lter_file = "lter.views.files.app:create_app_blueprint"
-lter_file_draft = "lter.views.draft_files.app:create_app_blueprint"
+ui_lter = "ui.lter:create_blueprint"
 
 [project.entry-points."invenio_i18n.translations"]
 translations = "i18n"
@@ -46,14 +46,10 @@ lter = "lter.ext:LterExt"
 
 [project.entry-points."invenio_db.models"]
 lter = "lter.records.models"
-lter_file = "lter.files.models"
-lter_file_draft = "lter.files.models"
 
 [project.entry-points."invenio_base.api_blueprints"]
 lter = "lter.views.records.api:create_api_blueprint"
 lter_requests = "lter.views.requests.api:create_api_blueprint"
-lter_file = "lter.views.files.api:create_api_blueprint"
-lter_file_draft = "lter.views.draft_files.api:create_api_blueprint"
 
 [project.entry-points."invenio_search.mappings"]
 lter = "lter.records.mappings"
@@ -63,11 +59,6 @@ lter = "lter.records.jsonschemas"
 
 [project.entry-points."oarepo.models"]
 lter = "lter.models:records.json"
-
-[project.entry-points."invenio_requests.types"]
-lter_delete_record = "lter.records.requests.delete_record.types:DeleteRecordRequestType"
-lter_edit_record = "lter.records.requests.edit_record.types:EditRecordRequestType"
-lter_publish_draft = "lter.records.requests.publish_draft.types:PublishDraftRequestType"
 
 [project.entry-points."oarepo.ui"]
 lter = "lter.models:ui.json"

@@ -1,17 +1,12 @@
 import marshmallow as ma
-from edtf import Date as EDTFDate
-from edtf import DateAndTime as EDTFDateAndTime
 from invenio_drafts_resources.services.records.schema import (
     ParentSchema as InvenioParentSchema,
 )
 from marshmallow import Schema
 from marshmallow import fields as ma_fields
-from marshmallow.utils import get_value
 from marshmallow.validate import OneOf
-from marshmallow_utils.fields import SanitizedUnicode, TrimmedString
-from oarepo_requests.services.schema import RequestsSchemaMixin
 from oarepo_runtime.services.schema.marshmallow import BaseRecordSchema, DictOnlySchema
-from oarepo_runtime.services.schema.validation import CachedMultilayerEDTFValidator
+from oarepo_runtime.services.schema.validation import validate_date
 
 
 class GeneratedParentSchema(InvenioParentSchema):
@@ -20,93 +15,110 @@ class GeneratedParentSchema(InvenioParentSchema):
     owners = ma.fields.List(ma.fields.Dict(), load_only=True)
 
 
-class LterSchema(RequestsSchemaMixin, BaseRecordSchema):
+class LterSchema(BaseRecordSchema):
     class Meta:
         unknown = ma.RAISE
 
     metadata = ma_fields.Nested(lambda: LterMetadataSchema())
     parent = ma.fields.Nested(GeneratedParentSchema)
-    files = ma.fields.Nested(
-        lambda: FilesOptionsSchema(), load_default={"enabled": True}
-    )
-
-    # todo this needs to be generated for [default preview] to work
-    def get_attribute(self, obj, attr, default):
-        """Override how attributes are retrieved when dumping.
-
-        NOTE: We have to access by attribute because although we are loading
-              from an external pure dict, but we are dumping from a data-layer
-              object whose fields should be accessed by attributes and not
-              keys. Access by key runs into FilesManager key access protection
-              and raises.
-        """
-        if attr == "files":
-            return getattr(obj, attr, default)
-        else:
-            return get_value(obj, attr, default)
 
 
 class LterMetadataSchema(Schema):
     class Meta:
         unknown = ma.RAISE
 
+    SOReference = ma_fields.Nested(lambda: SOReferenceSchema())
+
+    authors = ma_fields.List(ma_fields.Nested(lambda: AuthorsItemSchema()))
+
     contributors = ma_fields.List(ma_fields.Nested(lambda: ContributorsItemSchema()))
 
-    creators = ma_fields.List(ma_fields.Nested(lambda: CreatorsItemSchema()))
+    dataLevel = ma_fields.Integer(validate=[ma.validate.Range(min=0, max=4)])
+
+    datasetIds = ma_fields.List(ma_fields.Nested(lambda: DatasetIdsItemSchema()))
 
     descriptions = ma_fields.List(ma_fields.Nested(lambda: DescriptionsItemSchema()))
 
-    doi = ma_fields.String()
+    ecosystem = ma_fields.Nested(lambda: EcosystemSchema())
+
+    files = ma_fields.List(ma_fields.Nested(lambda: FilesItemSchema()))
 
     geoLocations = ma_fields.List(ma_fields.Nested(lambda: GeoLocationsItemSchema()))
-
-    identifiers = ma_fields.List(ma_fields.Nested(lambda: IdentifiersItemSchema()))
 
     keywords = ma_fields.List(ma_fields.String())
 
     language = ma_fields.String()
 
-    project = ma_fields.String()
+    licenses = ma_fields.List(ma_fields.Nested(lambda: SOReferenceSchema()))
 
-    publicationYear = ma_fields.String()
+    methods = ma_fields.Nested(lambda: MethodsSchema())
 
-    resourceTypes = ma_fields.List(ma_fields.Nested(lambda: ResourceTypesItemSchema()))
+    project = ma_fields.Nested(lambda: ProjectSchema())
 
-    rightsList = ma_fields.List(ma_fields.Nested(lambda: RightsListItemSchema()))
+    propertyRights = ma_fields.List(ma_fields.Nested(lambda: SOReferenceSchema()))
 
-    shortName = ma_fields.String()
+    publicationDate = ma_fields.String(validate=[validate_date("%Y-%m-%d")])
 
-    taxanomicCoverages = ma_fields.List(
-        ma_fields.Nested(lambda: TaxanomicCoveragesItemSchema())
+    shortNames = ma_fields.List(ma_fields.Nested(lambda: ShortNamesItemSchema()))
+
+    siteReference = ma_fields.List(ma_fields.Nested(lambda: EcosystemSchema()))
+
+    taxonomicCoverages = ma_fields.List(
+        ma_fields.Nested(lambda: TaxonomicCoveragesItemSchema())
     )
 
     temporalCoverages = ma_fields.List(
         ma_fields.Nested(lambda: TemporalCoveragesItemSchema())
     )
 
+    temporalResolution = ma_fields.Integer(validate=[ma.validate.Range(min=0)])
+
+    titles = ma_fields.List(ma_fields.Nested(lambda: ShortNamesItemSchema()))
+
 
 class GeoLocationsItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    geoLocationBox = ma_fields.Nested(lambda: GeoLocationBoxSchema())
+    box = ma_fields.Nested(lambda: BoxSchema())
 
-    geoLocationPlace = ma_fields.String()
+    description = ma_fields.String()
 
-    geoLocationPoint = ma_fields.Nested(lambda: GeoLocationPointSchema())
+    point = ma_fields.Nested(lambda: PointSchema())
 
-    geoLocationPolygons = ma_fields.List(
-        ma_fields.Nested(lambda: GeoLocationPolygonsItemSchema())
-    )
+    polygon = ma_fields.List(ma_fields.Nested(lambda: PolygonItemSchema()))
+
+
+class AuthorsItemSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    email = ma_fields.String()
+
+    familyName = ma_fields.String()
+
+    fullName = ma_fields.String()
+
+    givenName = ma_fields.String()
+
+    ids = ma_fields.List(ma_fields.Nested(lambda: IdsItemSchema()))
 
 
 class ContributorsItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    affiliation = ma_fields.List(ma_fields.Nested(lambda: AffiliationItemSchema()))
+    email = ma_fields.String()
 
-    contributorType = ma_fields.String(
+    familyName = ma_fields.String()
+
+    fullName = ma_fields.String()
+
+    givenName = ma_fields.String()
+
+    ids = ma_fields.List(ma_fields.Nested(lambda: IdsItemSchema()))
+
+    type = ma_fields.String(
         required=True,
         validate=[
             OneOf(
@@ -115,86 +127,100 @@ class ContributorsItemSchema(DictOnlySchema):
                     "DataCollector",
                     "DataCurator",
                     "DataManager",
-                    "Distributor",
-                    "Editor",
-                    "HostingInstitution",
+                    "MetadataProvider",
                     "Producer",
                     "ProjectLeader",
                     "ProjectManager",
                     "ProjectMember",
-                    "RegistrationAgency",
                     "RegistrationAuthority",
                     "RelatedPerson",
                     "Researcher",
                     "ResearchGroup",
-                    "RightsHolder",
-                    "Sponsor",
-                    "Supervisor",
-                    "WorkPackageLeader",
                     "Other",
                 ]
             )
         ],
     )
 
-    familyName = ma_fields.String()
 
-    givenName = ma_fields.String()
-
-    lang = ma_fields.String()
-
-    name = ma_fields.String(required=True)
-
-    nameIdentifiers = ma_fields.List(
-        ma_fields.Nested(lambda: NameIdentifiersItemSchema())
-    )
-
-    nameType = ma_fields.String(validate=[OneOf(["Organizational", "Personal"])])
-
-
-class CreatorsItemSchema(DictOnlySchema):
+class MethodsSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    affiliation = ma_fields.List(ma_fields.Nested(lambda: AffiliationItemSchema()))
+    PID = ma_fields.String()
 
-    familyName = ma_fields.String()
+    instrumentationDescription = ma_fields.String()
 
-    givenName = ma_fields.String()
+    qualityControlDescription = ma_fields.String()
 
-    lang = ma_fields.String()
+    sampling = ma_fields.Nested(lambda: SamplingSchema())
 
-    name = ma_fields.String(required=True)
-
-    nameIdentifiers = ma_fields.List(
-        ma_fields.Nested(lambda: NameIdentifiersItemSchema())
-    )
-
-    nameType = ma_fields.String(validate=[OneOf(["Organizational", "Personal"])])
+    steps = ma_fields.List(ma_fields.Nested(lambda: StepsItemSchema()))
 
 
-class GeoLocationPolygonsItemSchema(DictOnlySchema):
+class PolygonItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    inPolygonPoint = ma_fields.Nested(lambda: GeoLocationPointSchema())
+    inPolygonPoint = ma_fields.Nested(lambda: PointSchema())
 
-    polygonPoints = ma_fields.List(
-        ma_fields.Nested(lambda: GeoLocationPointSchema()), required=True
-    )
+    points = ma_fields.List(ma_fields.Nested(lambda: PointSchema()), required=True)
 
 
-class AffiliationItemSchema(DictOnlySchema):
+class TaxonomicCoveragesItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    affiliationIdentifier = ma_fields.String()
+    classification = ma_fields.Nested(lambda: ClassificationSchema())
 
-    affiliationIdentifierScheme = ma_fields.String()
+    description = ma_fields.String()
 
-    name = ma_fields.String(required=True)
 
-    schemeURI = ma_fields.String()
+class BoxSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    eastLongitude = ma_fields.Float(
+        required=True, validate=[ma.validate.Range(min=-180.0, max=180.0)]
+    )
+
+    northLatitude = ma_fields.Float(
+        required=True, validate=[ma.validate.Range(min=-90.0, max=90.0)]
+    )
+
+    southLatitude = ma_fields.Float(
+        required=True, validate=[ma.validate.Range(min=-90.0, max=90.0)]
+    )
+
+    westLongitude = ma_fields.Float(
+        required=True, validate=[ma.validate.Range(min=-180.0, max=180.0)]
+    )
+
+
+class ClassificationSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma_fields.String(data_key="id", attribute="id")
+
+    commonName = ma_fields.String()
+
+    rankName = ma_fields.String()
+
+    rankValue = ma_fields.String()
+
+
+class DatasetIdsItemSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    identifier = ma_fields.String(required=True)
+
+    source = ma_fields.String()
+
+    type = ma_fields.String(required=True)
+
+    url = ma_fields.String()
 
 
 class DescriptionsItemSchema(DictOnlySchema):
@@ -203,12 +229,15 @@ class DescriptionsItemSchema(DictOnlySchema):
 
     description = ma_fields.String(required=True)
 
-    descriptionType = ma_fields.String(
+    language = ma_fields.String(required=True)
+
+    type = ma_fields.String(
         required=True,
         validate=[
             OneOf(
                 [
                     "Abstract",
+                    "AdditionalInfo",
                     "Methods",
                     "SeriesInformation",
                     "TableOfContents",
@@ -219,318 +248,102 @@ class DescriptionsItemSchema(DictOnlySchema):
         ],
     )
 
-    lang = ma_fields.String()
 
-
-class GeoLocationBoxSchema(DictOnlySchema):
+class EcosystemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    eastBoundLongitude = ma_fields.Float(
-        required=True, validate=[ma.validate.Range(min=-180.0, max=180.0)]
-    )
+    PID = ma_fields.String()
 
-    northBoundLatitude = ma_fields.Float(
-        required=True, validate=[ma.validate.Range(min=-90.0, max=90.0)]
-    )
-
-    southBoundLatitude = ma_fields.Float(
-        required=True, validate=[ma.validate.Range(min=-90.0, max=90.0)]
-    )
-
-    westBoundLongitude = ma_fields.Float(
-        required=True, validate=[ma.validate.Range(min=-180.0, max=180.0)]
-    )
+    name = ma_fields.String()
 
 
-class GeoLocationPointSchema(DictOnlySchema):
+class FilesItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    pointLatitude = ma_fields.Float(validate=[ma.validate.Range(min=-90.0, max=90.0)])
+    format = ma_fields.String()
 
-    pointLongitude = ma_fields.Float(
-        validate=[ma.validate.Range(min=-180.0, max=180.0)]
-    )
+    md5 = ma_fields.String()
+
+    name = ma_fields.String()
+
+    size = ma_fields.Integer()
+
+    sourceUrl = ma_fields.String()
 
 
-class IdentifiersItemSchema(DictOnlySchema):
+class IdsItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    relatedIdentifier = ma_fields.String()
+    _id = ma_fields.String(required=True, data_key="id", attribute="id")
 
-    relatedIdentifierType = ma_fields.String(
-        validate=[
-            OneOf(
-                [
-                    "ARK",
-                    "arXiv",
-                    "bibcode",
-                    "DOI",
-                    "EAN13",
-                    "EISSN",
-                    "Handle",
-                    "IGSN",
-                    "ISBN",
-                    "ISSN",
-                    "ISTC",
-                    "LISSN",
-                    "LSID",
-                    "PMID",
-                    "PURL",
-                    "UPC",
-                    "URL",
-                    "URN",
-                    "w3id",
-                ]
-            )
-        ]
-    )
+    schema = ma_fields.String(required=True)
 
-    relatedMetadataScheme = ma_fields.String()
-
-    relationType = ma_fields.String(
-        required=True,
-        validate=[
-            OneOf(
-                [
-                    "IsCitedBy",
-                    "Cites",
-                    "IsCollectedBy",
-                    "Collects",
-                    "IsSupplementTo",
-                    "IsSupplementedBy",
-                    "IsContinuedBy",
-                    "Continues",
-                    "IsDescribedBy",
-                    "Describes",
-                    "HasMetadata",
-                    "IsMetadataFor",
-                    "HasVersion",
-                    "IsVersionOf",
-                    "IsNewVersionOf",
-                    "IsPartOf",
-                    "IsPreviousVersionOf",
-                    "IsPublishedIn",
-                    "HasPart",
-                    "IsReferencedBy",
-                    "References",
-                    "IsDocumentedBy",
-                    "Documents",
-                    "IsCompiledBy",
-                    "Compiles",
-                    "IsVariantFormOf",
-                    "IsOriginalFormOf",
-                    "IsIdenticalTo",
-                    "IsReviewedBy",
-                    "Reviews",
-                    "IsDerivedFrom",
-                    "IsSourceOf",
-                    "IsRequiredBy",
-                    "Requires",
-                    "IsObsoletedBy",
-                    "Obsoletes",
-                ]
-            )
-        ],
-    )
-
-    resourceTypeGeneral = ma_fields.String(
-        validate=[
-            OneOf(
-                [
-                    "Audiovisual",
-                    "Book",
-                    "BookChapter",
-                    "Collection",
-                    "ComputationalNotebook",
-                    "ConferencePaper",
-                    "ConferenceProceeding",
-                    "DataPaper",
-                    "Dataset",
-                    "Dissertation",
-                    "Event",
-                    "Image",
-                    "Instrument",
-                    "InteractiveResource",
-                    "Journal",
-                    "JournalArticle",
-                    "Model",
-                    "OutputManagementPlan",
-                    "PeerReview",
-                    "PhysicalObject",
-                    "Preprint",
-                    "Report",
-                    "Service",
-                    "Software",
-                    "Sound",
-                    "Standard",
-                    "StudyRegistration",
-                    "Text",
-                    "Workflow",
-                    "Other",
-                ]
-            )
-        ]
-    )
-
-    schemeType = ma_fields.String()
-
-    schemeURI = ma_fields.String()
+    url = ma_fields.String()
 
 
-class NameIdentifiersItemSchema(DictOnlySchema):
+class PointSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    nameIdentifier = ma_fields.String(required=True)
+    latitude = ma_fields.Float(validate=[ma.validate.Range(min=-90.0, max=90.0)])
 
-    nameIdentifierScheme = ma_fields.String(required=True)
-
-    schemeURI = ma_fields.String()
+    longitude = ma_fields.Float(validate=[ma.validate.Range(min=-180.0, max=180.0)])
 
 
-class ResourceTypesItemSchema(DictOnlySchema):
+class ProjectSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    resourceType = ma_fields.String()
+    DOI = ma_fields.String()
 
-    resourceTypeGeneral = ma_fields.String(
-        required=True,
-        validate=[
-            OneOf(
-                [
-                    "Audiovisual",
-                    "Book",
-                    "BookChapter",
-                    "Collection",
-                    "ComputationalNotebook",
-                    "ConferencePaper",
-                    "ConferenceProceeding",
-                    "DataPaper",
-                    "Dataset",
-                    "Dissertation",
-                    "Event",
-                    "Image",
-                    "Instrument",
-                    "InteractiveResource",
-                    "Journal",
-                    "JournalArticle",
-                    "Model",
-                    "OutputManagementPlan",
-                    "PeerReview",
-                    "PhysicalObject",
-                    "Preprint",
-                    "Report",
-                    "Service",
-                    "Software",
-                    "Sound",
-                    "Standard",
-                    "StudyRegistration",
-                    "Text",
-                    "Workflow",
-                    "Other",
-                ]
-            )
-        ],
-    )
+    PID = ma_fields.String(required=True)
+
+    name = ma_fields.String(required=True)
 
 
-class RightsListItemSchema(DictOnlySchema):
+class SOReferenceSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    lang = ma_fields.String()
+    name = ma_fields.String()
 
-    rights = ma_fields.String()
-
-    rightsIdentifier = ma_fields.String()
-
-    rightsIdentifierScheme = ma_fields.String()
-
-    rightsURI = ma_fields.String()
-
-    schemeURI = ma_fields.String()
+    url = ma_fields.String()
 
 
-class TaxanomicCoveragesItemSchema(DictOnlySchema):
+class SamplingSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    classificationCode = ma_fields.String()
+    samplingDescription = ma_fields.String()
 
-    lang = ma_fields.String()
+    studyDescription = ma_fields.String()
 
-    schemeURI = ma_fields.String()
 
-    subject = ma_fields.String(required=True)
+class ShortNamesItemSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
 
-    subjectScheme = ma_fields.String()
+    language = ma_fields.String()
 
-    valueURI = ma_fields.String()
+    text = ma_fields.String()
+
+
+class StepsItemSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    description = ma_fields.String()
+
+    title = ma_fields.String(required=True)
 
 
 class TemporalCoveragesItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    date = TrimmedString(
-        required=True,
-        validate=[
-            CachedMultilayerEDTFValidator(
-                types=(
-                    EDTFDateAndTime,
-                    EDTFDate,
-                )
-            )
-        ],
-    )
+    endDate = ma_fields.String(validate=[validate_date("%Y-%m-%d")])
 
-    dateInformation = ma_fields.String()
-
-    dateType = ma_fields.String(
-        required=True,
-        validate=[
-            OneOf(
-                [
-                    "Accepted",
-                    "Available",
-                    "Copyrighted",
-                    "Collected",
-                    "Created",
-                    "Issued",
-                    "Submitted",
-                    "Updated",
-                    "Valid",
-                    "Withdrawn",
-                    "Other",
-                ]
-            )
-        ],
-    )
-
-
-class FilesOptionsSchema(ma.Schema):
-    """Basic files options schema class."""
-
-    enabled = ma.fields.Bool(missing=True)
-    # allow unsetting
-    default_preview = SanitizedUnicode(allow_none=True)
-
-    def get_attribute(self, obj, attr, default):
-        """Override how attributes are retrieved when dumping.
-
-        NOTE: We have to access by attribute because although we are loading
-              from an external pure dict, but we are dumping from a data-layer
-              object whose fields should be accessed by attributes and not
-              keys. Access by key runs into FilesManager key access protection
-              and raises.
-        """
-        value = getattr(obj, attr, default)
-
-        if attr == "default_preview" and not value:
-            return default
-
-        return value
+    startDate = ma_fields.String(validate=[validate_date("%Y-%m-%d")])

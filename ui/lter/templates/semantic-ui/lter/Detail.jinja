@@ -1,0 +1,15 @@
+{# def d, metadata, extra_context, record, ui, is_preview=None #}
+
+{% extends "oarepo_ui/detail.html" %}
+
+{%- block head_links %}
+{{ super() }}
+{%- endblock %}
+
+{% block record_main_content %}
+    <LterDetailRoot md={d.metadata} />
+{% endblock %}
+
+{% block record_sidebar %}
+    Add your sidebar content here
+{% endblock record_sidebar %}

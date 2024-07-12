@@ -14,124 +14,112 @@
         "metadata": {
             "type": "object",
             "properties": {
+                "SOReference": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "url": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "authors": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "email": {
+                                "type": "string"
+                            },
+                            "familyName": {
+                                "type": "string"
+                            },
+                            "fullName": {
+                                "type": "string"
+                            },
+                            "givenName": {
+                                "type": "string"
+                            },
+                            "ids": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
                 "contributors": {
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
-                            "affiliation": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "affiliationIdentifier": {
-                                            "type": "string"
-                                        },
-                                        "affiliationIdentifierScheme": {
-                                            "type": "string"
-                                        },
-                                        "name": {
-                                            "type": "string"
-                                        },
-                                        "schemeURI": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            },
-                            "contributorType": {
+                            "email": {
                                 "type": "string"
                             },
                             "familyName": {
                                 "type": "string"
                             },
+                            "fullName": {
+                                "type": "string"
+                            },
                             "givenName": {
                                 "type": "string"
                             },
-                            "lang": {
-                                "type": "string"
-                            },
-                            "name": {
-                                "type": "string"
-                            },
-                            "nameIdentifiers": {
+                            "ids": {
                                 "type": "array",
                                 "items": {
                                     "type": "object",
                                     "properties": {
-                                        "nameIdentifier": {
+                                        "id": {
                                             "type": "string"
                                         },
-                                        "nameIdentifierScheme": {
+                                        "schema": {
                                             "type": "string"
                                         },
-                                        "schemeURI": {
+                                        "url": {
                                             "type": "string"
                                         }
                                     }
                                 }
                             },
-                            "nameType": {
+                            "type": {
                                 "type": "string"
                             }
                         }
                     }
                 },
-                "creators": {
+                "dataLevel": {
+                    "type": "integer"
+                },
+                "datasetIds": {
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
-                            "affiliation": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "affiliationIdentifier": {
-                                            "type": "string"
-                                        },
-                                        "affiliationIdentifierScheme": {
-                                            "type": "string"
-                                        },
-                                        "name": {
-                                            "type": "string"
-                                        },
-                                        "schemeURI": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            },
-                            "familyName": {
+                            "identifier": {
                                 "type": "string"
                             },
-                            "givenName": {
+                            "source": {
                                 "type": "string"
                             },
-                            "lang": {
+                            "type": {
                                 "type": "string"
                             },
-                            "name": {
-                                "type": "string"
-                            },
-                            "nameIdentifiers": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "nameIdentifier": {
-                                            "type": "string"
-                                        },
-                                        "nameIdentifierScheme": {
-                                            "type": "string"
-                                        },
-                                        "schemeURI": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            },
-                            "nameType": {
+                            "url": {
                                 "type": "string"
                             }
                         }
@@ -145,55 +133,86 @@
                             "description": {
                                 "type": "string"
                             },
-                            "descriptionType": {
+                            "language": {
                                 "type": "string"
                             },
-                            "lang": {
+                            "type": {
                                 "type": "string"
                             }
                         }
                     }
                 },
-                "doi": {
-                    "type": "string"
+                "ecosystem": {
+                    "type": "object",
+                    "properties": {
+                        "PID": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "files": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "format": {
+                                "type": "string"
+                            },
+                            "md5": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "size": {
+                                "type": "integer"
+                            },
+                            "sourceUrl": {
+                                "type": "string"
+                            }
+                        }
+                    }
                 },
                 "geoLocations": {
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
-                            "geoLocationBox": {
+                            "box": {
                                 "type": "object",
                                 "properties": {
-                                    "eastBoundLongitude": {
+                                    "eastLongitude": {
                                         "type": "number"
                                     },
-                                    "northBoundLatitude": {
+                                    "northLatitude": {
                                         "type": "number"
                                     },
-                                    "southBoundLatitude": {
+                                    "southLatitude": {
                                         "type": "number"
                                     },
-                                    "westBoundLongitude": {
+                                    "westLongitude": {
                                         "type": "number"
                                     }
                                 }
                             },
-                            "geoLocationPlace": {
+                            "description": {
                                 "type": "string"
                             },
-                            "geoLocationPoint": {
+                            "point": {
                                 "type": "object",
                                 "properties": {
-                                    "pointLatitude": {
+                                    "latitude": {
                                         "type": "number"
                                     },
-                                    "pointLongitude": {
+                                    "longitude": {
                                         "type": "number"
                                     }
                                 }
                             },
-                            "geoLocationPolygons": {
+                            "polygon": {
                                 "type": "array",
                                 "items": {
                                     "type": "object",
@@ -201,23 +220,23 @@
                                         "inPolygonPoint": {
                                             "type": "object",
                                             "properties": {
-                                                "pointLatitude": {
+                                                "latitude": {
                                                     "type": "number"
                                                 },
-                                                "pointLongitude": {
+                                                "longitude": {
                                                     "type": "number"
                                                 }
                                             }
                                         },
-                                        "polygonPoints": {
+                                        "points": {
                                             "type": "array",
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "pointLatitude": {
+                                                    "latitude": {
                                                         "type": "number"
                                                     },
-                                                    "pointLongitude": {
+                                                    "longitude": {
                                                         "type": "number"
                                                     }
                                                 }
@@ -225,35 +244,6 @@
                                         }
                                     }
                                 }
-                            }
-                        }
-                    }
-                },
-                "identifiers": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "relatedIdentifier": {
-                                "type": "string"
-                            },
-                            "relatedIdentifierType": {
-                                "type": "string"
-                            },
-                            "relatedMetadataScheme": {
-                                "type": "string"
-                            },
-                            "relationType": {
-                                "type": "string"
-                            },
-                            "resourceTypeGeneral": {
-                                "type": "string"
-                            },
-                            "schemeType": {
-                                "type": "string"
-                            },
-                            "schemeURI": {
-                                "type": "string"
                             }
                         }
                     }
@@ -267,76 +257,142 @@
                 "language": {
                     "type": "string"
                 },
+                "licenses": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "url": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "methods": {
+                    "type": "object",
+                    "properties": {
+                        "PID": {
+                            "type": "string"
+                        },
+                        "instrumentationDescription": {
+                            "type": "string"
+                        },
+                        "qualityControlDescription": {
+                            "type": "string"
+                        },
+                        "sampling": {
+                            "type": "object",
+                            "properties": {
+                                "samplingDescription": {
+                                    "type": "string"
+                                },
+                                "studyDescription": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "steps": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
                 "project": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "DOI": {
+                            "type": "string"
+                        },
+                        "PID": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    }
                 },
-                "publicationYear": {
-                    "type": "string"
-                },
-                "resourceTypes": {
+                "propertyRights": {
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
-                            "resourceType": {
+                            "name": {
                                 "type": "string"
                             },
-                            "resourceTypeGeneral": {
+                            "url": {
                                 "type": "string"
                             }
                         }
                     }
                 },
-                "rightsList": {
+                "publicationDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "shortNames": {
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
-                            "lang": {
+                            "language": {
                                 "type": "string"
                             },
-                            "rights": {
-                                "type": "string"
-                            },
-                            "rightsIdentifier": {
-                                "type": "string"
-                            },
-                            "rightsIdentifierScheme": {
-                                "type": "string"
-                            },
-                            "rightsURI": {
-                                "type": "string"
-                            },
-                            "schemeURI": {
+                            "text": {
                                 "type": "string"
                             }
                         }
                     }
                 },
-                "shortName": {
-                    "type": "string"
-                },
-                "taxanomicCoverages": {
+                "siteReference": {
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
-                            "classificationCode": {
+                            "PID": {
                                 "type": "string"
                             },
-                            "lang": {
+                            "name": {
                                 "type": "string"
+                            }
+                        }
+                    }
+                },
+                "taxonomicCoverages": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "classification": {
+                                "type": "object",
+                                "properties": {
+                                    "commonName": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "rankName": {
+                                        "type": "string"
+                                    },
+                                    "rankValue": {
+                                        "type": "string"
+                                    }
+                                }
                             },
-                            "schemeURI": {
-                                "type": "string"
-                            },
-                            "subject": {
-                                "type": "string"
-                            },
-                            "subjectScheme": {
-                                "type": "string"
-                            },
-                            "valueURI": {
+                            "description": {
                                 "type": "string"
                             }
                         }
@@ -347,18 +403,50 @@
                     "items": {
                         "type": "object",
                         "properties": {
-                            "date": {
+                            "endDate": {
                                 "type": "string",
-                                "format": "date-time"
+                                "format": "date"
                             },
-                            "dateInformation": {
+                            "startDate": {
+                                "type": "string",
+                                "format": "date"
+                            }
+                        }
+                    }
+                },
+                "temporalResolution": {
+                    "type": "integer"
+                },
+                "titles": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "language": {
                                 "type": "string"
                             },
-                            "dateType": {
+                            "text": {
                                 "type": "string"
                             }
                         }
                     }
+                }
+            }
+        },
+        "pid": {
+            "type": "object",
+            "properties": {
+                "obj_type": {
+                    "type": "string"
+                },
+                "pid_type": {
+                    "type": "string"
+                },
+                "pk": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
                 }
             }
         },

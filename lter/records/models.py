@@ -4,9 +4,7 @@ from invenio_drafts_resources.records import (
     ParentRecordMixin,
     ParentRecordStateMixin,
 )
-from invenio_files_rest.models import Bucket
 from invenio_records.models import RecordMetadataBase
-from sqlalchemy_utils import UUIDType
 
 
 class LterParentMetadata(db.Model, RecordMetadataBase):
@@ -23,8 +21,6 @@ class LterMetadata(db.Model, RecordMetadataBase, ParentRecordMixin):
     __versioned__ = {}
 
     __parent_record_model__ = LterParentMetadata
-    bucket_id = db.Column(UUIDType, db.ForeignKey(Bucket.id))
-    bucket = db.relationship(Bucket)
 
 
 class LterDraftMetadata(db.Model, DraftMetadataBase, ParentRecordMixin):
@@ -33,8 +29,6 @@ class LterDraftMetadata(db.Model, DraftMetadataBase, ParentRecordMixin):
     __tablename__ = "lter_draft_metadata"
 
     __parent_record_model__ = LterParentMetadata
-    bucket_id = db.Column(UUIDType, db.ForeignKey(Bucket.id))
-    bucket = db.relationship(Bucket)
 
 
 class LterParentState(db.Model, ParentRecordStateMixin):

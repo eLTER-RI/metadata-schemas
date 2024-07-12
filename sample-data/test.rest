@@ -6,16 +6,188 @@ Content-Type: application/json
 
 {
   "metadata": {
-    "shortName": "Test1",
-    "notIncluded": false
-  },
-  "files": {
-    "enabled": false
+    "datasetIds": [
+      {
+        "source": "b2share",
+        "identifier": "id",
+        "url": "url",
+        "type": "PID"
+      }
+    ],
+    "shortNames": [
+      {
+        "language": "eng",
+        "text": "Name"
+      }
+    ],
+    "titles": [
+      {
+        "language": "eng",
+        "text": "Title"
+      }
+    ],
+    "authors": [
+      {
+        "fullName": "Dominik MiddleName Dubovsky",
+        "givenName": "Dominik",
+        "familyName": "Dubovsky",
+        "email": "randomEmail@gmail.com",
+        "ids": [
+          {
+            "id": "12345",
+            "schema": "Orcid",
+            "url": "www.google.com"
+          }
+        ]
+      }
+    ],
+    "contributors": [
+      {
+        "fullName": "Dominik MiddleName Dubovsky",
+        "givenName": "Dominik",
+        "familyName": "Dubovsky",
+        "email": "randomEmail@gmail.com",
+        "type": "MetadataProvider",
+        "ids": [
+          {
+            "id": "12345",
+            "schema": "Orcid",
+            "url": "www.google.com"
+          }
+        ]
+      }
+    ],
+    "publicationDate": "1999-02-24",
+    "language": "english",
+    "descriptions": [
+      {
+        "type": "Abstract",
+        "language": "eng",
+        "description": "This is abstract"
+      },
+      {
+        "type": "AdditionalInfo",
+        "language": "eng",
+        "description": "Some additional info"
+      }
+    ],
+    "keywords": [
+      "Occurrence; Darwin Core; GBIF; phytoplankton; LTER-Italy; Lake Candia"
+    ],
+    "propertyRights": [
+      {
+        "name": "name of the license",
+        "url": "url of the license info"
+      }
+    ],
+    "licenses": [
+      {
+        "name": "name of the license",
+        "url": "url of the license"
+      }
+    ],
+    "geoLocations": [
+      {
+        "description": "description of geolocation place",
+        "point": {
+          "longitude": 10.50,
+          "latitude": 10.50
+        },
+        "box": {
+          "westLongitude": 10.50,
+          "eastLongitude": 10.50,
+          "southLatitude": 10.50,
+          "northLatitude": 10.50
+        },
+        "polygon": [
+          {
+            "points": [
+              {
+                "longitude": 10.50,
+                "latitude": 10.50
+              },
+              {
+                "longitude": 10.50,
+                "latitude": 10.50
+              }
+            ],
+            "inPolygonPoint": {
+              "longitude": 10.50,
+              "latitude": 10.50
+            }
+          }
+        ]
+      }
+    ],
+    "temporalCoverages": [
+      {
+        "startDate": "1999-02-24",
+        "endDate": "1999-02-24"
+      }
+    ],
+    "taxonomicCoverages": [
+      {
+        "description": "description",
+        "classification": {
+          "id": "taxon_MAPY",
+          "rankName": "species",
+          "rankValue": "Macrocystis pyrifera",
+          "commonName": "Giant Kelp"
+        }
+      }
+    ],
+    "methods": {
+      "PID": "DOI - link to 'wiki - instruction manual",
+      "steps": [
+        {
+          "title": "Title of the step",
+          "description": "Description of the step"
+        }
+      ],
+      "sampling": {
+        "studyDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet ligula tellus, sit amet iaculis urna viverra vitae. Etiam tincidunt elit nisl, sagittis facilisis nisi tincidunt eu. Suspendisse potenti. Pellentesque tellus ligula, tincidunt quis gravida nec, vulputate et nisi. Donec pulvinar a lectus et tempus. Class aptent taciti sociosqu ad. ",
+        "samplingDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis lacus suscipit, sollicitudin dui eget, pretium augue. Duis eget suscipit mauris. Morbi aliquet lacus a fermentum posuere. Cras neque elit, efficitur quis leo quis, elementum fermentum sem. Quisque est eros, malesuada et neque eu, suscipit mattis sem. Etiam consequat lorem."
+      },
+      "qualityControlDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer feugiat viverra metus eget viverra. Nullam pharetra arcu pulvinar, accumsan sem. ",
+      "instrumentationDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere urna ligula. Praesent mattis, urna eget iaculis maximus, sem tellus. "
+    },
+    "project": {
+      "name": "elter",
+      "PID": "id of the project"
+    },
+    "siteReference": [
+      {
+        "name": "site name",
+        "PID": "deims site id"
+      }
+    ],
+    "SOReference": {
+      "name": "",
+      "url": "url"
+    },
+    "dataLevel": 2,
+    "temporalResolution": 150,
+    "ecosystem": {
+      "name": "name",
+      "PID": "PID"
+    },
+    "files": [
+      {
+        "md5": "checksum-hash",
+        "format": "csv",
+        "size": 234,
+        "name": "test",
+        "sourceUrl": "url"
+      }
+    ]
   }
 }
+
 
 ###
 GET https://127.0.0.1:5000/api/user/lter?q=metadata.shortName:Te???
 
 ###
-POST https://127.0.0.1:5000/api/lter/ezrb4-ab021/draft/actions/publish
+POST https://127.0.0.1:5000/api/lter/fnfkn-78986/draft/actions/publish
+
+#t3f71-mv568

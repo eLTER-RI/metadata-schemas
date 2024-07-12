@@ -1,10 +1,13 @@
 from invenio_drafts_resources.records.api import Draft as InvenioDraft
 from invenio_drafts_resources.records.api import DraftRecordIdProviderV2, ParentRecord
 from invenio_drafts_resources.records.api import Record as InvenioRecord
-from invenio_records.systemfields import ConstantField, ModelField
-from invenio_records_resources.records.systemfields import FilesField, IndexField
+from invenio_records.systemfields import ConstantField
+from invenio_records_resources.records.systemfields import IndexField
 from invenio_records_resources.records.systemfields.pid import PIDField, PIDFieldContext
-from lter.files.api import LterFile, LterFileDraft
+from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
+from oarepo_runtime.records.systemfields.owner import OwnersField
+from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
+
 from lter.records.dumpers.dumper import LterDraftDumper, LterDumper
 from lter.records.models import (
     LterDraftMetadata,
@@ -12,9 +15,6 @@ from lter.records.models import (
     LterParentMetadata,
     LterParentState,
 )
-from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
-from oarepo_runtime.records.systemfields.owner import OwnersField
-from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
 
 
 class LterParentRecord(ParentRecord):
@@ -49,11 +49,6 @@ class LterRecord(InvenioRecord):
         draft_cls=lambda: LterDraft, config_key="HAS_DRAFT_CUSTOM_FIELD"
     )
 
-    files = FilesField(file_cls=LterFile, store=False, create=False, delete=False)
-
-    bucket_id = ModelField(dump=False)
-    bucket = ModelField(dump=False)
-
 
 class LterDraft(InvenioDraft):
 
@@ -75,13 +70,3 @@ class LterDraft(InvenioDraft):
     record_status = RecordStatusSystemField()
 
     has_draft = HasDraftCheckField(config_key="HAS_DRAFT_CUSTOM_FIELD")
-
-    files = FilesField(file_cls=LterFileDraft, store=False)
-
-    bucket_id = ModelField(dump=False)
-    bucket = ModelField(dump=False)
-
-
-LterFile.record_cls = LterRecord
-
-LterFileDraft.record_cls = LterDraft
