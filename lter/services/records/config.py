@@ -1,22 +1,21 @@
 from invenio_drafts_resources.services import (
     RecordServiceConfig as InvenioRecordDraftsServiceConfig,
 )
-from invenio_drafts_resources.services.records.components import DraftFilesComponent
 from invenio_records_resources.services import (
     ConditionalLink,
     RecordLink,
     pagination_links,
 )
 from invenio_records_resources.services.records.components import DataComponent
+from oarepo_runtime.records import has_draft, is_published_record
+from oarepo_runtime.services.components import OwnersComponent
+from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
+
 from lter.records.api import LterDraft, LterRecord
 from lter.services.records.permissions import LterPermissionPolicy
 from lter.services.records.results import LterRecordItem, LterRecordList
 from lter.services.records.schema import LterSchema
 from lter.services.records.search import LterSearchOptions
-from oarepo_runtime.records import has_draft, is_published_record
-from oarepo_runtime.services.components import OwnersComponent
-from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
-from oarepo_runtime.services.files import FilesComponent
 
 
 class LterServiceConfig(
@@ -47,8 +46,6 @@ class LterServiceConfig(
         *InvenioRecordDraftsServiceConfig.components,
         OwnersComponent,
         DataComponent,
-        FilesComponent,
-        DraftFilesComponent,
     ]
 
     model = "lter"
@@ -60,11 +57,6 @@ class LterServiceConfig(
         return {
             "draft": RecordLink("{+api}/lter/{id}/draft"),
             "edit_html": RecordLink("{+ui}/lter/{id}/edit", when=has_draft),
-            "files": ConditionalLink(
-                cond=is_published_record,
-                if_=RecordLink("{+api}/lter/{id}/files"),
-                else_=RecordLink("{+api}/lter/{id}/draft/files"),
-            ),
             "latest": RecordLink("{+api}/lter/{id}/versions/latest"),
             "latest_html": RecordLink("{+ui}/lter/{id}/latest"),
             "publish": RecordLink("{+api}/lter/{id}/draft/actions/publish"),

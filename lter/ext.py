@@ -1,9 +1,10 @@
 import re
 from functools import cached_property
 
-from lter import config
 from oarepo_requests.proxies import current_oarepo_requests_service
 from oarepo_requests.resources.draft.config import DraftRecordRequestsResourceConfig
+
+from lter import config
 
 
 class LterExt:
@@ -28,7 +29,12 @@ class LterExt:
         """Initialize configuration."""
         for identifier in dir(config):
             if re.match("^[A-Z_0-9]*$", identifier) and not identifier.startswith("_"):
-                app.config.setdefault(identifier, getattr(config, identifier))
+                if isinstance(app.config.get(identifier), list):
+                    app.config[identifier] += getattr(config, identifier)
+                elif isinstance(app.config.get(identifier), dict):
+                    app.config[identifier].update(getattr(config, identifier))
+                else:
+                    app.config.setdefault(identifier, getattr(config, identifier))
 
     def is_inherited(self):
         from importlib_metadata import entry_points
@@ -48,8 +54,6 @@ class LterExt:
     def service_records(self):
         return config.LTER_RECORD_SERVICE_CLASS(
             config=config.LTER_RECORD_SERVICE_CONFIG(),
-            files_service=self.service_files,
-            draft_files_service=self.service_draft_files,
         )
 
     @cached_property
@@ -83,39 +87,4 @@ class LterExt:
             config=LterPublishedServiceConfig(
                 proxied_drafts_config=self.service_records.config
             ),
-        )
-
-    @cached_property
-    def service_files(self):
-        return config.LTER_FILES_SERVICE_CLASS(
-            config=config.LTER_FILES_SERVICE_CONFIG(),
-        )
-
-    @cached_property
-    def resource_files(self):
-        return config.LTER_FILES_RESOURCE_CLASS(
-            service=self.service_files,
-            config=config.LTER_FILES_RESOURCE_CONFIG(),
-        )
-
-    @cached_property
-    def published_service_files(self):
-        from lter.services.files.published.config import LterFilePublishedServiceConfig
-        from lter.services.files.published.service import LterFilePublishedService
-
-        return LterFilePublishedService(
-            config=LterFilePublishedServiceConfig(),
-        )
-
-    @cached_property
-    def service_draft_files(self):
-        return config.LTER_DRAFT_FILES_SERVICE_CLASS(
-            config=config.LTER_DRAFT_FILES_SERVICE_CONFIG(),
-        )
-
-    @cached_property
-    def resource_draft_files(self):
-        return config.LTER_DRAFT_FILES_RESOURCE_CLASS(
-            service=self.service_draft_files,
-            config=config.LTER_DRAFT_FILES_RESOURCE_CONFIG(),
         )

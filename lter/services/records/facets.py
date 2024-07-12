@@ -4,29 +4,44 @@ from invenio_records_resources.services.records.facets import TermsFacet
 from oarepo_runtime.i18n import lazy_gettext as _
 from oarepo_runtime.services.facets.date import DateTimeFacet
 
-metadata_contributors_affiliation_affiliationIdentifier = TermsFacet(
-    field="metadata.contributors.affiliation.affiliationIdentifier",
-    label=_("metadata/contributors/affiliation/affiliationIdentifier.label"),
+metadata_SOReference_name = TermsFacet(
+    field="metadata.SOReference.name", label=_("metadata/SOReference/name.label")
 )
 
-metadata_contributors_affiliation_affiliationIdentifierScheme = TermsFacet(
-    field="metadata.contributors.affiliation.affiliationIdentifierScheme",
-    label=_("metadata/contributors/affiliation/affiliationIdentifierScheme.label"),
+metadata_SOReference_url = TermsFacet(
+    field="metadata.SOReference.url", label=_("metadata/SOReference/url.label")
 )
 
-metadata_contributors_affiliation_name = TermsFacet(
-    field="metadata.contributors.affiliation.name",
-    label=_("metadata/contributors/affiliation/name.label"),
+metadata_authors_email = TermsFacet(
+    field="metadata.authors.email", label=_("metadata/authors/email.label")
 )
 
-metadata_contributors_affiliation_schemeURI = TermsFacet(
-    field="metadata.contributors.affiliation.schemeURI",
-    label=_("metadata/contributors/affiliation/schemeURI.label"),
+metadata_authors_familyName = TermsFacet(
+    field="metadata.authors.familyName", label=_("metadata/authors/familyName.label")
 )
 
-metadata_contributors_contributorType = TermsFacet(
-    field="metadata.contributors.contributorType",
-    label=_("metadata/contributors/contributorType.label"),
+metadata_authors_fullName = TermsFacet(
+    field="metadata.authors.fullName", label=_("metadata/authors/fullName.label")
+)
+
+metadata_authors_givenName = TermsFacet(
+    field="metadata.authors.givenName", label=_("metadata/authors/givenName.label")
+)
+
+metadata_authors_ids_id = TermsFacet(
+    field="metadata.authors.ids.id", label=_("metadata/authors/ids/id.label")
+)
+
+metadata_authors_ids_schema = TermsFacet(
+    field="metadata.authors.ids.schema", label=_("metadata/authors/ids/schema.label")
+)
+
+metadata_authors_ids_url = TermsFacet(
+    field="metadata.authors.ids.url", label=_("metadata/authors/ids/url.label")
+)
+
+metadata_contributors_email = TermsFacet(
+    field="metadata.contributors.email", label=_("metadata/contributors/email.label")
 )
 
 metadata_contributors_familyName = TermsFacet(
@@ -34,201 +49,140 @@ metadata_contributors_familyName = TermsFacet(
     label=_("metadata/contributors/familyName.label"),
 )
 
+metadata_contributors_fullName = TermsFacet(
+    field="metadata.contributors.fullName",
+    label=_("metadata/contributors/fullName.label"),
+)
+
 metadata_contributors_givenName = TermsFacet(
     field="metadata.contributors.givenName",
     label=_("metadata/contributors/givenName.label"),
 )
 
-metadata_contributors_lang = TermsFacet(
-    field="metadata.contributors.lang", label=_("metadata/contributors/lang.label")
+metadata_contributors_ids_id = TermsFacet(
+    field="metadata.contributors.ids.id", label=_("metadata/contributors/ids/id.label")
 )
 
-metadata_contributors_name = TermsFacet(
-    field="metadata.contributors.name", label=_("metadata/contributors/name.label")
+metadata_contributors_ids_schema = TermsFacet(
+    field="metadata.contributors.ids.schema",
+    label=_("metadata/contributors/ids/schema.label"),
 )
 
-metadata_contributors_nameIdentifiers_nameIdentifier = TermsFacet(
-    field="metadata.contributors.nameIdentifiers.nameIdentifier",
-    label=_("metadata/contributors/nameIdentifiers/nameIdentifier.label"),
+metadata_contributors_ids_url = TermsFacet(
+    field="metadata.contributors.ids.url",
+    label=_("metadata/contributors/ids/url.label"),
 )
 
-metadata_contributors_nameIdentifiers_nameIdentifierScheme = TermsFacet(
-    field="metadata.contributors.nameIdentifiers.nameIdentifierScheme",
-    label=_("metadata/contributors/nameIdentifiers/nameIdentifierScheme.label"),
+metadata_contributors_type = TermsFacet(
+    field="metadata.contributors.type", label=_("metadata/contributors/type.label")
 )
 
-metadata_contributors_nameIdentifiers_schemeURI = TermsFacet(
-    field="metadata.contributors.nameIdentifiers.schemeURI",
-    label=_("metadata/contributors/nameIdentifiers/schemeURI.label"),
+metadata_dataLevel = TermsFacet(
+    field="metadata.dataLevel", label=_("metadata/dataLevel.label")
 )
 
-metadata_contributors_nameType = TermsFacet(
-    field="metadata.contributors.nameType",
-    label=_("metadata/contributors/nameType.label"),
+metadata_datasetIds_identifier = TermsFacet(
+    field="metadata.datasetIds.identifier",
+    label=_("metadata/datasetIds/identifier.label"),
 )
 
-metadata_creators_affiliation_affiliationIdentifier = TermsFacet(
-    field="metadata.creators.affiliation.affiliationIdentifier",
-    label=_("metadata/creators/affiliation/affiliationIdentifier.label"),
+metadata_datasetIds_source = TermsFacet(
+    field="metadata.datasetIds.source", label=_("metadata/datasetIds/source.label")
 )
 
-metadata_creators_affiliation_affiliationIdentifierScheme = TermsFacet(
-    field="metadata.creators.affiliation.affiliationIdentifierScheme",
-    label=_("metadata/creators/affiliation/affiliationIdentifierScheme.label"),
+metadata_datasetIds_type = TermsFacet(
+    field="metadata.datasetIds.type", label=_("metadata/datasetIds/type.label")
 )
 
-metadata_creators_affiliation_name = TermsFacet(
-    field="metadata.creators.affiliation.name",
-    label=_("metadata/creators/affiliation/name.label"),
+metadata_datasetIds_url = TermsFacet(
+    field="metadata.datasetIds.url", label=_("metadata/datasetIds/url.label")
 )
 
-metadata_creators_affiliation_schemeURI = TermsFacet(
-    field="metadata.creators.affiliation.schemeURI",
-    label=_("metadata/creators/affiliation/schemeURI.label"),
+metadata_descriptions_language = TermsFacet(
+    field="metadata.descriptions.language",
+    label=_("metadata/descriptions/language.label"),
 )
 
-metadata_creators_familyName = TermsFacet(
-    field="metadata.creators.familyName", label=_("metadata/creators/familyName.label")
+metadata_descriptions_type = TermsFacet(
+    field="metadata.descriptions.type", label=_("metadata/descriptions/type.label")
 )
 
-metadata_creators_givenName = TermsFacet(
-    field="metadata.creators.givenName", label=_("metadata/creators/givenName.label")
+metadata_ecosystem_PID = TermsFacet(
+    field="metadata.ecosystem.PID", label=_("metadata/ecosystem/PID.label")
 )
 
-metadata_creators_lang = TermsFacet(
-    field="metadata.creators.lang", label=_("metadata/creators/lang.label")
+metadata_ecosystem_name = TermsFacet(
+    field="metadata.ecosystem.name", label=_("metadata/ecosystem/name.label")
 )
 
-metadata_creators_name = TermsFacet(
-    field="metadata.creators.name", label=_("metadata/creators/name.label")
+metadata_files_format = TermsFacet(
+    field="metadata.files.format", label=_("metadata/files/format.label")
 )
 
-metadata_creators_nameIdentifiers_nameIdentifier = TermsFacet(
-    field="metadata.creators.nameIdentifiers.nameIdentifier",
-    label=_("metadata/creators/nameIdentifiers/nameIdentifier.label"),
+metadata_files_md5 = TermsFacet(
+    field="metadata.files.md5", label=_("metadata/files/md5.label")
 )
 
-metadata_creators_nameIdentifiers_nameIdentifierScheme = TermsFacet(
-    field="metadata.creators.nameIdentifiers.nameIdentifierScheme",
-    label=_("metadata/creators/nameIdentifiers/nameIdentifierScheme.label"),
+metadata_files_name = TermsFacet(
+    field="metadata.files.name", label=_("metadata/files/name.label")
 )
 
-metadata_creators_nameIdentifiers_schemeURI = TermsFacet(
-    field="metadata.creators.nameIdentifiers.schemeURI",
-    label=_("metadata/creators/nameIdentifiers/schemeURI.label"),
+metadata_files_size = TermsFacet(
+    field="metadata.files.size", label=_("metadata/files/size.label")
 )
 
-metadata_creators_nameType = TermsFacet(
-    field="metadata.creators.nameType", label=_("metadata/creators/nameType.label")
+metadata_files_sourceUrl = TermsFacet(
+    field="metadata.files.sourceUrl", label=_("metadata/files/sourceUrl.label")
 )
 
-metadata_descriptions_descriptionType = TermsFacet(
-    field="metadata.descriptions.descriptionType",
-    label=_("metadata/descriptions/descriptionType.label"),
+metadata_geoLocations_box_eastLongitude = TermsFacet(
+    field="metadata.geoLocations.box.eastLongitude",
+    label=_("metadata/geoLocations/box/eastLongitude.label"),
 )
 
-metadata_descriptions_lang = TermsFacet(
-    field="metadata.descriptions.lang", label=_("metadata/descriptions/lang.label")
+metadata_geoLocations_box_northLatitude = TermsFacet(
+    field="metadata.geoLocations.box.northLatitude",
+    label=_("metadata/geoLocations/box/northLatitude.label"),
 )
 
-metadata_doi = TermsFacet(field="metadata.doi", label=_("metadata/doi.label"))
-
-metadata_geoLocations_geoLocationBox_eastBoundLongitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationBox.eastBoundLongitude",
-    label=_("metadata/geoLocations/geoLocationBox/eastBoundLongitude.label"),
+metadata_geoLocations_box_southLatitude = TermsFacet(
+    field="metadata.geoLocations.box.southLatitude",
+    label=_("metadata/geoLocations/box/southLatitude.label"),
 )
 
-metadata_geoLocations_geoLocationBox_northBoundLatitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationBox.northBoundLatitude",
-    label=_("metadata/geoLocations/geoLocationBox/northBoundLatitude.label"),
+metadata_geoLocations_box_westLongitude = TermsFacet(
+    field="metadata.geoLocations.box.westLongitude",
+    label=_("metadata/geoLocations/box/westLongitude.label"),
 )
 
-metadata_geoLocations_geoLocationBox_southBoundLatitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationBox.southBoundLatitude",
-    label=_("metadata/geoLocations/geoLocationBox/southBoundLatitude.label"),
+metadata_geoLocations_point_latitude = TermsFacet(
+    field="metadata.geoLocations.point.latitude",
+    label=_("metadata/geoLocations/point/latitude.label"),
 )
 
-metadata_geoLocations_geoLocationBox_westBoundLongitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationBox.westBoundLongitude",
-    label=_("metadata/geoLocations/geoLocationBox/westBoundLongitude.label"),
+metadata_geoLocations_point_longitude = TermsFacet(
+    field="metadata.geoLocations.point.longitude",
+    label=_("metadata/geoLocations/point/longitude.label"),
 )
 
-metadata_geoLocations_geoLocationPlace = TermsFacet(
-    field="metadata.geoLocations.geoLocationPlace",
-    label=_("metadata/geoLocations/geoLocationPlace.label"),
+metadata_geoLocations_polygon_inPolygonPoint_latitude = TermsFacet(
+    field="metadata.geoLocations.polygon.inPolygonPoint.latitude",
+    label=_("metadata/geoLocations/polygon/inPolygonPoint/latitude.label"),
 )
 
-metadata_geoLocations_geoLocationPoint_pointLatitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationPoint.pointLatitude",
-    label=_("metadata/geoLocations/geoLocationPoint/pointLatitude.label"),
+metadata_geoLocations_polygon_inPolygonPoint_longitude = TermsFacet(
+    field="metadata.geoLocations.polygon.inPolygonPoint.longitude",
+    label=_("metadata/geoLocations/polygon/inPolygonPoint/longitude.label"),
 )
 
-metadata_geoLocations_geoLocationPoint_pointLongitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationPoint.pointLongitude",
-    label=_("metadata/geoLocations/geoLocationPoint/pointLongitude.label"),
+metadata_geoLocations_polygon_points_latitude = TermsFacet(
+    field="metadata.geoLocations.polygon.points.latitude",
+    label=_("metadata/geoLocations/polygon/points/latitude.label"),
 )
 
-metadata_geoLocations_geoLocationPolygons_inPolygonPoint_pointLatitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationPolygons.inPolygonPoint.pointLatitude",
-    label=_(
-        "metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.label"
-    ),
-)
-
-metadata_geoLocations_geoLocationPolygons_inPolygonPoint_pointLongitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationPolygons.inPolygonPoint.pointLongitude",
-    label=_(
-        "metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.label"
-    ),
-)
-
-metadata_geoLocations_geoLocationPolygons_polygonPoints_pointLatitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationPolygons.polygonPoints.pointLatitude",
-    label=_(
-        "metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.label"
-    ),
-)
-
-metadata_geoLocations_geoLocationPolygons_polygonPoints_pointLongitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationPolygons.polygonPoints.pointLongitude",
-    label=_(
-        "metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.label"
-    ),
-)
-
-metadata_identifiers_relatedIdentifier = TermsFacet(
-    field="metadata.identifiers.relatedIdentifier",
-    label=_("metadata/identifiers/relatedIdentifier.label"),
-)
-
-metadata_identifiers_relatedIdentifierType = TermsFacet(
-    field="metadata.identifiers.relatedIdentifierType",
-    label=_("metadata/identifiers/relatedIdentifierType.label"),
-)
-
-metadata_identifiers_relatedMetadataScheme = TermsFacet(
-    field="metadata.identifiers.relatedMetadataScheme",
-    label=_("metadata/identifiers/relatedMetadataScheme.label"),
-)
-
-metadata_identifiers_relationType = TermsFacet(
-    field="metadata.identifiers.relationType",
-    label=_("metadata/identifiers/relationType.label"),
-)
-
-metadata_identifiers_resourceTypeGeneral = TermsFacet(
-    field="metadata.identifiers.resourceTypeGeneral",
-    label=_("metadata/identifiers/resourceTypeGeneral.label"),
-)
-
-metadata_identifiers_schemeType = TermsFacet(
-    field="metadata.identifiers.schemeType",
-    label=_("metadata/identifiers/schemeType.label"),
-)
-
-metadata_identifiers_schemeURI = TermsFacet(
-    field="metadata.identifiers.schemeURI",
-    label=_("metadata/identifiers/schemeURI.label"),
+metadata_geoLocations_polygon_points_longitude = TermsFacet(
+    field="metadata.geoLocations.polygon.points.longitude",
+    label=_("metadata/geoLocations/polygon/points/longitude.label"),
 )
 
 metadata_keywords = TermsFacet(
@@ -239,99 +193,94 @@ metadata_language = TermsFacet(
     field="metadata.language", label=_("metadata/language.label")
 )
 
-metadata_project = TermsFacet(
-    field="metadata.project", label=_("metadata/project.label")
+metadata_licenses_name = TermsFacet(
+    field="metadata.licenses.name", label=_("metadata/licenses/name.label")
 )
 
-metadata_publicationYear = TermsFacet(
-    field="metadata.publicationYear", label=_("metadata/publicationYear.label")
+metadata_licenses_url = TermsFacet(
+    field="metadata.licenses.url", label=_("metadata/licenses/url.label")
 )
 
-metadata_resourceTypes_resourceType = TermsFacet(
-    field="metadata.resourceTypes.resourceType",
-    label=_("metadata/resourceTypes/resourceType.label"),
+metadata_methods_PID = TermsFacet(
+    field="metadata.methods.PID", label=_("metadata/methods/PID.label")
 )
 
-metadata_resourceTypes_resourceTypeGeneral = TermsFacet(
-    field="metadata.resourceTypes.resourceTypeGeneral",
-    label=_("metadata/resourceTypes/resourceTypeGeneral.label"),
+metadata_methods_steps_title = TermsFacet(
+    field="metadata.methods.steps.title", label=_("metadata/methods/steps/title.label")
 )
 
-metadata_rightsList_lang = TermsFacet(
-    field="metadata.rightsList.lang", label=_("metadata/rightsList/lang.label")
+metadata_project_DOI = TermsFacet(
+    field="metadata.project.DOI", label=_("metadata/project/DOI.label")
 )
 
-metadata_rightsList_rights = TermsFacet(
-    field="metadata.rightsList.rights", label=_("metadata/rightsList/rights.label")
+metadata_project_PID = TermsFacet(
+    field="metadata.project.PID", label=_("metadata/project/PID.label")
 )
 
-metadata_rightsList_rightsIdentifier = TermsFacet(
-    field="metadata.rightsList.rightsIdentifier",
-    label=_("metadata/rightsList/rightsIdentifier.label"),
+metadata_project_name = TermsFacet(
+    field="metadata.project.name", label=_("metadata/project/name.label")
 )
 
-metadata_rightsList_rightsIdentifierScheme = TermsFacet(
-    field="metadata.rightsList.rightsIdentifierScheme",
-    label=_("metadata/rightsList/rightsIdentifierScheme.label"),
+metadata_propertyRights_name = TermsFacet(
+    field="metadata.propertyRights.name", label=_("metadata/propertyRights/name.label")
 )
 
-metadata_rightsList_rightsURI = TermsFacet(
-    field="metadata.rightsList.rightsURI",
-    label=_("metadata/rightsList/rightsURI.label"),
+metadata_propertyRights_url = TermsFacet(
+    field="metadata.propertyRights.url", label=_("metadata/propertyRights/url.label")
 )
 
-metadata_rightsList_schemeURI = TermsFacet(
-    field="metadata.rightsList.schemeURI",
-    label=_("metadata/rightsList/schemeURI.label"),
+metadata_publicationDate = DateTimeFacet(
+    field="metadata.publicationDate", label=_("metadata/publicationDate.label")
 )
 
-metadata_shortName = TermsFacet(
-    field="metadata.shortName", label=_("metadata/shortName.label")
+metadata_shortNames_language = TermsFacet(
+    field="metadata.shortNames.language", label=_("metadata/shortNames/language.label")
 )
 
-metadata_taxanomicCoverages_classificationCode = TermsFacet(
-    field="metadata.taxanomicCoverages.classificationCode",
-    label=_("metadata/taxanomicCoverages/classificationCode.label"),
+metadata_siteReference_PID = TermsFacet(
+    field="metadata.siteReference.PID", label=_("metadata/siteReference/PID.label")
 )
 
-metadata_taxanomicCoverages_lang = TermsFacet(
-    field="metadata.taxanomicCoverages.lang",
-    label=_("metadata/taxanomicCoverages/lang.label"),
+metadata_siteReference_name = TermsFacet(
+    field="metadata.siteReference.name", label=_("metadata/siteReference/name.label")
 )
 
-metadata_taxanomicCoverages_schemeURI = TermsFacet(
-    field="metadata.taxanomicCoverages.schemeURI",
-    label=_("metadata/taxanomicCoverages/schemeURI.label"),
+metadata_taxonomicCoverages_classification_commonName = TermsFacet(
+    field="metadata.taxonomicCoverages.classification.commonName",
+    label=_("metadata/taxonomicCoverages/classification/commonName.label"),
 )
 
-metadata_taxanomicCoverages_subject = TermsFacet(
-    field="metadata.taxanomicCoverages.subject",
-    label=_("metadata/taxanomicCoverages/subject.label"),
+metadata_taxonomicCoverages_classification_id = TermsFacet(
+    field="metadata.taxonomicCoverages.classification.id",
+    label=_("metadata/taxonomicCoverages/classification/id.label"),
 )
 
-metadata_taxanomicCoverages_subjectScheme = TermsFacet(
-    field="metadata.taxanomicCoverages.subjectScheme",
-    label=_("metadata/taxanomicCoverages/subjectScheme.label"),
+metadata_taxonomicCoverages_classification_rankName = TermsFacet(
+    field="metadata.taxonomicCoverages.classification.rankName",
+    label=_("metadata/taxonomicCoverages/classification/rankName.label"),
 )
 
-metadata_taxanomicCoverages_valueURI = TermsFacet(
-    field="metadata.taxanomicCoverages.valueURI",
-    label=_("metadata/taxanomicCoverages/valueURI.label"),
+metadata_taxonomicCoverages_classification_rankValue = TermsFacet(
+    field="metadata.taxonomicCoverages.classification.rankValue",
+    label=_("metadata/taxonomicCoverages/classification/rankValue.label"),
 )
 
-metadata_temporalCoverages_date = DateTimeFacet(
-    field="metadata.temporalCoverages.date",
-    label=_("metadata/temporalCoverages/date.label"),
+metadata_temporalCoverages_endDate = DateTimeFacet(
+    field="metadata.temporalCoverages.endDate",
+    label=_("metadata/temporalCoverages/endDate.label"),
 )
 
-metadata_temporalCoverages_dateInformation = TermsFacet(
-    field="metadata.temporalCoverages.dateInformation",
-    label=_("metadata/temporalCoverages/dateInformation.label"),
+metadata_temporalCoverages_startDate = DateTimeFacet(
+    field="metadata.temporalCoverages.startDate",
+    label=_("metadata/temporalCoverages/startDate.label"),
 )
 
-metadata_temporalCoverages_dateType = TermsFacet(
-    field="metadata.temporalCoverages.dateType",
-    label=_("metadata/temporalCoverages/dateType.label"),
+metadata_temporalResolution = TermsFacet(
+    field="metadata.temporalResolution", label=_("metadata/temporalResolution.label")
+)
+
+metadata_titles_language = TermsFacet(
+    field="metadata.titles.language", label=_("metadata/titles/language.label")
 )
 
 

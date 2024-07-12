@@ -4,7 +4,7 @@ from marshmallow import fields as ma_fields
 from marshmallow.validate import OneOf
 from oarepo_requests.services.ui_schema import UIRequestsSerializationMixin
 from oarepo_runtime.services.schema.marshmallow import DictOnlySchema
-from oarepo_runtime.services.schema.ui import InvenioUISchema, LocalizedEDTFTime
+from oarepo_runtime.services.schema.ui import InvenioUISchema, LocalizedDate
 
 
 class LterUISchema(UIRequestsSerializationMixin, InvenioUISchema):
@@ -18,65 +18,98 @@ class LterMetadataUISchema(Schema):
     class Meta:
         unknown = ma.RAISE
 
+    SOReference = ma_fields.Nested(lambda: SOReferenceUISchema())
+
+    authors = ma_fields.List(ma_fields.Nested(lambda: AuthorsItemUISchema()))
+
     contributors = ma_fields.List(ma_fields.Nested(lambda: ContributorsItemUISchema()))
 
-    creators = ma_fields.List(ma_fields.Nested(lambda: CreatorsItemUISchema()))
+    dataLevel = ma_fields.Integer()
+
+    datasetIds = ma_fields.List(ma_fields.Nested(lambda: DatasetIdsItemUISchema()))
 
     descriptions = ma_fields.List(ma_fields.Nested(lambda: DescriptionsItemUISchema()))
 
-    doi = ma_fields.String()
+    ecosystem = ma_fields.Nested(lambda: EcosystemUISchema())
+
+    files = ma_fields.List(ma_fields.Nested(lambda: FilesItemUISchema()))
 
     geoLocations = ma_fields.List(ma_fields.Nested(lambda: GeoLocationsItemUISchema()))
-
-    identifiers = ma_fields.List(ma_fields.Nested(lambda: IdentifiersItemUISchema()))
 
     keywords = ma_fields.List(ma_fields.String())
 
     language = ma_fields.String()
 
-    project = ma_fields.String()
+    licenses = ma_fields.List(ma_fields.Nested(lambda: SOReferenceUISchema()))
 
-    publicationYear = ma_fields.String()
+    methods = ma_fields.Nested(lambda: MethodsUISchema())
 
-    resourceTypes = ma_fields.List(
-        ma_fields.Nested(lambda: ResourceTypesItemUISchema())
-    )
+    project = ma_fields.Nested(lambda: ProjectUISchema())
 
-    rightsList = ma_fields.List(ma_fields.Nested(lambda: RightsListItemUISchema()))
+    propertyRights = ma_fields.List(ma_fields.Nested(lambda: SOReferenceUISchema()))
 
-    shortName = ma_fields.String()
+    publicationDate = LocalizedDate()
 
-    taxanomicCoverages = ma_fields.List(
-        ma_fields.Nested(lambda: TaxanomicCoveragesItemUISchema())
+    shortNames = ma_fields.List(ma_fields.Nested(lambda: ShortNamesItemUISchema()))
+
+    siteReference = ma_fields.List(ma_fields.Nested(lambda: EcosystemUISchema()))
+
+    taxonomicCoverages = ma_fields.List(
+        ma_fields.Nested(lambda: TaxonomicCoveragesItemUISchema())
     )
 
     temporalCoverages = ma_fields.List(
         ma_fields.Nested(lambda: TemporalCoveragesItemUISchema())
     )
 
+    temporalResolution = ma_fields.Integer()
+
+    titles = ma_fields.List(ma_fields.Nested(lambda: ShortNamesItemUISchema()))
+
 
 class GeoLocationsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    geoLocationBox = ma_fields.Nested(lambda: GeoLocationBoxUISchema())
+    box = ma_fields.Nested(lambda: BoxUISchema())
 
-    geoLocationPlace = ma_fields.String()
+    description = ma_fields.String()
 
-    geoLocationPoint = ma_fields.Nested(lambda: GeoLocationPointUISchema())
+    point = ma_fields.Nested(lambda: PointUISchema())
 
-    geoLocationPolygons = ma_fields.List(
-        ma_fields.Nested(lambda: GeoLocationPolygonsItemUISchema())
-    )
+    polygon = ma_fields.List(ma_fields.Nested(lambda: PolygonItemUISchema()))
+
+
+class AuthorsItemUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    email = ma_fields.String()
+
+    familyName = ma_fields.String()
+
+    fullName = ma_fields.String()
+
+    givenName = ma_fields.String()
+
+    ids = ma_fields.List(ma_fields.Nested(lambda: IdsItemUISchema()))
 
 
 class ContributorsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    affiliation = ma_fields.List(ma_fields.Nested(lambda: AffiliationItemUISchema()))
+    email = ma_fields.String()
 
-    contributorType = ma_fields.String(
+    familyName = ma_fields.String()
+
+    fullName = ma_fields.String()
+
+    givenName = ma_fields.String()
+
+    ids = ma_fields.List(ma_fields.Nested(lambda: IdsItemUISchema()))
+
+    type = ma_fields.String(
         required=True,
         validate=[
             OneOf(
@@ -85,86 +118,92 @@ class ContributorsItemUISchema(DictOnlySchema):
                     "DataCollector",
                     "DataCurator",
                     "DataManager",
-                    "Distributor",
-                    "Editor",
-                    "HostingInstitution",
+                    "MetadataProvider",
                     "Producer",
                     "ProjectLeader",
                     "ProjectManager",
                     "ProjectMember",
-                    "RegistrationAgency",
                     "RegistrationAuthority",
                     "RelatedPerson",
                     "Researcher",
                     "ResearchGroup",
-                    "RightsHolder",
-                    "Sponsor",
-                    "Supervisor",
-                    "WorkPackageLeader",
                     "Other",
                 ]
             )
         ],
     )
 
-    familyName = ma_fields.String()
 
-    givenName = ma_fields.String()
-
-    lang = ma_fields.String()
-
-    name = ma_fields.String(required=True)
-
-    nameIdentifiers = ma_fields.List(
-        ma_fields.Nested(lambda: NameIdentifiersItemUISchema())
-    )
-
-    nameType = ma_fields.String(validate=[OneOf(["Organizational", "Personal"])])
-
-
-class CreatorsItemUISchema(DictOnlySchema):
+class MethodsUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    affiliation = ma_fields.List(ma_fields.Nested(lambda: AffiliationItemUISchema()))
+    PID = ma_fields.String()
 
-    familyName = ma_fields.String()
+    instrumentationDescription = ma_fields.String()
 
-    givenName = ma_fields.String()
+    qualityControlDescription = ma_fields.String()
 
-    lang = ma_fields.String()
+    sampling = ma_fields.Nested(lambda: SamplingUISchema())
 
-    name = ma_fields.String(required=True)
-
-    nameIdentifiers = ma_fields.List(
-        ma_fields.Nested(lambda: NameIdentifiersItemUISchema())
-    )
-
-    nameType = ma_fields.String(validate=[OneOf(["Organizational", "Personal"])])
+    steps = ma_fields.List(ma_fields.Nested(lambda: StepsItemUISchema()))
 
 
-class GeoLocationPolygonsItemUISchema(DictOnlySchema):
+class PolygonItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    inPolygonPoint = ma_fields.Nested(lambda: GeoLocationPointUISchema())
+    inPolygonPoint = ma_fields.Nested(lambda: PointUISchema())
 
-    polygonPoints = ma_fields.List(
-        ma_fields.Nested(lambda: GeoLocationPointUISchema()), required=True
-    )
+    points = ma_fields.List(ma_fields.Nested(lambda: PointUISchema()), required=True)
 
 
-class AffiliationItemUISchema(DictOnlySchema):
+class TaxonomicCoveragesItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    affiliationIdentifier = ma_fields.String()
+    classification = ma_fields.Nested(lambda: ClassificationUISchema())
 
-    affiliationIdentifierScheme = ma_fields.String()
+    description = ma_fields.String()
 
-    name = ma_fields.String(required=True)
 
-    schemeURI = ma_fields.String()
+class BoxUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    eastLongitude = ma_fields.Float(required=True)
+
+    northLatitude = ma_fields.Float(required=True)
+
+    southLatitude = ma_fields.Float(required=True)
+
+    westLongitude = ma_fields.Float(required=True)
+
+
+class ClassificationUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma_fields.String(data_key="id", attribute="id")
+
+    commonName = ma_fields.String()
+
+    rankName = ma_fields.String()
+
+    rankValue = ma_fields.String()
+
+
+class DatasetIdsItemUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    identifier = ma_fields.String(required=True)
+
+    source = ma_fields.String()
+
+    type = ma_fields.String(required=True)
+
+    url = ma_fields.String()
 
 
 class DescriptionsItemUISchema(DictOnlySchema):
@@ -173,12 +212,15 @@ class DescriptionsItemUISchema(DictOnlySchema):
 
     description = ma_fields.String(required=True)
 
-    descriptionType = ma_fields.String(
+    language = ma_fields.String(required=True)
+
+    type = ma_fields.String(
         required=True,
         validate=[
             OneOf(
                 [
                     "Abstract",
+                    "AdditionalInfo",
                     "Methods",
                     "SeriesInformation",
                     "TableOfContents",
@@ -189,274 +231,102 @@ class DescriptionsItemUISchema(DictOnlySchema):
         ],
     )
 
-    lang = ma_fields.String()
 
-
-class GeoLocationBoxUISchema(DictOnlySchema):
+class EcosystemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    eastBoundLongitude = ma_fields.Float(required=True)
+    PID = ma_fields.String()
 
-    northBoundLatitude = ma_fields.Float(required=True)
-
-    southBoundLatitude = ma_fields.Float(required=True)
-
-    westBoundLongitude = ma_fields.Float(required=True)
+    name = ma_fields.String()
 
 
-class GeoLocationPointUISchema(DictOnlySchema):
+class FilesItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    pointLatitude = ma_fields.Float()
+    format = ma_fields.String()
 
-    pointLongitude = ma_fields.Float()
+    md5 = ma_fields.String()
+
+    name = ma_fields.String()
+
+    size = ma_fields.Integer()
+
+    sourceUrl = ma_fields.String()
 
 
-class IdentifiersItemUISchema(DictOnlySchema):
+class IdsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    relatedIdentifier = ma_fields.String()
+    _id = ma_fields.String(required=True, data_key="id", attribute="id")
 
-    relatedIdentifierType = ma_fields.String(
-        validate=[
-            OneOf(
-                [
-                    "ARK",
-                    "arXiv",
-                    "bibcode",
-                    "DOI",
-                    "EAN13",
-                    "EISSN",
-                    "Handle",
-                    "IGSN",
-                    "ISBN",
-                    "ISSN",
-                    "ISTC",
-                    "LISSN",
-                    "LSID",
-                    "PMID",
-                    "PURL",
-                    "UPC",
-                    "URL",
-                    "URN",
-                    "w3id",
-                ]
-            )
-        ]
-    )
+    schema = ma_fields.String(required=True)
 
-    relatedMetadataScheme = ma_fields.String()
-
-    relationType = ma_fields.String(
-        required=True,
-        validate=[
-            OneOf(
-                [
-                    "IsCitedBy",
-                    "Cites",
-                    "IsCollectedBy",
-                    "Collects",
-                    "IsSupplementTo",
-                    "IsSupplementedBy",
-                    "IsContinuedBy",
-                    "Continues",
-                    "IsDescribedBy",
-                    "Describes",
-                    "HasMetadata",
-                    "IsMetadataFor",
-                    "HasVersion",
-                    "IsVersionOf",
-                    "IsNewVersionOf",
-                    "IsPartOf",
-                    "IsPreviousVersionOf",
-                    "IsPublishedIn",
-                    "HasPart",
-                    "IsReferencedBy",
-                    "References",
-                    "IsDocumentedBy",
-                    "Documents",
-                    "IsCompiledBy",
-                    "Compiles",
-                    "IsVariantFormOf",
-                    "IsOriginalFormOf",
-                    "IsIdenticalTo",
-                    "IsReviewedBy",
-                    "Reviews",
-                    "IsDerivedFrom",
-                    "IsSourceOf",
-                    "IsRequiredBy",
-                    "Requires",
-                    "IsObsoletedBy",
-                    "Obsoletes",
-                ]
-            )
-        ],
-    )
-
-    resourceTypeGeneral = ma_fields.String(
-        validate=[
-            OneOf(
-                [
-                    "Audiovisual",
-                    "Book",
-                    "BookChapter",
-                    "Collection",
-                    "ComputationalNotebook",
-                    "ConferencePaper",
-                    "ConferenceProceeding",
-                    "DataPaper",
-                    "Dataset",
-                    "Dissertation",
-                    "Event",
-                    "Image",
-                    "Instrument",
-                    "InteractiveResource",
-                    "Journal",
-                    "JournalArticle",
-                    "Model",
-                    "OutputManagementPlan",
-                    "PeerReview",
-                    "PhysicalObject",
-                    "Preprint",
-                    "Report",
-                    "Service",
-                    "Software",
-                    "Sound",
-                    "Standard",
-                    "StudyRegistration",
-                    "Text",
-                    "Workflow",
-                    "Other",
-                ]
-            )
-        ]
-    )
-
-    schemeType = ma_fields.String()
-
-    schemeURI = ma_fields.String()
+    url = ma_fields.String()
 
 
-class NameIdentifiersItemUISchema(DictOnlySchema):
+class PointUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    nameIdentifier = ma_fields.String(required=True)
+    latitude = ma_fields.Float()
 
-    nameIdentifierScheme = ma_fields.String(required=True)
-
-    schemeURI = ma_fields.String()
+    longitude = ma_fields.Float()
 
 
-class ResourceTypesItemUISchema(DictOnlySchema):
+class ProjectUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    resourceType = ma_fields.String()
+    DOI = ma_fields.String()
 
-    resourceTypeGeneral = ma_fields.String(
-        required=True,
-        validate=[
-            OneOf(
-                [
-                    "Audiovisual",
-                    "Book",
-                    "BookChapter",
-                    "Collection",
-                    "ComputationalNotebook",
-                    "ConferencePaper",
-                    "ConferenceProceeding",
-                    "DataPaper",
-                    "Dataset",
-                    "Dissertation",
-                    "Event",
-                    "Image",
-                    "Instrument",
-                    "InteractiveResource",
-                    "Journal",
-                    "JournalArticle",
-                    "Model",
-                    "OutputManagementPlan",
-                    "PeerReview",
-                    "PhysicalObject",
-                    "Preprint",
-                    "Report",
-                    "Service",
-                    "Software",
-                    "Sound",
-                    "Standard",
-                    "StudyRegistration",
-                    "Text",
-                    "Workflow",
-                    "Other",
-                ]
-            )
-        ],
-    )
+    PID = ma_fields.String(required=True)
+
+    name = ma_fields.String(required=True)
 
 
-class RightsListItemUISchema(DictOnlySchema):
+class SOReferenceUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    lang = ma_fields.String()
+    name = ma_fields.String()
 
-    rights = ma_fields.String()
-
-    rightsIdentifier = ma_fields.String()
-
-    rightsIdentifierScheme = ma_fields.String()
-
-    rightsURI = ma_fields.String()
-
-    schemeURI = ma_fields.String()
+    url = ma_fields.String()
 
 
-class TaxanomicCoveragesItemUISchema(DictOnlySchema):
+class SamplingUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    classificationCode = ma_fields.String()
+    samplingDescription = ma_fields.String()
 
-    lang = ma_fields.String()
+    studyDescription = ma_fields.String()
 
-    schemeURI = ma_fields.String()
 
-    subject = ma_fields.String(required=True)
+class ShortNamesItemUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
 
-    subjectScheme = ma_fields.String()
+    language = ma_fields.String()
 
-    valueURI = ma_fields.String()
+    text = ma_fields.String()
+
+
+class StepsItemUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    description = ma_fields.String()
+
+    title = ma_fields.String(required=True)
 
 
 class TemporalCoveragesItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    date = LocalizedEDTFTime(required=True)
+    endDate = LocalizedDate()
 
-    dateInformation = ma_fields.String()
-
-    dateType = ma_fields.String(
-        required=True,
-        validate=[
-            OneOf(
-                [
-                    "Accepted",
-                    "Available",
-                    "Copyrighted",
-                    "Collected",
-                    "Created",
-                    "Issued",
-                    "Submitted",
-                    "Updated",
-                    "Valid",
-                    "Withdrawn",
-                    "Other",
-                ]
-            )
-        ],
-    )
+    startDate = LocalizedDate()

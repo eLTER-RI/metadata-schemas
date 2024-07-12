@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-06-11T11:45:53.461634\n"
-"PO-Revision-Date: 2024-06-11T11:45:53.461636\n"
+"POT-Creation-Date: 2024-07-10T08:57:33.100334\n"
+"PO-Revision-Date: 2024-07-10T08:57:33.100335\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,6 +44,114 @@ msgstr ""
 msgid "metadata.hint"
 msgstr ""
 
+msgid "metadata/SOReference.label"
+msgstr ""
+
+msgid "metadata/SOReference.help"
+msgstr ""
+
+msgid "metadata/SOReference.hint"
+msgstr ""
+
+msgid "metadata/SOReference/name.label"
+msgstr ""
+
+msgid "metadata/SOReference/name.help"
+msgstr ""
+
+msgid "metadata/SOReference/name.hint"
+msgstr ""
+
+msgid "metadata/SOReference/url.label"
+msgstr ""
+
+msgid "metadata/SOReference/url.help"
+msgstr ""
+
+msgid "metadata/SOReference/url.hint"
+msgstr ""
+
+msgid "metadata/authors.label"
+msgstr ""
+
+msgid "metadata/authors.help"
+msgstr ""
+
+msgid "metadata/authors.hint"
+msgstr ""
+
+msgid "metadata/authors/email.label"
+msgstr ""
+
+msgid "metadata/authors/email.help"
+msgstr ""
+
+msgid "metadata/authors/email.hint"
+msgstr ""
+
+msgid "metadata/authors/familyName.label"
+msgstr ""
+
+msgid "metadata/authors/familyName.help"
+msgstr ""
+
+msgid "metadata/authors/familyName.hint"
+msgstr ""
+
+msgid "metadata/authors/fullName.label"
+msgstr ""
+
+msgid "metadata/authors/fullName.help"
+msgstr ""
+
+msgid "metadata/authors/fullName.hint"
+msgstr ""
+
+msgid "metadata/authors/givenName.label"
+msgstr ""
+
+msgid "metadata/authors/givenName.help"
+msgstr ""
+
+msgid "metadata/authors/givenName.hint"
+msgstr ""
+
+msgid "metadata/authors/ids.help"
+msgstr ""
+
+msgid "metadata/authors/ids.label"
+msgstr ""
+
+msgid "metadata/authors/ids.hint"
+msgstr ""
+
+msgid "metadata/authors/ids/id.label"
+msgstr ""
+
+msgid "metadata/authors/ids/id.help"
+msgstr ""
+
+msgid "metadata/authors/ids/id.hint"
+msgstr ""
+
+msgid "metadata/authors/ids/schema.label"
+msgstr ""
+
+msgid "metadata/authors/ids/schema.help"
+msgstr ""
+
+msgid "metadata/authors/ids/schema.hint"
+msgstr ""
+
+msgid "metadata/authors/ids/url.label"
+msgstr ""
+
+msgid "metadata/authors/ids/url.help"
+msgstr ""
+
+msgid "metadata/authors/ids/url.hint"
+msgstr ""
+
 msgid "metadata/contributors.label"
 msgstr ""
 
@@ -53,121 +161,13 @@ msgstr ""
 msgid "metadata/contributors.hint"
 msgstr ""
 
-msgid "metadata/contributors/affiliation.help"
+msgid "metadata/contributors/email.label"
 msgstr ""
 
-msgid "metadata/contributors/affiliation.label"
+msgid "metadata/contributors/email.help"
 msgstr ""
 
-msgid "metadata/contributors/affiliation.hint"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/affiliationIdentifier.label"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/affiliationIdentifier.help"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/affiliationIdentifier.hint"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/affiliationIdentifierScheme.label"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/affiliationIdentifierScheme.help"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/affiliationIdentifierScheme.hint"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/name.label"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/name.help"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/name.hint"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/schemeURI.label"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/schemeURI.help"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/schemeURI.hint"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.label"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.help"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.hint"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.ContactPerson"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.DataCollector"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.DataCurator"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.DataManager"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.Distributor"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.Editor"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.HostingInstitution"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.Producer"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.ProjectLeader"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.ProjectManager"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.ProjectMember"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.RegistrationAgency"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.RegistrationAuthority"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.RelatedPerson"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.Researcher"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.ResearchGroup"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.RightsHolder"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.Sponsor"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.Supervisor"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.WorkPackageLeader"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.Other"
+msgid "metadata/contributors/email.hint"
 msgstr ""
 
 msgid "metadata/contributors/familyName.label"
@@ -179,6 +179,15 @@ msgstr ""
 msgid "metadata/contributors/familyName.hint"
 msgstr ""
 
+msgid "metadata/contributors/fullName.label"
+msgstr ""
+
+msgid "metadata/contributors/fullName.help"
+msgstr ""
+
+msgid "metadata/contributors/fullName.hint"
+msgstr ""
+
 msgid "metadata/contributors/givenName.label"
 msgstr ""
 
@@ -188,214 +197,145 @@ msgstr ""
 msgid "metadata/contributors/givenName.hint"
 msgstr ""
 
-msgid "metadata/contributors/lang.label"
+msgid "metadata/contributors/ids.help"
 msgstr ""
 
-msgid "metadata/contributors/lang.help"
+msgid "metadata/contributors/ids.label"
 msgstr ""
 
-msgid "metadata/contributors/lang.hint"
+msgid "metadata/contributors/ids.hint"
 msgstr ""
 
-msgid "metadata/contributors/name.label"
+msgid "metadata/contributors/ids/id.label"
 msgstr ""
 
-msgid "metadata/contributors/name.help"
+msgid "metadata/contributors/ids/id.help"
 msgstr ""
 
-msgid "metadata/contributors/name.hint"
+msgid "metadata/contributors/ids/id.hint"
 msgstr ""
 
-msgid "metadata/contributors/nameIdentifiers.help"
+msgid "metadata/contributors/ids/schema.label"
 msgstr ""
 
-msgid "metadata/contributors/nameIdentifiers.label"
+msgid "metadata/contributors/ids/schema.help"
 msgstr ""
 
-msgid "metadata/contributors/nameIdentifiers.hint"
+msgid "metadata/contributors/ids/schema.hint"
 msgstr ""
 
-msgid "metadata/contributors/nameIdentifiers/nameIdentifier.label"
+msgid "metadata/contributors/ids/url.label"
 msgstr ""
 
-msgid "metadata/contributors/nameIdentifiers/nameIdentifier.help"
+msgid "metadata/contributors/ids/url.help"
 msgstr ""
 
-msgid "metadata/contributors/nameIdentifiers/nameIdentifier.hint"
+msgid "metadata/contributors/ids/url.hint"
 msgstr ""
 
-msgid "metadata/contributors/nameIdentifiers/nameIdentifierScheme.label"
+msgid "metadata/contributors/type.label"
 msgstr ""
 
-msgid "metadata/contributors/nameIdentifiers/nameIdentifierScheme.help"
+msgid "metadata/contributors/type.help"
 msgstr ""
 
-msgid "metadata/contributors/nameIdentifiers/nameIdentifierScheme.hint"
+msgid "metadata/contributors/type.hint"
 msgstr ""
 
-msgid "metadata/contributors/nameIdentifiers/schemeURI.label"
+msgid "metadata/contributors/type.enum.ContactPerson"
 msgstr ""
 
-msgid "metadata/contributors/nameIdentifiers/schemeURI.help"
+msgid "metadata/contributors/type.enum.DataCollector"
 msgstr ""
 
-msgid "metadata/contributors/nameIdentifiers/schemeURI.hint"
+msgid "metadata/contributors/type.enum.DataCurator"
 msgstr ""
 
-msgid "metadata/contributors/nameType.label"
+msgid "metadata/contributors/type.enum.DataManager"
 msgstr ""
 
-msgid "metadata/contributors/nameType.help"
+msgid "metadata/contributors/type.enum.MetadataProvider"
 msgstr ""
 
-msgid "metadata/contributors/nameType.hint"
+msgid "metadata/contributors/type.enum.Producer"
 msgstr ""
 
-msgid "metadata/contributors/nameType.enum.Organizational"
+msgid "metadata/contributors/type.enum.ProjectLeader"
 msgstr ""
 
-msgid "metadata/contributors/nameType.enum.Personal"
+msgid "metadata/contributors/type.enum.ProjectManager"
 msgstr ""
 
-msgid "metadata/creators.label"
+msgid "metadata/contributors/type.enum.ProjectMember"
 msgstr ""
 
-msgid "metadata/creators.help"
+msgid "metadata/contributors/type.enum.RegistrationAuthority"
 msgstr ""
 
-msgid "metadata/creators.hint"
+msgid "metadata/contributors/type.enum.RelatedPerson"
 msgstr ""
 
-msgid "metadata/creators/affiliation.help"
+msgid "metadata/contributors/type.enum.Researcher"
 msgstr ""
 
-msgid "metadata/creators/affiliation.label"
+msgid "metadata/contributors/type.enum.ResearchGroup"
 msgstr ""
 
-msgid "metadata/creators/affiliation.hint"
+msgid "metadata/contributors/type.enum.Other"
 msgstr ""
 
-msgid "metadata/creators/affiliation/affiliationIdentifier.label"
+msgid "metadata/dataLevel.label"
 msgstr ""
 
-msgid "metadata/creators/affiliation/affiliationIdentifier.help"
+msgid "metadata/dataLevel.help"
 msgstr ""
 
-msgid "metadata/creators/affiliation/affiliationIdentifier.hint"
+msgid "metadata/dataLevel.hint"
 msgstr ""
 
-msgid "metadata/creators/affiliation/affiliationIdentifierScheme.label"
+msgid "metadata/datasetIds.label"
 msgstr ""
 
-msgid "metadata/creators/affiliation/affiliationIdentifierScheme.help"
+msgid "metadata/datasetIds.help"
 msgstr ""
 
-msgid "metadata/creators/affiliation/affiliationIdentifierScheme.hint"
+msgid "metadata/datasetIds.hint"
 msgstr ""
 
-msgid "metadata/creators/affiliation/name.label"
+msgid "metadata/datasetIds/identifier.label"
 msgstr ""
 
-msgid "metadata/creators/affiliation/name.help"
+msgid "metadata/datasetIds/identifier.help"
 msgstr ""
 
-msgid "metadata/creators/affiliation/name.hint"
+msgid "metadata/datasetIds/identifier.hint"
 msgstr ""
 
-msgid "metadata/creators/affiliation/schemeURI.label"
+msgid "metadata/datasetIds/source.label"
 msgstr ""
 
-msgid "metadata/creators/affiliation/schemeURI.help"
+msgid "metadata/datasetIds/source.help"
 msgstr ""
 
-msgid "metadata/creators/affiliation/schemeURI.hint"
+msgid "metadata/datasetIds/source.hint"
 msgstr ""
 
-msgid "metadata/creators/familyName.label"
+msgid "metadata/datasetIds/type.label"
 msgstr ""
 
-msgid "metadata/creators/familyName.help"
+msgid "metadata/datasetIds/type.help"
 msgstr ""
 
-msgid "metadata/creators/familyName.hint"
+msgid "metadata/datasetIds/type.hint"
 msgstr ""
 
-msgid "metadata/creators/givenName.label"
+msgid "metadata/datasetIds/url.label"
 msgstr ""
 
-msgid "metadata/creators/givenName.help"
+msgid "metadata/datasetIds/url.help"
 msgstr ""
 
-msgid "metadata/creators/givenName.hint"
-msgstr ""
-
-msgid "metadata/creators/lang.label"
-msgstr ""
-
-msgid "metadata/creators/lang.help"
-msgstr ""
-
-msgid "metadata/creators/lang.hint"
-msgstr ""
-
-msgid "metadata/creators/name.label"
-msgstr ""
-
-msgid "metadata/creators/name.help"
-msgstr ""
-
-msgid "metadata/creators/name.hint"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers.help"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers.label"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers.hint"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers/nameIdentifier.label"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers/nameIdentifier.help"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers/nameIdentifier.hint"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers/nameIdentifierScheme.label"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers/nameIdentifierScheme.help"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers/nameIdentifierScheme.hint"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers/schemeURI.label"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers/schemeURI.help"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers/schemeURI.hint"
-msgstr ""
-
-msgid "metadata/creators/nameType.label"
-msgstr ""
-
-msgid "metadata/creators/nameType.help"
-msgstr ""
-
-msgid "metadata/creators/nameType.hint"
-msgstr ""
-
-msgid "metadata/creators/nameType.enum.Organizational"
-msgstr ""
-
-msgid "metadata/creators/nameType.enum.Personal"
+msgid "metadata/datasetIds/url.hint"
 msgstr ""
 
 msgid "metadata/descriptions.label"
@@ -416,49 +356,124 @@ msgstr ""
 msgid "metadata/descriptions/description.hint"
 msgstr ""
 
-msgid "metadata/descriptions/descriptionType.label"
+msgid "metadata/descriptions/language.label"
 msgstr ""
 
-msgid "metadata/descriptions/descriptionType.help"
+msgid "metadata/descriptions/language.help"
 msgstr ""
 
-msgid "metadata/descriptions/descriptionType.hint"
+msgid "metadata/descriptions/language.hint"
 msgstr ""
 
-msgid "metadata/descriptions/descriptionType.enum.Abstract"
+msgid "metadata/descriptions/type.label"
 msgstr ""
 
-msgid "metadata/descriptions/descriptionType.enum.Methods"
+msgid "metadata/descriptions/type.help"
 msgstr ""
 
-msgid "metadata/descriptions/descriptionType.enum.SeriesInformation"
+msgid "metadata/descriptions/type.hint"
 msgstr ""
 
-msgid "metadata/descriptions/descriptionType.enum.TableOfContents"
+msgid "metadata/descriptions/type.enum.Abstract"
 msgstr ""
 
-msgid "metadata/descriptions/descriptionType.enum.TechnicalInfo"
+msgid "metadata/descriptions/type.enum.AdditionalInfo"
 msgstr ""
 
-msgid "metadata/descriptions/descriptionType.enum.Other"
+msgid "metadata/descriptions/type.enum.Methods"
 msgstr ""
 
-msgid "metadata/descriptions/lang.label"
+msgid "metadata/descriptions/type.enum.SeriesInformation"
 msgstr ""
 
-msgid "metadata/descriptions/lang.help"
+msgid "metadata/descriptions/type.enum.TableOfContents"
 msgstr ""
 
-msgid "metadata/descriptions/lang.hint"
+msgid "metadata/descriptions/type.enum.TechnicalInfo"
 msgstr ""
 
-msgid "metadata/doi.label"
+msgid "metadata/descriptions/type.enum.Other"
 msgstr ""
 
-msgid "metadata/doi.help"
+msgid "metadata/ecosystem.label"
 msgstr ""
 
-msgid "metadata/doi.hint"
+msgid "metadata/ecosystem.help"
+msgstr ""
+
+msgid "metadata/ecosystem.hint"
+msgstr ""
+
+msgid "metadata/ecosystem/PID.label"
+msgstr ""
+
+msgid "metadata/ecosystem/PID.help"
+msgstr ""
+
+msgid "metadata/ecosystem/PID.hint"
+msgstr ""
+
+msgid "metadata/ecosystem/name.label"
+msgstr ""
+
+msgid "metadata/ecosystem/name.help"
+msgstr ""
+
+msgid "metadata/ecosystem/name.hint"
+msgstr ""
+
+msgid "metadata/files.help"
+msgstr ""
+
+msgid "metadata/files.label"
+msgstr ""
+
+msgid "metadata/files.hint"
+msgstr ""
+
+msgid "metadata/files/format.label"
+msgstr ""
+
+msgid "metadata/files/format.help"
+msgstr ""
+
+msgid "metadata/files/format.hint"
+msgstr ""
+
+msgid "metadata/files/md5.label"
+msgstr ""
+
+msgid "metadata/files/md5.help"
+msgstr ""
+
+msgid "metadata/files/md5.hint"
+msgstr ""
+
+msgid "metadata/files/name.label"
+msgstr ""
+
+msgid "metadata/files/name.help"
+msgstr ""
+
+msgid "metadata/files/name.hint"
+msgstr ""
+
+msgid "metadata/files/size.label"
+msgstr ""
+
+msgid "metadata/files/size.help"
+msgstr ""
+
+msgid "metadata/files/size.hint"
+msgstr ""
+
+msgid "metadata/files/sourceUrl.label"
+msgstr ""
+
+msgid "metadata/files/sourceUrl.help"
+msgstr ""
+
+msgid "metadata/files/sourceUrl.hint"
 msgstr ""
 
 msgid "metadata/geoLocations.label"
@@ -470,487 +485,148 @@ msgstr ""
 msgid "metadata/geoLocations.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox.label"
+msgid "metadata/geoLocations/box.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox.help"
+msgid "metadata/geoLocations/box.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox.hint"
+msgid "metadata/geoLocations/box.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/eastBoundLongitude.label"
+msgid "metadata/geoLocations/box/eastLongitude.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/eastBoundLongitude.help"
+msgid "metadata/geoLocations/box/eastLongitude.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/eastBoundLongitude.hint"
+msgid "metadata/geoLocations/box/eastLongitude.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/northBoundLatitude.label"
+msgid "metadata/geoLocations/box/northLatitude.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/northBoundLatitude.help"
+msgid "metadata/geoLocations/box/northLatitude.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/northBoundLatitude.hint"
+msgid "metadata/geoLocations/box/northLatitude.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/southBoundLatitude.label"
+msgid "metadata/geoLocations/box/southLatitude.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/southBoundLatitude.help"
+msgid "metadata/geoLocations/box/southLatitude.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/southBoundLatitude.hint"
+msgid "metadata/geoLocations/box/southLatitude.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/westBoundLongitude.label"
+msgid "metadata/geoLocations/box/westLongitude.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/westBoundLongitude.help"
+msgid "metadata/geoLocations/box/westLongitude.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/westBoundLongitude.hint"
+msgid "metadata/geoLocations/box/westLongitude.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPlace.label"
+msgid "metadata/geoLocations/description.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPlace.help"
+msgid "metadata/geoLocations/description.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPlace.hint"
+msgid "metadata/geoLocations/description.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint.label"
+msgid "metadata/geoLocations/point.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint.help"
+msgid "metadata/geoLocations/point.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint.hint"
+msgid "metadata/geoLocations/point.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint/pointLatitude.label"
+msgid "metadata/geoLocations/point/latitude.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint/pointLatitude.help"
+msgid "metadata/geoLocations/point/latitude.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint/pointLatitude.hint"
+msgid "metadata/geoLocations/point/latitude.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.label"
+msgid "metadata/geoLocations/point/longitude.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.help"
+msgid "metadata/geoLocations/point/longitude.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.hint"
+msgid "metadata/geoLocations/point/longitude.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons.help"
+msgid "metadata/geoLocations/polygon.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons.label"
+msgid "metadata/geoLocations/polygon.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons.hint"
+msgid "metadata/geoLocations/polygon.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.label"
+msgid "metadata/geoLocations/polygon/inPolygonPoint.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.help"
+msgid "metadata/geoLocations/polygon/inPolygonPoint.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.hint"
+msgid "metadata/geoLocations/polygon/inPolygonPoint.hint"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.label"
+msgid "metadata/geoLocations/polygon/inPolygonPoint/latitude.label"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.help"
+msgid "metadata/geoLocations/polygon/inPolygonPoint/latitude.help"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.hint"
+msgid "metadata/geoLocations/polygon/inPolygonPoint/latitude.hint"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.label"
+msgid "metadata/geoLocations/polygon/inPolygonPoint/longitude.label"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.help"
+msgid "metadata/geoLocations/polygon/inPolygonPoint/longitude.help"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.hint"
+msgid "metadata/geoLocations/polygon/inPolygonPoint/longitude.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.label"
+msgid "metadata/geoLocations/polygon/points.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.help"
+msgid "metadata/geoLocations/polygon/points.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.hint"
+msgid "metadata/geoLocations/polygon/points.hint"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.label"
+msgid "metadata/geoLocations/polygon/points/latitude.label"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.help"
+msgid "metadata/geoLocations/polygon/points/latitude.help"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.hint"
+msgid "metadata/geoLocations/polygon/points/latitude.hint"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.label"
+msgid "metadata/geoLocations/polygon/points/longitude.label"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.help"
+msgid "metadata/geoLocations/polygon/points/longitude.help"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.hint"
-msgstr ""
-
-msgid "metadata/identifiers.label"
-msgstr ""
-
-msgid "metadata/identifiers.help"
-msgstr ""
-
-msgid "metadata/identifiers.hint"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifier.label"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifier.help"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifier.hint"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.label"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.help"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.hint"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.ARK"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.arXiv"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.bibcode"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.DOI"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.EAN13"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.EISSN"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.Handle"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.IGSN"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.ISBN"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.ISSN"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.ISTC"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.LISSN"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.LSID"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.PMID"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.PURL"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.UPC"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.URL"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.URN"
-msgstr ""
-
-msgid "metadata/identifiers/relatedIdentifierType.enum.w3id"
-msgstr ""
-
-msgid "metadata/identifiers/relatedMetadataScheme.label"
-msgstr ""
-
-msgid "metadata/identifiers/relatedMetadataScheme.help"
-msgstr ""
-
-msgid "metadata/identifiers/relatedMetadataScheme.hint"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.label"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.help"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.hint"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsCitedBy"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.Cites"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsCollectedBy"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.Collects"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsSupplementTo"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsSupplementedBy"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsContinuedBy"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.Continues"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsDescribedBy"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.Describes"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.HasMetadata"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsMetadataFor"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.HasVersion"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsVersionOf"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsNewVersionOf"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsPartOf"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsPreviousVersionOf"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsPublishedIn"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.HasPart"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsReferencedBy"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.References"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsDocumentedBy"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.Documents"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsCompiledBy"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.Compiles"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsVariantFormOf"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsOriginalFormOf"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsIdenticalTo"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsReviewedBy"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.Reviews"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsDerivedFrom"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsSourceOf"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsRequiredBy"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.Requires"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.IsObsoletedBy"
-msgstr ""
-
-msgid "metadata/identifiers/relationType.enum.Obsoletes"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.label"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.help"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.hint"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Audiovisual"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Book"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.BookChapter"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Collection"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.ComputationalNotebook"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.ConferencePaper"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.ConferenceProceeding"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.DataPaper"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Dataset"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Dissertation"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Event"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Image"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Instrument"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.InteractiveResource"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Journal"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.JournalArticle"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Model"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.OutputManagementPlan"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.PeerReview"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.PhysicalObject"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Preprint"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Report"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Service"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Software"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Sound"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Standard"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.StudyRegistration"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Text"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Workflow"
-msgstr ""
-
-msgid "metadata/identifiers/resourceTypeGeneral.enum.Other"
-msgstr ""
-
-msgid "metadata/identifiers/schemeType.label"
-msgstr ""
-
-msgid "metadata/identifiers/schemeType.help"
-msgstr ""
-
-msgid "metadata/identifiers/schemeType.hint"
-msgstr ""
-
-msgid "metadata/identifiers/schemeURI.label"
-msgstr ""
-
-msgid "metadata/identifiers/schemeURI.help"
-msgstr ""
-
-msgid "metadata/identifiers/schemeURI.hint"
+msgid "metadata/geoLocations/polygon/points/longitude.hint"
 msgstr ""
 
 msgid "metadata/keywords.label"
@@ -971,6 +647,123 @@ msgstr ""
 msgid "metadata/language.hint"
 msgstr ""
 
+msgid "metadata/licenses.help"
+msgstr ""
+
+msgid "metadata/licenses.label"
+msgstr ""
+
+msgid "metadata/licenses.hint"
+msgstr ""
+
+msgid "metadata/licenses/name.label"
+msgstr ""
+
+msgid "metadata/licenses/name.help"
+msgstr ""
+
+msgid "metadata/licenses/name.hint"
+msgstr ""
+
+msgid "metadata/licenses/url.label"
+msgstr ""
+
+msgid "metadata/licenses/url.help"
+msgstr ""
+
+msgid "metadata/licenses/url.hint"
+msgstr ""
+
+msgid "metadata/methods.label"
+msgstr ""
+
+msgid "metadata/methods.help"
+msgstr ""
+
+msgid "metadata/methods.hint"
+msgstr ""
+
+msgid "metadata/methods/PID.label"
+msgstr ""
+
+msgid "metadata/methods/PID.help"
+msgstr ""
+
+msgid "metadata/methods/PID.hint"
+msgstr ""
+
+msgid "metadata/methods/instrumentationDescription.label"
+msgstr ""
+
+msgid "metadata/methods/instrumentationDescription.help"
+msgstr ""
+
+msgid "metadata/methods/instrumentationDescription.hint"
+msgstr ""
+
+msgid "metadata/methods/qualityControlDescription.label"
+msgstr ""
+
+msgid "metadata/methods/qualityControlDescription.help"
+msgstr ""
+
+msgid "metadata/methods/qualityControlDescription.hint"
+msgstr ""
+
+msgid "metadata/methods/sampling.label"
+msgstr ""
+
+msgid "metadata/methods/sampling.help"
+msgstr ""
+
+msgid "metadata/methods/sampling.hint"
+msgstr ""
+
+msgid "metadata/methods/sampling/samplingDescription.label"
+msgstr ""
+
+msgid "metadata/methods/sampling/samplingDescription.help"
+msgstr ""
+
+msgid "metadata/methods/sampling/samplingDescription.hint"
+msgstr ""
+
+msgid "metadata/methods/sampling/studyDescription.label"
+msgstr ""
+
+msgid "metadata/methods/sampling/studyDescription.help"
+msgstr ""
+
+msgid "metadata/methods/sampling/studyDescription.hint"
+msgstr ""
+
+msgid "metadata/methods/steps.help"
+msgstr ""
+
+msgid "metadata/methods/steps.label"
+msgstr ""
+
+msgid "metadata/methods/steps.hint"
+msgstr ""
+
+msgid "metadata/methods/steps/description.label"
+msgstr ""
+
+msgid "metadata/methods/steps/description.help"
+msgstr ""
+
+msgid "metadata/methods/steps/description.hint"
+msgstr ""
+
+msgid "metadata/methods/steps/title.label"
+msgstr ""
+
+msgid "metadata/methods/steps/title.help"
+msgstr ""
+
+msgid "metadata/methods/steps/title.hint"
+msgstr ""
+
 msgid "metadata/project.label"
 msgstr ""
 
@@ -980,265 +773,184 @@ msgstr ""
 msgid "metadata/project.hint"
 msgstr ""
 
-msgid "metadata/publicationYear.label"
+msgid "metadata/project/DOI.label"
 msgstr ""
 
-msgid "metadata/publicationYear.help"
+msgid "metadata/project/DOI.help"
 msgstr ""
 
-msgid "metadata/publicationYear.hint"
+msgid "metadata/project/DOI.hint"
 msgstr ""
 
-msgid "metadata/resourceTypes.label"
+msgid "metadata/project/PID.label"
 msgstr ""
 
-msgid "metadata/resourceTypes.help"
+msgid "metadata/project/PID.help"
 msgstr ""
 
-msgid "metadata/resourceTypes.hint"
+msgid "metadata/project/PID.hint"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceType.label"
+msgid "metadata/project/name.label"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceType.help"
+msgid "metadata/project/name.help"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceType.hint"
+msgid "metadata/project/name.hint"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.label"
+msgid "metadata/propertyRights.help"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.help"
+msgid "metadata/propertyRights.label"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.hint"
+msgid "metadata/propertyRights.hint"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Audiovisual"
+msgid "metadata/propertyRights/name.label"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Book"
+msgid "metadata/propertyRights/name.help"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.BookChapter"
+msgid "metadata/propertyRights/name.hint"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Collection"
+msgid "metadata/propertyRights/url.label"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.ComputationalNotebook"
+msgid "metadata/propertyRights/url.help"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.ConferencePaper"
+msgid "metadata/propertyRights/url.hint"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.ConferenceProceeding"
+msgid "metadata/publicationDate.label"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.DataPaper"
+msgid "metadata/publicationDate.help"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Dataset"
+msgid "metadata/publicationDate.hint"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Dissertation"
+msgid "metadata/shortNames.help"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Event"
+msgid "metadata/shortNames.label"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Image"
+msgid "metadata/shortNames.hint"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Instrument"
+msgid "metadata/shortNames/language.label"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.InteractiveResource"
+msgid "metadata/shortNames/language.help"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Journal"
+msgid "metadata/shortNames/language.hint"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.JournalArticle"
+msgid "metadata/shortNames/text.label"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Model"
+msgid "metadata/shortNames/text.help"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.OutputManagementPlan"
+msgid "metadata/shortNames/text.hint"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.PeerReview"
+msgid "metadata/siteReference.help"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.PhysicalObject"
+msgid "metadata/siteReference.label"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Preprint"
+msgid "metadata/siteReference.hint"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Report"
+msgid "metadata/siteReference/PID.label"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Service"
+msgid "metadata/siteReference/PID.help"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Software"
+msgid "metadata/siteReference/PID.hint"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Sound"
+msgid "metadata/siteReference/name.label"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Standard"
+msgid "metadata/siteReference/name.help"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.StudyRegistration"
+msgid "metadata/siteReference/name.hint"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Text"
+msgid "metadata/taxonomicCoverages.label"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Workflow"
+msgid "metadata/taxonomicCoverages.help"
 msgstr ""
 
-msgid "metadata/resourceTypes/resourceTypeGeneral.enum.Other"
+msgid "metadata/taxonomicCoverages.hint"
 msgstr ""
 
-msgid "metadata/rightsList.label"
+msgid "metadata/taxonomicCoverages/classification.label"
 msgstr ""
 
-msgid "metadata/rightsList.help"
+msgid "metadata/taxonomicCoverages/classification.help"
 msgstr ""
 
-msgid "metadata/rightsList.hint"
+msgid "metadata/taxonomicCoverages/classification.hint"
 msgstr ""
 
-msgid "metadata/rightsList/lang.label"
+msgid "metadata/taxonomicCoverages/classification/commonName.label"
 msgstr ""
 
-msgid "metadata/rightsList/lang.help"
+msgid "metadata/taxonomicCoverages/classification/commonName.help"
 msgstr ""
 
-msgid "metadata/rightsList/lang.hint"
+msgid "metadata/taxonomicCoverages/classification/commonName.hint"
 msgstr ""
 
-msgid "metadata/rightsList/rights.label"
+msgid "metadata/taxonomicCoverages/classification/id.label"
 msgstr ""
 
-msgid "metadata/rightsList/rights.help"
+msgid "metadata/taxonomicCoverages/classification/id.help"
 msgstr ""
 
-msgid "metadata/rightsList/rights.hint"
+msgid "metadata/taxonomicCoverages/classification/id.hint"
 msgstr ""
 
-msgid "metadata/rightsList/rightsIdentifier.label"
+msgid "metadata/taxonomicCoverages/classification/rankName.label"
 msgstr ""
 
-msgid "metadata/rightsList/rightsIdentifier.help"
+msgid "metadata/taxonomicCoverages/classification/rankName.help"
 msgstr ""
 
-msgid "metadata/rightsList/rightsIdentifier.hint"
+msgid "metadata/taxonomicCoverages/classification/rankName.hint"
 msgstr ""
 
-msgid "metadata/rightsList/rightsIdentifierScheme.label"
+msgid "metadata/taxonomicCoverages/classification/rankValue.label"
 msgstr ""
 
-msgid "metadata/rightsList/rightsIdentifierScheme.help"
+msgid "metadata/taxonomicCoverages/classification/rankValue.help"
 msgstr ""
 
-msgid "metadata/rightsList/rightsIdentifierScheme.hint"
+msgid "metadata/taxonomicCoverages/classification/rankValue.hint"
 msgstr ""
 
-msgid "metadata/rightsList/rightsURI.label"
+msgid "metadata/taxonomicCoverages/description.label"
 msgstr ""
 
-msgid "metadata/rightsList/rightsURI.help"
+msgid "metadata/taxonomicCoverages/description.help"
 msgstr ""
 
-msgid "metadata/rightsList/rightsURI.hint"
-msgstr ""
-
-msgid "metadata/rightsList/schemeURI.label"
-msgstr ""
-
-msgid "metadata/rightsList/schemeURI.help"
-msgstr ""
-
-msgid "metadata/rightsList/schemeURI.hint"
-msgstr ""
-
-msgid "metadata/shortName.label"
-msgstr ""
-
-msgid "metadata/shortName.help"
-msgstr ""
-
-msgid "metadata/shortName.hint"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages.label"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages.help"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages.hint"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages/classificationCode.label"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages/classificationCode.help"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages/classificationCode.hint"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages/lang.label"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages/lang.help"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages/lang.hint"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages/schemeURI.label"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages/schemeURI.help"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages/schemeURI.hint"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages/subject.label"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages/subject.help"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages/subject.hint"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages/subjectScheme.label"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages/subjectScheme.help"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages/subjectScheme.hint"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages/valueURI.label"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages/valueURI.help"
-msgstr ""
-
-msgid "metadata/taxanomicCoverages/valueURI.hint"
+msgid "metadata/taxonomicCoverages/description.hint"
 msgstr ""
 
 msgid "metadata/temporalCoverages.label"
@@ -1250,64 +962,103 @@ msgstr ""
 msgid "metadata/temporalCoverages.hint"
 msgstr ""
 
-msgid "metadata/temporalCoverages/date.label"
+msgid "metadata/temporalCoverages/endDate.label"
 msgstr ""
 
-msgid "metadata/temporalCoverages/date.help"
+msgid "metadata/temporalCoverages/endDate.help"
 msgstr ""
 
-msgid "metadata/temporalCoverages/date.hint"
+msgid "metadata/temporalCoverages/endDate.hint"
 msgstr ""
 
-msgid "metadata/temporalCoverages/dateInformation.label"
+msgid "metadata/temporalCoverages/startDate.label"
 msgstr ""
 
-msgid "metadata/temporalCoverages/dateInformation.help"
+msgid "metadata/temporalCoverages/startDate.help"
 msgstr ""
 
-msgid "metadata/temporalCoverages/dateInformation.hint"
+msgid "metadata/temporalCoverages/startDate.hint"
 msgstr ""
 
-msgid "metadata/temporalCoverages/dateType.label"
+msgid "metadata/temporalResolution.label"
 msgstr ""
 
-msgid "metadata/temporalCoverages/dateType.help"
+msgid "metadata/temporalResolution.help"
 msgstr ""
 
-msgid "metadata/temporalCoverages/dateType.hint"
+msgid "metadata/temporalResolution.hint"
 msgstr ""
 
-msgid "metadata/temporalCoverages/dateType.enum.Accepted"
+msgid "metadata/titles.help"
 msgstr ""
 
-msgid "metadata/temporalCoverages/dateType.enum.Available"
+msgid "metadata/titles.label"
 msgstr ""
 
-msgid "metadata/temporalCoverages/dateType.enum.Copyrighted"
+msgid "metadata/titles.hint"
 msgstr ""
 
-msgid "metadata/temporalCoverages/dateType.enum.Collected"
+msgid "metadata/titles/language.label"
 msgstr ""
 
-msgid "metadata/temporalCoverages/dateType.enum.Created"
+msgid "metadata/titles/language.help"
 msgstr ""
 
-msgid "metadata/temporalCoverages/dateType.enum.Issued"
+msgid "metadata/titles/language.hint"
 msgstr ""
 
-msgid "metadata/temporalCoverages/dateType.enum.Submitted"
+msgid "metadata/titles/text.label"
 msgstr ""
 
-msgid "metadata/temporalCoverages/dateType.enum.Updated"
+msgid "metadata/titles/text.help"
 msgstr ""
 
-msgid "metadata/temporalCoverages/dateType.enum.Valid"
+msgid "metadata/titles/text.hint"
 msgstr ""
 
-msgid "metadata/temporalCoverages/dateType.enum.Withdrawn"
+msgid "pid.help"
 msgstr ""
 
-msgid "metadata/temporalCoverages/dateType.enum.Other"
+msgid "pid.label"
+msgstr ""
+
+msgid "pid.hint"
+msgstr ""
+
+msgid "pid/obj_type.help"
+msgstr ""
+
+msgid "pid/obj_type.label"
+msgstr ""
+
+msgid "pid/obj_type.hint"
+msgstr ""
+
+msgid "pid/pid_type.help"
+msgstr ""
+
+msgid "pid/pid_type.label"
+msgstr ""
+
+msgid "pid/pid_type.hint"
+msgstr ""
+
+msgid "pid/pk.help"
+msgstr ""
+
+msgid "pid/pk.label"
+msgstr ""
+
+msgid "pid/pk.hint"
+msgstr ""
+
+msgid "pid/status.help"
+msgstr ""
+
+msgid "pid/status.label"
+msgstr ""
+
+msgid "pid/status.hint"
 msgstr ""
 
 msgid "updated.help"

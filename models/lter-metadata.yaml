@@ -2,29 +2,29 @@ LTERMetadata:
   $id: LTERMetadata
 
   properties:
-    identifiers[]:
-      use: "./lter-datatypes.yaml#RelatedIdentifier"
+    datasetIds[]:
+      use: "./lter-datatypes.yaml#AlternateIdentifier"
       ^label.en: Identifiers
 
-    doi:
-      type: keyword
-      label.en: DOI
-
-    shortName:
-      type: keyword
+    shortNames[]:
+      use: "./lter-datatypes.yaml#ShortName"
       label.en: Short name
 
-    creators[]:
-      use: "./lter-datatypes.yaml#Creator"
+    titles[]:
+      use: "./lter-datatypes.yaml#Title"
+      label.en: Title
+
+    authors[]:
+      use: "./lter-datatypes.yaml#Author"
       ^label.en: Authors
 
     contributors[]:
       use: "./lter-datatypes.yaml#Contributor"
       ^label.en: Contributors
 
-    publicationYear:
-      type: keyword
-      label.en: Publication year
+    publicationDate:
+      type: date
+      label.en: Publication date
 
     language:
       type: keyword
@@ -38,35 +38,52 @@ LTERMetadata:
       type: keyword
       ^label.en: Keywords
 
-    rightsList[]:
-      use: "./lter-datatypes.yaml#Rights"
-      ^label.en: Rights
+    propertyRights[]:
+      use: "./lter-datatypes.yaml#PropertyRight"
+      label.en: Property Rights
+
+    licenses[]:
+      use: "./lter-datatypes.yaml#License"
+      label.en: Licenses
 
     geoLocations[]:
       use: "./lter-datatypes.yaml#GeoLocation"
       ^label.en: GeoLocations
 
-    temporalCoverages[]: # TODO
-      use: "./lter-datatypes.yaml#Date"
+    temporalCoverages[]:
+      use: "./lter-datatypes.yaml#TemporalCoverage"
       ^label.en: Temporal Coverages
 
-    taxanomicCoverages[]: #TODO
-      use: "./lter-datatypes.yaml#Subject"
-      ^label.en: Taxanomic Coverages
+    taxonomicCoverages[]:
+      use: "./lter-datatypes.yaml#TaxonomicCoverage"
+      ^label.en: Taxonomic Coverages
+
+    methods:
+      "$ref": "./lter-datatypes.yaml#Methods"
 
     project:
-      type: keyword
-      label.en: Project
+      "$ref": "./lter-datatypes.yaml#Project"
 
-    # siteReference:
-    # SOReference:
-    # dataLevel:
+    siteReference[]:
+      use: "./lter-datatypes.yaml#SiteReference"
+      label.en: Sites information
 
-    resourceTypes[]:
-      use: "./lter-datatypes.yaml#ResourceType"
-      ^label.en: Resource types
+    SOReference:
+      "$ref": "./lter-datatypes.yaml#SOReference"
 
-    # temporalResolution:
-    # citation:
-    # ecosystem:
-    # files:
+    dataLevel:
+      type: integer
+      minimum: 0
+      maximum: 4 # TODO this can be adjusted in time (0-3/0-4)
+      label.en: Data level
+
+    temporalResolution:
+      "$ref": "./lter-datatypes.yaml#TemporalResolution"
+
+    ecosystem:
+      "$ref": "./lter-datatypes.yaml#Ecosystem"
+
+    files[]:
+      use: "./lter-datatypes.yaml#File"
+      label.en: Dataset files
+
