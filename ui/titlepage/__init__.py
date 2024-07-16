@@ -5,7 +5,7 @@ from oarepo_ui.resources.components import UIResourceComponent
 
 class CustomComponent(UIResourceComponent):
     def before_render(self, *, extra_context, identity, **kwargs):
-        extra_context["KEY"] = "randomValue"
+        extra_context["most_searched"] = ["Weather", "Weather2", "Weather3"]
 
 
 class TitlePageResourceConfig(UIResourceConfig):
