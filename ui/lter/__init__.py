@@ -20,13 +20,13 @@ class LterResourceConfig(RecordsUIResourceConfig):
     except ImportError:
         pass
 
-    application_id="lter"
+    application_id = "lter"
 
     templates = {
         "detail": "lter.Detail",
         "search": "lter.Search",
         "edit": "lter.Deposit",
-        "create":"lter.Deposit",
+        "create": "lter.Deposit",
     }
 
 

@@ -17,13 +17,13 @@ Content-Type: application/json
     "shortNames": [
       {
         "language": "eng",
-        "text": "Name"
+        "text": "Test2"
       }
     ],
     "titles": [
       {
         "language": "eng",
-        "text": "Title"
+        "text": "Test2"
       }
     ],
     "authors": [
@@ -72,7 +72,7 @@ Content-Type: application/json
       }
     ],
     "keywords": [
-      "Occurrence; Darwin Core; GBIF; phytoplankton; LTER-Italy; Lake Candia"
+      "Occurrence", "Darwin Core", "GBIF"
     ],
     "propertyRights": [
       {
@@ -188,6 +188,6 @@ Content-Type: application/json
 GET https://127.0.0.1:5000/api/user/lter?q=metadata.shortName:Te???
 
 ###
-POST https://127.0.0.1:5000/api/lter/fnfkn-78986/draft/actions/publish
+POST https://127.0.0.1:5000/api/lter/v0ssy-q1621/draft/actions/publish
 
 #t3f71-mv568
