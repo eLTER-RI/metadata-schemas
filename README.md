@@ -1,5 +1,22 @@
 # Elter Catalog
 
+## Prerequisites
+- Ideally any Linux distribution or MacOS
+- Docker engine
+- Node v21
+- Python 3.10
+
+## How to run locally
+```bash
+./nrp develop
+```
+
+## Links:
+- Title Page: https://127.0.0.1:5000/
+- Search Result Page: https://127.0.0.1:5000/lter
+- API Page: https://127.0.0.1:5000/lter/api
+
+# Documentation
 
 ## Repository layout
 

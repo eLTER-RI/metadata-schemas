@@ -1,0 +1,81 @@
+{% extends "oarepo_ui/header.html" %}
+
+{%- block navbar %}
+<div class="ui invenio-header-container">
+    <nav id="invenio-nav" class="ui menu shadowless borderless p-0">
+        <div class="item logo">
+            {%- if config.THEME_LOGO %}
+            <a class="logo-link" href="/">
+                <img class="ui image"
+                     src="{{ url_for('static', filename=config.THEME_LOGO) }}"
+                     alt="{{ _(config.THEME_SITENAME) }}"/>
+            </a>
+            {%- endif %}
+        </div>
+        <div class="right menu">
+            <div class="item">
+                <div class="ui icon input lightGrey">
+                    <input type="text" placeholder="Search...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+            <a class="ui item">Datasets</a>
+            <a class="ui item">Communities</a>
+            <a class="ui item">Help</a>
+            <a class="ui item">Login</a>
+        </div>
+    </nav>
+</div>
+{%- endblock navbar %}
+
+<!--      {# Main Site logo #}-->
+<!--      {%- block navbar_header %}-->
+<!--      <div class="item logo left-logo p-0">-->
+<!--        {%- block brand %}-->
+<!--          {%- if config.THEME_LOGO %}-->
+<!--            <a class="logo-link" href="/">-->
+<!--              <img class="ui image"-->
+<!--                    src="{{ url_for('static', filename=config.THEME_LOGO) }}"-->
+<!--                    alt="{{ _(config.THEME_SITENAME) }}"/>-->
+<!--            </a>-->
+<!--          {%- endif %}-->
+<!--        {%- endblock brand %}-->
+<!--      </div>-->
+<!--      <div class="item p-0 mobile-hidden">-->
+<!--        <h1 id="header-page-title">{{ _(config.THEME_SITENAME) }}</h1>-->
+<!--      </div>-->
+<!--      {%- endblock navbar_header %}-->
+
+<!--      {# Main menu #}-->
+<!--      <div-->
+<!--        role="menu"-->
+<!--        id="invenio-menu"-->
+<!--        class="ui fluid menu borderless"-->
+<!--      >-->
+<!--        {# Search bar #}-->
+<!--        {%- block navbar_search %}{%- endblock navbar_search %}-->
+
+<!--        {# Navigation links #}-->
+<!--        {%- block navbar_nav %}{%- endblock navbar_nav %}-->
+
+
+<!--        {# Language selector #}-->
+<!--        {%- block navbar_right %}-->
+<!--        <div class="right menu item">-->
+<!--          {%- if config.I18N_LANGUAGES %}-->
+<!--          <form id="language-code-form" class="lang-select"-->
+<!--              action="{{ url_for('invenio_i18n.set_lang')}}"-->
+<!--              method="POST">-->
+<!--            <div>-->
+<!--              <select id="lang-code" name="lang_code" class="ui selection dropdown language-selector">-->
+<!--                {% for l in current_i18n.get_locales() %}-->
+<!--                  <option {% if current_i18n.language == l.language %}selected {% endif %}value="{{ l.language }}">{{ l.get_display_name() }}</option>-->
+<!--                {% endfor %}-->
+<!--              </select>-->
+<!--            </div>-->
+<!--          </form>-->
+<!--          {%- endif %}-->
+<!--        </div>-->
+<!--        {%- endblock navbar_right %}-->
+<!--      </div>-->
+
