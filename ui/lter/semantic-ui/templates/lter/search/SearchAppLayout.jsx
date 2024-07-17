@@ -255,28 +255,41 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
         : resultsSortLayoutNoFacets;
 
     return (
-        <div className="bg-lightGrey">
-            <Container fluid>
-                <Grid relaxed padded>
-                    <Grid.Row>
-                        <Grid.Column width={12} floated="right">
-                            <SearchBar buildUID={buildUID} appName={appName}/>
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
+        <div>
+            <div className="page-nav-container">
+                <div className="page-nav">
+                    <div className="breadcrumb">
+                        <p>BREADCRUMBS</p>
+                    </div>
+                    <div className="page-title">
+                        Datasets
+                    </div>
+                </div>
+            </div>
+            <div className="bg-lightGrey">
+                <Container fluid>
+                    <Grid relaxed padded>
+                        <Grid.Row>
+                            <Grid.Column width={12} floated="right">
+                                <SearchBar buildUID={buildUID} appName={appName}/>
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
 
-                <SearchAppResultsGrid
-                    columnsAmount={columnsAmount}
-                    facetsAvailable={facetsAvailable}
-                    config={config}
-                    appName={appName}
-                    buildUID={buildUID}
-                    resultsPaneLayout={resultsPaneLayout}
-                    hasButtonSidebar={hasButtonSidebar}
-                    resultSortLayout={resultSortLayout}
-                />
-            </Container>
+                    <SearchAppResultsGrid
+                        columnsAmount={columnsAmount}
+                        facetsAvailable={facetsAvailable}
+                        config={config}
+                        appName={appName}
+                        buildUID={buildUID}
+                        resultsPaneLayout={resultsPaneLayout}
+                        hasButtonSidebar={hasButtonSidebar}
+                        resultSortLayout={resultSortLayout}
+                    />
+                </Container>
+            </div>
         </div>
+
     );
 };
 
