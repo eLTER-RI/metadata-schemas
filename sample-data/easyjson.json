@@ -1,0 +1,79 @@
+  {
+    "metadata": {
+      "datasetIds": [
+        {
+          "source": "b2share",
+          "identifier": "id",
+          "url": "url",
+          "type": "PID"
+        }
+      ],
+      "titles": [
+        {
+          "language": "eng",
+          "text": "Test2"
+        }
+      ],
+      "authors": [
+        {
+          "fullName": "Dominik MiddleName Dubovsky",
+          "givenName": "Dominik",
+          "familyName": "Dubovsky",
+          "email": "randomEmail@gmail.com",
+          "ids": [
+            {
+              "id": "12345",
+              "schema": "Orcid",
+              "url": "www.google.com"
+            }
+          ]
+        }
+      ],
+      "publicationDate": "1999-02-24",
+      "language": "english",
+      "descriptions": [
+        {
+          "type": "Abstract",
+          "language": "eng",
+          "description": "This is abstract"
+        },
+        {
+          "type": "AdditionalInfo",
+          "language": "eng",
+          "description": "Some additional info"
+        }
+      ],
+      "keywords": [
+        "Occurrence", "Darwin Core", "GBIF"
+      ],
+      "geoLocations": [
+        {
+          "description": "description of geolocation place",
+          "polygon": [
+            {
+              "points": [
+                {
+                  "longitude": 10.50,
+                  "latitude": 10.50
+                },
+                {
+                  "longitude": 10.50,
+                  "latitude": 10.50
+                }
+              ],
+              "inPolygonPoint": {
+                "longitude": 10.50,
+                "latitude": 10.50
+              }
+            }
+          ]
+        }
+      ],
+      "temporalCoverages": [
+        {
+          "startDate": "1999-02-24",
+          "endDate": "1999-02-24"
+        }
+      ]
+    }
+  }

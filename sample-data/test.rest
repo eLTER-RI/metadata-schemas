@@ -1,5 +1,6 @@
 GET https://127.0.0.1:5000/api/lter
 
+
 ###
 POST https://127.0.0.1:5000/api/lter
 Content-Type: application/json
@@ -188,6 +189,6 @@ Content-Type: application/json
 GET https://127.0.0.1:5000/api/user/lter?q=metadata.shortName:Te???
 
 ###
-POST https://127.0.0.1:5000/api/lter/v0ssy-q1621/draft/actions/publish
+POST https://127.0.0.1:5000/api/lter/x3yg0-xb716/draft/actions/publish
 
 #t3f71-mv568
