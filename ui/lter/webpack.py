@@ -12,7 +12,9 @@ theme = WebpackThemeBundle(
             },
             dependencies={},
             devDependencies={},
-            aliases={},
+            aliases={
+                "@lter_search": "js/lter/search",
+            },
         )
     },
 )
