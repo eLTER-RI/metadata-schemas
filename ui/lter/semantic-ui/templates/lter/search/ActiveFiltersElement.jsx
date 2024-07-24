@@ -85,7 +85,7 @@ const ActiveFiltersElementComponent = ({
                             })}
             </span>
                     ))}
-                    <ClearFiltersButton ignoredFilters={ignoredFilters} clearFiltersButtonClassName="primary"/>
+                    <ClearFiltersButton ignoredFilters={ignoredFilters} clearFiltersButtonClassName="secondary"/>
                 </div>
             </Grid.Column>
         </Grid>
