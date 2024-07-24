@@ -149,6 +149,50 @@ footer {
   }
 }
 
+.results-per-page {
+  margin-right: 2rem;
+
+  @media screen and (max-width: 768px) {
+    margin-right: 0.5rem;
+  }
+
+  @media screen and (max-width: 530px) {
+    margin: 0 0 0.5rem;
+  }
+}
+
+.search-sort, .results-per-page {
+  color: @lightGrey;
+  display: inline-block;
+
+  & > span {
+    margin-right: 0.5rem;
+  }
+
+  @media screen and (max-width: 1300px) {
+    margin: 0;
+    text-align: center;
+
+    & > span {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    & > span {
+      margin: 0.2rem;
+    }
+  }
+
+  @media screen and (max-width: 578px) {
+    margin: 0;
+
+    & > span {
+      margin: 0;
+    }
+  }
+}
+
 .active-filters-labels {
   .ui.label {
     margin: 0.5rem 0.5rem 0.5rem 0;
@@ -192,7 +236,7 @@ a.accordion-title {
     line-height: normal;
     word-wrap: anywhere;
 
-    span:hover {
+    &:hover {
       text-decoration: underline;
     }
 
