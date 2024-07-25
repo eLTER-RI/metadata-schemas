@@ -3,13 +3,43 @@
 {% extends "oarepo_ui/detail.html" %}
 
 {%- block head_links %}
-{{ super() }}
+    {{ super() }}
 {%- endblock %}
 
-{% block record_main_content %}
-    <LterDetailRoot md={d.metadata} />
+{%- block page_body %}
+    <div class="ui main container">
+        <div class="ui stackable grid">
+            <div class="row detail-search-menu">
+                <div class="sixteen wide mobile four wide computer column left floated detail-back-to-search-link">
+                    <a href="{{ url_for('lter.search') }}" class="text-big"
+                       aria-label="{{ _('Back to search results') }}">
+                        <div>
+                            <i class="left chevron icon"></i>{{ _('Back to search results')|upper }}
+                        </div>
+                    </a>
+                </div>
+                <div class="sixteen wide mobile twelve wide computer column center aligned right floated">
+                    <form action="{{ url_for('lter.search') }}" class="ui form" role="search">
+                        <div class="ui fluid action input search-input">
+                            <input type="text" name="q" class="form-control" placeholder="{{ _('Search') }}">
+                            <button type="submit" class="ui icon search button" aria-label="{{ _('Search') }}"><i
+                                    class="search icon"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="one column row">
+                <article class="column main-record-content">
+                    {% block record_main_content %}
+                        <LterDetailRoot md={d.metadata}/>
+                    {% endblock record_main_content %}
+                </article>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
-{% block record_sidebar %}
-    Add your sidebar content here
-{% endblock record_sidebar %}
+{#{% block record_sidebar %}#}
+{#    Add your sidebar content here#}
+{#{% endblock record_sidebar %}#}
