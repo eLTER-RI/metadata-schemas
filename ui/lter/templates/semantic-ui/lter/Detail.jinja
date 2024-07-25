@@ -8,7 +8,15 @@
 
 {%- block page_body %}
     <div class="ui main container">
-        <div class="ui stackable grid">
+        <div class="row page-nav-container">
+            <div class="page-nav">
+                <div class="page-title">
+                    Detail info
+                </div>
+            </div>
+        </div>
+        <div class="ui stackable grid record-detail-container">
+
             <div class="row detail-search-menu">
                 <div class="sixteen wide mobile four wide computer column left floated detail-back-to-search-link">
                     <a href="{{ url_for('lter.search') }}" class="text-big"
