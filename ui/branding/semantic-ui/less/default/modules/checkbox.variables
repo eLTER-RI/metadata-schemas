@@ -1,0 +1,24 @@
+@checkboxBorder: 1px solid @black;
+@checkboxBorderRadius: @4px;
+
+/* Hover */
+@checkboxHoverBorderColor: @carrotOrange;
+
+/* Pressed */
+@checkboxPressedBackground: @carrotOrange;
+@checkboxPressedBorderColor: @carrotOrange;
+@checkboxPressedColor: @white;
+
+/* Focus */
+@checkboxFocusBorderColor: @carrotOrange;
+@checkboxFocusCheckColor: @white;
+
+/* Active */
+@checkboxActiveBackground: @carrotOrange;
+@checkboxActiveBorderColor: @carrotOrange;
+@checkboxActiveCheckColor: @white;
+
+/* Active Focus */
+@checkboxActiveFocusBackground: @carrotOrange;
+@checkboxActiveFocusBorderColor: @carrotOrange;
+@checkboxActiveFocusCheckColor: @white;

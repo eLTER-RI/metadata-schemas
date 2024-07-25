@@ -258,9 +258,6 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
         <div>
             <div className="page-nav-container">
                 <div className="page-nav">
-                    <div className="breadcrumb">
-                        <p>BREADCRUMBS</p>
-                    </div>
                     <div className="page-title">
                         Datasets
                     </div>

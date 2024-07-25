@@ -1,0 +1,16 @@
+.ui.page-footer {
+  #nr-footer-container {
+    border-top: 1px solid @lightGrey;
+  }
+
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+  .footer-top {
+    color: black;
+  }
+  .footer-bottom {
+    color: black;
+  }
+}
