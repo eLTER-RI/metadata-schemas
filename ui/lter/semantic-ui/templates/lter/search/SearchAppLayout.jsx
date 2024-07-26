@@ -237,8 +237,8 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
                     >
                         <Button
                             onClick={scrollToTop}
-                            id=" scroll-to-top-button"
-                            color=" teal"
+                            id="scroll-to-top-button"
+                            className="lapisLazuli"
                             circular
                             basic
                         >

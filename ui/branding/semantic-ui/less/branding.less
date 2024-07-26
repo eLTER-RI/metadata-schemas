@@ -285,6 +285,45 @@ a.accordion-title {
   padding: 2rem !important;
 }
 
+#scroll-to-top-button {
+  color: @oxfordBlue !important;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 250px !important;
+  right: 44px;
+  z-index: 1000;
+  gap: 2px;
+  border: none;
+  box-shadow: none !important;
+
+  &:hover {
+    background: transparent !important;
+  }
+
+  &:active {
+    background: transparent !important;
+  }
+
+  &:focus {
+    background: transparent !important;
+  }
+
+  .scroll-to-top-text {
+    font-weight: 700;
+    font-size: 0.7rem;
+  }
+
+  @media screen and (max-width: 1679px) {
+    bottom: 180px;
+  }
+
+  @media screen and (max-width: 768px) {
+    right: 25px;
+    bottom: 148px;
+  }
+}
+
 // UTILS:
 .oxfordBlue {
   color: #0A2033 !important;
