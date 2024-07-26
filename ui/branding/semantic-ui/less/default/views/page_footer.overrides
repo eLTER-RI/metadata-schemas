@@ -1,4 +1,6 @@
 .ui.page-footer {
+
+  margin: 2rem;
   #nr-footer-container {
     border-top: 1px solid @lightGrey;
   }
