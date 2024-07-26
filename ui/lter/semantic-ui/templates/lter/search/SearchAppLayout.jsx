@@ -1,11 +1,12 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect} from "react";
 import PropTypes from "prop-types";
 import _isEmpty from "lodash/isEmpty";
 import Overridable from "react-overridable";
-import {withState, ActiveFilters} from "react-searchkit";
-import {GridResponsiveSidebarColumn} from "react-invenio-forms";
-import {Container, Grid, Button, Label, Icon} from "semantic-ui-react";
-import {i18next} from "@translations/oarepo_ui/i18next";
+import {withState, ActiveFilters, ResultsPerPage} from "react-searchkit";
+import {Container, Grid, Button, Header, TransitionablePortal, Icon} from "semantic-ui-react";
+import {i18next as i18nOARepo} from "@translations/oarepo_ui/i18next";
+import {i18next} from "@translations/i18next";
+import {ShouldActiveFiltersRender, ActiveFiltersCountFloatingLabel, ClearFiltersButton} from "@js/oarepo_ui";
 import {
     SearchAppFacets,
     SearchAppResultsPane,
@@ -13,169 +14,33 @@ import {
     SearchConfigurationContext,
 } from "@js/invenio_search_ui/components";
 import {ResultOptions} from "@js/invenio_search_ui/components/Results";
-import {ShouldActiveFiltersRender, ClearFiltersButton} from "@js/oarepo_ui";
+import {ResultCountWithState, ResultsPerPageLabel, GridResponsiveSidebarColumn} from "@lter_search";
 
 const ResultOptionsWithState = withState(ResultOptions);
 
-export const ActiveFiltersCountFloatingLabelComponent = ({
-                                                             currentQueryState,
-                                                             className,
-                                                         }) => {
-    const {filters} = currentQueryState;
-    const searchAppContext = useContext(SearchConfigurationContext);
-    const {
-        initialQueryState: {filters: initialFilters},
-    } = searchAppContext;
-    return (
-        <Label floating circular size="mini" className={className}>
-            {filters.length - initialFilters.length}
-        </Label>
-    );
-};
-
-ActiveFiltersCountFloatingLabelComponent.propTypes = {
-    className: PropTypes.string,
-    currentQueryState: PropTypes.object.isRequired,
-};
-
-ActiveFiltersCountFloatingLabelComponent.defaultProps = {
-    className: "active-filters-count-label",
-};
-
-export const ActiveFiltersCountFloatingLabel = withState(
-    ActiveFiltersCountFloatingLabelComponent
-);
-
-export const SearchAppResultsGrid = ({
-                                         columnsAmount,
-                                         facetsAvailable,
-                                         config,
-                                         appName,
-                                         buildUID,
-                                         resultsPaneLayout,
-                                         hasButtonSidebar,
-                                         resultSortLayout,
-                                     }) => {
-    const [sidebarVisible, setSidebarVisible] = useState(false);
-
-    return (
-        <Grid
-            columns={columnsAmount}
-            relaxed
-            className="search-app rel-mt-2"
-            padded
-        >
-            <Grid.Row verticalAlign="middle" className="result-options">
-                {facetsAvailable && (
-                    <Grid.Column
-                        floated="left"
-                        only="mobile tablet"
-                        mobile={2}
-                        tablet={2}
-                        textAlign="center"
-                    >
-                        <Button
-                            basic
-                            onClick={() => setSidebarVisible(true)}
-                            title={i18next.t("Filter results")}
-                            aria-label={i18next.t("Filter results")}
-                            className="facets-sidebar-open-button"
-                        >
-                            <Icon name="filter"></Icon>
-                            <ShouldActiveFiltersRender>
-                                <ActiveFiltersCountFloatingLabel/>
-                            </ShouldActiveFiltersRender>
-                        </Button>
-                    </Grid.Column>
-                )}
-                {facetsAvailable && (
-                    <ShouldActiveFiltersRender>
-                        <Grid.Column
-                            verticalAlign="middle"
-                            floated="left"
-                            only="computer"
-                            width={11}
-                        >
-                            <ActiveFilters/>
-                        </Grid.Column>
-                    </ShouldActiveFiltersRender>
-                )}
-                <Grid.Column
-                    textAlign="right"
-                    floated="right"
-                    mobile={13}
-                    tablet={13}
-                    computer={5}
-                    largeScreen={5}
-                    widescreen={5}
-                >
-                    <ResultOptionsWithState/>
-                </Grid.Column>
-            </Grid.Row>
-            <Grid.Row columns={columnsAmount}>
-                {facetsAvailable && (
-                    <GridResponsiveSidebarColumn
-                        mobile={4}
-                        tablet={4}
-                        computer={4}
-                        largeScreen={4}
-                        widescreen={4}
-                        open={sidebarVisible}
-                        onHideClick={() => setSidebarVisible(false)}
-                    >
-                        <ShouldActiveFiltersRender>
-                            <ClearFiltersButton
-                                className={"clear-filters-button mobile tablet only"}
-                            />
-                        </ShouldActiveFiltersRender>
-                        <SearchAppFacets
-                            aggs={config.aggs}
-                            appName={appName}
-                            buildUID={buildUID}
-                        />
-                    </GridResponsiveSidebarColumn>
-                )}
-                <Grid.Column {...resultsPaneLayout}>
-                    <SearchAppResultsPane
-                        layoutOptions={config.layoutOptions}
-                        appName={appName}
-                        buildUID={buildUID}
-                    />
-                </Grid.Column>
-                {hasButtonSidebar && (
-                    <Grid.Column
-                        mobile={16}
-                        tablet={16}
-                        computer={4}
-                        largeScreen={4}
-                        widescreen={4}
-                    >
-                        <Overridable
-                            id={buildUID("SearchApp.buttonSidebarContainer", "", appName)}
-                        ></Overridable>
-                    </Grid.Column>
-                )}
-            </Grid.Row>
-        </Grid>
-    );
-};
-
-SearchAppResultsGrid.propTypes = {
-    columnsAmount: PropTypes.number.isRequired,
-
-    facetsAvailable: PropTypes.bool.isRequired,
-    config: PropTypes.shape({
-        aggs: PropTypes.array.isRequired,
-        layoutOptions: PropTypes.object,
-    }).isRequired,
-    appName: PropTypes.string.isRequired,
-    buildUID: PropTypes.func.isRequired,
-    resultsPaneLayout: PropTypes.object.isRequired,
-    hasButtonSidebar: PropTypes.bool,
-    resultSortLayout: PropTypes.object.isRequired,
-};
 export const SearchAppLayout = ({config, hasButtonSidebar}) => {
-    const {appName, buildUID} = useContext(SearchConfigurationContext);
+    const [sidebarVisible, setSidebarVisible] = React.useState(false);
+    const [scrollToTopVisible, setScrollToTopVisible] = React.useState(false);
+
+    const {appName, buildUID, paginationOptions: {resultsPerPage}} = useContext(SearchConfigurationContext);
+
+    useEffect(() => {
+        const handleScrollButtonVisibility = () => {
+            window.scrollY > 300 ? setScrollToTopVisible(true) : setScrollToTopVisible(false);
+            window.scroll
+        };
+
+        window.addEventListener("scroll", handleScrollButtonVisibility);
+
+        return () => {
+            window.removeEventListener("scroll", handleScrollButtonVisibility);
+        };
+    }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({top: 0, behavior: "smooth"});
+    };
+
     const facetsAvailable = !_isEmpty(config.aggs);
 
     let columnsAmount;
@@ -227,32 +92,12 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
         }
     }
 
-    const resultsSortLayoutFacets = {
-        mobile: 14,
-        tablet: 14,
-        computer: 5,
-        largeScreen: 5,
-        widescreen: 5,
-    };
-
-    const resultsSortLayoutNoFacets = {
-        mobile: 16,
-        tablet: 16,
-        computer: 16,
-        largeScreen: 16,
-        widescreen: 16,
-    };
-
     const resultsPaneLayoutNoFacets = resultsPaneLayoutFacets;
 
     // make list full width if no facets available
     const resultsPaneLayout = facetsAvailable
         ? resultsPaneLayoutFacets
         : resultsPaneLayoutNoFacets;
-
-    const resultSortLayout = facetsAvailable
-        ? resultsSortLayoutFacets
-        : resultsSortLayoutNoFacets;
 
     return (
         <div>
@@ -263,28 +108,147 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
                     </div>
                 </div>
             </div>
-            <div className="bg-lightGrey">
+            <div className="search-result-container">
                 <Container fluid>
-                    <Grid relaxed padded>
+                    <Grid
+                        columns={columnsAmount}
+                        relaxed
+                        className="search-app"
+                    >
                         <Grid.Row>
-                            <Grid.Column width={12} floated="right">
+                            <Grid.Column only="computer" width={4}/>
+                            <Grid.Column {...resultsPaneLayout}>
                                 <SearchBar buildUID={buildUID} appName={appName}/>
+                                {facetsAvailable && (
+                                    <ShouldActiveFiltersRender>
+                                        <ActiveFilters/>
+                                    </ShouldActiveFiltersRender>
+                                )}
                             </Grid.Column>
                         </Grid.Row>
+                        <Grid.Row verticalAlign="middle" className="result-options">
+                            {facetsAvailable && (
+                                <Grid.Column
+                                    floated="left"
+                                    only="mobile tablet"
+                                    mobile={3}
+                                    tablet={2}
+                                    textAlign="left"
+                                    verticalAlign="middle"
+                                    className="search-burger-sidebar-btn"
+                                >
+                                    <Button
+                                        basic
+                                        onClick={() => setSidebarVisible(true)}
+                                        title={i18next.t("Filter results")}
+                                        aria-label={i18next.t("Filter results")}
+                                        className="facets-sidebar-open-button"
+                                    >
+                                        <Icon name="filter"/>
+                                        <ShouldActiveFiltersRender>
+                                            <ActiveFiltersCountFloatingLabel className="bg-carrotOrange"/>
+                                        </ShouldActiveFiltersRender>
+                                    </Button>
+                                </Grid.Column>
+                            )}
+                            <Grid.Column only=" computer" width={4}>
+                                {facetsAvailable && (
+                                    <Grid.Row>
+                                        <Header size=" medium"
+                                                id=" search-filters-header-title">{i18nOARepo.t(" Filters")}</Header>
+                                    </Grid.Row>
+                                )}
+                            </Grid.Column>
+                            <Grid.Column {...resultsPaneLayout} mobile={13} tablet={14}>
+                                <Grid as={Grid.Row} verticalAlign=" middle">
+                                    <Grid.Column className=" search-result-count" floated=" left" textAlign=" left"
+                                                 width={3}>
+                                        <ResultCountWithState/>
+                                    </Grid.Column>
+                                    <Grid.Column floated=" right" textAlign=" right" width={13}>
+                                        <ResultsPerPage
+                                            values={resultsPerPage}
+                                            label={ResultsPerPageLabel}
+                                        />
+                                        <ResultOptionsWithState/>
+                                    </Grid.Column>
+                                </Grid>
+                            </Grid.Column>
+                        </Grid.Row>
+                        <Grid.Row columns={columnsAmount} className=" facets-and-search-listing">
+                            {facetsAvailable && (
+                                <GridResponsiveSidebarColumn
+                                    mobile={4}
+                                    tablet={4}
+                                    computer={4}
+                                    largeScreen={4}
+                                    widescreen={4}
+                                    open={sidebarVisible}
+                                    onHideClick={() => setSidebarVisible(false)}
+                                    mobileChildren={
+                                        <>
+                                            <ShouldActiveFiltersRender>
+                                                <ClearFiltersButton
+                                                    clearFiltersButtonClassName=" primary mobile tablet only"
+                                                />
+                                            </ShouldActiveFiltersRender>
+                                            <Header size=" medium"
+                                                    id=" search-filters-header-title">{i18nOARepo.t(" Filters")}</Header>
+                                            <SearchAppFacets
+                                                aggs={config.aggs}
+                                                appName={appName}
+                                                buildUID={buildUID}
+                                            />
+                                        </>
+                                    }
+                                >
+                                    <SearchAppFacets
+                                        aggs={config.aggs}
+                                        appName={appName}
+                                        buildUID={buildUID}
+                                    />
+                                </GridResponsiveSidebarColumn>
+                            )}
+                            <Grid.Column {...resultsPaneLayout}>
+                                <SearchAppResultsPane
+                                    layoutOptions={config.layoutOptions}
+                                    appName={appName}
+                                    buildUID={buildUID}
+                                />
+                            </Grid.Column>
+                            {hasButtonSidebar && (
+                                <Grid.Column
+                                    mobile={16}
+                                    tablet={16}
+                                    computer={4}
+                                    largeScreen={4}
+                                    widescreen={4}
+                                >
+                                    <Overridable
+                                        id={buildUID(" SearchApp.buttonSidebarContainer", "", appName)}
+                                    ></Overridable>
+                                </Grid.Column>
+                            )}
+                        </Grid.Row>
                     </Grid>
-
-                    <SearchAppResultsGrid
-                        columnsAmount={columnsAmount}
-                        facetsAvailable={facetsAvailable}
-                        config={config}
-                        appName={appName}
-                        buildUID={buildUID}
-                        resultsPaneLayout={resultsPaneLayout}
-                        hasButtonSidebar={hasButtonSidebar}
-                        resultSortLayout={resultSortLayout}
-                    />
+                    <TransitionablePortal
+                        open={scrollToTopVisible}
+                        transition={{animation: " fade up", duration: 300}}
+                    >
+                        <Button
+                            onClick={scrollToTop}
+                            id=" scroll-to-top-button"
+                            color=" teal"
+                            circular
+                            basic
+                        >
+                            <div><Icon size=" large" name=" chevron up"/></div>
+                            <div className=" scroll-to-top-text">{i18next.t(" to top").toUpperCase()}</div>
+                        </Button>
+                    </TransitionablePortal>
                 </Container>
             </div>
+
         </div>
 
     );
@@ -300,12 +264,9 @@ SearchAppLayout.propTypes = {
             page: PropTypes.number,
             size: PropTypes.number,
             hiddenParams: PropTypes.array,
-            layout: PropTypes.oneOf(["list", "grid"]),
+            layout: PropTypes.oneOf([" list", " grid"]),
         }),
-        aggs: PropTypes.array,
     }),
-    hasButtonSidebar: PropTypes.bool,
 };
-
 
 export default SearchAppLayout;

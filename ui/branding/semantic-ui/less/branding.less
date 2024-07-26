@@ -126,10 +126,13 @@ body {
   font-size: 32px;
 }
 
-//.custom-footer {
-//  margin-top: 5em !important;
-//  padding-bottom: 5em !important;
-//}
+.search-result-container{
+  background-color: @lightGrey !important;
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 15px;
+  box-shadow: 3px 3px @lapisLazuli, -1em 0 .4em @lapisLazuli;
+}
 
 .search-listing-item {
 
@@ -335,5 +338,30 @@ a.accordion-title {
 
 .full-width {
   width: 100% !important;
+}
+
+// ScrollBar
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: @lapisLazuli;
+    border-radius: 20px;
+    border: 2px solid #f1f1f1; /* Create padding around thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: @oxfordBlue;
+}
+
+/* Handle corner - useful if both vertical and horizontal scrollbars are present */
+::-webkit-scrollbar-corner {
+    background: #f1f1f1;
 }
 
