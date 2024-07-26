@@ -1,11 +1,15 @@
 .ui.action.input.search-input {
 
   background: white;
-  border: 1px solid @teal;
+  border: 1px solid @carrotOrange;
   border-right: none;
   color: rgba(0, 0, 0, 0.87);
   border-radius: 25px !important;
   box-shadow: 0em 0em 0em 0em transparent inset;
+
+  &:hover{
+    border: 1px solid @carrotOrangeDarker;
+  }
 
   & > input {
     font-weight: 700;
@@ -16,9 +20,14 @@
   }
 
   .ui.button.search {
+
+    &:hover{
+        background-color: @carrotOrangeDarker;
+    }
+
     border-radius: 25px;
-    background-color: white;
-    color: @grey;
-    border: 1px solid @teal;
+    background-color: @carrotOrange;
+    color: @oxfordBlue;
+    border: 1px solid @carrotOrange;
   }
 }

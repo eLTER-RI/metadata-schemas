@@ -8,6 +8,7 @@
 @yaleBlue: #003972;
 @lapisLazuli: #0A5A98;
 @carrotOrange: #ED9633;
+@carrotOrangeDarker: #d87d0e;
 @lightGrey: #f0f0f0;
 
 @primaryColor: @oxfordBlue;
