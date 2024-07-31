@@ -11,8 +11,13 @@ theme = WebpackThemeBundle(
             },
             "dependencies": {
                 "react-searchkit": "^2.0.0",
+                "leaflet": "^1.9.4",
+                "react-leaflet": "^2.1.4"
             },
-            "devDependencies": {},
+            "devDependencies": {
+                "leaflet": "^1.9.4",
+                "react-leaflet": "^2.1.4",
+            },
             "aliases": {
                 "../../theme.config$": "less/theme.config",
                 "../../less/site": "less/site",

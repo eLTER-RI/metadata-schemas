@@ -1,5 +1,7 @@
 GET https://127.0.0.1:5000/api/lter
 
+###
+POST https://127.0.0.1:5000/api/lter/dsq2m-rjn54/draft/actions/publish
 
 ###
 POST https://127.0.0.1:5000/api/lter
@@ -18,13 +20,13 @@ Content-Type: application/json
     "shortNames": [
       {
         "language": "eng",
-        "text": "Test2"
+        "text": "GeoMapTest"
       }
     ],
     "titles": [
       {
         "language": "eng",
-        "text": "Test2"
+        "text": "GeoMapTest"
       }
     ],
     "authors": [
@@ -73,7 +75,9 @@ Content-Type: application/json
       }
     ],
     "keywords": [
-      "Occurrence", "Darwin Core", "GBIF"
+      "Occurrence",
+      "Darwin Core",
+      "GBIF"
     ],
     "propertyRights": [
       {
@@ -93,13 +97,19 @@ Content-Type: application/json
         "point": {
           "longitude": 10.50,
           "latitude": 10.50
-        },
+        }
+      },
+      {
+        "description": "description of geolocation place",
         "box": {
-          "westLongitude": 10.50,
+          "westLongitude": 9.50,
           "eastLongitude": 10.50,
-          "southLatitude": 10.50,
+          "southLatitude": 9.50,
           "northLatitude": 10.50
-        },
+        }
+      },
+      {
+        "description": "description of geolocation place",
         "polygon": [
           {
             "points": [
@@ -108,13 +118,21 @@ Content-Type: application/json
                 "latitude": 10.50
               },
               {
-                "longitude": 10.50,
-                "latitude": 10.50
+                "longitude": 15.50,
+                "latitude": 15.50
+              },
+              {
+                "longitude": 12.50,
+                "latitude": 11.50
+              },
+              {
+                "longitude": 17.50,
+                "latitude": 17.50
               }
             ],
             "inPolygonPoint": {
-              "longitude": 10.50,
-              "latitude": 10.50
+              "longitude": 13.50,
+              "latitude": 13.50
             }
           }
         ]
@@ -188,7 +206,6 @@ Content-Type: application/json
 ###
 GET https://127.0.0.1:5000/api/user/lter?q=metadata.shortName:Te???
 
-###
-POST https://127.0.0.1:5000/api/lter/x3yg0-xb716/draft/actions/publish
+
 
 #t3f71-mv568

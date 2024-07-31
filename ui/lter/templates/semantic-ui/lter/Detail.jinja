@@ -2,9 +2,7 @@
 
 {% extends "oarepo_ui/detail.html" %}
 
-{%- block head_links %}
-    {{ super() }}
-{%- endblock %}
+
 
 {%- block page_body %}
     <div class="ui main container">
@@ -47,6 +45,11 @@
         </div>
     </div>
 {% endblock %}
+
+{%- block javascript %}
+    {{ super() }}
+    {{ webpack['lter_geomap.js'] }}
+{%- endblock %}
 
 {#{% block record_sidebar %}#}
 {#    Add your sidebar content here#}

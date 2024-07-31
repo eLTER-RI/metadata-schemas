@@ -8,12 +8,22 @@ theme = WebpackThemeBundle(
         "semantic-ui": dict(
             entry={
                 "lter_search": "./js/lter/search/index.js",
+                "lter_detail": "./js/lter/detail/index.js",
+                "lter_geomap": "./js/lter/geomap/index.js",
                 "lter_deposit_form": "./js/lter/forms/index.js",
             },
-            dependencies={},
-            devDependencies={},
+            dependencies={
+                "leaflet": "^1.9.4",
+                "react-leaflet": "^2.1.4"
+            },
+            devDependencies={
+                "leaflet": "^1.9.4",
+                "react-leaflet": "^2.1.4"
+            },
             aliases={
+                "@lter_detail": "js/lter/detail",
                 "@lter_search": "js/lter/search",
+                "@lter_geomap": "js/lter/geomap",
             },
         )
     },
