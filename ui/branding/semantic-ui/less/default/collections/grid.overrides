@@ -8,10 +8,10 @@
  
 .ui.grid {
     margin: 0px;
-    & > .main-info {
+    & > .detail-main-info {
         margin-top: -7rem;
         width: 70% !important;
-        border-radius: 35px;
+        border-radius: 25px;
         box-shadow: 0 -0.5em .4em rgba(255, 255, 255, 0.55);
         background-color: white;
     }
