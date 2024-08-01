@@ -73,7 +73,9 @@ export const GeoLocationMap = ({geoLocations}) => {
         return null;
     };
 
-    const centerPoint = [totalLat/pointsCounter, totalLong/pointsCounter];
+    const mapShapes = geoLocations.map((location, index) => renderGeoLocation(location, index))
+    const centerPoint = [totalLat / pointsCounter, totalLong / pointsCounter];
+
     return (
         <>
             <Map center={centerPoint} zoom={5} scrollWheelZoom={true} style={{height: '400px', width: '500px'}}>
@@ -81,7 +83,7 @@ export const GeoLocationMap = ({geoLocations}) => {
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                {geoLocations.map((location, index) => renderGeoLocation(location, index))}
+                {mapShapes}
             </Map>
         </>
     );
