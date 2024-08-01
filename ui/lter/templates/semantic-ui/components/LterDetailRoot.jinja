@@ -10,10 +10,10 @@
         crossorigin=""></script>
 
 <section aria-label="{{ _('GeoMap') }}">
-    {#    <AccordionField label={_('GeoMap')} title_class="detail-sidebar-header" label_class="detail-sidebar-title"#}
-    {#                    active>#}
-    <GeoMap d={md.geoLocations}/>
-    {#    </AccordionField>#}
+    <AccordionField label={_('GeoMap')} title_class="detail-sidebar-header" label_class="detail-sidebar-title"
+                    active>
+        <GeoMap d={md.geoLocations}/>
+    </AccordionField>
 </section>
 <table class='ui compact definition table'>
     <ITableField d={md.dataLevel}/>

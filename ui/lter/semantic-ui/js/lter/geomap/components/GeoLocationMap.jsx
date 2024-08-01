@@ -1,6 +1,6 @@
 import React from 'react';
 import {Map, TileLayer, Marker, Popup, Polygon, Rectangle} from 'react-leaflet';
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import 'leaflet/dist/leaflet.css';
 
 
@@ -18,7 +18,6 @@ L.Marker.prototype.options.icon = DefaultIcon;
 
 // eslint-disable-next-line react/prop-types
 export const GeoLocationMap = ({geoLocations}) => {
-
     let totalLat = 0.0;
     let totalLong = 0.0;
     let pointsCounter = 0;
@@ -91,6 +90,6 @@ export const GeoLocationMap = ({geoLocations}) => {
 
 export default GeoLocationMap;
 
-// GeoLocationMap.propTypes = {
-//   geoLocations: PropTypes.array.isRequired,
-// };
+GeoLocationMap.propTypes = {
+  geoLocations: PropTypes.array.isRequired,
+};

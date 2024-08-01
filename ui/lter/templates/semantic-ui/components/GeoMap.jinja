@@ -1,6 +1,6 @@
 {#def d #}
 
-{% set d = d | to_dict %}
+{% set geoLocations = d | to_dict %}
 
 
-<div id="geo-map" geoData='{{ d | tojson }}'></div>
+<div id="geo-map" geoData='{{ geoLocations | tojson }}'></div>
