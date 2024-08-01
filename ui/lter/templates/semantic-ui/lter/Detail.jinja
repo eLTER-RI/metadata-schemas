@@ -2,21 +2,11 @@
 
 {% extends "oarepo_ui/detail.html" %}
 
-
-
 {%- block page_body %}
     <div class="ui main container">
-        <div class="row page-nav-container">
-            <div class="page-nav">
-                <div class="page-title">
-                    Detail info
-                </div>
-            </div>
-        </div>
-        <div class="ui stackable grid record-detail-container">
-
+        <div class="ui centered grid page-nav-container">
             <div class="row detail-search-menu">
-                <div class="sixteen wide mobile four wide computer column left floated detail-back-to-search-link">
+                <div class="sixteen wide mobile four wide computer column detail-back-to-search-link">
                     <a href="{{ url_for('lter.search') }}" class="text-big"
                        aria-label="{{ _('Back to search results') }}">
                         <div>
@@ -35,13 +25,36 @@
                     </form>
                 </div>
             </div>
-            <div class="one column row">
-                <article class="column main-record-content">
-                    {% block record_main_content %}
-                        <LterDetailRoot md={d.metadata}/>
-                    {% endblock record_main_content %}
-                </article>
+            <div class="row">
+                <div class="column page-nav">
+                    <div class="page-title">
+                        {{ d.metadata.titles.0.text }}
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="search-result-container">
+            <div class="ui centered grid">
+                <div class="row main-info">
+                    <div class="column"></div>
+                </div>
+                <div class="center aligned two column row">
+                    <div class="twelve wide column">
+                        <article class="column main-record-content">
+                            <LterDetailRoot md={d.metadata}/>
+                        </article>
+                    </div>
+                    <div class="four wide computer only column">
+                        <AccordionField label={_('GeoMap')} title_class="detail-sidebar-header"
+                                        label_class="detail-sidebar-title"
+                                        active>
+                            <GeoMap d={d.metadata.geoLocations}/>
+                        </AccordionField>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
 {% endblock %}
