@@ -3,4 +3,4 @@
 {% set geoLocations = d | to_dict %}
 
 
-<div id="geo-map" geoData='{{ geoLocations | tojson }}'></div>
+<div id="geo-map" data-geo='{{ geoLocations | tojson }}'></div>
