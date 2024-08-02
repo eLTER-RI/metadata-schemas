@@ -10,10 +10,10 @@
     margin: 0px;
     & > .detail-main-info {
         margin-top: -7rem;
-        width: 70% !important;
         border-radius: 25px;
         box-shadow: 0 -0.5em .4em rgba(255, 255, 255, 0.55);
         background-color: white;
+        padding: 2rem 0 2rem 1rem !important;
     }
     & > .row {
         &.detail-search-menu {
