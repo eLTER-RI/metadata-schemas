@@ -63,6 +63,9 @@ lter = "lter.models:records.json"
 [project.entry-points."oarepo.ui"]
 lter = "lter.models:ui.json"
 
+[project.entry-points."invenio.lter.response_handlers"]
+lter = "shared.resources:lter_serializers"
+
 [project.optional-dependencies]
 tests = [
     "pytest-invenio>=1.4.11",
