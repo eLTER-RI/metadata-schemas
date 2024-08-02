@@ -1,0 +1,12 @@
+.ui.page-header {
+    border: 0;
+
+  .outer-navbar {
+    background-color: @oxfordBlue;
+    border: 0;
+  }
+
+  #invenio-menu {
+    gap: unset;
+  }
+}
