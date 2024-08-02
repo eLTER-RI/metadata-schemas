@@ -1,6 +1,7 @@
 from oarepo_ui.resources import BabelComponent
 from oarepo_ui.resources.config import RecordsUIResourceConfig
 from oarepo_ui.resources.resource import RecordsUIResource
+from oarepo_runtime.i18n import lazy_gettext as _
 
 
 class LterResourceConfig(RecordsUIResourceConfig):
@@ -28,6 +29,17 @@ class LterResourceConfig(RecordsUIResourceConfig):
         "edit": "lter.Deposit",
         "create": "lter.Deposit",
     }
+
+    @property
+    def exports(self):
+        return {
+            "iso19139": {
+                "name": _("XML"),
+                "serializer": "shared.resources.serializers.iso19139:ISO19139Serializer",
+                "content-type": "text/xml",
+                "filename": "{id}.xml",
+            },
+        }
 
 
 class LterResource(RecordsUIResource):
