@@ -1,7 +1,11 @@
 GET https://127.0.0.1:5000/api/lter
 
 ###
-POST https://127.0.0.1:5000/api/lter/dsq2m-rjn54/draft/actions/publish
+GET https://127.0.0.1:5000/api/lter/dsq2m-rjn54
+Accept: text/xml
+
+###
+POST https://127.0.0.1:5000/api/lter/bs5g5-txa90/draft/actions/publish
 
 ###
 POST https://127.0.0.1:5000/api/lter
@@ -20,13 +24,13 @@ Content-Type: application/json
     "shortNames": [
       {
         "language": "eng",
-        "text": "GeoMapTest"
+        "text": "NoKeyWords"
       }
     ],
     "titles": [
       {
         "language": "eng",
-        "text": "GeoMapTest"
+        "text": "NoKeyWords"
       }
     ],
     "authors": [
@@ -75,9 +79,7 @@ Content-Type: application/json
       }
     ],
     "keywords": [
-      "Occurrence",
-      "Darwin Core",
-      "GBIF"
+      "NoKeyWords"
     ],
     "propertyRights": [
       {
