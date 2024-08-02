@@ -1,5 +1,13 @@
 # Elter Catalog
 
+## Debug configuration
+- Create following configuration:
+  - Executing script = debug_repository.py (in the root repo)
+  - Script params = run --cert ./docker/development.crt --key ./docker/development.key
+  - Working dir = elter_dar root dir
+  - ENV vars = PYTHONUNBUFFERED=1;FLASK_DEBUG=1
+  - Python 3.10
+
 ## Prerequisites
 - Ideally any Linux distribution or MacOS
 - Docker engine
@@ -15,6 +23,7 @@
 - Title Page: https://127.0.0.1:5000/
 - Search Result Page: https://127.0.0.1:5000/lter
 - API Page: https://127.0.0.1:5000/lter/api
+- XML schema export: https://127.0.0.1:5000/lter/id/export/xml
 
 # Documentation
 
