@@ -19,12 +19,14 @@
     }
 }
 
-.ui.list.subjects {
+.ui.list.keywords {
     display: flex;
     flex-wrap: wrap;
     column-gap: 1rem;
+    margin-top: 1rem;
 
     & > .item {
         margin-left: 0;
+        color: @carrotOrange;
     }
 }

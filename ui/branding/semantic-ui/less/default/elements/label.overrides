@@ -1,22 +1,12 @@
 .ui.label {
-  &.language {
-    padding: 3px 3px;
-    color: @lapisLazuli;
-    font-weight: 600;
-    margin-right: 1px;
-    position: relative;
-    bottom: 1em;
-  }
-
   &.keyword-subjects, &.alt-identifiers {
-    font-size: 0.75rem;
     text-wrap: nowrap;
     border-radius: 6px;
     padding: 0.5rem;
     background-color: transparent;
 
-    .subject-link {
-      color: @black;
+    .keyword-link {
+      color: @oxfordBlue;
     }
   }
 

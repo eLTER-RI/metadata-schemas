@@ -43,13 +43,8 @@
                                         <i class="four wide column key icon"></i>
                                         <div class="twelve wide column">Data keywords</div>
                                     </div>
-                                    {#TODO add buttons to redirect#}
-                                    {% for keyword in metadata.keywords %}
-                                        <form action="{{ url_for('lter.search') }}" class="ui form" role="search">
-                                            <input type="hidden" name="q" class="form-control" value="{{ keyword }}">
-                                            <button class="button-x">{{ keyword }}</button>
-                                        </form>
-                                    {% endfor %}
+                                    <KeyWords keywords={metadata.keywords}
+                                              search_link={record.links.search_link}></KeyWords>
                                 </div>
                                 <div class="column">
                                     <div class="detail-main-info-header">
