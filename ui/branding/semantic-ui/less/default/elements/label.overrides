@@ -1,9 +1,8 @@
 .ui.label {
   &.keyword-subjects, &.alt-identifiers {
-    text-wrap: nowrap;
     border-radius: 6px;
     padding: 0.5rem;
-    background-color: transparent;
+    background-color: @lightGrey;
 
     .keyword-link {
       color: @oxfordBlue;
@@ -15,7 +14,7 @@
     
     .detail-identifier-type {
       padding: 0.5rem;
-      background-color: @lapisLazuli;
+      background-color: @oxfordBlue;
       color: @white;
       border-radius: 6px 0 0 6px;
     }
