@@ -33,11 +33,6 @@
                             <LterFile d={item}/>
                         </ITableSection>
                     {% endfor %}
-                    {% for item in array(md.geoLocations) %}
-                        <ITableSection d={item}>
-                            <LterGeolocation d={item}/>
-                        </ITableSection>
-                    {% endfor %}
                     {% for item in array(md.licenses) %}
                         <ITableSection d={item}>
                             <LterLicense d={item}/>
