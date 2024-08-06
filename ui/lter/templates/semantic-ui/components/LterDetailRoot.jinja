@@ -1,64 +1,90 @@
 {# def md #}
 
+{% set ns = namespace(abstract_description = None, other_descriptions = []) %}
+
+{% for description in array(md.descriptions) %}
+    {% if description.type|string == "Abstract" %}
+        {% set ns.abstract_description = description.description %}
+    {% else %}
+        {% set ns.other_descriptions = ns.other_descriptions + [description] %}
+    {% endif %}
+{% endfor %}
 
 <table class='ui compact definition table'>
+    {% if ns.abstract_description != None %}
+        <div class="ui segment detail-section">
+            <h3 class="ui header">Abstract</h3>
+            <div class="content">
+                <p>{{ ns.abstract_description }}</p>
+            </div>
+        </div>
+    {% endif %}
+    {% if ns.other_descriptions != [] %}
+        {% for description in ns.other_descriptions %}
+            <AccordionField label={description.type}
+                            accordion_class="detail-section"
+                            active=False>
+                {{ description.description }}
+            </AccordionField>
+        {% endfor %}
+    {% endif %}
     <div class="ui segment detail-section">
         <h3 class="ui header">Files</h3>
         <div class="content">
             <Files files={md.files}></Files>
         </div>
     </div>
-    <ITableField d={md.dataLevel}/>
-        <ITableField d={md.language}/>
-            <ITableField d={md.publicationDate}/>
-                <ITableField d={md.temporalResolution}/>
-                    {% for item in array(md.authors) %}
-                        <ITableSection d={item}>
-                            <LterAuthor d={item}/>
-                        </ITableSection>
-                    {% endfor %}
-                    {% for item in array(md.contributors) %}
-                        <ITableSection d={item}>
-                            <LterContributor d={item}/>
-                        </ITableSection>
-                    {% endfor %}
-                    {% for item in array(md.datasetIds) %}
-                        <ITableSection d={item}>
-                            <LterDatasetid d={item}/>
-                        </ITableSection>
-                    {% endfor %}
-                    {% for item in array(md.descriptions) %}
-                        <ITableSection d={item}>
-                            <LterDescription d={item}/>
-                        </ITableSection>
-                    {% endfor %}
-                    {% for item in array(md.licenses) %}
-                        <ITableSection d={item}>
-                            <LterLicense d={item}/>
-                        </ITableSection>
-                    {% endfor %}
-                    <ITableSection d={md.methods}>
-                        <LterMethod d={md.methods}/>
-                    </ITableSection>
-                    {% for item in array(md.propertyRights) %}
-                        <ITableSection d={item}>
-                            <LterPropertyright d={item}/>
-                        </ITableSection>
-                    {% endfor %}
-                    {% for item in array(md.shortNames) %}
-                        <ITableSection d={item}>
-                            <LterShortname d={item}/>
-                        </ITableSection>
-                    {% endfor %}
-                    {% for item in array(md.taxonomicCoverages) %}
-                        <ITableSection d={item}>
-                            <LterTaxonomiccoverage d={item}/>
-                        </ITableSection>
-                    {% endfor %}
-                    {% for item in array(md.temporalCoverages) %}
-                        <ITableSection d={item}>
-                            <LterTemporalcoverage d={item}/>
-                        </ITableSection>
-                    {% endfor %}
+{#    <ITableField d={md.dataLevel}/>#}
+{#        <ITableField d={md.language}/>#}
+{#            <ITableField d={md.publicationDate}/>#}
+{#                <ITableField d={md.temporalResolution}/>#}
+{#                    {% for item in array(md.authors) %}#}
+{#                        <ITableSection d={item}>#}
+{#                            <LterAuthor d={item}/>#}
+{#                        </ITableSection>#}
+{#                    {% endfor %}#}
+{#                    {% for item in array(md.contributors) %}#}
+{#                        <ITableSection d={item}>#}
+{#                            <LterContributor d={item}/>#}
+{#                        </ITableSection>#}
+{#                    {% endfor %}#}
+{#                    {% for item in array(md.datasetIds) %}#}
+{#                        <ITableSection d={item}>#}
+{#                            <LterDatasetid d={item}/>#}
+{#                        </ITableSection>#}
+{#                    {% endfor %}#}
+{#                    {% for item in array(md.descriptions) %}#}
+{#                        <ITableSection d={item}>#}
+{#                            <LterDescription d={item}/>#}
+{#                        </ITableSection>#}
+{#                    {% endfor %}#}
+{#                    {% for item in array(md.licenses) %}#}
+{#                        <ITableSection d={item}>#}
+{#                            <LterLicense d={item}/>#}
+{#                        </ITableSection>#}
+{#                    {% endfor %}#}
+{#                    <ITableSection d={md.methods}>#}
+{#                        <LterMethod d={md.methods}/>#}
+{#                    </ITableSection>#}
+{#                    {% for item in array(md.propertyRights) %}#}
+{#                        <ITableSection d={item}>#}
+{#                            <LterPropertyright d={item}/>#}
+{#                        </ITableSection>#}
+{#                    {% endfor %}#}
+{#                    {% for item in array(md.shortNames) %}#}
+{#                        <ITableSection d={item}>#}
+{#                            <LterShortname d={item}/>#}
+{#                        </ITableSection>#}
+{#                    {% endfor %}#}
+{#                    {% for item in array(md.taxonomicCoverages) %}#}
+{#                        <ITableSection d={item}>#}
+{#                            <LterTaxonomiccoverage d={item}/>#}
+{#                        </ITableSection>#}
+{#                    {% endfor %}#}
+{#                    {% for item in array(md.temporalCoverages) %}#}
+{#                        <ITableSection d={item}>#}
+{#                            <LterTemporalcoverage d={item}/>#}
+{#                        </ITableSection>#}
+{#                    {% endfor %}#}
 
 </table>

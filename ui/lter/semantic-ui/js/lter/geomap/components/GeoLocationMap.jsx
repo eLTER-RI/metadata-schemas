@@ -77,7 +77,7 @@ export const GeoLocationMap = ({geoLocations}) => {
 
     return (
         <>
-            <Map center={centerPoint} zoom={5} scrollWheelZoom={true} style={{height: '300px', width: '300px'}}>
+            <Map center={centerPoint} zoom={5} scrollWheelZoom={true} style={{height: '300px', width: '100%'}}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
