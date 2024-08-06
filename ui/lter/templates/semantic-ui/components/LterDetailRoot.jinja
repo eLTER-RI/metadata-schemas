@@ -1,10 +1,14 @@
 {# def md #}
 
+
 <table class='ui compact definition table'>
+    <div class="ui segment detail-section">
+        <h3 class="ui header">Files</h3>
+        <div class="content">
+            <Files files={md.files}></Files>
+        </div>
+    </div>
     <ITableField d={md.dataLevel}/>
-        <ITableField d={md.keywords}>
-            <ITableArrayValue value={md.keywords}/>
-        </ITableField>
         <ITableField d={md.language}/>
             <ITableField d={md.publicationDate}/>
                 <ITableField d={md.temporalResolution}/>
@@ -26,11 +30,6 @@
                     {% for item in array(md.descriptions) %}
                         <ITableSection d={item}>
                             <LterDescription d={item}/>
-                        </ITableSection>
-                    {% endfor %}
-                    {% for item in array(md.files) %}
-                        <ITableSection d={item}>
-                            <LterFile d={item}/>
                         </ITableSection>
                     {% endfor %}
                     {% for item in array(md.licenses) %}
@@ -61,9 +60,5 @@
                             <LterTemporalcoverage d={item}/>
                         </ITableSection>
                     {% endfor %}
-                    {% for item in array(md.titles) %}
-                        <ITableSection d={item}>
-                            <LterTitle d={item}/>
-                        </ITableSection>
-                    {% endfor %}
+
 </table>

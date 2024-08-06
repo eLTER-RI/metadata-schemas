@@ -30,3 +30,13 @@
         color: @carrotOrange;
     }
 }
+
+.ui.list .list > .item > i.icon, .ui.list > .item > i.icon {
+    color: @oxfordBlue;
+}
+
+.ui.list {
+    > .item .description {
+        padding-top: 1rem;
+    }
+}

@@ -5,7 +5,7 @@ GET https://127.0.0.1:5000/api/lter/dsq2m-rjn54
 Accept: text/xml
 
 ###
-POST https://127.0.0.1:5000/api/lter/bs5g5-txa90/draft/actions/publish
+POST https://127.0.0.1:5000/api/lter/885fg-qve42/draft/actions/publish
 
 ###
 POST https://127.0.0.1:5000/api/lter
@@ -24,13 +24,13 @@ Content-Type: application/json
     "shortNames": [
       {
         "language": "eng",
-        "text": "NoKeyWords"
+        "text": "GeoMap Description"
       }
     ],
     "titles": [
       {
         "language": "eng",
-        "text": "NoKeyWords"
+        "text": "GeoMap Description"
       }
     ],
     "authors": [
@@ -95,14 +95,14 @@ Content-Type: application/json
     ],
     "geoLocations": [
       {
-        "description": "description of geolocation place",
+        "description": "This is point",
         "point": {
           "longitude": 10.50,
           "latitude": 10.50
         }
       },
       {
-        "description": "description of geolocation place",
+        "description": "This is box",
         "box": {
           "westLongitude": 9.50,
           "eastLongitude": 10.50,
@@ -111,7 +111,7 @@ Content-Type: application/json
         }
       },
       {
-        "description": "description of geolocation place",
+        "description": "This is polygon",
         "polygon": [
           {
             "points": [
@@ -197,8 +197,29 @@ Content-Type: application/json
         "md5": "checksum-hash",
         "format": "csv",
         "size": 234,
-        "name": "test",
-        "sourceUrl": "url"
+        "name": "test adw wa daw",
+        "sourceUrl": "www.google.com"
+      },
+      {
+        "md5": "checksum-hash2",
+        "format": "txt",
+        "size": 2344,
+        "name": "tesawdwat2",
+        "sourceUrl": "url2"
+      },
+      {
+        "md5": "checksum-hash2",
+        "format": "txt",
+        "size": 2344,
+        "name": "oawijdojwao jdoawj ojwaio aw",
+        "sourceUrl": "url2"
+      },
+      {
+        "md5": "checksum-hash2",
+        "format": "txt",
+        "size": 2344,
+        "name": "oawijdojwao jdoawj ojwaio aadwdwa awd wad",
+        "sourceUrl": "url2"
       }
     ]
   }

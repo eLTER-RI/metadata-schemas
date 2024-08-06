@@ -1,15 +1,15 @@
 {#def keywords, search_link #}
 
 <div role="list" class="ui horizontal medium keywords list">
-    {% for keyword in keywords %}
+    {% for keyword in array(keywords) %}
         <div role="listitem" class="item">
             {% set data = {
-                "value": keyword,
-                "title": _("Find more records with this keyword"),
-                "label": keyword
-            } %}
+                    "value": keyword,
+                    "title": _("Find more records with this keyword"),
+                    "label": keyword
+                } %}
             {% set searchFacet = "metadata_keywords" %}
-                <div class="ui basic label keyword-subjects">
+            <div class="ui basic label keyword-subjects">
                 <SearchLink search_link={search_link} className="keyword-link" searchFacet={searchFacet} data={data}/>
             </div>
         </div>

@@ -9,6 +9,12 @@
     }
   }
 
+  &.file-format {
+    margin-right: 1rem;
+    background-color: @yaleBlue;
+    color: white;
+  }
+
   &.alt-identifiers {
     padding-left: 0;
     
