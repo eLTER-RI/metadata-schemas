@@ -1,19 +1,17 @@
-GET https://127.0.0.1:5000/api/lter
-
-###
-GET https://catalog-invenio.elter-ri.eu/api/lter/
-Accept: text/xml
-
-
-###
-GET https://127.0.0.1:5000/api/lter/dsq2m-rjn54
+GET https://catalog-invenio.elter-ri.eu/api/lter
 Accept: text/xml
 
 ###
-POST https://127.0.0.1:5000/api/lter/885fg-qve42/draft/actions/publish
+GET https://catalog-invenio.elter-ri.eu/api/lter/0msdh-8cm33
+
 
 ###
-POST https://127.0.0.1:5000/api/lter?access_token=zflbtmZyPQXm0d8WwovA4T7QO464M9dIzqiOMzjVMVuMf8Hp59GwmaHkiAMT
+POST https://catalog-invenio.elter-ri.eu/api/lter/t4sya-g8260/draft/actions/publish
+Authorization: Bearer hH7cw8gD1UoP8GNvbZsLlPNPTShoEs0cXWpBWafBtolOuOGHlPve3T0eyLBC
+
+###
+POST https://catalog-invenio.elter-ri.eu/api/lter
+Authorization: Bearer hH7cw8gD1UoP8GNvbZsLlPNPTShoEs0cXWpBWafBtolOuOGHlPve3T0eyLBC
 Content-Type: application/json
 
 {
@@ -29,13 +27,13 @@ Content-Type: application/json
     "shortNames": [
       {
         "language": "eng",
-        "text": "Token test"
+        "text": "Test 2"
       }
     ],
     "titles": [
       {
         "language": "eng",
-        "text": "Token test"
+        "text": "test 2"
       }
     ],
     "authors": [

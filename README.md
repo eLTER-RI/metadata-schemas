@@ -1,5 +1,27 @@
 # Elter Catalog
 
+UI updates
+Filtering
+Geo Map
+Keywords
+
+XML
+
+## Docker 
+Run from the root repo
+```bash
+docker buildx build -t copas-market.cerit-sc.cz/elter/lter_dar:TAG .
+```
+
+```bash
+ docker login copas-market.cerit-sc.cz/elter
+```
+
+```bash
+docker push copas-market.cerit-sc.cz/elter/lter_dar:TAG
+```
+
+
 ## Debug configuration
 - Create following configuration:
   - Executing script = debug_repository.py (in the root repo)
