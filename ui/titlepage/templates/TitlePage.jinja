@@ -25,7 +25,7 @@
                 </b>
                 Weather1, Weather2, Weather3
             </p>
-            <form action="/search" class="ui fluid big action input input-wrapper form" role="search">
+            <form action="{{ url_for('lter.search') }}" class="ui fluid big action input input-wrapper form" role="search">
                 <input type="text" name="q" class="title-search-form"
                        placeholder="{{ _('Search') }}">
                 <button type="submit"

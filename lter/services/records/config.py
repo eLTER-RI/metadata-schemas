@@ -27,8 +27,9 @@ class LterServiceConfig(
 
     result_list_cls = LterRecordList
 
-    PERMISSIONS_PRESETS = ["read_only"]
-    # PERMISSIONS_PRESETS = ["everyone"]
+    # TODO make it read_only
+    # PERMISSIONS_PRESETS = ["read_only"]
+    PERMISSIONS_PRESETS = ["everyone"]
 
     url_prefix = "/lter/"
 

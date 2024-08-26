@@ -1,17 +1,22 @@
-GET https://catalog-invenio.elter-ri.eu/api/lter
-Accept: text/xml
+GET https://catalog.elter-ri.eu/api/lter/?status=draft
+#Accept: text/xml
 
 ###
 GET https://catalog-invenio.elter-ri.eu/api/lter/0msdh-8cm33
 
+###
+GET https://catalog.elter-ri.eu/api/lter/?status=draft
 
 ###
-POST https://catalog-invenio.elter-ri.eu/api/lter/t4sya-g8260/draft/actions/publish
-Authorization: Bearer hH7cw8gD1UoP8GNvbZsLlPNPTShoEs0cXWpBWafBtolOuOGHlPve3T0eyLBC
+GET https://catalog.elter-ri.eu/api/lter/draft
 
 ###
-POST https://catalog-invenio.elter-ri.eu/api/lter
-Authorization: Bearer hH7cw8gD1UoP8GNvbZsLlPNPTShoEs0cXWpBWafBtolOuOGHlPve3T0eyLBC
+POST https://catalog.elter-ri.eu/api/lter/avnz1-h3n92/draft/actions/publish
+Authorization: Bearer rSrs36mso8KW9qrGsbutdslpl7WOMhIktI1qVVr9DUuNPXpRZ6AXZpf4d2dG
+
+###
+POST https://catalog.elter-ri.eu/api/lter
+Authorization: Bearer rSrs36mso8KW9qrGsbutdslpl7WOMhIktI1qVVr9DUuNPXpRZ6AXZpf4d2dG
 Content-Type: application/json
 
 {
@@ -27,13 +32,13 @@ Content-Type: application/json
     "shortNames": [
       {
         "language": "eng",
-        "text": "Test 2"
+        "text": "Test datataset with different keywords 2"
       }
     ],
     "titles": [
       {
         "language": "eng",
-        "text": "test 2"
+        "text": "Test datataset with different keywords 2"
       }
     ],
     "authors": [
@@ -41,7 +46,7 @@ Content-Type: application/json
         "fullName": "Dominik MiddleName Dubovsky",
         "givenName": "Dominik",
         "familyName": "Dubovsky",
-        "email": "randomEmail@gmail.com",
+        "email": "user@example.com",
         "ids": [
           {
             "id": "12345",
@@ -56,7 +61,7 @@ Content-Type: application/json
         "fullName": "Dominik MiddleName Dubovsky",
         "givenName": "Dominik",
         "familyName": "Dubovsky",
-        "email": "randomEmail@gmail.com",
+        "email": "user@example.com",
         "type": "MetadataProvider",
         "ids": [
           {
@@ -73,16 +78,16 @@ Content-Type: application/json
       {
         "type": "Abstract",
         "language": "eng",
-        "description": "This is abstract"
+        "description": "This is a official abstract of the second dataset ingested into the Invenio Elter DAR component."
       },
       {
         "type": "AdditionalInfo",
         "language": "eng",
-        "description": "Some additional info"
+        "description": "This dataset is private, and is only for testing."
       }
     ],
     "keywords": [
-      "NoKeyWords"
+      "Fruits", "Food"
     ],
     "propertyRights": [
       {
@@ -98,49 +103,20 @@ Content-Type: application/json
     ],
     "geoLocations": [
       {
-        "description": "This is point",
+        "description": "This is testing point location",
         "point": {
           "longitude": 10.50,
           "latitude": 10.50
         }
       },
       {
-        "description": "This is box",
+        "description": "This is testing box location",
         "box": {
           "westLongitude": 9.50,
           "eastLongitude": 10.50,
           "southLatitude": 9.50,
           "northLatitude": 10.50
         }
-      },
-      {
-        "description": "This is polygon",
-        "polygon": [
-          {
-            "points": [
-              {
-                "longitude": 10.50,
-                "latitude": 10.50
-              },
-              {
-                "longitude": 15.50,
-                "latitude": 15.50
-              },
-              {
-                "longitude": 12.50,
-                "latitude": 11.50
-              },
-              {
-                "longitude": 17.50,
-                "latitude": 17.50
-              }
-            ],
-            "inPolygonPoint": {
-              "longitude": 13.50,
-              "latitude": 13.50
-            }
-          }
-        ]
       }
     ],
     "temporalCoverages": [
@@ -169,11 +145,11 @@ Content-Type: application/json
         }
       ],
       "sampling": {
-        "studyDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet ligula tellus, sit amet iaculis urna viverra vitae. Etiam tincidunt elit nisl, sagittis facilisis nisi tincidunt eu. Suspendisse potenti. Pellentesque tellus ligula, tincidunt quis gravida nec, vulputate et nisi. Donec pulvinar a lectus et tempus. Class aptent taciti sociosqu ad. ",
-        "samplingDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis lacus suscipit, sollicitudin dui eget, pretium augue. Duis eget suscipit mauris. Morbi aliquet lacus a fermentum posuere. Cras neque elit, efficitur quis leo quis, elementum fermentum sem. Quisque est eros, malesuada et neque eu, suscipit mattis sem. Etiam consequat lorem."
+        "studyDescription": "Lorem ipsum.",
+        "samplingDescription": "Lorem ipsum"
       },
-      "qualityControlDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer feugiat viverra metus eget viverra. Nullam pharetra arcu pulvinar, accumsan sem. ",
-      "instrumentationDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere urna ligula. Praesent mattis, urna eget iaculis maximus, sem tellus. "
+      "qualityControlDescription": "Lorem ipsum.",
+      "instrumentationDescription": "Lorem ipsum."
     },
     "project": {
       "name": "elter",
@@ -200,29 +176,8 @@ Content-Type: application/json
         "md5": "checksum-hash",
         "format": "csv",
         "size": 234,
-        "name": "test adw wa daw",
+        "name": "File 1 - Testing file snapshot",
         "sourceUrl": "www.google.com"
-      },
-      {
-        "md5": "checksum-hash2",
-        "format": "txt",
-        "size": 2344,
-        "name": "tesawdwat2",
-        "sourceUrl": "url2"
-      },
-      {
-        "md5": "checksum-hash2",
-        "format": "txt",
-        "size": 2344,
-        "name": "oawijdojwao jdoawj ojwaio aw",
-        "sourceUrl": "url2"
-      },
-      {
-        "md5": "checksum-hash2",
-        "format": "txt",
-        "size": 2344,
-        "name": "oawijdojwao jdoawj ojwaio aadwdwa awd wad",
-        "sourceUrl": "url2"
       }
     ]
   }

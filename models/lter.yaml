@@ -19,8 +19,9 @@ record:
     qualified: lter
   permissions:
     presets:
-#      - everyone
-      - read_only
+#      TODO change this
+      - everyone
+#      - read_only
   pid:
     type: lter
   properties:
