@@ -54,7 +54,7 @@
                 "imports": [],
                 "base-classes": [
                     "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
-                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
+                    "oarepo_runtime.services.search.I18nSearchOptions"
                 ],
                 "generate": true,
                 "module": "lter.services.records.ui_schema",
@@ -149,6 +149,12 @@
             "imports": []
         },
         "facets": {
+            "facet-groups" : {
+                "default": {
+                    "metadata.dataLevel": 1,
+                    "metadata.keywords": 2
+                }
+            },
             "generate": true,
             "module": "lter.services.records.facets",
             "extra-code": "",

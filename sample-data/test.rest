@@ -10,7 +10,7 @@ GET https://127.0.0.1:5000/api/lter/dsq2m-rjn54
 Accept: text/xml
 
 ###
-POST https://127.0.0.1:5000/api/lter/hc5p4-kkb12S/draft/actions/publish
+POST https://127.0.0.1:5000/api/lter/qgxaz-5js74/draft/actions/publish
 
 ###
 POST https://127.0.0.1:5000/api/lter

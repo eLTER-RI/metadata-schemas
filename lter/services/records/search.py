@@ -1,12 +1,18 @@
-from invenio_records_resources.services import SearchOptions as InvenioSearchOptions
+from oarepo_runtime.services.search import I18nSearchOptions, ICUSortOptions
 
 from . import facets
 
 
-class LterSearchOptions(InvenioSearchOptions):
+class LterSearchOptions(I18nSearchOptions):
     """LterRecord search options."""
 
-    facet_groups = {}
+    facet_groups = {
+        "default": {
+            "metadata_dataLevel": facets.metadata_dataLevel,
+            "metadata_keywords": facets.metadata_keywords,
+            **getattr(I18nSearchOptions, "facet_groups", {}).get("default", {}),
+        }
+    }
 
     facets = {
         "metadata_SOReference_name": facets.metadata_SOReference_name,
@@ -73,7 +79,8 @@ class LterSearchOptions(InvenioSearchOptions):
         "metadata_temporalCoverages_startDate": facets.metadata_temporalCoverages_startDate,
         "metadata_temporalResolution": facets.metadata_temporalResolution,
         "metadata_titles_language": facets.metadata_titles_language,
-        **getattr(InvenioSearchOptions, "facets", {}),
+        **getattr(I18nSearchOptions, "facets", {}),
         "record_status": facets.record_status,
         "has_draft": facets.has_draft,
     }
+
