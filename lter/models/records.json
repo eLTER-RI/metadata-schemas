@@ -152,7 +152,8 @@
             "facet-groups" : {
                 "default": {
                     "metadata.dataLevel": 1,
-                    "metadata.keywords": 2
+                    "metadata.keywords": 2,
+                    "metadata.datasetIds.source": 3
                 }
             },
             "generate": true,

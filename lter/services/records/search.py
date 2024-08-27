@@ -10,6 +10,7 @@ class LterSearchOptions(I18nSearchOptions):
         "default": {
             "metadata_dataLevel": facets.metadata_dataLevel,
             "metadata_keywords": facets.metadata_keywords,
+            "metadata_datasetIds_source": facets.metadata_datasetIds_source,
             **getattr(I18nSearchOptions, "facet_groups", {}).get("default", {}),
         }
     }
