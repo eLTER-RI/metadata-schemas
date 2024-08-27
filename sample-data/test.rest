@@ -10,7 +10,7 @@ GET https://127.0.0.1:5000/api/lter/dsq2m-rjn54
 Accept: text/xml
 
 ###
-POST https://127.0.0.1:5000/api/lter/qgxaz-5js74/draft/actions/publish
+POST https://127.0.0.1:5000/api/lter/p7c53-e4k88/draft/actions/publish
 
 ###
 POST https://127.0.0.1:5000/api/lter
@@ -96,53 +96,6 @@ Content-Type: application/json
       {
         "name": "name of the license",
         "url": "url of the license"
-      }
-    ],
-    "geoLocations": [
-      {
-        "description": "This is point",
-        "point": {
-          "longitude": 10.50,
-          "latitude": 10.50
-        }
-      },
-      {
-        "description": "This is box",
-        "box": {
-          "westLongitude": 9.50,
-          "eastLongitude": 10.50,
-          "southLatitude": 9.50,
-          "northLatitude": 10.50
-        }
-      },
-      {
-        "description": "This is polygon",
-        "polygon": [
-          {
-            "points": [
-              {
-                "longitude": 10.50,
-                "latitude": 10.50
-              },
-              {
-                "longitude": 15.50,
-                "latitude": 15.50
-              },
-              {
-                "longitude": 12.50,
-                "latitude": 11.50
-              },
-              {
-                "longitude": 17.50,
-                "latitude": 17.50
-              }
-            ],
-            "inPolygonPoint": {
-              "longitude": 13.50,
-              "latitude": 13.50
-            }
-          }
-        ]
       }
     ],
     "temporalCoverages": [

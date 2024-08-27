@@ -71,13 +71,14 @@
                         </article>
                     </div>
                     <div class="four wide computer only column">
-                        <AccordionField label={_('GeoMap')} title_class=""
-                                        label_class=""
-                                        active>
-                            <GeoMap d={d.metadata.geoLocations}/>
-                        </AccordionField>
+                        {% if d.metadata.geoLocations %}
+                            <AccordionField label={_('GeoMap')} title_class=""
+                                            label_class=""
+                                            active>
+                                <GeoMap d={d.metadata.geoLocations}/>
+                            </AccordionField>
+                        {% endif %}
                     </div>
-
                 </div>
             </div>
 
