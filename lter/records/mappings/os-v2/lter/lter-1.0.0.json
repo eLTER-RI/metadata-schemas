@@ -29,6 +29,18 @@
                             }
                         }
                     },
+                    "additionalMetadata": {
+                        "type": "nested",
+                        "properties": {
+                            "name": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "value": {
+                                "type": "text"
+                            }
+                        }
+                    },
                     "authors": {
                         "type": "object",
                         "properties": {
@@ -119,7 +131,7 @@
                                 "type": "keyword",
                                 "ignore_above": 1024
                             },
-                            "source": {
+                            "sourceName": {
                                 "type": "keyword",
                                 "ignore_above": 1024
                             },
@@ -189,38 +201,7 @@
                     "geoLocations": {
                         "type": "object",
                         "properties": {
-                            "box": {
-                                "type": "object",
-                                "properties": {
-                                    "eastLongitude": {
-                                        "type": "float"
-                                    },
-                                    "northLatitude": {
-                                        "type": "float"
-                                    },
-                                    "southLatitude": {
-                                        "type": "float"
-                                    },
-                                    "westLongitude": {
-                                        "type": "float"
-                                    }
-                                }
-                            },
-                            "description": {
-                                "type": "text"
-                            },
-                            "point": {
-                                "type": "object",
-                                "properties": {
-                                    "latitude": {
-                                        "type": "float"
-                                    },
-                                    "longitude": {
-                                        "type": "float"
-                                    }
-                                }
-                            },
-                            "polygon": {
+                            "EX_BoundingPolygon": {
                                 "type": "object",
                                 "properties": {
                                     "inPolygonPoint": {
@@ -246,12 +227,102 @@
                                         }
                                     }
                                 }
+                            },
+                            "EX_GeographicBoundingBox": {
+                                "type": "object",
+                                "properties": {
+                                    "eastBoundLongitude": {
+                                        "type": "float"
+                                    },
+                                    "northBoundLatitude": {
+                                        "type": "float"
+                                    },
+                                    "southBoundLatitude": {
+                                        "type": "float"
+                                    },
+                                    "westBoundLongitude": {
+                                        "type": "float"
+                                    }
+                                }
+                            },
+                            "EX_GeographicDescription": {
+                                "type": "text"
+                            },
+                            "Point": {
+                                "type": "object",
+                                "properties": {
+                                    "latitude": {
+                                        "type": "float"
+                                    },
+                                    "longitude": {
+                                        "type": "float"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "geoServerInfo": {
+                        "type": "object",
+                        "properties": {
+                            "mapData": {
+                                "type": "object",
+                                "properties": {
+                                    "bytetype": {
+                                        "type": "boolean"
+                                    },
+                                    "epsgCode": {
+                                        "type": "integer"
+                                    },
+                                    "features": {
+                                        "type": "object",
+                                        "properties": {
+                                            "label": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "name": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "style": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "colour": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "path": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "type": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    }
+                                }
+                            },
+                            "serviceType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
                             }
                         }
                     },
                     "keywords": {
-                        "type": "keyword",
-                        "ignore_above": 1024
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "url": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            }
+                        }
                     },
                     "language": {
                         "type": "keyword",

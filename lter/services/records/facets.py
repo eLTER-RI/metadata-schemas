@@ -3,6 +3,7 @@
 from invenio_records_resources.services.records.facets import TermsFacet
 from oarepo_runtime.i18n import lazy_gettext as _
 from oarepo_runtime.services.facets.date import DateTimeFacet
+from oarepo_runtime.services.facets.nested_facet import NestedLabeledFacet
 
 metadata_SOReference_name = TermsFacet(
     field="metadata.SOReference.name", label=_("metadata/SOReference/name.label")
@@ -10,6 +11,14 @@ metadata_SOReference_name = TermsFacet(
 
 metadata_SOReference_url = TermsFacet(
     field="metadata.SOReference.url", label=_("metadata/SOReference/url.label")
+)
+
+metadata_additionalMetadata_name = NestedLabeledFacet(
+    path="metadata.additionalMetadata",
+    nested_facet=TermsFacet(
+        field="metadata.additionalMetadata.name",
+        label=_("metadata/additionalMetadata/name.label"),
+    ),
 )
 
 metadata_authors_email = TermsFacet(
@@ -86,8 +95,9 @@ metadata_datasetIds_identifier = TermsFacet(
     label=_("metadata/datasetIds/identifier.label"),
 )
 
-metadata_datasetIds_source = TermsFacet(
-    field="metadata.datasetIds.source", label=_("metadata/datasetIds/source.label")
+metadata_datasetIds_sourceName = TermsFacet(
+    field="metadata.datasetIds.sourceName",
+    label=_("metadata/datasetIds/sourceName.label"),
 )
 
 metadata_datasetIds_type = TermsFacet(
@@ -135,58 +145,102 @@ metadata_files_sourceUrl = TermsFacet(
     field="metadata.files.sourceUrl", label=_("metadata/files/sourceUrl.label")
 )
 
-metadata_geoLocations_box_eastLongitude = TermsFacet(
-    field="metadata.geoLocations.box.eastLongitude",
-    label=_("metadata/geoLocations/box/eastLongitude.label"),
+metadata_geoLocations_EX_BoundingPolygon_inPolygonPoint_latitude = TermsFacet(
+    field="metadata.geoLocations.EX_BoundingPolygon.inPolygonPoint.latitude",
+    label=_("metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/latitude.label"),
 )
 
-metadata_geoLocations_box_northLatitude = TermsFacet(
-    field="metadata.geoLocations.box.northLatitude",
-    label=_("metadata/geoLocations/box/northLatitude.label"),
+metadata_geoLocations_EX_BoundingPolygon_inPolygonPoint_longitude = TermsFacet(
+    field="metadata.geoLocations.EX_BoundingPolygon.inPolygonPoint.longitude",
+    label=_("metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/longitude.label"),
 )
 
-metadata_geoLocations_box_southLatitude = TermsFacet(
-    field="metadata.geoLocations.box.southLatitude",
-    label=_("metadata/geoLocations/box/southLatitude.label"),
+metadata_geoLocations_EX_BoundingPolygon_points_latitude = TermsFacet(
+    field="metadata.geoLocations.EX_BoundingPolygon.points.latitude",
+    label=_("metadata/geoLocations/EX_BoundingPolygon/points/latitude.label"),
 )
 
-metadata_geoLocations_box_westLongitude = TermsFacet(
-    field="metadata.geoLocations.box.westLongitude",
-    label=_("metadata/geoLocations/box/westLongitude.label"),
+metadata_geoLocations_EX_BoundingPolygon_points_longitude = TermsFacet(
+    field="metadata.geoLocations.EX_BoundingPolygon.points.longitude",
+    label=_("metadata/geoLocations/EX_BoundingPolygon/points/longitude.label"),
 )
 
-metadata_geoLocations_point_latitude = TermsFacet(
-    field="metadata.geoLocations.point.latitude",
-    label=_("metadata/geoLocations/point/latitude.label"),
+metadata_geoLocations_EX_GeographicBoundingBox_eastBoundLongitude = TermsFacet(
+    field="metadata.geoLocations.EX_GeographicBoundingBox.eastBoundLongitude",
+    label=_("metadata/geoLocations/EX_GeographicBoundingBox/eastBoundLongitude.label"),
 )
 
-metadata_geoLocations_point_longitude = TermsFacet(
-    field="metadata.geoLocations.point.longitude",
-    label=_("metadata/geoLocations/point/longitude.label"),
+metadata_geoLocations_EX_GeographicBoundingBox_northBoundLatitude = TermsFacet(
+    field="metadata.geoLocations.EX_GeographicBoundingBox.northBoundLatitude",
+    label=_("metadata/geoLocations/EX_GeographicBoundingBox/northBoundLatitude.label"),
 )
 
-metadata_geoLocations_polygon_inPolygonPoint_latitude = TermsFacet(
-    field="metadata.geoLocations.polygon.inPolygonPoint.latitude",
-    label=_("metadata/geoLocations/polygon/inPolygonPoint/latitude.label"),
+metadata_geoLocations_EX_GeographicBoundingBox_southBoundLatitude = TermsFacet(
+    field="metadata.geoLocations.EX_GeographicBoundingBox.southBoundLatitude",
+    label=_("metadata/geoLocations/EX_GeographicBoundingBox/southBoundLatitude.label"),
 )
 
-metadata_geoLocations_polygon_inPolygonPoint_longitude = TermsFacet(
-    field="metadata.geoLocations.polygon.inPolygonPoint.longitude",
-    label=_("metadata/geoLocations/polygon/inPolygonPoint/longitude.label"),
+metadata_geoLocations_EX_GeographicBoundingBox_westBoundLongitude = TermsFacet(
+    field="metadata.geoLocations.EX_GeographicBoundingBox.westBoundLongitude",
+    label=_("metadata/geoLocations/EX_GeographicBoundingBox/westBoundLongitude.label"),
 )
 
-metadata_geoLocations_polygon_points_latitude = TermsFacet(
-    field="metadata.geoLocations.polygon.points.latitude",
-    label=_("metadata/geoLocations/polygon/points/latitude.label"),
+metadata_geoLocations_Point_latitude = TermsFacet(
+    field="metadata.geoLocations.Point.latitude",
+    label=_("metadata/geoLocations/Point/latitude.label"),
 )
 
-metadata_geoLocations_polygon_points_longitude = TermsFacet(
-    field="metadata.geoLocations.polygon.points.longitude",
-    label=_("metadata/geoLocations/polygon/points/longitude.label"),
+metadata_geoLocations_Point_longitude = TermsFacet(
+    field="metadata.geoLocations.Point.longitude",
+    label=_("metadata/geoLocations/Point/longitude.label"),
 )
 
-metadata_keywords = TermsFacet(
-    field="metadata.keywords", label=_("metadata/keywords.label")
+metadata_geoServerInfo_mapData_bytetype = TermsFacet(
+    field="metadata.geoServerInfo.mapData.bytetype",
+    label=_("metadata/geoServerInfo/mapData/bytetype.label"),
+)
+
+metadata_geoServerInfo_mapData_epsgCode = TermsFacet(
+    field="metadata.geoServerInfo.mapData.epsgCode",
+    label=_("metadata/geoServerInfo/mapData/epsgCode.label"),
+)
+
+metadata_geoServerInfo_mapData_features_label = TermsFacet(
+    field="metadata.geoServerInfo.mapData.features.label",
+    label=_("metadata/geoServerInfo/mapData/features/label.label"),
+)
+
+metadata_geoServerInfo_mapData_features_name = TermsFacet(
+    field="metadata.geoServerInfo.mapData.features.name",
+    label=_("metadata/geoServerInfo/mapData/features/name.label"),
+)
+
+metadata_geoServerInfo_mapData_features_style_colour = TermsFacet(
+    field="metadata.geoServerInfo.mapData.features.style.colour",
+    label=_("metadata/geoServerInfo/mapData/features/style/colour.label"),
+)
+
+metadata_geoServerInfo_mapData_path = TermsFacet(
+    field="metadata.geoServerInfo.mapData.path",
+    label=_("metadata/geoServerInfo/mapData/path.label"),
+)
+
+metadata_geoServerInfo_mapData_type = TermsFacet(
+    field="metadata.geoServerInfo.mapData.type",
+    label=_("metadata/geoServerInfo/mapData/type.label"),
+)
+
+metadata_geoServerInfo_serviceType = TermsFacet(
+    field="metadata.geoServerInfo.serviceType",
+    label=_("metadata/geoServerInfo/serviceType.label"),
+)
+
+metadata_keywords_name = TermsFacet(
+    field="metadata.keywords.name", label=_("metadata/keywords/name.label")
+)
+
+metadata_keywords_url = TermsFacet(
+    field="metadata.keywords.url", label=_("metadata/keywords/url.label")
 )
 
 metadata_language = TermsFacet(

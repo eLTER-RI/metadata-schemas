@@ -61,6 +61,37 @@
                         }
                     }
                 },
+                "additionalMetadata": {
+                    "detail": "array",
+                    "input": "array",
+                    "help": "metadata/additionalMetadata.help",
+                    "label": "metadata/additionalMetadata.label",
+                    "hint": "metadata/additionalMetadata.hint",
+                    "child": {
+                        "detail": "additionalmetadatum",
+                        "input": "additionalmetadatum",
+                        "help": "metadata/additionalMetadata.help",
+                        "label": "metadata/additionalMetadata.label",
+                        "hint": "metadata/additionalMetadata.hint",
+                        "children": {
+                            "name": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/additionalMetadata/name.help",
+                                "label": "metadata/additionalMetadata/name.label",
+                                "hint": "metadata/additionalMetadata/name.hint",
+                                "facet": "metadata_additionalMetadata_name"
+                            },
+                            "value": {
+                                "detail": "fulltext",
+                                "input": "fulltext",
+                                "help": "metadata/additionalMetadata/value.help",
+                                "label": "metadata/additionalMetadata/value.label",
+                                "hint": "metadata/additionalMetadata/value.hint"
+                            }
+                        }
+                    }
+                },
                 "authors": {
                     "detail": "array",
                     "input": "array",
@@ -122,6 +153,7 @@
                                         "id": {
                                             "detail": "keyword",
                                             "input": "keyword",
+                                            "required": true,
                                             "help": "metadata/authors/ids/id.help",
                                             "label": "metadata/authors/ids/id.label",
                                             "hint": "metadata/authors/ids/id.hint",
@@ -130,6 +162,7 @@
                                         "schema": {
                                             "detail": "keyword",
                                             "input": "keyword",
+                                            "required": true,
                                             "help": "metadata/authors/ids/schema.help",
                                             "label": "metadata/authors/ids/schema.label",
                                             "hint": "metadata/authors/ids/schema.hint",
@@ -210,6 +243,7 @@
                                         "id": {
                                             "detail": "keyword",
                                             "input": "keyword",
+                                            "required": true,
                                             "help": "metadata/contributors/ids/id.help",
                                             "label": "metadata/contributors/ids/id.label",
                                             "hint": "metadata/contributors/ids/id.hint",
@@ -218,6 +252,7 @@
                                         "schema": {
                                             "detail": "keyword",
                                             "input": "keyword",
+                                            "required": true,
                                             "help": "metadata/contributors/ids/schema.help",
                                             "label": "metadata/contributors/ids/schema.label",
                                             "hint": "metadata/contributors/ids/schema.hint",
@@ -237,6 +272,7 @@
                             "type": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/contributors/type.help",
                                 "label": "metadata/contributors/type.label",
                                 "hint": "metadata/contributors/type.hint",
@@ -270,22 +306,24 @@
                             "identifier": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/datasetIds/identifier.help",
                                 "label": "metadata/datasetIds/identifier.label",
                                 "hint": "metadata/datasetIds/identifier.hint",
                                 "facet": "metadata_datasetIds_identifier"
                             },
-                            "source": {
+                            "sourceName": {
                                 "detail": "keyword",
                                 "input": "keyword",
-                                "help": "metadata/datasetIds/source.help",
-                                "label": "metadata/datasetIds/source.label",
-                                "hint": "metadata/datasetIds/source.hint",
-                                "facet": "metadata_datasetIds_source"
+                                "help": "metadata/datasetIds/sourceName.help",
+                                "label": "metadata/datasetIds/sourceName.label",
+                                "hint": "metadata/datasetIds/sourceName.hint",
+                                "facet": "metadata_datasetIds_sourceName"
                             },
                             "type": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/datasetIds/type.help",
                                 "label": "metadata/datasetIds/type.label",
                                 "hint": "metadata/datasetIds/type.hint",
@@ -318,6 +356,7 @@
                             "description": {
                                 "detail": "fulltext",
                                 "input": "fulltext",
+                                "required": true,
                                 "help": "metadata/descriptions/description.help",
                                 "label": "metadata/descriptions/description.label",
                                 "hint": "metadata/descriptions/description.hint"
@@ -325,6 +364,7 @@
                             "language": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/descriptions/language.help",
                                 "label": "metadata/descriptions/language.label",
                                 "hint": "metadata/descriptions/language.hint",
@@ -333,6 +373,7 @@
                             "type": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/descriptions/type.help",
                                 "label": "metadata/descriptions/type.label",
                                 "hint": "metadata/descriptions/type.hint",
@@ -413,8 +454,8 @@
                                 "facet": "metadata_files_size"
                             },
                             "sourceUrl": {
-                                "detail": "keyword",
-                                "input": "keyword",
+                                "detail": "url",
+                                "input": "url",
                                 "help": "metadata/files/sourceUrl.help",
                                 "label": "metadata/files/sourceUrl.label",
                                 "hint": "metadata/files/sourceUrl.hint",
@@ -436,152 +477,264 @@
                         "label": "metadata/geoLocations.label",
                         "hint": "metadata/geoLocations.hint",
                         "children": {
-                            "box": {
-                                "detail": false,
-                                "input": false,
-                                "help": "metadata/geoLocations/box.help",
-                                "label": "metadata/geoLocations/box.label",
-                                "hint": "metadata/geoLocations/box.hint",
-                                "children": {
-                                    "eastLongitude": {
-                                        "detail": "float",
-                                        "input": "float",
-                                        "help": "metadata/geoLocations/box/eastLongitude.help",
-                                        "label": "metadata/geoLocations/box/eastLongitude.label",
-                                        "hint": "metadata/geoLocations/box/eastLongitude.hint",
-                                        "facet": "metadata_geoLocations_box_eastLongitude"
-                                    },
-                                    "northLatitude": {
-                                        "detail": "float",
-                                        "input": "float",
-                                        "help": "metadata/geoLocations/box/northLatitude.help",
-                                        "label": "metadata/geoLocations/box/northLatitude.label",
-                                        "hint": "metadata/geoLocations/box/northLatitude.hint",
-                                        "facet": "metadata_geoLocations_box_northLatitude"
-                                    },
-                                    "southLatitude": {
-                                        "detail": "float",
-                                        "input": "float",
-                                        "help": "metadata/geoLocations/box/southLatitude.help",
-                                        "label": "metadata/geoLocations/box/southLatitude.label",
-                                        "hint": "metadata/geoLocations/box/southLatitude.hint",
-                                        "facet": "metadata_geoLocations_box_southLatitude"
-                                    },
-                                    "westLongitude": {
-                                        "detail": "float",
-                                        "input": "float",
-                                        "help": "metadata/geoLocations/box/westLongitude.help",
-                                        "label": "metadata/geoLocations/box/westLongitude.label",
-                                        "hint": "metadata/geoLocations/box/westLongitude.hint",
-                                        "facet": "metadata_geoLocations_box_westLongitude"
-                                    }
-                                }
-                            },
-                            "description": {
-                                "detail": "fulltext",
-                                "input": "fulltext",
-                                "help": "metadata/geoLocations/description.help",
-                                "label": "metadata/geoLocations/description.label",
-                                "hint": "metadata/geoLocations/description.hint"
-                            },
-                            "point": {
-                                "detail": false,
-                                "input": false,
-                                "help": "metadata/geoLocations/point.help",
-                                "label": "metadata/geoLocations/point.label",
-                                "hint": "metadata/geoLocations/point.hint",
-                                "children": {
-                                    "latitude": {
-                                        "detail": "float",
-                                        "input": "float",
-                                        "help": "metadata/geoLocations/point/latitude.help",
-                                        "label": "metadata/geoLocations/point/latitude.label",
-                                        "hint": "metadata/geoLocations/point/latitude.hint",
-                                        "facet": "metadata_geoLocations_point_latitude"
-                                    },
-                                    "longitude": {
-                                        "detail": "float",
-                                        "input": "float",
-                                        "help": "metadata/geoLocations/point/longitude.help",
-                                        "label": "metadata/geoLocations/point/longitude.label",
-                                        "hint": "metadata/geoLocations/point/longitude.hint",
-                                        "facet": "metadata_geoLocations_point_longitude"
-                                    }
-                                }
-                            },
-                            "polygon": {
+                            "EX_BoundingPolygon": {
                                 "detail": "array",
                                 "input": "array",
-                                "help": "metadata/geoLocations/polygon.help",
-                                "label": "metadata/geoLocations/polygon.label",
-                                "hint": "metadata/geoLocations/polygon.hint",
+                                "help": "metadata/geoLocations/EX_BoundingPolygon.help",
+                                "label": "metadata/geoLocations/EX_BoundingPolygon.label",
+                                "hint": "metadata/geoLocations/EX_BoundingPolygon.hint",
                                 "child": {
                                     "detail": false,
                                     "input": false,
-                                    "help": "metadata/geoLocations/polygon.help",
-                                    "label": "metadata/geoLocations/polygon.label",
-                                    "hint": "metadata/geoLocations/polygon.hint",
+                                    "help": "metadata/geoLocations/EX_BoundingPolygon.help",
+                                    "label": "metadata/geoLocations/EX_BoundingPolygon.label",
+                                    "hint": "metadata/geoLocations/EX_BoundingPolygon.hint",
                                     "children": {
                                         "inPolygonPoint": {
                                             "detail": false,
                                             "input": false,
-                                            "help": "metadata/geoLocations/polygon/inPolygonPoint.help",
-                                            "label": "metadata/geoLocations/polygon/inPolygonPoint.label",
-                                            "hint": "metadata/geoLocations/polygon/inPolygonPoint.hint",
+                                            "help": "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint.help",
+                                            "label": "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint.label",
+                                            "hint": "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint.hint",
                                             "children": {
                                                 "latitude": {
                                                     "detail": "float",
                                                     "input": "float",
-                                                    "help": "metadata/geoLocations/polygon/inPolygonPoint/latitude.help",
-                                                    "label": "metadata/geoLocations/polygon/inPolygonPoint/latitude.label",
-                                                    "hint": "metadata/geoLocations/polygon/inPolygonPoint/latitude.hint",
-                                                    "facet": "metadata_geoLocations_polygon_inPolygonPoint_latitude"
+                                                    "help": "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/latitude.help",
+                                                    "label": "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/latitude.label",
+                                                    "hint": "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/latitude.hint",
+                                                    "facet": "metadata_geoLocations_EX_BoundingPolygon_inPolygonPoint_latitude"
                                                 },
                                                 "longitude": {
                                                     "detail": "float",
                                                     "input": "float",
-                                                    "help": "metadata/geoLocations/polygon/inPolygonPoint/longitude.help",
-                                                    "label": "metadata/geoLocations/polygon/inPolygonPoint/longitude.label",
-                                                    "hint": "metadata/geoLocations/polygon/inPolygonPoint/longitude.hint",
-                                                    "facet": "metadata_geoLocations_polygon_inPolygonPoint_longitude"
+                                                    "help": "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/longitude.help",
+                                                    "label": "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/longitude.label",
+                                                    "hint": "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/longitude.hint",
+                                                    "facet": "metadata_geoLocations_EX_BoundingPolygon_inPolygonPoint_longitude"
                                                 }
                                             }
                                         },
                                         "points": {
                                             "detail": "array",
                                             "input": "array",
-                                            "help": "metadata/geoLocations/polygon/points.help",
-                                            "label": "metadata/geoLocations/polygon/points.label",
-                                            "hint": "metadata/geoLocations/polygon/points.hint",
+                                            "required": true,
+                                            "help": "metadata/geoLocations/EX_BoundingPolygon/points.help",
+                                            "label": "metadata/geoLocations/EX_BoundingPolygon/points.label",
+                                            "hint": "metadata/geoLocations/EX_BoundingPolygon/points.hint",
                                             "child": {
                                                 "detail": "point",
                                                 "input": "point",
-                                                "help": "metadata/geoLocations/polygon/points.help",
-                                                "label": "metadata/geoLocations/polygon/points.label",
-                                                "hint": "metadata/geoLocations/polygon/points.hint",
+                                                "help": "metadata/geoLocations/EX_BoundingPolygon/points.help",
+                                                "label": "metadata/geoLocations/EX_BoundingPolygon/points.label",
+                                                "hint": "metadata/geoLocations/EX_BoundingPolygon/points.hint",
                                                 "children": {
                                                     "latitude": {
                                                         "detail": "float",
                                                         "input": "float",
-                                                        "help": "metadata/geoLocations/polygon/points/latitude.help",
-                                                        "label": "metadata/geoLocations/polygon/points/latitude.label",
-                                                        "hint": "metadata/geoLocations/polygon/points/latitude.hint",
-                                                        "facet": "metadata_geoLocations_polygon_points_latitude"
+                                                        "help": "metadata/geoLocations/EX_BoundingPolygon/points/latitude.help",
+                                                        "label": "metadata/geoLocations/EX_BoundingPolygon/points/latitude.label",
+                                                        "hint": "metadata/geoLocations/EX_BoundingPolygon/points/latitude.hint",
+                                                        "facet": "metadata_geoLocations_EX_BoundingPolygon_points_latitude"
                                                     },
                                                     "longitude": {
                                                         "detail": "float",
                                                         "input": "float",
-                                                        "help": "metadata/geoLocations/polygon/points/longitude.help",
-                                                        "label": "metadata/geoLocations/polygon/points/longitude.label",
-                                                        "hint": "metadata/geoLocations/polygon/points/longitude.hint",
-                                                        "facet": "metadata_geoLocations_polygon_points_longitude"
+                                                        "help": "metadata/geoLocations/EX_BoundingPolygon/points/longitude.help",
+                                                        "label": "metadata/geoLocations/EX_BoundingPolygon/points/longitude.label",
+                                                        "hint": "metadata/geoLocations/EX_BoundingPolygon/points/longitude.hint",
+                                                        "facet": "metadata_geoLocations_EX_BoundingPolygon_points_longitude"
                                                     }
                                                 }
                                             }
                                         }
                                     }
                                 }
+                            },
+                            "EX_GeographicBoundingBox": {
+                                "detail": false,
+                                "input": false,
+                                "help": "metadata/geoLocations/EX_GeographicBoundingBox.help",
+                                "label": "metadata/geoLocations/EX_GeographicBoundingBox.label",
+                                "hint": "metadata/geoLocations/EX_GeographicBoundingBox.hint",
+                                "children": {
+                                    "eastBoundLongitude": {
+                                        "detail": "float",
+                                        "input": "float",
+                                        "required": true,
+                                        "help": "metadata/geoLocations/EX_GeographicBoundingBox/eastBoundLongitude.help",
+                                        "label": "metadata/geoLocations/EX_GeographicBoundingBox/eastBoundLongitude.label",
+                                        "hint": "metadata/geoLocations/EX_GeographicBoundingBox/eastBoundLongitude.hint",
+                                        "facet": "metadata_geoLocations_EX_GeographicBoundingBox_eastBoundLongitude"
+                                    },
+                                    "northBoundLatitude": {
+                                        "detail": "float",
+                                        "input": "float",
+                                        "required": true,
+                                        "help": "metadata/geoLocations/EX_GeographicBoundingBox/northBoundLatitude.help",
+                                        "label": "metadata/geoLocations/EX_GeographicBoundingBox/northBoundLatitude.label",
+                                        "hint": "metadata/geoLocations/EX_GeographicBoundingBox/northBoundLatitude.hint",
+                                        "facet": "metadata_geoLocations_EX_GeographicBoundingBox_northBoundLatitude"
+                                    },
+                                    "southBoundLatitude": {
+                                        "detail": "float",
+                                        "input": "float",
+                                        "required": true,
+                                        "help": "metadata/geoLocations/EX_GeographicBoundingBox/southBoundLatitude.help",
+                                        "label": "metadata/geoLocations/EX_GeographicBoundingBox/southBoundLatitude.label",
+                                        "hint": "metadata/geoLocations/EX_GeographicBoundingBox/southBoundLatitude.hint",
+                                        "facet": "metadata_geoLocations_EX_GeographicBoundingBox_southBoundLatitude"
+                                    },
+                                    "westBoundLongitude": {
+                                        "detail": "float",
+                                        "input": "float",
+                                        "required": true,
+                                        "help": "metadata/geoLocations/EX_GeographicBoundingBox/westBoundLongitude.help",
+                                        "label": "metadata/geoLocations/EX_GeographicBoundingBox/westBoundLongitude.label",
+                                        "hint": "metadata/geoLocations/EX_GeographicBoundingBox/westBoundLongitude.hint",
+                                        "facet": "metadata_geoLocations_EX_GeographicBoundingBox_westBoundLongitude"
+                                    }
+                                }
+                            },
+                            "EX_GeographicDescription": {
+                                "detail": "fulltext",
+                                "input": "fulltext",
+                                "help": "metadata/geoLocations/EX_GeographicDescription.help",
+                                "label": "metadata/geoLocations/EX_GeographicDescription.label",
+                                "hint": "metadata/geoLocations/EX_GeographicDescription.hint"
+                            },
+                            "Point": {
+                                "detail": false,
+                                "input": false,
+                                "help": "metadata/geoLocations/Point.help",
+                                "label": "metadata/geoLocations/Point.label",
+                                "hint": "metadata/geoLocations/Point.hint",
+                                "children": {
+                                    "latitude": {
+                                        "detail": "float",
+                                        "input": "float",
+                                        "help": "metadata/geoLocations/Point/latitude.help",
+                                        "label": "metadata/geoLocations/Point/latitude.label",
+                                        "hint": "metadata/geoLocations/Point/latitude.hint",
+                                        "facet": "metadata_geoLocations_Point_latitude"
+                                    },
+                                    "longitude": {
+                                        "detail": "float",
+                                        "input": "float",
+                                        "help": "metadata/geoLocations/Point/longitude.help",
+                                        "label": "metadata/geoLocations/Point/longitude.label",
+                                        "hint": "metadata/geoLocations/Point/longitude.hint",
+                                        "facet": "metadata_geoLocations_Point_longitude"
+                                    }
+                                }
                             }
+                        }
+                    }
+                },
+                "geoServerInfo": {
+                    "detail": false,
+                    "input": false,
+                    "help": "metadata/geoServerInfo.help",
+                    "label": "metadata/geoServerInfo.label",
+                    "hint": "metadata/geoServerInfo.hint",
+                    "children": {
+                        "mapData": {
+                            "detail": "array",
+                            "input": "array",
+                            "help": "metadata/geoServerInfo/mapData.help",
+                            "label": "metadata/geoServerInfo/mapData.label",
+                            "hint": "metadata/geoServerInfo/mapData.hint",
+                            "child": {
+                                "detail": "mapdatum",
+                                "input": "mapdatum",
+                                "help": "metadata/geoServerInfo/mapData.help",
+                                "label": "metadata/geoServerInfo/mapData.label",
+                                "hint": "metadata/geoServerInfo/mapData.hint",
+                                "children": {
+                                    "bytetype": {
+                                        "detail": "boolean",
+                                        "input": "boolean",
+                                        "help": "metadata/geoServerInfo/mapData/bytetype.help",
+                                        "label": "metadata/geoServerInfo/mapData/bytetype.label",
+                                        "hint": "metadata/geoServerInfo/mapData/bytetype.hint",
+                                        "facet": "metadata_geoServerInfo_mapData_bytetype"
+                                    },
+                                    "epsgCode": {
+                                        "detail": "integer",
+                                        "input": "integer",
+                                        "help": "metadata/geoServerInfo/mapData/epsgCode.help",
+                                        "label": "metadata/geoServerInfo/mapData/epsgCode.label",
+                                        "hint": "metadata/geoServerInfo/mapData/epsgCode.hint",
+                                        "facet": "metadata_geoServerInfo_mapData_epsgCode"
+                                    },
+                                    "features": {
+                                        "detail": "feature",
+                                        "input": "feature",
+                                        "help": "metadata/geoServerInfo/mapData/features.help",
+                                        "label": "metadata/geoServerInfo/mapData/features.label",
+                                        "hint": "metadata/geoServerInfo/mapData/features.hint",
+                                        "children": {
+                                            "label": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "help": "metadata/geoServerInfo/mapData/features/label.help",
+                                                "label": "metadata/geoServerInfo/mapData/features/label.label",
+                                                "hint": "metadata/geoServerInfo/mapData/features/label.hint",
+                                                "facet": "metadata_geoServerInfo_mapData_features_label"
+                                            },
+                                            "name": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "help": "metadata/geoServerInfo/mapData/features/name.help",
+                                                "label": "metadata/geoServerInfo/mapData/features/name.label",
+                                                "hint": "metadata/geoServerInfo/mapData/features/name.hint",
+                                                "facet": "metadata_geoServerInfo_mapData_features_name"
+                                            },
+                                            "style": {
+                                                "detail": false,
+                                                "input": false,
+                                                "help": "metadata/geoServerInfo/mapData/features/style.help",
+                                                "label": "metadata/geoServerInfo/mapData/features/style.label",
+                                                "hint": "metadata/geoServerInfo/mapData/features/style.hint",
+                                                "children": {
+                                                    "colour": {
+                                                        "detail": "keyword",
+                                                        "input": "keyword",
+                                                        "help": "metadata/geoServerInfo/mapData/features/style/colour.help",
+                                                        "label": "metadata/geoServerInfo/mapData/features/style/colour.label",
+                                                        "hint": "metadata/geoServerInfo/mapData/features/style/colour.hint",
+                                                        "facet": "metadata_geoServerInfo_mapData_features_style_colour"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "path": {
+                                        "detail": "url",
+                                        "input": "url",
+                                        "help": "metadata/geoServerInfo/mapData/path.help",
+                                        "label": "metadata/geoServerInfo/mapData/path.label",
+                                        "hint": "metadata/geoServerInfo/mapData/path.hint",
+                                        "facet": "metadata_geoServerInfo_mapData_path"
+                                    },
+                                    "type": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/geoServerInfo/mapData/type.help",
+                                        "label": "metadata/geoServerInfo/mapData/type.label",
+                                        "hint": "metadata/geoServerInfo/mapData/type.hint",
+                                        "facet": "metadata_geoServerInfo_mapData_type"
+                                    }
+                                }
+                            }
+                        },
+                        "serviceType": {
+                            "detail": "keyword",
+                            "input": "keyword",
+                            "help": "metadata/geoServerInfo/serviceType.help",
+                            "label": "metadata/geoServerInfo/serviceType.label",
+                            "hint": "metadata/geoServerInfo/serviceType.hint",
+                            "facet": "metadata_geoServerInfo_serviceType"
                         }
                     }
                 },
@@ -597,7 +750,25 @@
                         "help": "metadata/keywords.help",
                         "label": "metadata/keywords.label",
                         "hint": "metadata/keywords.hint",
-                        "facet": "metadata_keywords"
+                        "children": {
+                            "name": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "required": true,
+                                "help": "metadata/keywords/name.help",
+                                "label": "metadata/keywords/name.label",
+                                "hint": "metadata/keywords/name.hint",
+                                "facet": "metadata_keywords_name"
+                            },
+                            "url": {
+                                "detail": "url",
+                                "input": "url",
+                                "help": "metadata/keywords/url.help",
+                                "label": "metadata/keywords/url.label",
+                                "hint": "metadata/keywords/url.hint",
+                                "facet": "metadata_keywords_url"
+                            }
+                        }
                     }
                 },
                 "language": {
@@ -624,6 +795,7 @@
                             "name": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/licenses/name.help",
                                 "label": "metadata/licenses/name.label",
                                 "hint": "metadata/licenses/name.hint",
@@ -715,6 +887,7 @@
                                     "title": {
                                         "detail": "keyword",
                                         "input": "keyword",
+                                        "required": true,
                                         "help": "metadata/methods/steps/title.help",
                                         "label": "metadata/methods/steps/title.label",
                                         "hint": "metadata/methods/steps/title.hint",
@@ -743,6 +916,7 @@
                         "PID": {
                             "detail": "keyword",
                             "input": "keyword",
+                            "required": true,
                             "help": "metadata/project/PID.help",
                             "label": "metadata/project/PID.label",
                             "hint": "metadata/project/PID.hint",
@@ -751,6 +925,7 @@
                         "name": {
                             "detail": "keyword",
                             "input": "keyword",
+                            "required": true,
                             "help": "metadata/project/name.help",
                             "label": "metadata/project/name.label",
                             "hint": "metadata/project/name.hint",
@@ -774,6 +949,7 @@
                             "name": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/propertyRights/name.help",
                                 "label": "metadata/propertyRights/name.label",
                                 "hint": "metadata/propertyRights/name.hint",
@@ -845,6 +1021,7 @@
                             "PID": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/siteReference/PID.help",
                                 "label": "metadata/siteReference/PID.label",
                                 "hint": "metadata/siteReference/PID.hint",
@@ -853,6 +1030,7 @@
                             "name": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/siteReference/name.help",
                                 "label": "metadata/siteReference/name.label",
                                 "hint": "metadata/siteReference/name.hint",

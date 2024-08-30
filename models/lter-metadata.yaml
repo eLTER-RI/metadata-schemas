@@ -35,7 +35,7 @@ LTERMetadata:
       ^label.en: Descriptions
 
     keywords[]:
-      type: keyword
+      use: "./lter-datatypes.yaml#Keyword"
       ^label.en: Keywords
 
     propertyRights[]:
@@ -86,4 +86,12 @@ LTERMetadata:
     files[]:
       use: "./lter-datatypes.yaml#File"
       label.en: Dataset files
+
+    additionalMetadata[]:
+      use: "./lter-datatypes.yaml#CustomMetadata"
+      label.en: Additional custom metadata
+
+    geoServerInfo:
+      use: "./lter-datatypes.yaml#GeoServerInfo"
+      label.en: Geo Server Information
 

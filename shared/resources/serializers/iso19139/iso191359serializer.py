@@ -168,7 +168,7 @@ def add_identification_info(root, metadata, nsmap):
     md_keywords = etree.SubElement(descriptive_keywords, "{http://www.isotc211.org/2005/gmd}MD_Keywords")
     for keyword in metadata['keywords']:
         keyword_element = etree.SubElement(md_keywords, "{http://www.isotc211.org/2005/gmd}keyword")
-        keyword_element.append(create_element("{http://www.isotc211.org/2005/gco}CharacterString", keyword, nsmap))
+        keyword_element.append(create_element("{http://www.isotc211.org/2005/gco}CharacterString", keyword['name'], nsmap))
 
     add_language_code(data_identification, language_table.get(metadata.get('language')),
                       metadata.get('language'))
@@ -187,28 +187,28 @@ def add_identification_info(root, metadata, nsmap):
                                                  "{http://www.isotc211.org/2005/gmd}MD_Identifier")
                 code = etree.SubElement(md_identifier, "{http://www.isotc211.org/2005/gmd}code")
                 code.append(create_element("{http://www.isotc211.org/2005/gco}CharacterString", locationValue, nsmap))
-            elif locationKey == 'box':
+            elif locationKey == 'EX_GeographicBoundingBox':
                 bounding_box = etree.SubElement(geographic_element,
                                                 "{http://www.isotc211.org/2005/gmd}EX_GeographicBoundingBox")
                 west_bound_longitude = etree.SubElement(bounding_box,
                                                         "{http://www.isotc211.org/2005/gmd}westBoundLongitude")
                 west_bound_longitude.append(
-                    create_element("{http://www.isotc211.org/2005/gco}Decimal", str(locationValue['westLongitude']),
+                    create_element("{http://www.isotc211.org/2005/gco}Decimal", str(locationValue['westBoundLongitude']),
                                    nsmap))
                 east_bound_longitude = etree.SubElement(bounding_box,
                                                         "{http://www.isotc211.org/2005/gmd}eastBoundLongitude")
                 east_bound_longitude.append(
-                    create_element("{http://www.isotc211.org/2005/gco}Decimal", str(locationValue['eastLongitude']),
+                    create_element("{http://www.isotc211.org/2005/gco}Decimal", str(locationValue['eastBoundLongitude']),
                                    nsmap))
                 south_bound_latitude = etree.SubElement(bounding_box,
                                                         "{http://www.isotc211.org/2005/gmd}southBoundLatitude")
                 south_bound_latitude.append(
-                    create_element("{http://www.isotc211.org/2005/gco}Decimal", str(locationValue['southLatitude']),
+                    create_element("{http://www.isotc211.org/2005/gco}Decimal", str(locationValue['southBoundLatitude']),
                                    nsmap))
                 north_bound_latitude = etree.SubElement(bounding_box,
                                                         "{http://www.isotc211.org/2005/gmd}northBoundLatitude")
                 north_bound_latitude.append(
-                    create_element("{http://www.isotc211.org/2005/gco}Decimal", str(locationValue['northLatitude']),
+                    create_element("{http://www.isotc211.org/2005/gco}Decimal", str(locationValue['northBoundLatitude']),
                                    nsmap))
 
 

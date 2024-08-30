@@ -29,6 +29,10 @@ class LterMetadataSchema(Schema):
 
     SOReference = ma_fields.Nested(lambda: SOReferenceSchema())
 
+    additionalMetadata = ma_fields.List(
+        ma_fields.Nested(lambda: AdditionalMetadataItemSchema())
+    )
+
     authors = ma_fields.List(ma_fields.Nested(lambda: AuthorsItemSchema()))
 
     contributors = ma_fields.List(ma_fields.Nested(lambda: ContributorsItemSchema()))
@@ -45,7 +49,9 @@ class LterMetadataSchema(Schema):
 
     geoLocations = ma_fields.List(ma_fields.Nested(lambda: GeoLocationsItemSchema()))
 
-    keywords = ma_fields.List(ma_fields.String())
+    geoServerInfo = ma_fields.Nested(lambda: GeoServerInfoSchema())
+
+    keywords = ma_fields.List(ma_fields.Nested(lambda: SOReferenceSchema()))
 
     language = ma_fields.String()
 
@@ -76,17 +82,43 @@ class LterMetadataSchema(Schema):
     titles = ma_fields.List(ma_fields.Nested(lambda: ShortNamesItemSchema()))
 
 
+class GeoServerInfoSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    mapData = ma_fields.List(ma_fields.Nested(lambda: MapDataItemSchema()))
+
+    serviceType = ma_fields.String()
+
+
 class GeoLocationsItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    box = ma_fields.Nested(lambda: BoxSchema())
+    EX_BoundingPolygon = ma_fields.List(
+        ma_fields.Nested(lambda: EXBoundingPolygonItemSchema())
+    )
 
-    description = ma_fields.String()
+    EX_GeographicBoundingBox = ma_fields.Nested(lambda: EXGeographicBoundingBoxSchema())
 
-    point = ma_fields.Nested(lambda: PointSchema())
+    EX_GeographicDescription = ma_fields.String()
 
-    polygon = ma_fields.List(ma_fields.Nested(lambda: PolygonItemSchema()))
+    Point = ma_fields.Nested(lambda: InPolygonPointSchema())
+
+
+class MapDataItemSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    bytetype = ma_fields.Boolean()
+
+    epsgCode = ma_fields.Integer()
+
+    features = ma_fields.Nested(lambda: FeaturesSchema())
+
+    path = ma_fields.String()
+
+    type = ma_fields.String()
 
 
 class AuthorsItemSchema(DictOnlySchema):
@@ -143,6 +175,28 @@ class ContributorsItemSchema(DictOnlySchema):
     )
 
 
+class EXBoundingPolygonItemSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    inPolygonPoint = ma_fields.Nested(lambda: InPolygonPointSchema())
+
+    points = ma_fields.List(
+        ma_fields.Nested(lambda: InPolygonPointSchema()), required=True
+    )
+
+
+class FeaturesSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    label = ma_fields.String()
+
+    name = ma_fields.String()
+
+    style = ma_fields.Nested(lambda: StyleSchema())
+
+
 class MethodsSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -158,15 +212,6 @@ class MethodsSchema(DictOnlySchema):
     steps = ma_fields.List(ma_fields.Nested(lambda: StepsItemSchema()))
 
 
-class PolygonItemSchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    inPolygonPoint = ma_fields.Nested(lambda: PointSchema())
-
-    points = ma_fields.List(ma_fields.Nested(lambda: PointSchema()), required=True)
-
-
 class TaxonomicCoveragesItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -176,25 +221,13 @@ class TaxonomicCoveragesItemSchema(DictOnlySchema):
     description = ma_fields.String()
 
 
-class BoxSchema(DictOnlySchema):
+class AdditionalMetadataItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    eastLongitude = ma_fields.Float(
-        required=True, validate=[ma.validate.Range(min=-180.0, max=180.0)]
-    )
+    name = ma_fields.String()
 
-    northLatitude = ma_fields.Float(
-        required=True, validate=[ma.validate.Range(min=-90.0, max=90.0)]
-    )
-
-    southLatitude = ma_fields.Float(
-        required=True, validate=[ma.validate.Range(min=-90.0, max=90.0)]
-    )
-
-    westLongitude = ma_fields.Float(
-        required=True, validate=[ma.validate.Range(min=-180.0, max=180.0)]
-    )
+    value = ma_fields.String()
 
 
 class ClassificationSchema(DictOnlySchema):
@@ -216,7 +249,7 @@ class DatasetIdsItemSchema(DictOnlySchema):
 
     identifier = ma_fields.String(required=True)
 
-    source = ma_fields.String()
+    sourceName = ma_fields.String()
 
     type = ma_fields.String(required=True)
 
@@ -246,6 +279,27 @@ class DescriptionsItemSchema(DictOnlySchema):
                 ]
             )
         ],
+    )
+
+
+class EXGeographicBoundingBoxSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    eastBoundLongitude = ma_fields.Float(
+        required=True, validate=[ma.validate.Range(min=-180.0, max=180.0)]
+    )
+
+    northBoundLatitude = ma_fields.Float(
+        required=True, validate=[ma.validate.Range(min=-90.0, max=90.0)]
+    )
+
+    southBoundLatitude = ma_fields.Float(
+        required=True, validate=[ma.validate.Range(min=-90.0, max=90.0)]
+    )
+
+    westBoundLongitude = ma_fields.Float(
+        required=True, validate=[ma.validate.Range(min=-180.0, max=180.0)]
     )
 
 
@@ -284,7 +338,7 @@ class IdsItemSchema(DictOnlySchema):
     url = ma_fields.String()
 
 
-class PointSchema(DictOnlySchema):
+class InPolygonPointSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -338,6 +392,13 @@ class StepsItemSchema(DictOnlySchema):
     description = ma_fields.String()
 
     title = ma_fields.String(required=True)
+
+
+class StyleSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    colour = ma_fields.String()
 
 
 class TemporalCoveragesItemSchema(DictOnlySchema):

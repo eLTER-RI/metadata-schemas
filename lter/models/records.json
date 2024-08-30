@@ -5,7 +5,7 @@
         "custom-fields": [],
         "permissions": {
             "presets": [
-                "read_only"
+                "everyone"
             ],
             "generate": true,
             "extra-code": "",
@@ -54,7 +54,7 @@
                 "imports": [],
                 "base-classes": [
                     "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
-                    "oarepo_runtime.services.search.I18nSearchOptions"
+                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
                 ],
                 "generate": true,
                 "module": "lter.services.records.ui_schema",
@@ -64,6 +64,20 @@
             "module": "lter.models",
             "file": "lter/models/ui.json",
             "alias": "lter"
+        },
+        "search-options": {
+            "base-classes": [
+                "oarepo_runtime.services.search.I18nSearchOptions"
+            ],
+            "sort-options-field": "extra_sort_options",
+            "fields": {
+                "sort_options": "{{oarepo_runtime.services.search.ICUSortOptions}}('lter')"
+            },
+            "module": "lter.services.records.search",
+            "class": "lter.services.records.search.LterSearchOptions",
+            "generate": true,
+            "extra-code": "",
+            "imports": []
         },
         "resource-config": {
             "base-html-url": "/lter/",
@@ -78,6 +92,19 @@
             "extra-code": "",
             "imports": [],
             "additional-args": []
+        },
+        "facets": {
+            "facet-groups": {
+                "default": {
+                    "metadata.dataLevel": 1,
+                    "metadata.keywords.name": 2,
+                    "metadata.datasetIds.sourceName": 3
+                }
+            },
+            "generate": true,
+            "module": "lter.services.records.facets",
+            "extra-code": "",
+            "groups": true
         },
         "module": {
             "qualified": "lter",
@@ -148,19 +175,6 @@
             "function": "lter.views.records.app.create_app_blueprint",
             "imports": []
         },
-        "facets": {
-            "facet-groups" : {
-                "default": {
-                    "metadata.dataLevel": 1,
-                    "metadata.keywords": 2,
-                    "metadata.datasetIds.source": 3
-                }
-            },
-            "generate": true,
-            "module": "lter.services.records.facets",
-            "extra-code": "",
-            "groups": true
-        },
         "saved-model": {
             "file": "lter/models/records.json",
             "module": "lter.models",
@@ -169,6 +183,20 @@
         "proxy": {
             "module": "lter.proxies",
             "generate": true
+        },
+        "record-resolver": {
+            "generate": true,
+            "module": "lter.records.requests.resolvers",
+            "class": "lter.records.requests.resolvers.LterResolver",
+            "base-classes": [
+                "oarepo_runtime.records.entity_resolvers.RecordResolver"
+            ],
+            "imports": [],
+            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
+        },
+        "ui-record-resolver": {
+            "generate": true,
+            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
         },
         "record": {
             "base-classes": [
@@ -193,32 +221,6 @@
             "extra-code": "",
             "imports": [],
             "additional-args": []
-        },
-        "search-options": {
-            "module": "lter.services.records.search",
-            "class": "lter.services.records.search.LterSearchOptions",
-            "generate": true,
-            "extra-code": "",
-            "base-classes": [
-                "invenio_records_resources.services.SearchOptions{InvenioSearchOptions}"
-            ],
-            "imports": [],
-            "fields": {},
-            "sort-options-field": "sort_options"
-        },
-        "record-resolver": {
-            "generate": true,
-            "module": "lter.records.requests.resolvers",
-            "class": "lter.records.requests.resolvers.LterResolver",
-            "base-classes": [
-                "oarepo_runtime.records.entity_resolvers.RecordResolver"
-            ],
-            "imports": [],
-            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
-        },
-        "ui-record-resolver": {
-            "generate": true,
-            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
         },
         "json-schema-settings": {
             "generate": true,
@@ -290,7 +292,7 @@
             "service-id": "lter",
             "components": [
                 "{{oarepo_runtime.services.components.OwnersComponent}}",
-                "{{invenio_records_resources.services.records.components.DataComponent}}"
+                "{{oarepo_runtime.services.components.CustomFieldsComponent}}"
             ],
             "additional-args": []
         },
@@ -414,14 +416,6 @@
             ],
             "imports": []
         },
-        "parent-record-marshmallow": {
-            "module": "lter.services.records.schema",
-            "class": "lter.services.records.schema.GeneratedParentSchema",
-            "generate": true,
-            "base-classes": [
-                "invenio_drafts_resources.services.records.schema.ParentSchema{InvenioParentSchema}"
-            ]
-        },
         "requests": {
             "types": {},
             "api-blueprint": {
@@ -461,6 +455,14 @@
             "additional-resolvers": [],
             "additional-ui-resolvers": {},
             "ui-serialization-referenced-fields": []
+        },
+        "parent-record-marshmallow": {
+            "module": "lter.services.records.schema",
+            "class": "lter.services.records.schema.GeneratedParentSchema",
+            "generate": true,
+            "base-classes": [
+                "invenio_drafts_resources.services.records.schema.ParentSchema{InvenioParentSchema}"
+            ]
         },
         "sortable": [],
         "properties": {
@@ -568,6 +570,31 @@
                             "url": {
                                 "type": "url",
                                 "label.en": "SO url reference"
+                            }
+                        }
+                    },
+                    "additionalMetadata": {
+                        "type": "array",
+                        "items": {
+                            "type": "nested",
+                            "label.en": "Additional custom metadata",
+                            "marshmallow": {
+                                "generate": true,
+                                "class": "lter.services.records.schema.AdditionalMetadataItemSchema"
+                            },
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": true,
+                                    "class": "lter.services.records.ui_schema.AdditionalMetadataItemUISchema"
+                                }
+                            },
+                            "properties": {
+                                "name": {
+                                    "type": "keyword"
+                                },
+                                "value": {
+                                    "type": "fulltext"
+                                }
                             }
                         }
                     },
@@ -761,17 +788,17 @@
                                 "identifier": {
                                     "type": "keyword",
                                     "required": true,
-                                    "label.en": "Identifier"
+                                    "label.en": "Alternate identifier"
                                 },
-                                "source": {
+                                "sourceName": {
                                     "type": "keyword",
                                     "required": false,
-                                    "label.en": "Identifier source"
+                                    "label.en": "Alternate Identifier Source name"
                                 },
                                 "type": {
                                     "type": "keyword",
                                     "required": true,
-                                    "label.en": "Identifier type"
+                                    "label.en": "Alternate Identifier type"
                                 },
                                 "url": {
                                     "type": "url",
@@ -882,7 +909,7 @@
                                     "label.en": "File size"
                                 },
                                 "sourceUrl": {
-                                    "type": "keyword",
+                                    "type": "url",
                                     "label.en": "File source Url"
                                 }
                             }
@@ -905,125 +932,19 @@
                                 }
                             },
                             "properties": {
-                                "box": {
-                                    "type": "object",
-                                    "label.en": "GeoLocation box",
-                                    "marshmallow": {
-                                        "generate": true,
-                                        "class": "lter.services.records.schema.BoxSchema"
-                                    },
-                                    "ui": {
-                                        "marshmallow": {
-                                            "generate": true,
-                                            "class": "lter.services.records.ui_schema.BoxUISchema"
-                                        }
-                                    },
-                                    "properties": {
-                                        "eastLongitude": {
-                                            "type": "float",
-                                            "required": true,
-                                            "minimum": -180.0,
-                                            "maximum": 180.0,
-                                            "label.en": "East bound longitude",
-                                            "marshmallow": {
-                                                "validators": [
-                                                    "ma.validate.Range(min=-180.0, max=180.0)"
-                                                ]
-                                            }
-                                        },
-                                        "northLatitude": {
-                                            "type": "float",
-                                            "required": true,
-                                            "minimum": -90.0,
-                                            "maximum": 90.0,
-                                            "label.en": "North bound latitude",
-                                            "marshmallow": {
-                                                "validators": [
-                                                    "ma.validate.Range(min=-90.0, max=90.0)"
-                                                ]
-                                            }
-                                        },
-                                        "southLatitude": {
-                                            "type": "float",
-                                            "required": true,
-                                            "minimum": -90.0,
-                                            "maximum": 90.0,
-                                            "label.en": "South bound latitude",
-                                            "marshmallow": {
-                                                "validators": [
-                                                    "ma.validate.Range(min=-90.0, max=90.0)"
-                                                ]
-                                            }
-                                        },
-                                        "westLongitude": {
-                                            "type": "float",
-                                            "required": true,
-                                            "minimum": -180.0,
-                                            "maximum": 180.0,
-                                            "label.en": "West bound longitude",
-                                            "marshmallow": {
-                                                "validators": [
-                                                    "ma.validate.Range(min=-180.0, max=180.0)"
-                                                ]
-                                            }
-                                        }
-                                    }
-                                },
-                                "description": {
-                                    "type": "fulltext",
-                                    "label.en": "GeoLocation place"
-                                },
-                                "point": {
-                                    "type": "object",
-                                    "label.en": "GeoLocation point",
-                                    "marshmallow": {
-                                        "generate": true,
-                                        "class": "lter.services.records.schema.PointSchema"
-                                    },
-                                    "ui": {
-                                        "marshmallow": {
-                                            "generate": true,
-                                            "class": "lter.services.records.ui_schema.PointUISchema"
-                                        }
-                                    },
-                                    "properties": {
-                                        "latitude": {
-                                            "type": "float",
-                                            "minimum": -90.0,
-                                            "maximum": 90.0,
-                                            "label.en": "Latitude",
-                                            "marshmallow": {
-                                                "validators": [
-                                                    "ma.validate.Range(min=-90.0, max=90.0)"
-                                                ]
-                                            }
-                                        },
-                                        "longitude": {
-                                            "type": "float",
-                                            "minimum": -180.0,
-                                            "maximum": 180.0,
-                                            "label.en": "Longitude",
-                                            "marshmallow": {
-                                                "validators": [
-                                                    "ma.validate.Range(min=-180.0, max=180.0)"
-                                                ]
-                                            }
-                                        }
-                                    }
-                                },
-                                "polygon": {
+                                "EX_BoundingPolygon": {
                                     "type": "array",
                                     "items": {
                                         "type": "object",
                                         "label.en": "GeoLocation polygons",
                                         "marshmallow": {
                                             "generate": true,
-                                            "class": "lter.services.records.schema.PolygonItemSchema"
+                                            "class": "lter.services.records.schema.EXBoundingPolygonItemSchema"
                                         },
                                         "ui": {
                                             "marshmallow": {
                                                 "generate": true,
-                                                "class": "lter.services.records.ui_schema.PolygonItemUISchema"
+                                                "class": "lter.services.records.ui_schema.EXBoundingPolygonItemUISchema"
                                             }
                                         },
                                         "properties": {
@@ -1031,13 +952,13 @@
                                                 "type": "object",
                                                 "label.en": "In polygon point",
                                                 "marshmallow": {
-                                                    "generate": false,
-                                                    "class": "lter.services.records.schema.PointSchema"
+                                                    "generate": true,
+                                                    "class": "lter.services.records.schema.InPolygonPointSchema"
                                                 },
                                                 "ui": {
                                                     "marshmallow": {
-                                                        "generate": false,
-                                                        "class": "lter.services.records.ui_schema.PointUISchema"
+                                                        "generate": true,
+                                                        "class": "lter.services.records.ui_schema.InPolygonPointUISchema"
                                                     }
                                                 },
                                                 "properties": {
@@ -1074,12 +995,12 @@
                                                     "label.en": "GeoLocationPoint",
                                                     "marshmallow": {
                                                         "generate": false,
-                                                        "class": "lter.services.records.schema.PointSchema"
+                                                        "class": "lter.services.records.schema.InPolygonPointSchema"
                                                     },
                                                     "ui": {
                                                         "marshmallow": {
                                                             "generate": false,
-                                                            "class": "lter.services.records.ui_schema.PointUISchema"
+                                                            "class": "lter.services.records.ui_schema.InPolygonPointUISchema"
                                                         }
                                                     },
                                                     "properties": {
@@ -1110,7 +1031,201 @@
                                             }
                                         }
                                     }
+                                },
+                                "EX_GeographicBoundingBox": {
+                                    "type": "object",
+                                    "label.en": "GeoLocation box",
+                                    "marshmallow": {
+                                        "generate": true,
+                                        "class": "lter.services.records.schema.EXGeographicBoundingBoxSchema"
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "generate": true,
+                                            "class": "lter.services.records.ui_schema.EXGeographicBoundingBoxUISchema"
+                                        }
+                                    },
+                                    "properties": {
+                                        "eastBoundLongitude": {
+                                            "type": "float",
+                                            "required": true,
+                                            "minimum": -180.0,
+                                            "maximum": 180.0,
+                                            "label.en": "East bound longitude",
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Range(min=-180.0, max=180.0)"
+                                                ]
+                                            }
+                                        },
+                                        "northBoundLatitude": {
+                                            "type": "float",
+                                            "required": true,
+                                            "minimum": -90.0,
+                                            "maximum": 90.0,
+                                            "label.en": "North bound latitude",
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Range(min=-90.0, max=90.0)"
+                                                ]
+                                            }
+                                        },
+                                        "southBoundLatitude": {
+                                            "type": "float",
+                                            "required": true,
+                                            "minimum": -90.0,
+                                            "maximum": 90.0,
+                                            "label.en": "South bound latitude",
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Range(min=-90.0, max=90.0)"
+                                                ]
+                                            }
+                                        },
+                                        "westBoundLongitude": {
+                                            "type": "float",
+                                            "required": true,
+                                            "minimum": -180.0,
+                                            "maximum": 180.0,
+                                            "label.en": "West bound longitude",
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Range(min=-180.0, max=180.0)"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "EX_GeographicDescription": {
+                                    "type": "fulltext",
+                                    "label.en": "GeoLocation Description"
+                                },
+                                "Point": {
+                                    "type": "object",
+                                    "label.en": "GeoLocation point",
+                                    "marshmallow": {
+                                        "generate": false,
+                                        "class": "lter.services.records.schema.InPolygonPointSchema"
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "lter.services.records.ui_schema.InPolygonPointUISchema"
+                                        }
+                                    },
+                                    "properties": {
+                                        "latitude": {
+                                            "type": "float",
+                                            "minimum": -90.0,
+                                            "maximum": 90.0,
+                                            "label.en": "Latitude",
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Range(min=-90.0, max=90.0)"
+                                                ]
+                                            }
+                                        },
+                                        "longitude": {
+                                            "type": "float",
+                                            "minimum": -180.0,
+                                            "maximum": 180.0,
+                                            "label.en": "Longitude",
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Range(min=-180.0, max=180.0)"
+                                                ]
+                                            }
+                                        }
+                                    }
                                 }
+                            }
+                        }
+                    },
+                    "geoServerInfo": {
+                        "type": "object",
+                        "label.en": "Geo Server Information",
+                        "marshmallow": {
+                            "generate": true,
+                            "class": "lter.services.records.schema.GeoServerInfoSchema"
+                        },
+                        "ui": {
+                            "marshmallow": {
+                                "generate": true,
+                                "class": "lter.services.records.ui_schema.GeoServerInfoUISchema"
+                            }
+                        },
+                        "properties": {
+                            "mapData": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "marshmallow": {
+                                        "generate": true,
+                                        "class": "lter.services.records.schema.MapDataItemSchema"
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "generate": true,
+                                            "class": "lter.services.records.ui_schema.MapDataItemUISchema"
+                                        }
+                                    },
+                                    "properties": {
+                                        "bytetype": {
+                                            "type": "boolean"
+                                        },
+                                        "epsgCode": {
+                                            "type": "integer"
+                                        },
+                                        "features": {
+                                            "type": "object",
+                                            "marshmallow": {
+                                                "generate": true,
+                                                "class": "lter.services.records.schema.FeaturesSchema"
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "generate": true,
+                                                    "class": "lter.services.records.ui_schema.FeaturesUISchema"
+                                                }
+                                            },
+                                            "properties": {
+                                                "label": {
+                                                    "type": "keyword"
+                                                },
+                                                "name": {
+                                                    "type": "keyword"
+                                                },
+                                                "style": {
+                                                    "type": "object",
+                                                    "marshmallow": {
+                                                        "generate": true,
+                                                        "class": "lter.services.records.schema.StyleSchema"
+                                                    },
+                                                    "ui": {
+                                                        "marshmallow": {
+                                                            "generate": true,
+                                                            "class": "lter.services.records.ui_schema.StyleUISchema"
+                                                        }
+                                                    },
+                                                    "properties": {
+                                                        "colour": {
+                                                            "type": "keyword"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "path": {
+                                            "type": "url"
+                                        },
+                                        "type": {
+                                            "type": "keyword"
+                                        }
+                                    }
+                                }
+                            },
+                            "serviceType": {
+                                "type": "keyword"
                             }
                         }
                     },
@@ -1118,7 +1233,28 @@
                         "type": "array",
                         "label.en": "Keywords",
                         "items": {
-                            "type": "keyword"
+                            "type": "object",
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "lter.services.records.schema.SOReferenceSchema"
+                            },
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": false,
+                                    "class": "lter.services.records.ui_schema.SOReferenceUISchema"
+                                }
+                            },
+                            "properties": {
+                                "name": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "label.en": "Keyword"
+                                },
+                                "url": {
+                                    "type": "url",
+                                    "label.en": "Keyword documentation"
+                                }
+                            }
                         }
                     },
                     "language": {

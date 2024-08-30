@@ -51,10 +51,14 @@
                                         <i class="four wide column linkify icon"></i>
                                         <div class="detail-main-info-header">Original source link</div>
                                     </div>
+                                    {% for alternateId in array(d.metadata.datasetIds) %}
+                                        <div class="detail-main-info-text">
+                                            <a class="ui secondary button" href={{ alternateId.url }}>{{ alternateId.sourceName }}</a>
+                                        </div>
+                                    {% endfor %}
                                 </div>
                                 <div class="column">
                                     <div class="detail-main-info-header">
-
                                         <i class="four wide column language icon"></i>
                                         <div class="detail-main-info-header">Language</div>
                                     </div>

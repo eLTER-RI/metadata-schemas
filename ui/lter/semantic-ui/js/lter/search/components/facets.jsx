@@ -116,7 +116,6 @@ export const ContribBucketAggregationValuesElement = ({
 }) => {
   const hasChildren = childAggCmps && childAggCmps.props.buckets.length > 0;
   const keyField = bucket.key_as_string ? bucket.key_as_string : bucket.key;
-  console.log(bucket, hasChildren);
   return (
     <List.Item key={bucket.key}>
       {hasChildren ? (

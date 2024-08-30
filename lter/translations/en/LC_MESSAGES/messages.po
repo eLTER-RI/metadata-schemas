@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-07-10T08:57:33.100303\n"
-"PO-Revision-Date: 2024-07-10T08:57:33.100313\n"
+"POT-Creation-Date: 2024-08-29T13:34:44.189035\n"
+"PO-Revision-Date: 2024-08-29T13:34:44.189052\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -69,6 +69,33 @@ msgid "metadata/SOReference/url.help"
 msgstr ""
 
 msgid "metadata/SOReference/url.hint"
+msgstr ""
+
+msgid "metadata/additionalMetadata.help"
+msgstr ""
+
+msgid "metadata/additionalMetadata.label"
+msgstr "Additional custom metadata"
+
+msgid "metadata/additionalMetadata.hint"
+msgstr ""
+
+msgid "metadata/additionalMetadata/name.help"
+msgstr ""
+
+msgid "metadata/additionalMetadata/name.label"
+msgstr ""
+
+msgid "metadata/additionalMetadata/name.hint"
+msgstr ""
+
+msgid "metadata/additionalMetadata/value.help"
+msgstr ""
+
+msgid "metadata/additionalMetadata/value.label"
+msgstr ""
+
+msgid "metadata/additionalMetadata/value.hint"
 msgstr ""
 
 msgid "metadata/authors.label"
@@ -303,7 +330,7 @@ msgid "metadata/datasetIds.hint"
 msgstr ""
 
 msgid "metadata/datasetIds/identifier.label"
-msgstr "Identifier"
+msgstr "Alternate identifier"
 
 msgid "metadata/datasetIds/identifier.help"
 msgstr ""
@@ -311,17 +338,17 @@ msgstr ""
 msgid "metadata/datasetIds/identifier.hint"
 msgstr ""
 
-msgid "metadata/datasetIds/source.label"
-msgstr "Identifier source"
+msgid "metadata/datasetIds/sourceName.label"
+msgstr "Alternate Identifier Source name"
 
-msgid "metadata/datasetIds/source.help"
+msgid "metadata/datasetIds/sourceName.help"
 msgstr ""
 
-msgid "metadata/datasetIds/source.hint"
+msgid "metadata/datasetIds/sourceName.hint"
 msgstr ""
 
 msgid "metadata/datasetIds/type.label"
-msgstr "Identifier type"
+msgstr "Alternate Identifier type"
 
 msgid "metadata/datasetIds/type.help"
 msgstr ""
@@ -485,148 +512,261 @@ msgstr ""
 msgid "metadata/geoLocations.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/box.label"
-msgstr "GeoLocation box"
-
-msgid "metadata/geoLocations/box.help"
+msgid "metadata/geoLocations/EX_BoundingPolygon.help"
 msgstr ""
 
-msgid "metadata/geoLocations/box.hint"
-msgstr ""
-
-msgid "metadata/geoLocations/box/eastLongitude.label"
-msgstr "East bound longitude"
-
-msgid "metadata/geoLocations/box/eastLongitude.help"
-msgstr ""
-
-msgid "metadata/geoLocations/box/eastLongitude.hint"
-msgstr ""
-
-msgid "metadata/geoLocations/box/northLatitude.label"
-msgstr "North bound latitude"
-
-msgid "metadata/geoLocations/box/northLatitude.help"
-msgstr ""
-
-msgid "metadata/geoLocations/box/northLatitude.hint"
-msgstr ""
-
-msgid "metadata/geoLocations/box/southLatitude.label"
-msgstr "South bound latitude"
-
-msgid "metadata/geoLocations/box/southLatitude.help"
-msgstr ""
-
-msgid "metadata/geoLocations/box/southLatitude.hint"
-msgstr ""
-
-msgid "metadata/geoLocations/box/westLongitude.label"
-msgstr "West bound longitude"
-
-msgid "metadata/geoLocations/box/westLongitude.help"
-msgstr ""
-
-msgid "metadata/geoLocations/box/westLongitude.hint"
-msgstr ""
-
-msgid "metadata/geoLocations/description.label"
-msgstr "GeoLocation place"
-
-msgid "metadata/geoLocations/description.help"
-msgstr ""
-
-msgid "metadata/geoLocations/description.hint"
-msgstr ""
-
-msgid "metadata/geoLocations/point.label"
-msgstr "GeoLocation point"
-
-msgid "metadata/geoLocations/point.help"
-msgstr ""
-
-msgid "metadata/geoLocations/point.hint"
-msgstr ""
-
-msgid "metadata/geoLocations/point/latitude.label"
-msgstr "Latitude"
-
-msgid "metadata/geoLocations/point/latitude.help"
-msgstr ""
-
-msgid "metadata/geoLocations/point/latitude.hint"
-msgstr ""
-
-msgid "metadata/geoLocations/point/longitude.label"
-msgstr "Longitude"
-
-msgid "metadata/geoLocations/point/longitude.help"
-msgstr ""
-
-msgid "metadata/geoLocations/point/longitude.hint"
-msgstr ""
-
-msgid "metadata/geoLocations/polygon.help"
-msgstr ""
-
-msgid "metadata/geoLocations/polygon.label"
+msgid "metadata/geoLocations/EX_BoundingPolygon.label"
 msgstr "GeoLocation polygons"
 
-msgid "metadata/geoLocations/polygon.hint"
+msgid "metadata/geoLocations/EX_BoundingPolygon.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/polygon/inPolygonPoint.label"
+msgid "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint.label"
 msgstr "In polygon point"
 
-msgid "metadata/geoLocations/polygon/inPolygonPoint.help"
+msgid "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint.help"
 msgstr ""
 
-msgid "metadata/geoLocations/polygon/inPolygonPoint.hint"
+msgid "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/polygon/inPolygonPoint/latitude.label"
+msgid "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/latitude.label"
 msgstr "Latitude"
 
-msgid "metadata/geoLocations/polygon/inPolygonPoint/latitude.help"
+msgid "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/latitude.help"
 msgstr ""
 
-msgid "metadata/geoLocations/polygon/inPolygonPoint/latitude.hint"
+msgid "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/latitude.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/polygon/inPolygonPoint/longitude.label"
+msgid ""
+"metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/longitude.label"
 msgstr "Longitude"
 
-msgid "metadata/geoLocations/polygon/inPolygonPoint/longitude.help"
+msgid "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/longitude.help"
 msgstr ""
 
-msgid "metadata/geoLocations/polygon/inPolygonPoint/longitude.hint"
+msgid "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/longitude.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/polygon/points.label"
+msgid "metadata/geoLocations/EX_BoundingPolygon/points.label"
 msgstr "Polygon points"
 
-msgid "metadata/geoLocations/polygon/points.help"
+msgid "metadata/geoLocations/EX_BoundingPolygon/points.help"
 msgstr ""
 
-msgid "metadata/geoLocations/polygon/points.hint"
+msgid "metadata/geoLocations/EX_BoundingPolygon/points.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/polygon/points/latitude.label"
+msgid "metadata/geoLocations/EX_BoundingPolygon/points/latitude.label"
 msgstr "Latitude"
 
-msgid "metadata/geoLocations/polygon/points/latitude.help"
+msgid "metadata/geoLocations/EX_BoundingPolygon/points/latitude.help"
 msgstr ""
 
-msgid "metadata/geoLocations/polygon/points/latitude.hint"
+msgid "metadata/geoLocations/EX_BoundingPolygon/points/latitude.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/polygon/points/longitude.label"
+msgid "metadata/geoLocations/EX_BoundingPolygon/points/longitude.label"
 msgstr "Longitude"
 
-msgid "metadata/geoLocations/polygon/points/longitude.help"
+msgid "metadata/geoLocations/EX_BoundingPolygon/points/longitude.help"
 msgstr ""
 
-msgid "metadata/geoLocations/polygon/points/longitude.hint"
+msgid "metadata/geoLocations/EX_BoundingPolygon/points/longitude.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/EX_GeographicBoundingBox.label"
+msgstr "GeoLocation box"
+
+msgid "metadata/geoLocations/EX_GeographicBoundingBox.help"
+msgstr ""
+
+msgid "metadata/geoLocations/EX_GeographicBoundingBox.hint"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/EX_GeographicBoundingBox/eastBoundLongitude.label"
+msgstr "East bound longitude"
+
+msgid "metadata/geoLocations/EX_GeographicBoundingBox/eastBoundLongitude.help"
+msgstr ""
+
+msgid "metadata/geoLocations/EX_GeographicBoundingBox/eastBoundLongitude.hint"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/EX_GeographicBoundingBox/northBoundLatitude.label"
+msgstr "North bound latitude"
+
+msgid "metadata/geoLocations/EX_GeographicBoundingBox/northBoundLatitude.help"
+msgstr ""
+
+msgid "metadata/geoLocations/EX_GeographicBoundingBox/northBoundLatitude.hint"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/EX_GeographicBoundingBox/southBoundLatitude.label"
+msgstr "South bound latitude"
+
+msgid "metadata/geoLocations/EX_GeographicBoundingBox/southBoundLatitude.help"
+msgstr ""
+
+msgid "metadata/geoLocations/EX_GeographicBoundingBox/southBoundLatitude.hint"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/EX_GeographicBoundingBox/westBoundLongitude.label"
+msgstr "West bound longitude"
+
+msgid "metadata/geoLocations/EX_GeographicBoundingBox/westBoundLongitude.help"
+msgstr ""
+
+msgid "metadata/geoLocations/EX_GeographicBoundingBox/westBoundLongitude.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/EX_GeographicDescription.label"
+msgstr "GeoLocation Description"
+
+msgid "metadata/geoLocations/EX_GeographicDescription.help"
+msgstr ""
+
+msgid "metadata/geoLocations/EX_GeographicDescription.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/Point.label"
+msgstr "GeoLocation point"
+
+msgid "metadata/geoLocations/Point.help"
+msgstr ""
+
+msgid "metadata/geoLocations/Point.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/Point/latitude.label"
+msgstr "Latitude"
+
+msgid "metadata/geoLocations/Point/latitude.help"
+msgstr ""
+
+msgid "metadata/geoLocations/Point/latitude.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/Point/longitude.label"
+msgstr "Longitude"
+
+msgid "metadata/geoLocations/Point/longitude.help"
+msgstr ""
+
+msgid "metadata/geoLocations/Point/longitude.hint"
+msgstr ""
+
+msgid "metadata/geoServerInfo.label"
+msgstr "Geo Server Information"
+
+msgid "metadata/geoServerInfo.help"
+msgstr ""
+
+msgid "metadata/geoServerInfo.hint"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData.help"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData.label"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData.hint"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/bytetype.help"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/bytetype.label"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/bytetype.hint"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/epsgCode.help"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/epsgCode.label"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/epsgCode.hint"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/features.help"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/features.label"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/features.hint"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/features/label.help"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/features/label.label"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/features/label.hint"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/features/name.help"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/features/name.label"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/features/name.hint"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/features/style.help"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/features/style.label"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/features/style.hint"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/features/style/colour.help"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/features/style/colour.label"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/features/style/colour.hint"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/path.help"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/path.label"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/path.hint"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/type.help"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/type.label"
+msgstr ""
+
+msgid "metadata/geoServerInfo/mapData/type.hint"
+msgstr ""
+
+msgid "metadata/geoServerInfo/serviceType.help"
+msgstr ""
+
+msgid "metadata/geoServerInfo/serviceType.label"
+msgstr ""
+
+msgid "metadata/geoServerInfo/serviceType.hint"
 msgstr ""
 
 msgid "metadata/keywords.label"
@@ -636,6 +776,24 @@ msgid "metadata/keywords.help"
 msgstr ""
 
 msgid "metadata/keywords.hint"
+msgstr ""
+
+msgid "metadata/keywords/name.label"
+msgstr "Keyword"
+
+msgid "metadata/keywords/name.help"
+msgstr ""
+
+msgid "metadata/keywords/name.hint"
+msgstr ""
+
+msgid "metadata/keywords/url.label"
+msgstr "Keyword documentation"
+
+msgid "metadata/keywords/url.help"
+msgstr ""
+
+msgid "metadata/keywords/url.hint"
 msgstr ""
 
 msgid "metadata/language.label"

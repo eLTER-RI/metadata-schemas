@@ -29,41 +29,42 @@ export const GeoLocationMap = ({geoLocations}) => {
     }
 
     const renderGeoLocation = (location, index) => {
-        const {description, point, box, polygon} = location;
+        console.log(location)
+        const {EX_GeographicDescription, Point, EX_GeographicBoundingBox, EX_BoundingPolygon} = location;
 
-        if (point) {
-            addCoordsValues(point.latitude, point.longitude)
-            const position = [point.latitude, point.longitude];
+        if (Point) {
+            addCoordsValues(Point.latitude, Point.longitude)
+            const position = [Point.latitude, Point.longitude];
             return (
                 <Marker key={index} position={position}>
-                    <Popup>{description}</Popup>
+                    <Popup>{EX_GeographicDescription}</Popup>
                 </Marker>
             );
         }
 
-        if (box) {
+        if (EX_GeographicBoundingBox) {
             const bounds = [
-                [box.southLatitude, box.westLongitude],
-                [box.northLatitude, box.eastLongitude]
+                [EX_GeographicBoundingBox.southBoundLatitude, EX_GeographicBoundingBox.westBoundLongitude],
+                [EX_GeographicBoundingBox.northBoundLatitude, EX_GeographicBoundingBox.eastBoundLongitude]
             ];
-            addCoordsValues(box.southLatitude, box.westLongitude)
-            addCoordsValues(box.northLatitude, box.eastLongitude)
+            addCoordsValues(EX_GeographicBoundingBox.southBoundLatitude, EX_GeographicBoundingBox.westBoundLongitude)
+            addCoordsValues(EX_GeographicBoundingBox.northBoundLatitude, EX_GeographicBoundingBox.eastBoundLongitude)
             return (
                 <Rectangle key={index} bounds={bounds}>
-                    <Popup>{description}</Popup>
+                    <Popup>{EX_GeographicDescription}</Popup>
                 </Rectangle>
             );
         }
 
-        if (polygon) {
-            return polygon.map((poly, polyIndex) => {
+        if (EX_BoundingPolygon) {
+            return EX_BoundingPolygon.map((poly, polyIndex) => {
                 const positions = poly.points.map(p => {
                     addCoordsValues(p.latitude, p.longitude)
                     return [p.latitude, p.longitude]
                 });
                 return (
                     <Polygon key={`${index}-${polyIndex}`} positions={positions}>
-                        <Popup>{description}</Popup>
+                        <Popup>{EX_GeographicDescription}</Popup>
                     </Polygon>
                 );
             });

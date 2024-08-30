@@ -43,7 +43,7 @@ def init_addons_lter_requests(state):
 
     from lter import config
 
-    for er in getattr(config, "REQUESTS_ENTITY_RESOLVERS", []):
+    for er in getattr(config, "LTER_ENTITY_RESOLVERS", []):
         requests.entity_resolvers_registry.register_type(er)
 
 
