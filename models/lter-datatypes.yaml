@@ -8,15 +8,15 @@ AlternateIdentifier:
     identifier:
       type: keyword
       required: true
-      label.en: Identifier
+      label.en: Alternate identifier
     type:
       type: keyword
       required: true
-      label.en: Identifier type
-    source:
+      label.en: Alternate Identifier type
+    sourceName:
       type: keyword
       required: false
-      label.en: Identifier source
+      label.en: Alternate Identifier Source name
     url:
       type: url
       required: false
@@ -147,8 +147,14 @@ Description:
 
 Keyword:
   $id: Keyword
-  type: fulltext+keyword
-  label.en: Keyword
+  properties:
+    name:
+      type: keyword
+      required: true
+      label.en: Keyword
+    url:
+      type: url
+      label.en: Keyword documentation
 
 # endregion
 
@@ -206,32 +212,32 @@ GeoLocationPoint:
       "$ref": "./lter-datatypes.yaml#Latitude"
       label.en: Latitude
 
-GeoLocationBox:
-  $id: GeoLocationBox
+EX_GeographicBoundingBox:
+  $id: EX_GeographicBoundingBox
   label.en: GeoLocationBox
   properties:
-    westLongitude:
+    westBoundLongitude:
       use: "./lter-datatypes.yaml#Longitude"
       required: true
       label.en: West bound longitude
 
-    eastLongitude:
+    eastBoundLongitude:
       use: "./lter-datatypes.yaml#Longitude"
       required: true
       label.en: East bound longitude
 
-    southLatitude:
+    southBoundLatitude:
       use: "./lter-datatypes.yaml#Latitude"
       required: true
       label.en: South bound latitude
 
-    northLatitude:
+    northBoundLatitude:
       use: "./lter-datatypes.yaml#Latitude"
       required: true
       label.en: North bound latitude
 
-GeoLocationPolygon:
-  $id: GeoLocationPolygon
+EX_BoundingPolygon:
+  $id: EX_BoundingPolygon
   label.en: GeoLocationPolygon
   properties:
     points[]:
@@ -246,17 +252,17 @@ GeoLocation:
   $id: GeoLocation
   label.en: GeoLocation
   properties:
-    description:
+    EX_GeographicDescription:
       type: fulltext
-      label.en: GeoLocation place
-    point:
+      label.en: GeoLocation Description
+    Point:
       use: "./lter-datatypes.yaml#GeoLocationPoint"
       label.en: GeoLocation point
-    box:
-      use: "./lter-datatypes.yaml#GeoLocationBox"
+    EX_GeographicBoundingBox:
+      use: "./lter-datatypes.yaml#EX_GeographicBoundingBox"
       label.en: GeoLocation box
-    polygon[]:
-      use: "./lter-datatypes.yaml#GeoLocationPolygon"
+    EX_BoundingPolygon[]:
+      use: "./lter-datatypes.yaml#EX_BoundingPolygon"
       label.en: GeoLocation polygons
 
 # endregion
@@ -304,11 +310,9 @@ TaxonomicCoverage:
       label.en: Taxonomic description
     classification:
       use: "./lter-datatypes.yaml#TaxonomicClassification"
-
 # endregion
 
 # region Methods
-
 MethodStep:
   $id: MethodStep
   label.en: Method step
@@ -349,8 +353,6 @@ Methods:
     instrumentationDescription:
       type: fulltext
       label.en: Instrumentation description
-
-
 # endregion
 
 Project:
@@ -429,5 +431,53 @@ File:
       type: keyword
       label.en: File name
     sourceUrl:
-      type: keyword
+      type: url
       label.en: File source Url
+
+CustomMetadata:
+  $id: CustomMetadata
+  label.en: Custom metadata
+  type: nested
+  properties:
+    name:
+      type: keyword
+    value:
+      type: fulltext
+
+GeoMapDataFeatures:
+  $id: GeoMapDataFeatures
+  properties:
+    name:
+      type: keyword
+    label:
+      type: keyword
+    style:
+      properties:
+        colour:
+          type: keyword
+
+MapData:
+  $id: MapData
+  properties:
+    path:
+      type: url
+    epsgCode:
+      typeFR: integer
+    type:
+      type: keyword
+    features:
+      use: "./lter-datatypes.yaml#GeoMapDataFeatures"
+    bytetype:
+      type: boolean
+
+
+GeoServerInfo:
+  $id: GeoServerInfo
+  label.en: Information about geo server service
+  properties:
+    serviceType:
+      type: keyword
+    mapData[]:
+      use: "./lter-datatypes.yaml#MapData"
+
+

@@ -6,9 +6,8 @@ from invenio_records_resources.services import (
     RecordLink,
     pagination_links,
 )
-from invenio_records_resources.services.records.components import DataComponent
 from oarepo_runtime.records import has_draft, is_published_record
-from oarepo_runtime.services.components import OwnersComponent
+from oarepo_runtime.services.components import CustomFieldsComponent, OwnersComponent
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 
 from lter.records.api import LterDraft, LterRecord
@@ -27,8 +26,6 @@ class LterServiceConfig(
 
     result_list_cls = LterRecordList
 
-    # TODO make it read_only
-    # PERMISSIONS_PRESETS = ["read_only"]
     PERMISSIONS_PRESETS = ["everyone"]
 
     url_prefix = "/lter/"
@@ -47,7 +44,7 @@ class LterServiceConfig(
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
         OwnersComponent,
-        DataComponent,
+        CustomFieldsComponent,
     ]
 
     model = "lter"
@@ -57,6 +54,11 @@ class LterServiceConfig(
     @property
     def links_item(self):
         return {
+            "applicable-requests": ConditionalLink(
+                cond=is_published_record,
+                if_=RecordLink("{+api}/lter/{id}/requests/applicable"),
+                else_=RecordLink("{+api}/lter/{id}/draft/requests/applicable"),
+            ),
             "draft": RecordLink("{+api}/lter/{id}/draft"),
             "edit_html": RecordLink("{+ui}/lter/{id}/edit", when=has_draft),
             "latest": RecordLink("{+api}/lter/{id}/versions/latest"),

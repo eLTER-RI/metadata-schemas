@@ -24,13 +24,16 @@ LTER_RECORD_SERVICE_CONFIG = LterServiceConfig
 LTER_RECORD_SERVICE_CLASS = LterService
 
 
+OAREPO_PRIMARY_RECORD_SERVICE = {LterRecord: "lter", LterDraft: "lter"}
+
+
 LTER_REQUESTS_RESOURCE_CLASS = DraftRecordRequestsResource
 
 
 LTER_REQUESTS_SERVICE_CLASS = DraftRecordRequestsService
 
 
-REQUESTS_ENTITY_RESOLVERS = [
+LTER_ENTITY_RESOLVERS = [
     LterResolver(record_cls=LterRecord, service_id="lter", type_key="lter"),
     LterDraftResolver(record_cls=LterDraft, service_id="lter", type_key="lter_draft"),
 ]
