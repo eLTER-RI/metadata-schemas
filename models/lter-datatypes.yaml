@@ -7,19 +7,16 @@ AlternateIdentifier:
   properties:
     identifier:
       type: keyword
-      required: true
       label.en: Alternate identifier
     type:
       type: keyword
-      required: true
       label.en: Alternate Identifier type
     sourceName:
       type: keyword
-      required: false
+      required: true
       label.en: Alternate Identifier Source name
     url:
       type: url
-      required: false
       label.en: URI
 
 ShortName:
@@ -31,6 +28,7 @@ ShortName:
       label.en: Language
     text:
       type: fulltext+keyword
+      required: true
       label.en: Short Name
 
 NameIdentifier:
@@ -39,11 +37,9 @@ NameIdentifier:
   properties:
     id:
       type: keyword
-      required: true
       label.en: Identifier
     schema:
       type: keyword
-      required: true
       label.en: Identifier scheme
     url:
       type: url
@@ -58,6 +54,7 @@ Title:
       label.en: Language
     text:
       type: fulltext+keyword
+      required: true
       label.en: Title
 
 # endregion
@@ -142,7 +139,6 @@ Description:
       label.en: Description type
     language:
       type: keyword
-      required: true
       label.en: Language
 
 Keyword:
@@ -206,10 +202,12 @@ GeoLocationPoint:
   properties:
     longitude:
       "$ref": "./lter-datatypes.yaml#Longitude"
+      required: true
       label.en: Longitude
 
     latitude:
       "$ref": "./lter-datatypes.yaml#Latitude"
+      required: true
       label.en: Latitude
 
 EX_GeographicBoundingBox:
@@ -275,9 +273,11 @@ TemporalCoverage:
   properties:
     startDate:
       type: date
+      required: true
       label.en: Start date
     endDate:
       type: date
+      required: true
       label.en: End date
 
 # endregion
@@ -365,7 +365,6 @@ Project:
       label.en: Project name
     PID:
       type: keyword
-      required: true
       label.en: Project PID
     DOI:
       type: keyword
@@ -423,12 +422,14 @@ File:
       label.en: md5 checksum hash
     format:
       type: keyword
+      required: true
       label.en: File format
     size:
       type: integer
       label.en: File size
     name:
       type: keyword
+      required: true
       label.en: File name
     sourceUrl:
       type: url
@@ -441,8 +442,10 @@ CustomMetadata:
   properties:
     name:
       type: keyword
+      required: true
     value:
       type: fulltext
+      required: true
 
 GeoMapDataFeatures:
   $id: GeoMapDataFeatures
@@ -462,7 +465,7 @@ MapData:
     path:
       type: url
     epsgCode:
-      typeFR: integer
+      type: integer
     type:
       type: keyword
     features:

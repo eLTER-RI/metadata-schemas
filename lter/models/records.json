@@ -144,6 +144,20 @@
             "skip": false
         },
         "model-name": "Lter",
+        "record-resolver": {
+            "generate": true,
+            "module": "lter.records.requests.resolvers",
+            "class": "lter.records.requests.resolvers.LterResolver",
+            "base-classes": [
+                "oarepo_runtime.records.entity_resolvers.RecordResolver"
+            ],
+            "imports": [],
+            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
+        },
+        "ui-record-resolver": {
+            "generate": true,
+            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
+        },
         "config": {
             "generate": true,
             "module": "lter.config",
@@ -183,20 +197,6 @@
         "proxy": {
             "module": "lter.proxies",
             "generate": true
-        },
-        "record-resolver": {
-            "generate": true,
-            "module": "lter.records.requests.resolvers",
-            "class": "lter.records.requests.resolvers.LterResolver",
-            "base-classes": [
-                "oarepo_runtime.records.entity_resolvers.RecordResolver"
-            ],
-            "imports": [],
-            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
-        },
-        "ui-record-resolver": {
-            "generate": true,
-            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
         },
         "record": {
             "base-classes": [
@@ -590,10 +590,12 @@
                             },
                             "properties": {
                                 "name": {
-                                    "type": "keyword"
+                                    "type": "keyword",
+                                    "required": true
                                 },
                                 "value": {
-                                    "type": "fulltext"
+                                    "type": "fulltext",
+                                    "required": true
                                 }
                             }
                         }
@@ -649,12 +651,10 @@
                                         "properties": {
                                             "id": {
                                                 "type": "keyword",
-                                                "required": true,
                                                 "label.en": "Identifier"
                                             },
                                             "schema": {
                                                 "type": "keyword",
-                                                "required": true,
                                                 "label.en": "Identifier scheme"
                                             },
                                             "url": {
@@ -718,12 +718,10 @@
                                         "properties": {
                                             "id": {
                                                 "type": "keyword",
-                                                "required": true,
                                                 "label.en": "Identifier"
                                             },
                                             "schema": {
                                                 "type": "keyword",
-                                                "required": true,
                                                 "label.en": "Identifier scheme"
                                             },
                                             "url": {
@@ -787,22 +785,19 @@
                             "properties": {
                                 "identifier": {
                                     "type": "keyword",
-                                    "required": true,
                                     "label.en": "Alternate identifier"
                                 },
                                 "sourceName": {
                                     "type": "keyword",
-                                    "required": false,
+                                    "required": true,
                                     "label.en": "Alternate Identifier Source name"
                                 },
                                 "type": {
                                     "type": "keyword",
-                                    "required": true,
                                     "label.en": "Alternate Identifier type"
                                 },
                                 "url": {
                                     "type": "url",
-                                    "required": false,
                                     "label.en": "URI"
                                 }
                             }
@@ -832,7 +827,6 @@
                                 },
                                 "language": {
                                     "type": "keyword",
-                                    "required": true,
                                     "label.en": "Language"
                                 },
                                 "type": {
@@ -894,6 +888,7 @@
                             "properties": {
                                 "format": {
                                     "type": "keyword",
+                                    "required": true,
                                     "label.en": "File format"
                                 },
                                 "md5": {
@@ -902,6 +897,7 @@
                                 },
                                 "name": {
                                     "type": "keyword",
+                                    "required": true,
                                     "label.en": "File name"
                                 },
                                 "size": {
@@ -964,6 +960,7 @@
                                                 "properties": {
                                                     "latitude": {
                                                         "type": "float",
+                                                        "required": true,
                                                         "minimum": -90.0,
                                                         "maximum": 90.0,
                                                         "label.en": "Latitude",
@@ -975,6 +972,7 @@
                                                     },
                                                     "longitude": {
                                                         "type": "float",
+                                                        "required": true,
                                                         "minimum": -180.0,
                                                         "maximum": 180.0,
                                                         "label.en": "Longitude",
@@ -1006,6 +1004,7 @@
                                                     "properties": {
                                                         "latitude": {
                                                             "type": "float",
+                                                            "required": true,
                                                             "minimum": -90.0,
                                                             "maximum": 90.0,
                                                             "label.en": "Latitude",
@@ -1017,6 +1016,7 @@
                                                         },
                                                         "longitude": {
                                                             "type": "float",
+                                                            "required": true,
                                                             "minimum": -180.0,
                                                             "maximum": 180.0,
                                                             "label.en": "Longitude",
@@ -1116,6 +1116,7 @@
                                     "properties": {
                                         "latitude": {
                                             "type": "float",
+                                            "required": true,
                                             "minimum": -90.0,
                                             "maximum": 90.0,
                                             "label.en": "Latitude",
@@ -1127,6 +1128,7 @@
                                         },
                                         "longitude": {
                                             "type": "float",
+                                            "required": true,
                                             "minimum": -180.0,
                                             "maximum": 180.0,
                                             "label.en": "Longitude",
@@ -1389,7 +1391,6 @@
                             },
                             "PID": {
                                 "type": "keyword",
-                                "required": true,
                                 "label.en": "Project PID"
                             },
                             "name": {
@@ -1453,6 +1454,7 @@
                                 },
                                 "text": {
                                     "type": "fulltext+keyword",
+                                    "required": true,
                                     "label.en": "Short Name"
                                 }
                             }
@@ -1562,10 +1564,12 @@
                             "properties": {
                                 "endDate": {
                                     "type": "date",
+                                    "required": true,
                                     "label.en": "End date"
                                 },
                                 "startDate": {
                                     "type": "date",
+                                    "required": true,
                                     "label.en": "Start date"
                                 }
                             }
@@ -1603,6 +1607,7 @@
                                 },
                                 "text": {
                                     "type": "fulltext+keyword",
+                                    "required": true,
                                     "label.en": "Title"
                                 }
                             }

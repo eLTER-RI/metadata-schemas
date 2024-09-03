@@ -1,0 +1,195 @@
+DELETE https://catalog.elter-ri.eu/api/lter/
+Authorization: Bearer X0ukaJbHuOX2PhwgDM88NnJCbLsqDWkagozAxVipjW8AwlRDjpOIlNLyKqo8
+
+###
+GET https://catalog.elter-ri.eu/api/lter/a662q-y9493
+
+###
+GET https://catalog.elter-ri.eu/api/lter/a662q-y9493/draft
+
+###
+POST https://catalog.elter-ri.eu/api/lter/a662q-y9493/draft/actions/publish
+
+###
+POST https://catalog.elter-ri.eu/api/lter/a662q-y9493/draft/act
+Content-Type: application/json
+
+{
+  "metadata": {
+    "SOReference": {
+      "name": "FIXME",
+      "url": "FIXME"
+    },
+    "dataLevel": 0,
+    "datasetIds": [
+      {
+        "identifier": "a572efec373446169949f7769f829fc4",
+        "sourceName": "Tramtaria",
+        "type": "PID",
+        "url": "http://hdl.handle.net/11304/fdf99bea-8818-4abf-8d40-e554c5034e58"
+      }
+    ],
+    "descriptions": [
+      {
+        "description": "Deposition data at Wuestebach station in [mg x L-1] at weekly basis",
+        "language": "unknown",
+        "type": "Other"
+      }
+    ],
+    "ecosystem": {
+      "PID": "FIXME",
+      "name": "FIXME"
+    },
+    "files": [
+      {
+        "format": "csv",
+        "name": "D_DepTotalSmpConcentration_CaUNITmgxL-1_LTER_EU_DE_013_15-03-2017.csv",
+        "size": 21291,
+        "sourceUrl": "http://hdl.handle.net/11304/c52f1483-ae7f-412d-96f5-14be221b231f"
+      },
+      {
+        "format": "csv",
+        "name": "D_DepTotalSmpConcentration_ClUNITmgxL-1_LTER_EU_DE_013_15-03-2017.csv",
+        "size": 21995,
+        "sourceUrl": "http://hdl.handle.net/11304/e508d60d-b6bf-4616-bdb4-bfbd7100a476"
+      },
+      {
+        "format": "csv",
+        "name": "D_DepTotalSmpConcentration_KUNITmgxL-1_LTER_EU_DE_013_15-03-2017.csv",
+        "size": 21119,
+        "sourceUrl": "http://hdl.handle.net/11304/ab151f6f-08ab-4de5-9401-b0d8cdf127e8"
+      },
+      {
+        "format": "csv",
+        "name": "D_DepTotalSmpConcentration_MgUNITmgxL-1_LTER_EU_DE_013_15-03-2017.csv",
+        "size": 21355,
+        "sourceUrl": "http://hdl.handle.net/11304/e8ad7259-72ea-4254-8e7e-4ed606293093"
+      },
+      {
+        "format": "csv",
+        "name": "D_DepTotalSmpConcentration_NaUNITmgxL-1_LTER_EU_DE_013_15-03-2017.csv",
+        "size": 21192,
+        "sourceUrl": "http://hdl.handle.net/11304/ed7e783f-d50d-45a4-a88c-1c21a00d8993"
+      },
+      {
+        "format": "csv",
+        "name": "D_DepTotalSmpConcentration_NH4UNITmgxL-1_LTER_EU_DE_013_15-03-2017.csv",
+        "size": 22230,
+        "sourceUrl": "http://hdl.handle.net/11304/d5243f71-9a82-4152-bf19-58ea7e1f3d05"
+      },
+      {
+        "format": "csv",
+        "name": "D_DepTotalSmpConcentration_NO3UNITmgxL-1_LTER_EU_DE_013_15-03-2017.csv",
+        "size": 22246,
+        "sourceUrl": "http://hdl.handle.net/11304/e97a71b9-3be0-4ea2-aca2-5c95f38625ad"
+      },
+      {
+        "format": "csv",
+        "name": "D_DepTotalSmpConcentration_SO4UNITmgxL-1_LTER_EU_DE_013_15-03-2017.csv",
+        "size": 22253,
+        "sourceUrl": "http://hdl.handle.net/11304/f2bf4496-f923-4138-8bce-e5b2f43a5da7"
+      },
+      {
+        "format": "csv",
+        "name": "D_DepWetSmpConcentration_CaUNITmgxL-1_LTER_EU_DE_013_10_15-03-2017.csv",
+        "size": 21206,
+        "sourceUrl": "http://hdl.handle.net/11304/f4fc3e60-cc4d-4616-8577-cc21e09bcc8c"
+      },
+      {
+        "format": "csv",
+        "name": "D_DepWetSmpConcentration_ClUNITmgxL-1_LTER_EU_DE_013_14_15-03-2017.csv",
+        "size": 21714,
+        "sourceUrl": "http://hdl.handle.net/11304/4401f25a-ef1e-4c92-a478-d0fa8ba0c03c"
+      },
+      {
+        "format": "csv",
+        "name": "D_DepWetSmpConcentration_KUNITmgxL-1_LTER_EU_DE_013_18_15-03-2017.csv",
+        "size": 21007,
+        "sourceUrl": "http://hdl.handle.net/11304/490aad6e-ebf6-45e4-9d7d-f5997adc8015"
+      },
+      {
+        "format": "csv",
+        "name": "D_DepWetSmpConcentration_MgUNITmgxL-1_LTER_EU_DE_013_16_15-03-2017.csv",
+        "size": 21261,
+        "sourceUrl": "http://hdl.handle.net/11304/cfb12d3a-7407-471f-9839-ece0870c465c"
+      },
+      {
+        "format": "csv",
+        "name": "D_DepWetSmpConcentration_NaUNITmgxL-1_LTER_EU_DE_013_12_15-03-2017.csv",
+        "size": 21199,
+        "sourceUrl": "http://hdl.handle.net/11304/f38a8077-9aba-422c-8a9d-55df9b1ebc70"
+      },
+      {
+        "format": "csv",
+        "name": "D_DepWetSmpConcentration_NH4UNITmgxL-1_LTER_EU_DE_013_6_15-03-2017.csv",
+        "size": 21957,
+        "sourceUrl": "http://hdl.handle.net/11304/b1086394-2b8d-4b1b-91f4-a5ee574fe43f"
+      },
+      {
+        "format": "csv",
+        "name": "D_DepWetSmpConcentration_NO3UNITmgxL-1_LTER_EU_DE_013_8_15-03-2017.csv",
+        "size": 21978,
+        "sourceUrl": "http://hdl.handle.net/11304/e696acf7-75f5-4de8-b628-703be1409f9e"
+      },
+      {
+        "format": "csv",
+        "name": "D_DepWetSmpConcentration_SO4UNITmgxL-1_LTER_EU_DE_013_4_15-03-2017.csv",
+        "size": 21963,
+        "sourceUrl": "http://hdl.handle.net/11304/9ae0e562-4a4a-4846-bb03-43bf88172b7f"
+      },
+      {
+        "format": "csv",
+        "name": "D_totalDeposition TimeUNITmgxL-1_LTER_EU_DE_013_15-03-2017.csv",
+        "size": 18847,
+        "sourceUrl": "http://hdl.handle.net/11304/35a7d05e-352b-49ba-a7e6-5daf28ab25f1"
+      },
+      {
+        "format": "csv",
+        "name": "D_wetDeposition Time,feature,sample,DepWetSmpConcentration_SO4UNITmgxL-1_LTER_EU_DE_013_4_15-03-2017.csv",
+        "size": 29648,
+        "sourceUrl": "http://hdl.handle.net/11304/1f8ee408-13a1-4417-8478-acebcb150ff1"
+      }
+    ],
+    "keywords": [
+      {
+        "name": "Deposition sampling wet and total",
+        "url": "unknown"
+      }
+    ],
+    "language": "unknown",
+    "methods": {
+      "PID": "FIXME",
+      "instrumentationDescription": "FIXME",
+      "qualityControlDescription": "FIXME",
+      "sampling": {
+        "samplingDescription": "FIXME",
+        "studyDescription": "FIXME"
+      },
+      "steps": [
+        {
+          "description": "FIXME",
+          "title": "FIXME"
+        }
+      ]
+    },
+    "project": {
+      "DOI": "FIXME",
+      "PID": "FIXME",
+      "name": "LTER"
+    },
+    "publicationDate": "2017-03-16",
+    "shortNames": [
+      {
+        "language": "unknown",
+        "text": "Deposition data from Wüstebach Germany 2009-2017"
+      }
+    ],
+    "temporalResolution": 0,
+    "titles": [
+      {
+        "language": "unknown",
+        "text": "Deposition data from Wüstebach Germany 2009-2017"
+      }
+    ]
+  }
+}

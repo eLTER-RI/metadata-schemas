@@ -77,6 +77,7 @@
                             "name": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/additionalMetadata/name.help",
                                 "label": "metadata/additionalMetadata/name.label",
                                 "hint": "metadata/additionalMetadata/name.hint",
@@ -85,6 +86,7 @@
                             "value": {
                                 "detail": "fulltext",
                                 "input": "fulltext",
+                                "required": true,
                                 "help": "metadata/additionalMetadata/value.help",
                                 "label": "metadata/additionalMetadata/value.label",
                                 "hint": "metadata/additionalMetadata/value.hint"
@@ -153,7 +155,6 @@
                                         "id": {
                                             "detail": "keyword",
                                             "input": "keyword",
-                                            "required": true,
                                             "help": "metadata/authors/ids/id.help",
                                             "label": "metadata/authors/ids/id.label",
                                             "hint": "metadata/authors/ids/id.hint",
@@ -162,7 +163,6 @@
                                         "schema": {
                                             "detail": "keyword",
                                             "input": "keyword",
-                                            "required": true,
                                             "help": "metadata/authors/ids/schema.help",
                                             "label": "metadata/authors/ids/schema.label",
                                             "hint": "metadata/authors/ids/schema.hint",
@@ -243,7 +243,6 @@
                                         "id": {
                                             "detail": "keyword",
                                             "input": "keyword",
-                                            "required": true,
                                             "help": "metadata/contributors/ids/id.help",
                                             "label": "metadata/contributors/ids/id.label",
                                             "hint": "metadata/contributors/ids/id.hint",
@@ -252,7 +251,6 @@
                                         "schema": {
                                             "detail": "keyword",
                                             "input": "keyword",
-                                            "required": true,
                                             "help": "metadata/contributors/ids/schema.help",
                                             "label": "metadata/contributors/ids/schema.label",
                                             "hint": "metadata/contributors/ids/schema.hint",
@@ -306,7 +304,6 @@
                             "identifier": {
                                 "detail": "keyword",
                                 "input": "keyword",
-                                "required": true,
                                 "help": "metadata/datasetIds/identifier.help",
                                 "label": "metadata/datasetIds/identifier.label",
                                 "hint": "metadata/datasetIds/identifier.hint",
@@ -315,6 +312,7 @@
                             "sourceName": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/datasetIds/sourceName.help",
                                 "label": "metadata/datasetIds/sourceName.label",
                                 "hint": "metadata/datasetIds/sourceName.hint",
@@ -323,7 +321,6 @@
                             "type": {
                                 "detail": "keyword",
                                 "input": "keyword",
-                                "required": true,
                                 "help": "metadata/datasetIds/type.help",
                                 "label": "metadata/datasetIds/type.label",
                                 "hint": "metadata/datasetIds/type.hint",
@@ -364,7 +361,6 @@
                             "language": {
                                 "detail": "keyword",
                                 "input": "keyword",
-                                "required": true,
                                 "help": "metadata/descriptions/language.help",
                                 "label": "metadata/descriptions/language.label",
                                 "hint": "metadata/descriptions/language.hint",
@@ -424,6 +420,7 @@
                             "format": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/files/format.help",
                                 "label": "metadata/files/format.label",
                                 "hint": "metadata/files/format.hint",
@@ -440,6 +437,7 @@
                             "name": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/files/name.help",
                                 "label": "metadata/files/name.label",
                                 "hint": "metadata/files/name.hint",
@@ -500,6 +498,7 @@
                                                 "latitude": {
                                                     "detail": "float",
                                                     "input": "float",
+                                                    "required": true,
                                                     "help": "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/latitude.help",
                                                     "label": "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/latitude.label",
                                                     "hint": "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/latitude.hint",
@@ -508,6 +507,7 @@
                                                 "longitude": {
                                                     "detail": "float",
                                                     "input": "float",
+                                                    "required": true,
                                                     "help": "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/longitude.help",
                                                     "label": "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/longitude.label",
                                                     "hint": "metadata/geoLocations/EX_BoundingPolygon/inPolygonPoint/longitude.hint",
@@ -532,6 +532,7 @@
                                                     "latitude": {
                                                         "detail": "float",
                                                         "input": "float",
+                                                        "required": true,
                                                         "help": "metadata/geoLocations/EX_BoundingPolygon/points/latitude.help",
                                                         "label": "metadata/geoLocations/EX_BoundingPolygon/points/latitude.label",
                                                         "hint": "metadata/geoLocations/EX_BoundingPolygon/points/latitude.hint",
@@ -540,6 +541,7 @@
                                                     "longitude": {
                                                         "detail": "float",
                                                         "input": "float",
+                                                        "required": true,
                                                         "help": "metadata/geoLocations/EX_BoundingPolygon/points/longitude.help",
                                                         "label": "metadata/geoLocations/EX_BoundingPolygon/points/longitude.label",
                                                         "hint": "metadata/geoLocations/EX_BoundingPolygon/points/longitude.hint",
@@ -613,6 +615,7 @@
                                     "latitude": {
                                         "detail": "float",
                                         "input": "float",
+                                        "required": true,
                                         "help": "metadata/geoLocations/Point/latitude.help",
                                         "label": "metadata/geoLocations/Point/latitude.label",
                                         "hint": "metadata/geoLocations/Point/latitude.hint",
@@ -621,6 +624,7 @@
                                     "longitude": {
                                         "detail": "float",
                                         "input": "float",
+                                        "required": true,
                                         "help": "metadata/geoLocations/Point/longitude.help",
                                         "label": "metadata/geoLocations/Point/longitude.label",
                                         "hint": "metadata/geoLocations/Point/longitude.hint",
@@ -916,7 +920,6 @@
                         "PID": {
                             "detail": "keyword",
                             "input": "keyword",
-                            "required": true,
                             "help": "metadata/project/PID.help",
                             "label": "metadata/project/PID.label",
                             "hint": "metadata/project/PID.hint",
@@ -998,6 +1001,7 @@
                             "text": {
                                 "detail": "fulltext+keyword",
                                 "input": "fulltext+keyword",
+                                "required": true,
                                 "help": "metadata/shortNames/text.help",
                                 "label": "metadata/shortNames/text.label",
                                 "hint": "metadata/shortNames/text.hint"
@@ -1119,6 +1123,7 @@
                             "endDate": {
                                 "detail": "date",
                                 "input": "date",
+                                "required": true,
                                 "help": "metadata/temporalCoverages/endDate.help",
                                 "label": "metadata/temporalCoverages/endDate.label",
                                 "hint": "metadata/temporalCoverages/endDate.hint",
@@ -1127,6 +1132,7 @@
                             "startDate": {
                                 "detail": "date",
                                 "input": "date",
+                                "required": true,
                                 "help": "metadata/temporalCoverages/startDate.help",
                                 "label": "metadata/temporalCoverages/startDate.label",
                                 "hint": "metadata/temporalCoverages/startDate.hint",
@@ -1167,6 +1173,7 @@
                             "text": {
                                 "detail": "fulltext+keyword",
                                 "input": "fulltext+keyword",
+                                "required": true,
                                 "help": "metadata/titles/text.help",
                                 "label": "metadata/titles/text.label",
                                 "hint": "metadata/titles/text.hint"

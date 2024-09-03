@@ -218,9 +218,9 @@ class AdditionalMetadataItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    name = ma_fields.String()
+    name = ma_fields.String(required=True)
 
-    value = ma_fields.String()
+    value = ma_fields.String(required=True)
 
 
 class ClassificationUISchema(DictOnlySchema):
@@ -240,11 +240,11 @@ class DatasetIdsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    identifier = ma_fields.String(required=True)
+    identifier = ma_fields.String()
 
-    sourceName = ma_fields.String()
+    sourceName = ma_fields.String(required=True)
 
-    type = ma_fields.String(required=True)
+    type = ma_fields.String()
 
     url = ma_fields.String()
 
@@ -255,7 +255,7 @@ class DescriptionsItemUISchema(DictOnlySchema):
 
     description = ma_fields.String(required=True)
 
-    language = ma_fields.String(required=True)
+    language = ma_fields.String()
 
     type = ma_fields.String(
         required=True,
@@ -301,11 +301,11 @@ class FilesItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    format = ma_fields.String()
+    format = ma_fields.String(required=True)
 
     md5 = ma_fields.String()
 
-    name = ma_fields.String()
+    name = ma_fields.String(required=True)
 
     size = ma_fields.Integer()
 
@@ -316,9 +316,9 @@ class IdsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    _id = ma_fields.String(required=True, data_key="id", attribute="id")
+    _id = ma_fields.String(data_key="id", attribute="id")
 
-    schema = ma_fields.String(required=True)
+    schema = ma_fields.String()
 
     url = ma_fields.String()
 
@@ -327,9 +327,9 @@ class InPolygonPointUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    latitude = ma_fields.Float()
+    latitude = ma_fields.Float(required=True)
 
-    longitude = ma_fields.Float()
+    longitude = ma_fields.Float(required=True)
 
 
 class ProjectUISchema(DictOnlySchema):
@@ -338,7 +338,7 @@ class ProjectUISchema(DictOnlySchema):
 
     DOI = ma_fields.String()
 
-    PID = ma_fields.String(required=True)
+    PID = ma_fields.String()
 
     name = ma_fields.String(required=True)
 
@@ -367,7 +367,7 @@ class ShortNamesItemUISchema(DictOnlySchema):
 
     language = ma_fields.String()
 
-    text = ma_fields.String()
+    text = ma_fields.String(required=True)
 
 
 class StepsItemUISchema(DictOnlySchema):
@@ -390,6 +390,6 @@ class TemporalCoveragesItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    endDate = LocalizedDate()
+    endDate = LocalizedDate(required=True)
 
-    startDate = LocalizedDate()
+    startDate = LocalizedDate(required=True)

@@ -225,9 +225,9 @@ class AdditionalMetadataItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    name = ma_fields.String()
+    name = ma_fields.String(required=True)
 
-    value = ma_fields.String()
+    value = ma_fields.String(required=True)
 
 
 class ClassificationSchema(DictOnlySchema):
@@ -247,11 +247,11 @@ class DatasetIdsItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    identifier = ma_fields.String(required=True)
+    identifier = ma_fields.String()
 
-    sourceName = ma_fields.String()
+    sourceName = ma_fields.String(required=True)
 
-    type = ma_fields.String(required=True)
+    type = ma_fields.String()
 
     url = ma_fields.String()
 
@@ -262,7 +262,7 @@ class DescriptionsItemSchema(DictOnlySchema):
 
     description = ma_fields.String(required=True)
 
-    language = ma_fields.String(required=True)
+    language = ma_fields.String()
 
     type = ma_fields.String(
         required=True,
@@ -316,11 +316,11 @@ class FilesItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    format = ma_fields.String()
+    format = ma_fields.String(required=True)
 
     md5 = ma_fields.String()
 
-    name = ma_fields.String()
+    name = ma_fields.String(required=True)
 
     size = ma_fields.Integer()
 
@@ -331,9 +331,9 @@ class IdsItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    _id = ma_fields.String(required=True, data_key="id", attribute="id")
+    _id = ma_fields.String(data_key="id", attribute="id")
 
-    schema = ma_fields.String(required=True)
+    schema = ma_fields.String()
 
     url = ma_fields.String()
 
@@ -342,9 +342,13 @@ class InPolygonPointSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    latitude = ma_fields.Float(validate=[ma.validate.Range(min=-90.0, max=90.0)])
+    latitude = ma_fields.Float(
+        required=True, validate=[ma.validate.Range(min=-90.0, max=90.0)]
+    )
 
-    longitude = ma_fields.Float(validate=[ma.validate.Range(min=-180.0, max=180.0)])
+    longitude = ma_fields.Float(
+        required=True, validate=[ma.validate.Range(min=-180.0, max=180.0)]
+    )
 
 
 class ProjectSchema(DictOnlySchema):
@@ -353,7 +357,7 @@ class ProjectSchema(DictOnlySchema):
 
     DOI = ma_fields.String()
 
-    PID = ma_fields.String(required=True)
+    PID = ma_fields.String()
 
     name = ma_fields.String(required=True)
 
@@ -382,7 +386,7 @@ class ShortNamesItemSchema(DictOnlySchema):
 
     language = ma_fields.String()
 
-    text = ma_fields.String()
+    text = ma_fields.String(required=True)
 
 
 class StepsItemSchema(DictOnlySchema):
@@ -405,6 +409,6 @@ class TemporalCoveragesItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    endDate = ma_fields.String(validate=[validate_date("%Y-%m-%d")])
+    endDate = ma_fields.String(required=True, validate=[validate_date("%Y-%m-%d")])
 
-    startDate = ma_fields.String(validate=[validate_date("%Y-%m-%d")])
+    startDate = ma_fields.String(required=True, validate=[validate_date("%Y-%m-%d")])
