@@ -11,31 +11,42 @@
 {% endfor %}
 
 <table class='ui compact definition table'>
-    <div class="ui grid two column row">
-        <div class="column">
-            {% if md.siteReference %}
-                {% for siteRef in array(md.siteReference) %}
-                    <h4>Site reference:</h4>
-                    <a href="https://deims.org/{{ siteRef.PID }}">{{ siteRef.name }}</a>
-                    {% set siteHref = search_link ~ "?q=&f=metadata_siteReference_name:" %}
-                    <a href="{{ siteHref }}{{ siteRef.name }}">
+    {% if md.publicationDate %}
+        <div class="ui segment detail-section">
+            <h3 class="ui header">Publication date</h3>
+            <div class="content">
+                <p>{{ md.publicationDate }}</p>
+            </div>
+        </div>
+    {% endif %}
+    <div class="ui segment detail-section">
+        <h3 class="ui header">References</h3>
+        <div class="content ui grid two column row">
+            <div class="column">
+                {% if md.siteReference %}
+                    {% for siteRef in array(md.siteReference) %}
+                        <h4>Site reference:</h4>
+                        <a href="https://deims.org/{{ siteRef.PID }}">{{ siteRef.name }}</a>
+                        {% set siteHref = search_link ~ "?q=&f=metadata_siteReference_name:" %}
+                        <a href="{{ siteHref }}{{ siteRef.name }}">
+                            <i class="ui icon search"></i>
+                        </a>
+
+                    {% endfor %}
+                {% endif %}
+            </div>
+            {% if md.SOReference %}
+                <div class="column">
+                    <h4>Standard observation</h4>
+                    <a href="{{ md.SOReference.url }}">{{ md.SOReference.name }}</a>
+                    {% set SOHref = search_link ~ "?q=&f=metadata_SOReference_name:" %}
+                    <a href="{{ SOHref }}{{ md.SOReference.name }}">
                         <i class="ui icon search"></i>
                     </a>
 
-                {% endfor %}
+                </div>
             {% endif %}
         </div>
-        {% if md.SOReference %}
-            <div class="column">
-                <h4>Standard observation</h4>
-                <a href="{{ md.SOReference.url }}">{{ md.SOReference.name }}</a>
-                {% set SOHref = search_link ~ "?q=&f=metadata_SOReference_name:" %}
-                <a href="{{ SOHref }}{{ md.SOReference.name }}">
-                    <i class="ui icon search"></i>
-                </a>
-
-            </div>
-        {% endif %}
     </div>
     {% if ns.abstract_description != None %}
         <div class="ui segment detail-section">
@@ -53,6 +64,13 @@
                 {{ description.description }}
             </AccordionField>
         {% endfor %}
+    {% endif %}
+
+    {% if md.geoServerInfo %}
+        <AccordionField label="GeoServer Information"
+                        accordion_class="detail-section">
+            Something
+        </AccordionField>
     {% endif %}
 
     <Files files={md.files}></Files>
