@@ -65,13 +65,5 @@
             </AccordionField>
         {% endfor %}
     {% endif %}
-
-    {% if md.geoServerInfo %}
-        <AccordionField label="GeoServer Information"
-                        accordion_class="detail-section">
-            Something
-        </AccordionField>
-    {% endif %}
-
     <Files files={md.files}></Files>
 </table>
