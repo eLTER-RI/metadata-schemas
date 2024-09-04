@@ -11,7 +11,7 @@ GET https://catalog.elter-ri.eu/api/lter/?status=draft
 GET https://catalog.elter-ri.eu/api/lter/draft
 
 ###
-POST https://catalog.elter-ri.eu/api/lter/avnz1-h3n92/draft/actions/publish
+POST https://catalog.elter-ri.eu/api/lter/qmwj3-d1173/draft/actions/publish
 Authorization: Bearer rSrs36mso8KW9qrGsbutdslpl7WOMhIktI1qVVr9DUuNPXpRZ6AXZpf4d2dG
 
 ###

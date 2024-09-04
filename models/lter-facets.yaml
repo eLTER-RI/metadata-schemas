@@ -4,3 +4,5 @@ facets:
       metadata.dataLevel: 1
       metadata.keywords.name: 2
       metadata.datasetIds.sourceName: 3
+      metadata.siteReference.name: 4
+      metadata.SOReference.name: 5

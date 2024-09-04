@@ -10,7 +10,7 @@ GET https://127.0.0.1:5000/api/lter/dsq2m-rjn54
 Accept: text/xml
 
 ###
-POST https://127.0.0.1:5000/api/lter/5f358-tgx93/draft/actions/publish
+POST https://127.0.0.1:5000/api/lter/ytde7-sy324/draft/actions/publish
 
 ###
 POST https://127.0.0.1:5000/api/lter
@@ -22,7 +22,7 @@ Content-Type: application/json
       {
         "sourceName": "b2share",
         "identifier": "id",
-        "url": "www.google.com",
+        "url": "https://b2share.com",
         "type": "PID"
       }
     ],
@@ -190,13 +190,13 @@ Content-Type: application/json
     },
     "siteReference": [
       {
-        "name": "site name",
-        "PID": "deims site id"
+        "name": "Arctic-alpine tundra - Czechia",
+        "PID": "48660128-e478-42a4-91f8-b83a8735ba50"
       }
     ],
     "SOReference": {
-      "name": "",
-      "url": "url"
+      "name": "Standard observation2",
+      "url": "https://googlee.com"
     },
     "dataLevel": 2,
     "temporalResolution": 150,

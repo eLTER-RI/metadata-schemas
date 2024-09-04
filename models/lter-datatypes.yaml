@@ -378,7 +378,7 @@ SiteReference:
     name:
       type: keyword
       required: true
-      label.en: Site name
+      label.en: Site
     PID:
       type: keyword
       required: true
@@ -390,7 +390,7 @@ SOReference:
   properties:
     name:
       type: keyword
-      label.en: SO name
+      label.en: Standard observation
     url:
       type: url
       label.en: SO url reference

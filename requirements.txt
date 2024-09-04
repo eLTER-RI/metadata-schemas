@@ -1,6 +1,6 @@
 oarepo==12.0.28
 cachetools==5.5.0
-deepmerge==1.1.1
+deepmerge==2.0
 et-xmlfile==1.1.0
 flask-babelex==0.9.4
 frozendict==2.4.4
@@ -11,9 +11,10 @@ langcodes==3.4.0
 language-data==1.2.0
 marisa-trie==1.2.0
 nr-vocabularies==2.1.0
+oarepo-global-search==1.0.25
 oarepo-published-service==1.0.3
-oarepo-requests==2.0.7
-oarepo-runtime==1.5.57
+oarepo-requests==2.0.8
+oarepo-runtime==1.5.58
 oarepo-ui==5.2.8
 oarepo-vocabularies==2.0.96
 openpyxl==3.1.5

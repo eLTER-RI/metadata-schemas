@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-09-03T10:36:20.018725\n"
-"PO-Revision-Date: 2024-09-03T10:36:20.018735\n"
+"POT-Creation-Date: 2024-09-04T11:15:09.879376\n"
+"PO-Revision-Date: 2024-09-04T11:15:09.879385\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -54,7 +54,7 @@ msgid "metadata/SOReference.hint"
 msgstr ""
 
 msgid "metadata/SOReference/name.label"
-msgstr "SO name"
+msgstr "Standard observation"
 
 msgid "metadata/SOReference/name.help"
 msgstr ""
@@ -1040,7 +1040,7 @@ msgid "metadata/siteReference/PID.hint"
 msgstr ""
 
 msgid "metadata/siteReference/name.label"
-msgstr "Site name"
+msgstr "Site"
 
 msgid "metadata/siteReference/name.help"
 msgstr ""

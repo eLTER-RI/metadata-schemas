@@ -37,9 +37,10 @@ record:
   search-options:
     base-classes:
       - oarepo_runtime.services.search.I18nSearchOptions
-    sort-options-field: extra_sort_options
-    fields:
-      sort_options: "{{oarepo_runtime.services.search.ICUSortOptions}}('lter')"
+#    TODO add extra sort options
+#    sort-options-field: extra_sort_options
+#    fields:
+#      sort_options: "{{oarepo_runtime.services.search.ICUSortOptions}}('lter')"
 runtime-dependencies:
   nr-vocabularies: 2.0.0
 settings:

@@ -1,4 +1,4 @@
-from oarepo_runtime.services.search import I18nSearchOptions, ICUSortOptions
+from oarepo_runtime.services.search import I18nSearchOptions
 
 from . import facets
 
@@ -11,6 +11,8 @@ class LterSearchOptions(I18nSearchOptions):
             "metadata_dataLevel": facets.metadata_dataLevel,
             "metadata_keywords_name": facets.metadata_keywords_name,
             "metadata_datasetIds_sourceName": facets.metadata_datasetIds_sourceName,
+            "metadata_siteReference_name": facets.metadata_siteReference_name,
+            "metadata_SOReference_name": facets.metadata_SOReference_name,
             **getattr(I18nSearchOptions, "facet_groups", {}).get("default", {}),
         },
     }

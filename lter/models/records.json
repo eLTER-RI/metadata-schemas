@@ -69,15 +69,13 @@
             "base-classes": [
                 "oarepo_runtime.services.search.I18nSearchOptions"
             ],
-            "sort-options-field": "extra_sort_options",
-            "fields": {
-                "sort_options": "{{oarepo_runtime.services.search.ICUSortOptions}}('lter')"
-            },
             "module": "lter.services.records.search",
             "class": "lter.services.records.search.LterSearchOptions",
             "generate": true,
             "extra-code": "",
-            "imports": []
+            "imports": [],
+            "fields": {},
+            "sort-options-field": "sort_options"
         },
         "resource-config": {
             "base-html-url": "/lter/",
@@ -98,7 +96,9 @@
                 "default": {
                     "metadata.dataLevel": 1,
                     "metadata.keywords.name": 2,
-                    "metadata.datasetIds.sourceName": 3
+                    "metadata.datasetIds.sourceName": 3,
+                    "metadata.siteReference.name": 4,
+                    "metadata.SOReference.name": 5
                 }
             },
             "generate": true,
@@ -565,7 +565,7 @@
                         "properties": {
                             "name": {
                                 "type": "keyword",
-                                "label.en": "SO name"
+                                "label.en": "Standard observation"
                             },
                             "url": {
                                 "type": "url",
@@ -1484,7 +1484,7 @@
                                 "name": {
                                     "type": "keyword",
                                     "required": true,
-                                    "label.en": "Site name"
+                                    "label.en": "Site"
                                 }
                             }
                         }
