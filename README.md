@@ -28,7 +28,7 @@ docker push copas-market.cerit-sc.cz/elter/lter_dar:TAG
   - Script params = run --cert ./docker/development.crt --key ./docker/development.key
   - Working dir = elter_dar root dir
   - ENV vars = PYTHONUNBUFFERED=1;FLASK_DEBUG=1
-  - Python 3.10
+  - Python 3.12
 
 ## Prerequisites
 - Ideally any Linux distribution or MacOS
