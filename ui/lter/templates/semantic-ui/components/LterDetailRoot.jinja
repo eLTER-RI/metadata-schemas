@@ -11,14 +11,26 @@
 {% endfor %}
 
 <table class='ui compact definition table'>
-    {% if md.publicationDate %}
-        <div class="ui segment detail-section">
-            <h3 class="ui header">Publication date</h3>
-            <div class="content">
-                <p>{{ md.publicationDate }}</p>
+    <div class="ui segment detail-section">
+        <div class="ui grid two column row">
+            {% if md.publicationDate %}
+            {% endif %}
+            <div class="column">
+                <h3 class="ui header">Publication date</h3>
+                <div class="content">
+                    <p>{{ md.publicationDate }}</p>
+                </div>
             </div>
+            {% if md.project %}
+                <div class="column">
+                    <h3 class="ui header">Project</h3>
+                    <div class="content">
+                        <a href={{ md.project.PID }}>{{ md.project.name }}</a>
+                    </div>
+                </div>
+            {% endif %}
         </div>
-    {% endif %}
+    </div>
     <div class="ui segment detail-section">
         <h3 class="ui header">References</h3>
         <div class="content ui grid two column row">
@@ -27,11 +39,11 @@
                     {% for siteRef in array(md.siteReference) %}
                         <h4>Site reference:</h4>
                         <a href="https://deims.org/{{ siteRef.PID }}">{{ siteRef.name }}</a>
+
                         {% set siteHref = search_link ~ "?q=&f=metadata_siteReference_name:" %}
                         <a href="{{ siteHref }}{{ siteRef.name }}">
                             <i class="ui icon search"></i>
                         </a>
-
                     {% endfor %}
                 {% endif %}
             </div>
@@ -39,15 +51,26 @@
                 <div class="column">
                     <h4>Standard observation</h4>
                     <a href="{{ md.SOReference.url }}">{{ md.SOReference.name }}</a>
+
                     {% set SOHref = search_link ~ "?q=&f=metadata_SOReference_name:" %}
+
                     <a href="{{ SOHref }}{{ md.SOReference.name }}">
                         <i class="ui icon search"></i>
                     </a>
-
                 </div>
             {% endif %}
         </div>
     </div>
+    {% if md.authors != None %}
+        <div class="ui segment detail-section">
+            <h3 class="ui header">Authors</h3>
+            {% for author in array(md.authors) %}
+                <div class="content">
+                    <p>{{ author.fullName }} - {{ author.email }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
     {% if ns.abstract_description != None %}
         <div class="ui segment detail-section">
             <h3 class="ui header">Abstract</h3>
@@ -56,6 +79,7 @@
             </div>
         </div>
     {% endif %}
+
     {% if ns.other_descriptions != [] %}
         {% for description in ns.other_descriptions %}
             <AccordionField label={description.type}
