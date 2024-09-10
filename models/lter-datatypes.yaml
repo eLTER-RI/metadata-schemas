@@ -146,6 +146,8 @@ Keyword:
   properties:
     name:
       type: keyword
+      mapping:
+        copy_to: substring_search_field
       required: true
       label.en: Keyword
     url:

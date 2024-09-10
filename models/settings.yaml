@@ -1,0 +1,26 @@
+record:
+  mapping:
+    template:
+      settings:
+        analysis:
+          analyzer:
+            substring:
+              tokenizer: substringTokenizer
+          "tokenizer":
+            "substringTokenizer":
+              "type": "ngram"
+              "min_gram": 3
+              "max_gram": 3
+              "token_chars":
+                - "letter"
+                - "digit"
+
+  properties:
+    substring_search_field:
+      type: fulltext
+      marshmallow:
+        read: false
+        write: false
+      mapping:
+        type: text
+        analyzer: substring

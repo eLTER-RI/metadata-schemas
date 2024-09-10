@@ -46,3 +46,5 @@ runtime-dependencies:
 settings:
   i18n-languages:
   - en
+
+use: ["./settings.yaml"]

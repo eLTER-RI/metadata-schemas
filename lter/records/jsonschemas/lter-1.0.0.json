@@ -519,6 +519,9 @@
                 }
             }
         },
+        "substring_search_field": {
+            "type": "string"
+        },
         "updated": {
             "type": "string",
             "format": "date-time"

@@ -13,6 +13,8 @@ class LterUISchema(UIRequestsSerializationMixin, InvenioUISchema):
 
     metadata = ma_fields.Nested(lambda: LterMetadataUISchema())
 
+    substring_search_field = ma_fields.String()
+
 
 class LterMetadataUISchema(Schema):
     class Meta:

@@ -10,6 +10,7 @@ COPY .. /repository
 # build the repository
 WORKDIR /repository
 RUN rm -rf .nrp .pdm-build .venv
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 RUN PYTHON=`which python3` ./nrp build --override-config venv_dir=/invenio/venv --override-config invenio_instance_path=/invenio/instance
 
 # cleanup
@@ -24,9 +25,9 @@ ARG REPOSITORY_SITE_NAME="DAR"
 ARG REPOSITORY_IMAGE_URL="http://localhost/bla"
 ARG REPOSITORY_AUTHOR="Dominik"
 ARG REPOSITORY_GITHUB_URL="github"
-ARG REPOSITORY_URL="kde to bezi"
-ARG REPOSITORY_DOCUMENTATION="Neni"
-ARG DEPLOYMENT_VERSION="0.0.1"
+ARG REPOSITORY_URL="https://catalog.elter-ri.eu/"
+ARG REPOSITORY_DOCUMENTATION="ToDo"
+ARG DEPLOYMENT_VERSION="0.0.5"
 
 LABEL maintainer="${REPOSITORY_SITE_ORGANIZATION}" \
     org.opencontainers.image.authors="${REPOSITORY_AUTHOR}" \

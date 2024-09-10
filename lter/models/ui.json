@@ -1220,6 +1220,13 @@
                 }
             }
         },
+        "substring_search_field": {
+            "detail": "fulltext",
+            "input": "fulltext",
+            "help": "substring_search_field.help",
+            "label": "substring_search_field.label",
+            "hint": "substring_search_field.hint"
+        },
         "updated": {
             "detail": "datetime",
             "input": "datetime",

@@ -1,3 +1,7 @@
+#catalog.elter-ri.eu
+#https://catalog.elter.cerit-sc.cz
+
+###
 GET https://catalog.elter-ri.eu/api/lter/?status=draft
 #Accept: text/xml
 
@@ -11,7 +15,11 @@ GET https://catalog.elter-ri.eu/api/lter/?status=draft
 GET https://catalog.elter-ri.eu/api/lter/draft
 
 ###
-POST https://catalog.elter-ri.eu/api/lter/qmwj3-d1173/draft/actions/publish
+POST https://catalog.elter-ri.eu/api/lter/ey8fv-2vz85/draft/actions/publish
+Authorization: Bearer rSrs36mso8KW9qrGsbutdslpl7WOMhIktI1qVVr9DUuNPXpRZ6AXZpf4d2dG
+
+###
+POST https://catalog.elter-ri.eu/api/lter/k2gsh-vsw53/draft/actions/publish
 Authorization: Bearer rSrs36mso8KW9qrGsbutdslpl7WOMhIktI1qVVr9DUuNPXpRZ6AXZpf4d2dG
 
 ###
@@ -23,30 +31,30 @@ Content-Type: application/json
   "metadata": {
     "datasetIds": [
       {
-        "source": "b2share",
+        "sourceName": "b2share",
         "identifier": "id",
-        "url": "url",
+        "url": "https://b2share.com",
         "type": "PID"
       }
     ],
     "shortNames": [
       {
         "language": "eng",
-        "text": "Test datataset with different keywords 2"
+        "text": "Token test"
       }
     ],
     "titles": [
       {
         "language": "eng",
-        "text": "Test datataset with different keywords 2"
+        "text": "Token test"
       }
     ],
     "authors": [
       {
-        "fullName": "Dominik MiddleName Dubovsky",
-        "givenName": "Dominik",
-        "familyName": "Dubovsky",
-        "email": "user@example.com",
+        "fullName": "GivenName MiddleName FamilyName",
+        "givenName": "Name1",
+        "familyName": "Name2",
+        "email": "randomEmail@gmail.com",
         "ids": [
           {
             "id": "12345",
@@ -58,10 +66,10 @@ Content-Type: application/json
     ],
     "contributors": [
       {
-        "fullName": "Dominik MiddleName Dubovsky",
-        "givenName": "Dominik",
-        "familyName": "Dubovsky",
-        "email": "user@example.com",
+        "fullName": "GivenName MiddleName FamilyName",
+        "givenName": "Name1",
+        "familyName": "Name2",
+        "email": "randomEmail@gmail.com",
         "type": "MetadataProvider",
         "ids": [
           {
@@ -78,45 +86,81 @@ Content-Type: application/json
       {
         "type": "Abstract",
         "language": "eng",
-        "description": "This is a official abstract of the second dataset ingested into the Invenio Elter DAR component."
+        "description": "This is abstract"
       },
       {
         "type": "AdditionalInfo",
         "language": "eng",
-        "description": "This dataset is private, and is only for testing."
+        "description": "Some additional info"
       }
     ],
     "keywords": [
-      "Fruits", "Food"
+      {
+        "name": "Keyword1",
+        "url": "www.google.com"
+      },
+      {
+        "name": "Keyword2",
+        "url": "www.google.com"
+      }
     ],
     "propertyRights": [
       {
         "name": "name of the license",
-        "url": "url of the license info"
+        "url": "www.google.com"
       }
     ],
     "licenses": [
       {
         "name": "name of the license",
-        "url": "url of the license"
+        "url": "www.google.com"
       }
     ],
     "geoLocations": [
       {
-        "description": "This is testing point location",
-        "point": {
+        "EX_GeographicDescription": "This is point",
+        "Point": {
           "longitude": 10.50,
           "latitude": 10.50
         }
       },
       {
-        "description": "This is testing box location",
-        "box": {
-          "westLongitude": 9.50,
-          "eastLongitude": 10.50,
-          "southLatitude": 9.50,
-          "northLatitude": 10.50
+        "EX_GeographicDescription": "This is box",
+        "EX_GeographicBoundingBox": {
+          "westBoundLongitude": 9.50,
+          "eastBoundLongitude": 10.50,
+          "southBoundLatitude": 9.50,
+          "northBoundLatitude": 10.50
         }
+      },
+      {
+        "EX_GeographicDescription": "This is polygon",
+        "EX_BoundingPolygon": [
+          {
+            "points": [
+              {
+                "longitude": 10.50,
+                "latitude": 10.50
+              },
+              {
+                "longitude": 15.50,
+                "latitude": 15.50
+              },
+              {
+                "longitude": 12.50,
+                "latitude": 11.50
+              },
+              {
+                "longitude": 17.50,
+                "latitude": 17.50
+              }
+            ],
+            "inPolygonPoint": {
+              "longitude": 13.50,
+              "latitude": 13.50
+            }
+          }
+        ]
       }
     ],
     "temporalCoverages": [
@@ -145,11 +189,11 @@ Content-Type: application/json
         }
       ],
       "sampling": {
-        "studyDescription": "Lorem ipsum.",
-        "samplingDescription": "Lorem ipsum"
+        "studyDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet ligula tellus, sit amet iaculis urna viverra vitae. Etiam tincidunt elit nisl, sagittis facilisis nisi tincidunt eu. Suspendisse potenti. Pellentesque tellus ligula, tincidunt quis gravida nec, vulputate et nisi. Donec pulvinar a lectus et tempus. Class aptent taciti sociosqu ad. ",
+        "samplingDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis lacus suscipit, sollicitudin dui eget, pretium augue. Duis eget suscipit mauris. Morbi aliquet lacus a fermentum posuere. Cras neque elit, efficitur quis leo quis, elementum fermentum sem. Quisque est eros, malesuada et neque eu, suscipit mattis sem. Etiam consequat lorem."
       },
-      "qualityControlDescription": "Lorem ipsum.",
-      "instrumentationDescription": "Lorem ipsum."
+      "qualityControlDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer feugiat viverra metus eget viverra. Nullam pharetra arcu pulvinar, accumsan sem. ",
+      "instrumentationDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere urna ligula. Praesent mattis, urna eget iaculis maximus, sem tellus. "
     },
     "project": {
       "name": "elter",
@@ -157,13 +201,13 @@ Content-Type: application/json
     },
     "siteReference": [
       {
-        "name": "site name",
-        "PID": "deims site id"
+        "name": "Arctic-alpine tundra - Czechia",
+        "PID": "48660128-e478-42a4-91f8-b83a8735ba50"
       }
     ],
     "SOReference": {
-      "name": "",
-      "url": "url"
+      "name": "Standard observation2",
+      "url": "https://googlee.com"
     },
     "dataLevel": 2,
     "temporalResolution": 150,
@@ -176,10 +220,55 @@ Content-Type: application/json
         "md5": "checksum-hash",
         "format": "csv",
         "size": 234,
-        "name": "File 1 - Testing file snapshot",
+        "name": "test adw wa daw",
         "sourceUrl": "www.google.com"
+      },
+      {
+        "md5": "checksum-hash2",
+        "format": "txt",
+        "size": 2344,
+        "name": "tesawdwat2",
+        "sourceUrl": "url2"
+      },
+      {
+        "md5": "checksum-hash2",
+        "format": "txt",
+        "size": 2344,
+        "name": "oawijdojwao jdoawj ojwaio aw",
+        "sourceUrl": "url2"
+      },
+      {
+        "md5": "checksum-hash2",
+        "format": "txt",
+        "size": 2344,
+        "name": "oawijdojwao jdoawj ojwaio aadwdwa awd wad",
+        "sourceUrl": "url2"
       }
-    ]
+    ],
+    "additionalMetadata": [
+      {
+        "name": "Metadata name",
+        "value": "Random value"
+      }
+    ],
+    "geoServerInfo": {
+      "serviceType": "WMS",
+      "mapData": [
+        {
+          "path": "https://elter.datalabs.ceh.ac.uk/geoserver/ows?version=1.3.0",
+          "epsgCode": 32635,
+          "type": "POLYGON",
+          "features": {
+            "name": "eshape:braila_hydroperiod_2020_2021",
+            "label": "Braila - Hydroperiod (2020 - 2021)",
+            "style": {
+              "colour": "#000000"
+            }
+          },
+          "bytetype": false
+        }
+      ]
+    }
   }
 }
 

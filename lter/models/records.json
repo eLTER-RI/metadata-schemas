@@ -1,6 +1,36 @@
 {
     "model": {
         "type": "model",
+        "mapping": {
+            "template": {
+                "settings": {
+                    "analysis": {
+                        "analyzer": {
+                            "substring": {
+                                "tokenizer": "substringTokenizer"
+                            }
+                        },
+                        "tokenizer": {
+                            "substringTokenizer": {
+                                "type": "ngram",
+                                "min_gram": 3,
+                                "max_gram": 3,
+                                "token_chars": [
+                                    "letter",
+                                    "digit"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "generate": true,
+            "alias": "lter",
+            "module": "lter.records.mappings",
+            "index": "lter-lter-1.0.0",
+            "file": "lter/records/mappings/os-v2/lter/lter-1.0.0.json",
+            "index-field-args": []
+        },
         "searchable": true,
         "custom-fields": [],
         "permissions": {
@@ -382,14 +412,6 @@
             "name": "parent-v1.0.0.json",
             "file": "lter/records/jsonschemas/parent-v1.0.0.json",
             "generate": true
-        },
-        "mapping": {
-            "generate": true,
-            "alias": "lter",
-            "module": "lter.records.mappings",
-            "index": "lter-lter-1.0.0",
-            "file": "lter/records/mappings/os-v2/lter/lter-1.0.0.json",
-            "index-field-args": []
         },
         "published-service-config": {
             "config-key": "LTER_RECORD_PUBLISHED_SERVICE_CONFIG",
@@ -1250,6 +1272,9 @@
                                 "name": {
                                     "type": "keyword",
                                     "required": true,
+                                    "mapping": {
+                                        "copy_to": "substring_search_field"
+                                    },
                                     "label.en": "Keyword"
                                 },
                                 "url": {
@@ -1669,6 +1694,17 @@
                             "facet": false
                         }
                     }
+                }
+            },
+            "substring_search_field": {
+                "type": "fulltext",
+                "mapping": {
+                    "type": "text",
+                    "analyzer": "substring"
+                },
+                "marshmallow": {
+                    "read": false,
+                    "write": false
                 }
             },
             "updated": {
