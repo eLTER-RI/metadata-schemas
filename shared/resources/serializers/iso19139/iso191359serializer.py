@@ -147,7 +147,8 @@ def add_identification_info(root, metadata, nsmap):
     ci_citation = etree.SubElement(citation, "{http://www.isotc211.org/2005/gmd}CI_Citation")
     title = etree.SubElement(ci_citation, "{http://www.isotc211.org/2005/gmd}title")
     title.append(
-        create_element("{http://www.isotc211.org/2005/gco}CharacterString", metadata['titles'][0]['text'], nsmap))
+        create_element("{http://www.isotc211.org/2005/gco}CharacterString",
+                       metadata.get('titles', [{"text": 'No title'}])[0]['text'], nsmap))
 
     date = etree.SubElement(ci_citation, "{http://www.isotc211.org/2005/gmd}date")
     ci_date = etree.SubElement(date, "{http://www.isotc211.org/2005/gmd}CI_Date")
@@ -168,14 +169,16 @@ def add_identification_info(root, metadata, nsmap):
     md_keywords = etree.SubElement(descriptive_keywords, "{http://www.isotc211.org/2005/gmd}MD_Keywords")
     for keyword in metadata['keywords']:
         keyword_element = etree.SubElement(md_keywords, "{http://www.isotc211.org/2005/gmd}keyword")
-        keyword_element.append(create_element("{http://www.isotc211.org/2005/gco}CharacterString", keyword['name'], nsmap))
+        keyword_element.append(
+            create_element("{http://www.isotc211.org/2005/gco}CharacterString", keyword['name'], nsmap))
 
     add_language_code(data_identification, language_table.get(metadata.get('language')),
                       metadata.get('language'))
 
     extent = etree.SubElement(data_identification, "{http://www.isotc211.org/2005/gmd}extent")
     ex_extent = etree.SubElement(extent, "{http://www.isotc211.org/2005/gmd}EX_Extent")
-    for geolocation in metadata['geoLocations']:
+    locations = metadata.get('geoLocations')
+    for geolocation in locations:
         for locationKey, locationValue in geolocation.items():
             geographic_element = etree.SubElement(ex_extent, "{http://www.isotc211.org/2005/gmd}geographicElement")
             if locationKey == 'description':
@@ -193,23 +196,74 @@ def add_identification_info(root, metadata, nsmap):
                 west_bound_longitude = etree.SubElement(bounding_box,
                                                         "{http://www.isotc211.org/2005/gmd}westBoundLongitude")
                 west_bound_longitude.append(
-                    create_element("{http://www.isotc211.org/2005/gco}Decimal", str(locationValue['westBoundLongitude']),
+                    create_element("{http://www.isotc211.org/2005/gco}Decimal",
+                                   str(locationValue['westBoundLongitude']),
                                    nsmap))
                 east_bound_longitude = etree.SubElement(bounding_box,
                                                         "{http://www.isotc211.org/2005/gmd}eastBoundLongitude")
                 east_bound_longitude.append(
-                    create_element("{http://www.isotc211.org/2005/gco}Decimal", str(locationValue['eastBoundLongitude']),
+                    create_element("{http://www.isotc211.org/2005/gco}Decimal",
+                                   str(locationValue['eastBoundLongitude']),
                                    nsmap))
                 south_bound_latitude = etree.SubElement(bounding_box,
                                                         "{http://www.isotc211.org/2005/gmd}southBoundLatitude")
                 south_bound_latitude.append(
-                    create_element("{http://www.isotc211.org/2005/gco}Decimal", str(locationValue['southBoundLatitude']),
+                    create_element("{http://www.isotc211.org/2005/gco}Decimal",
+                                   str(locationValue['southBoundLatitude']),
                                    nsmap))
                 north_bound_latitude = etree.SubElement(bounding_box,
                                                         "{http://www.isotc211.org/2005/gmd}northBoundLatitude")
                 north_bound_latitude.append(
-                    create_element("{http://www.isotc211.org/2005/gco}Decimal", str(locationValue['northBoundLatitude']),
+                    create_element("{http://www.isotc211.org/2005/gco}Decimal",
+                                   str(locationValue['northBoundLatitude']),
                                    nsmap))
+
+
+def add_geo_server_info(root, geo_server_info, nsmap):
+    geo_service_type = geo_server_info.get('serviceType')
+    if geo_server_info is None or geo_service_type is None:
+        return
+
+    distribution_info = etree.SubElement(root, "{http://www.isotc211.org/2005/gmd}distributionInfo")
+    md_distribution = etree.SubElement(distribution_info, "{http://www.isotc211.org/2005/gmd}MD_Distribution")
+
+    for map_data in geo_server_info.get('mapData', []):
+        transfer_options = etree.SubElement(md_distribution, "{http://www.isotc211.org/2005/gmd}transferOptions")
+        md_digital_transfer_options = etree.SubElement(transfer_options,
+                                                       "{http://www.isotc211.org/2005/gmd}MD_DigitalTransferOptions")
+
+        online = etree.SubElement(md_digital_transfer_options, "{http://www.isotc211.org/2005/gmd}onLine")
+        ci_online_resource = etree.SubElement(online, "{http://www.isotc211.org/2005/gmd}CI_OnlineResource")
+
+        linkage = etree.SubElement(ci_online_resource, "{http://www.isotc211.org/2005/gmd}linkage")
+        linkage.append(
+            create_element("{http://www.isotc211.org/2005/gco}CharacterString", map_data.get('path', 'Not defined'),
+                           nsmap))
+
+        protocol = etree.SubElement(ci_online_resource, "{http://www.isotc211.org/2005/gmd}protocol")
+        protocol.append(create_element("{http://www.isotc211.org/2005/gco}CharacterString", geo_service_type, nsmap))
+
+        reference_system_info = etree.SubElement(root, "{http://www.isotc211.org/2005/gmd}referenceSystemInfo")
+        md_reference_system = etree.SubElement(reference_system_info,
+                                               "{http://www.isotc211.org/2005/gmd}MD_ReferenceSystem")
+        reference_system_identifier = etree.SubElement(md_reference_system,
+                                                       "{http://www.isotc211.org/2005/gmd}referenceSystemIdentifier")
+        rs_identifier = etree.SubElement(reference_system_identifier, "{http://www.isotc211.org/2005/gmd}RS_Identifier")
+
+        code = etree.SubElement(rs_identifier, "{http://www.isotc211.org/2005/gmd}code")
+        code.append(
+            create_element("{http://www.isotc211.org/2005/gco}CharacterString", "EPSG:" + str(map_data['epsgCode']), nsmap))
+
+        code_space = etree.SubElement(rs_identifier, "{http://www.isotc211.org/2005/gmd}codeSpace")
+        code_space.append(create_element("{http://www.isotc211.org/2005/gco}CharacterString", "EPSG", nsmap))
+
+        md_spatial_representation_type = etree.SubElement(root,
+                                                          "{http://www.isotc211.org/2005/gmd}spatialRepresentationType")
+        md_spatial_representation_type_code = etree.SubElement(md_spatial_representation_type,
+                                                               "{http://www.isotc211.org/2005/gmd}MD_SpatialRepresentationTypeCode",
+                                                               codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_SpatialRepresentationTypeCode",
+                                                               codeListValue=map_data['type'].lower())
+        md_spatial_representation_type_code.text = map_data['type'].lower()
 
 
 def generate_xml(json_data):
@@ -223,13 +277,15 @@ def generate_xml(json_data):
     root = create_root_element(nsmap)
 
     print(metadata)
-    add_file_identifier(root, json_data['id'], nsmap)
+    add_file_identifier(root, json_data.get('id'), nsmap)
 
     add_character_set(root)
     add_hierarchy_level(root)
-    add_authors(root, metadata['authors'], nsmap)
+    add_authors(root, metadata.get('authors', []), nsmap)
     add_date_stamp(root, get_current_datetime())
     add_identification_info(root, metadata, nsmap)
+
+    add_geo_server_info(root, metadata.get('geoServerInfo'), nsmap)
 
     tree = etree.ElementTree(root)
     xml_str = etree.tostring(tree, pretty_print=True, encoding=str)
