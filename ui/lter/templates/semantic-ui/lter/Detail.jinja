@@ -82,24 +82,10 @@
                                 <GeoMap d={d.metadata.geoLocations}/>
                             </AccordionField>
                         {% endif %}
-                        {% if d.metadata.geoServerInfo %}
-                            {% for mapInfo in array(d.metadata.geoServerInfo.mapData) %}
-                                <AccordionField label="GeoServer Information">
-                                    <div class="ui grid two column row">
-                                        <div class="column"><h5>Path</h5></div>
-                                        <div class="column"><p>{{ mapInfo.path }}</p></div>
-                                    </div>
-                                    <div class="ui grid two column row">
-                                        <div class="column"><h5>EPSG Code</h5></div>
-                                        <div class="column"><p>{{ mapInfo.epsgCode }}</p></div>
-                                    </div>
-                                    <div class="ui grid two column row">
-                                        <div class="column"><h5>Service type</h5></div>
-                                        <div class="column">{{ d.metadata.geoServerInfo.serviceType }}</div>
-                                    </div>
-                                </AccordionField>
-                            {% endfor %}
-                        {% endif %}
+                        <AccordionField label={_('Tools')} active>
+                            <a class="ui secondary full-width button"
+                               href="{{ d.id }}/export/iso19139">Download ISO19139</a>
+                        </AccordionField>
                     </div>
                 </div>
             </div>

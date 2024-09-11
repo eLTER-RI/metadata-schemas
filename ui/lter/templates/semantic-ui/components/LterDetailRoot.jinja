@@ -89,5 +89,27 @@
             </AccordionField>
         {% endfor %}
     {% endif %}
+    {% if md.geoServerInfo %}
+        {% for mapInfo in array(md.geoServerInfo.mapData) %}
+            <AccordionField label="GeoServer Information">
+                <div class="ui grid two column row">
+                    <div class="column"><h5>Path</h5></div>
+                    <div class="column"><p>{{ mapInfo.path }}</p></div>
+                </div>
+                <div class="ui grid two column row">
+                    <div class="column"><h5>Layer name</h5></div>
+                    <div class="column"><p>{{ mapInfo.features.name }}</p></div>
+                </div>
+                <div class="ui grid two column row">
+                    <div class="column"><h5>EPSG Code</h5></div>
+                    <div class="column"><p>{{ mapInfo.epsgCode }}</p></div>
+                </div>
+                <div class="ui grid two column row">
+                    <div class="column"><h5>Service type</h5></div>
+                    <div class="column">{{ md.geoServerInfo.serviceType }}</div>
+                </div>
+            </AccordionField>
+        {% endfor %}
+    {% endif %}
     <Files files={md.files}></Files>
 </table>

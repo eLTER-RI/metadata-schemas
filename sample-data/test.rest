@@ -1,9 +1,8 @@
 GET https://127.0.0.1:5000/api/lter
 
 ###
-GET https://catalog.elter-ri.eu/api/lter/
+GET https://127.0.0.1:5000/api/lter
 Accept: text/xml
-
 
 ###
 GET https://127.0.0.1:5000/api/lter/dsq2m-rjn54

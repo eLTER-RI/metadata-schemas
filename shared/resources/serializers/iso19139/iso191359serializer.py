@@ -221,13 +221,14 @@ def add_identification_info(root, metadata, nsmap):
 
 def add_geo_server_info(root, geo_server_info, nsmap):
     geo_service_type = geo_server_info.get('serviceType')
-    if geo_server_info is None or geo_service_type is None:
+    geo_map_data = geo_server_info.get('mapData', [])
+    if geo_server_info is None or geo_service_type is None or geo_map_data is None or geo_map_data == []:
         return
 
     distribution_info = etree.SubElement(root, "{http://www.isotc211.org/2005/gmd}distributionInfo")
     md_distribution = etree.SubElement(distribution_info, "{http://www.isotc211.org/2005/gmd}MD_Distribution")
 
-    for map_data in geo_server_info.get('mapData', []):
+    for map_data in geo_map_data:
         transfer_options = etree.SubElement(md_distribution, "{http://www.isotc211.org/2005/gmd}transferOptions")
         md_digital_transfer_options = etree.SubElement(transfer_options,
                                                        "{http://www.isotc211.org/2005/gmd}MD_DigitalTransferOptions")
@@ -251,19 +252,21 @@ def add_geo_server_info(root, geo_server_info, nsmap):
         rs_identifier = etree.SubElement(reference_system_identifier, "{http://www.isotc211.org/2005/gmd}RS_Identifier")
 
         code = etree.SubElement(rs_identifier, "{http://www.isotc211.org/2005/gmd}code")
+        epsg_code = str(map_data.get('epsgCode', 'epsg code not specified'))
         code.append(
-            create_element("{http://www.isotc211.org/2005/gco}CharacterString", "EPSG:" + str(map_data['epsgCode']), nsmap))
+            create_element("{http://www.isotc211.org/2005/gco}CharacterString", "EPSG:" + epsg_code, nsmap))
 
         code_space = etree.SubElement(rs_identifier, "{http://www.isotc211.org/2005/gmd}codeSpace")
         code_space.append(create_element("{http://www.isotc211.org/2005/gco}CharacterString", "EPSG", nsmap))
 
         md_spatial_representation_type = etree.SubElement(root,
                                                           "{http://www.isotc211.org/2005/gmd}spatialRepresentationType")
+        map_data_type = map_data.get('type', 'Type not specified').lower()
         md_spatial_representation_type_code = etree.SubElement(md_spatial_representation_type,
                                                                "{http://www.isotc211.org/2005/gmd}MD_SpatialRepresentationTypeCode",
                                                                codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_SpatialRepresentationTypeCode",
-                                                               codeListValue=map_data['type'].lower())
-        md_spatial_representation_type_code.text = map_data['type'].lower()
+                                                               codeListValue=map_data_type)
+        md_spatial_representation_type_code.text = map_data_type
 
 
 def generate_xml(json_data):
