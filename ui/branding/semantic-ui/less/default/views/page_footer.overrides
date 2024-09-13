@@ -1,18 +1,20 @@
 .ui.page-footer {
-
   margin: 2rem;
   #nr-footer-container {
     border-top: 1px solid @lightGrey;
   }
 
+  p {
+    color: white;
+  }
   a {
-    color: black;
-    text-decoration: underline;
+    color: white;
+    text-decoration: none;
   }
   .footer-top {
-    color: black;
+    color: white;
   }
   .footer-bottom {
-    color: black;
+    color: white;
   }
 }

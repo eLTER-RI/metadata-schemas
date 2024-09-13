@@ -4,7 +4,7 @@ import Overridable from "react-overridable";
 
 import _get from "lodash/get";
 
-import {Grid, Item} from "semantic-ui-react";
+import {Grid, Item, Label} from "semantic-ui-react";
 import {withState, buildUID} from "react-searchkit";
 import {SearchConfigurationContext} from "@js/invenio_search_ui/components";
 
@@ -40,8 +40,11 @@ export const ResultsListItemComponent = ({
                                          }) => {
     const searchAppConfig = useContext(SearchConfigurationContext);
 
+    console.log(searchAppConfig)
+
     const titles = _get(result, "metadata.titles", [{"text": "No Title"}]);
     const descriptions = _get(result, "metadata.descriptions", [{"description": "No Description"}])
+    const keywords = _get(result, "metadata.keywords", [])
 
     return (
         <Overridable
@@ -60,6 +63,21 @@ export const ResultsListItemComponent = ({
                                     viewLink={result.links.self_html}
                                 />
                                 <ItemSubheader description={descriptions[0].description}/>
+                                {keywords.length > 0 ? (
+                                    keywords.map((keyword, index) => (
+                                        <Label
+                                            key={index}
+                                            as="a"
+                                            href={`?q=&f=metadata_keywords_name:${keyword.name}`}
+                                            className="ui secondary"
+                                            style={{margin: '5px'}}
+                                        >
+                                            {keyword.name}
+                                        </Label>
+                                    ))
+                                ) : (
+                                    <span>No keywords available</span>
+                                )}
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>
