@@ -241,6 +241,10 @@ def add_geo_server_info(root, geo_server_info, nsmap):
             create_element("{http://www.isotc211.org/2005/gco}CharacterString", map_data.get('path', 'Not defined'),
                            nsmap))
 
+        name = etree.SubElement(ci_online_resource, "{http://www.isotc211.org/2005/gmd}name")
+        name.append(
+            create_element("{http://www.isotc211.org/2005/gco}CharacterString", map_data['features']['name'], nsmap))
+
         protocol = etree.SubElement(ci_online_resource, "{http://www.isotc211.org/2005/gmd}protocol")
         protocol.append(create_element("{http://www.isotc211.org/2005/gco}CharacterString", geo_service_type, nsmap))
 
