@@ -14,13 +14,13 @@ theme = WebpackThemeBundle(
             },
             dependencies={
                 "leaflet": "^1.9.4",
-                "react-leaflet": "^2.1.4"
+                "react-leaflet": "^2.1.4",
+                "@oarepo/file-manager": "^1.1.0",
+                "react-searchkit": "^2.0.0",
             },
-            devDependencies={
-                "leaflet": "^1.9.4",
-                "react-leaflet": "^2.1.4"
-            },
+            devDependencies={},
             aliases={
+                "@js/lter": "./js/lter",
                 # "@lter_detail": "js/lter/detail",
                 "@lter_search": "js/lter/search",
                 "@lter_geomap": "js/lter/geomap",

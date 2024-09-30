@@ -1,7 +1,13 @@
 {#def record, form_config, data, extra_context, ui_links #}
+
 {% extends "oarepo_ui/form.html" %}
 
+
 {%- block javascript %}
-    {{ super() }}
-    {{ webpack['lter_deposit_form.js'] }}
+    <link rel="stylesheet" href="https://dataspace.elter-ri.eu/static-data-dev/page.css"/>
+    <script src="https://dataspace.elter-ri.eu/static-data-dev/page.js"></script>
 {%- endblock %}
+
+{%- block page_body %}
+    <div id="ingestRoot"></div>
+{% endblock %}

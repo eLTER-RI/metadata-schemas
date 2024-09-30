@@ -1,14 +1,22 @@
 from invenio_drafts_resources.services import (
     RecordServiceConfig as InvenioRecordDraftsServiceConfig,
 )
+from invenio_drafts_resources.services.records.components import DraftFilesComponent
 from invenio_records_resources.services import (
     ConditionalLink,
     RecordLink,
     pagination_links,
 )
+from oarepo_communities.services.components.default_workflow import (
+    CommunityDefaultWorkflowComponent,
+)
+from oarepo_communities.services.components.include import CommunityInclusionComponent
+from oarepo_communities.services.links import CommunitiesLinks
 from oarepo_runtime.records import has_draft, is_published_record
 from oarepo_runtime.services.components import CustomFieldsComponent, OwnersComponent
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
+from oarepo_runtime.services.files import FilesComponent
+from oarepo_workflows.services.components.workflow import WorkflowComponent
 
 from lter.records.api import LterDraft, LterRecord
 from lter.services.records.permissions import LterPermissionPolicy
@@ -26,7 +34,7 @@ class LterServiceConfig(
 
     result_list_cls = LterRecordList
 
-    PERMISSIONS_PRESETS = ["everyone"]
+    PERMISSIONS_PRESETS = ["community-workflow"]
 
     url_prefix = "/lter/"
 
@@ -43,8 +51,13 @@ class LterServiceConfig(
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
+        CommunityDefaultWorkflowComponent,
+        CommunityInclusionComponent,
         OwnersComponent,
+        FilesComponent,
         CustomFieldsComponent,
+        DraftFilesComponent,
+        WorkflowComponent,
     ]
 
     model = "lter"
@@ -59,8 +72,19 @@ class LterServiceConfig(
                 if_=RecordLink("{+api}/lter/{id}/requests/applicable"),
                 else_=RecordLink("{+api}/lter/{id}/draft/requests/applicable"),
             ),
+            "communities": CommunitiesLinks(
+                {
+                    "self": "{+api}/communities/{id}",
+                    "self_html": "{+ui}/communities/{slug}/records",
+                }
+            ),
             "draft": RecordLink("{+api}/lter/{id}/draft"),
             "edit_html": RecordLink("{+ui}/lter/{id}/edit", when=has_draft),
+            "files": ConditionalLink(
+                cond=is_published_record,
+                if_=RecordLink("{+api}/lter/{id}/files"),
+                else_=RecordLink("{+api}/lter/{id}/draft/files"),
+            ),
             "latest": RecordLink("{+api}/lter/{id}/versions/latest"),
             "latest_html": RecordLink("{+ui}/lter/{id}/latest"),
             "publish": RecordLink("{+api}/lter/{id}/draft/actions/publish"),

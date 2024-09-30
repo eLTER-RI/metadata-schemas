@@ -1,7 +1,9 @@
-from oarepo_ui.resources import BabelComponent
+from oarepo_ui.resources.components import BabelComponent, PermissionsComponent
+from oarepo_ui.resources.components import FilesComponent, AllowedHtmlTagsComponent
 from oarepo_ui.resources.config import RecordsUIResourceConfig
 from oarepo_ui.resources.resource import RecordsUIResource
 from oarepo_runtime.i18n import lazy_gettext as _
+from oarepo_ui.resources.components import AllowedCommunitiesComponent
 
 
 class LterResourceConfig(RecordsUIResourceConfig):
@@ -10,9 +12,15 @@ class LterResourceConfig(RecordsUIResourceConfig):
     blueprint_name = "lter"
     ui_serializer_class = "lter.resources.records.ui.LterUIJSONSerializer"
     api_service = "lter"
-    search_component = "lter/search/ResultsListItem.jsx"
+    search_component = "lter/search/ResultsListItem"
 
-    components = [BabelComponent]
+    components = [
+        # AllowedHtmlTagsComponent,
+        BabelComponent,
+        # PermissionsComponent,
+        # FilesComponent,
+        # AllowedCommunitiesComponent
+    ]
     try:
         from oarepo_vocabularies.ui.resources.components import (
             DepositVocabularyOptionsComponent,

@@ -14,10 +14,14 @@
         </div>
         <div class="right menu">
             <a class="ui item" href="/lter">Datasets</a>
-<!--            <a class="ui item">Communities</a>-->
-<!--            <a class="ui item">Help</a>-->
-<!--            <a class="ui item">Login</a>-->
+            {%- if current_user.is_authenticated %}
+                <a href="/me/records" class="ui item">Dashboard</a>
+            {%- endif %}
+            <!--            <a class="ui item">Communities</a>-->
+            <!--            <a class="ui item">Help</a>-->
+            <!--            <a class="ui item">Login</a>-->
         </div>
+        {%- include "header_login.html" %}
     </nav>
 </div>
 {%- endblock navbar %}

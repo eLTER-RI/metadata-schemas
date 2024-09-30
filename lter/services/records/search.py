@@ -92,6 +92,8 @@ class LterSearchOptions(I18nSearchOptions):
         "metadata_temporalCoverages_startDate": facets.metadata_temporalCoverages_startDate,
         "metadata_temporalResolution": facets.metadata_temporalResolution,
         "metadata_titles_language": facets.metadata_titles_language,
+        "metadata_version": facets.metadata_version,
+        "state": facets.state,
         **getattr(I18nSearchOptions, "facets", {}),
         "record_status": facets.record_status,
         "has_draft": facets.has_draft,

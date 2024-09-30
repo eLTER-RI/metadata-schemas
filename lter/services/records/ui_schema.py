@@ -13,6 +13,8 @@ class LterUISchema(UIRequestsSerializationMixin, InvenioUISchema):
 
     metadata = ma_fields.Nested(lambda: LterMetadataUISchema())
 
+    state = ma_fields.String(dump_only=True)
+
     substring_search_field = ma_fields.String()
 
 
@@ -73,6 +75,8 @@ class LterMetadataUISchema(Schema):
     temporalResolution = ma_fields.Integer()
 
     titles = ma_fields.List(ma_fields.Nested(lambda: ShortNamesItemUISchema()))
+
+    version = ma_fields.String()
 
 
 class GeoServerInfoUISchema(DictOnlySchema):

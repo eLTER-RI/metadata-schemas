@@ -1,18 +1,21 @@
 import marshmallow as ma
-from invenio_drafts_resources.services.records.schema import (
-    ParentSchema as InvenioParentSchema,
-)
 from marshmallow import Schema
 from marshmallow import fields as ma_fields
+from marshmallow.utils import get_value
 from marshmallow.validate import OneOf
+from marshmallow_utils.fields import SanitizedUnicode
+from oarepo_communities.schemas.parent import CommunitiesParentSchema
 from oarepo_runtime.services.schema.marshmallow import BaseRecordSchema, DictOnlySchema
 from oarepo_runtime.services.schema.validation import validate_date
+from oarepo_workflows.services.records.schema import WorkflowParentSchema
 
 
-class GeneratedParentSchema(InvenioParentSchema):
+class GeneratedParentSchema(WorkflowParentSchema):
     """"""
 
     owners = ma.fields.List(ma.fields.Dict(), load_only=True)
+
+    communities = ma_fields.Nested(CommunitiesParentSchema)
 
 
 class LterSchema(BaseRecordSchema):
@@ -20,7 +23,27 @@ class LterSchema(BaseRecordSchema):
         unknown = ma.RAISE
 
     metadata = ma_fields.Nested(lambda: LterMetadataSchema())
+
+    state = ma_fields.String(dump_only=True)
     parent = ma.fields.Nested(GeneratedParentSchema)
+    files = ma.fields.Nested(
+        lambda: FilesOptionsSchema(), load_default={"enabled": True}
+    )
+
+    # todo this needs to be generated for [default preview] to work
+    def get_attribute(self, obj, attr, default):
+        """Override how attributes are retrieved when dumping.
+
+        NOTE: We have to access by attribute because although we are loading
+              from an external pure dict, but we are dumping from a data-layer
+              object whose fields should be accessed by attributes and not
+              keys. Access by key runs into FilesManager key access protection
+              and raises.
+        """
+        if attr == "files":
+            return getattr(obj, attr, default)
+        else:
+            return get_value(obj, attr, default)
 
 
 class LterMetadataSchema(Schema):
@@ -80,6 +103,8 @@ class LterMetadataSchema(Schema):
     temporalResolution = ma_fields.Integer(validate=[ma.validate.Range(min=0)])
 
     titles = ma_fields.List(ma_fields.Nested(lambda: ShortNamesItemSchema()))
+
+    version = ma_fields.String()
 
 
 class GeoServerInfoSchema(DictOnlySchema):
@@ -412,3 +437,27 @@ class TemporalCoveragesItemSchema(DictOnlySchema):
     endDate = ma_fields.String(required=True, validate=[validate_date("%Y-%m-%d")])
 
     startDate = ma_fields.String(required=True, validate=[validate_date("%Y-%m-%d")])
+
+
+class FilesOptionsSchema(ma.Schema):
+    """Basic files options schema class."""
+
+    enabled = ma.fields.Bool(missing=True)
+    # allow unsetting
+    default_preview = SanitizedUnicode(allow_none=True)
+
+    def get_attribute(self, obj, attr, default):
+        """Override how attributes are retrieved when dumping.
+
+        NOTE: We have to access by attribute because although we are loading
+              from an external pure dict, but we are dumping from a data-layer
+              object whose fields should be accessed by attributes and not
+              keys. Access by key runs into FilesManager key access protection
+              and raises.
+        """
+        value = getattr(obj, attr, default)
+
+        if attr == "default_preview" and not value:
+            return default
+
+        return value

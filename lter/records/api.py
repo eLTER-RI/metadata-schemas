@@ -1,15 +1,23 @@
+from invenio_communities.records.records.systemfields import CommunitiesField
 from invenio_drafts_resources.records.api import Draft as InvenioDraft
 from invenio_drafts_resources.records.api import DraftRecordIdProviderV2, ParentRecord
 from invenio_drafts_resources.records.api import Record as InvenioRecord
-from invenio_records.systemfields import ConstantField
-from invenio_records_resources.records.systemfields import IndexField
+from invenio_records.systemfields import ConstantField, ModelField
+from invenio_records_resources.records.systemfields import FilesField, IndexField
 from invenio_records_resources.records.systemfields.pid import PIDField, PIDFieldContext
+from oarepo_communities.records.systemfields.communities import (
+    OARepoCommunitiesFieldContext,
+)
 from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
 from oarepo_runtime.records.systemfields.owner import OwnersField
 from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
+from oarepo_workflows.records.systemfields.state import RecordStateField
+from oarepo_workflows.records.systemfields.workflow import WorkflowField
 
+from lter.files.api import LterFile, LterFileDraft
 from lter.records.dumpers.dumper import LterDraftDumper, LterDumper
 from lter.records.models import (
+    LterCommunitiesMetadata,
     LterDraftMetadata,
     LterMetadata,
     LterParentMetadata,
@@ -19,6 +27,12 @@ from lter.records.models import (
 
 class LterParentRecord(ParentRecord):
     model_cls = LterParentMetadata
+
+    workflow = WorkflowField()
+
+    communities = CommunitiesField(
+        LterCommunitiesMetadata, context_cls=OARepoCommunitiesFieldContext
+    )
 
     owners = OwnersField()
 
@@ -41,6 +55,8 @@ class LterRecord(InvenioRecord):
 
     dumper = LterDumper()
 
+    state = RecordStateField(initial="published")
+
     versions_model_cls = LterParentState
 
     parent_record_cls = LterParentRecord
@@ -48,6 +64,11 @@ class LterRecord(InvenioRecord):
     has_draft = HasDraftCheckField(
         draft_cls=lambda: LterDraft, config_key="HAS_DRAFT_CUSTOM_FIELD"
     )
+
+    files = FilesField(file_cls=LterFile, store=False, create=False, delete=False)
+
+    bucket_id = ModelField(dump=False)
+    bucket = ModelField(dump=False)
 
 
 class LterDraft(InvenioDraft):
@@ -64,9 +85,21 @@ class LterDraft(InvenioDraft):
 
     dumper = LterDraftDumper()
 
+    state = RecordStateField()
+
     versions_model_cls = LterParentState
 
     parent_record_cls = LterParentRecord
     record_status = RecordStatusSystemField()
 
     has_draft = HasDraftCheckField(config_key="HAS_DRAFT_CUSTOM_FIELD")
+
+    files = FilesField(file_cls=LterFileDraft, store=False)
+
+    bucket_id = ModelField(dump=False)
+    bucket = ModelField(dump=False)
+
+
+LterFile.record_cls = LterRecord
+
+LterFileDraft.record_cls = LterDraft

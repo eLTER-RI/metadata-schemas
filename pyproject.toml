@@ -7,12 +7,15 @@ authors = []
 dependencies = [
     "json5",
     "nr-vocabularies>=2.0.0",
+    "oarepo-communities>=1.0.0",
+    "oarepo-dashboard>=1.0.0",
     "oarepo-global-search>=1.0.23",
     "oarepo-published-service>=1.0.0",
     "oarepo-requests>=1.0.2",
     "oarepo-runtime>=1.5.34",
     "oarepo-ui>=5.1.32",
     "oarepo-vocabularies>=2.0.88",
+    "oarepo-workflows>=1.0.0",
     "oarepo==12.1.*",
     "python-dotenv",
 ]
@@ -29,8 +32,11 @@ branding = "ui.branding:create_blueprint"
 titlepage = "ui.titlepage:create_blueprint"
 components = "ui.components:create_blueprint"
 lter = "lter.views.records.app:create_app_blueprint"
-lter_requests = "lter.views.requests.api:create_api_blueprint"
+lter_requests = "lter.views.requests.app:create_app_blueprint"
 ui_lter = "ui.lter:create_blueprint"
+lter_request_types = "lter.views.request_types.app:create_app_blueprint"
+lter_file = "lter.views.files.app:create_app_blueprint"
+lter_file_draft = "lter.views.draft_files.app:create_app_blueprint"
 
 [project.entry-points."invenio_i18n.translations"]
 translations = "i18n"
@@ -47,10 +53,15 @@ lter = "lter.ext:LterExt"
 
 [project.entry-points."invenio_db.models"]
 lter = "lter.records.models"
+lter_file = "lter.files.models"
+lter_file_draft = "lter.files.models"
 
 [project.entry-points."invenio_base.api_blueprints"]
 lter = "lter.views.records.api:create_api_blueprint"
 lter_requests = "lter.views.requests.api:create_api_blueprint"
+lter_request_types = "lter.views.request_types.api:create_api_blueprint"
+lter_file = "lter.views.files.api:create_api_blueprint"
+lter_file_draft = "lter.views.draft_files.api:create_api_blueprint"
 
 [project.entry-points."invenio_search.mappings"]
 lter = "lter.records.mappings"

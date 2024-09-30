@@ -337,6 +337,12 @@ metadata_titles_language = TermsFacet(
     field="metadata.titles.language", label=_("metadata/titles/language.label")
 )
 
+metadata_version = TermsFacet(
+    field="metadata.version", label=_("metadata/version.label")
+)
+
+state = TermsFacet(field="state", label=_("state.label"))
+
 
 record_status = TermsFacet(field="record_status", label=_("record_status"))
 

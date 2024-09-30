@@ -1,5 +1,9 @@
 from oarepo_published_service.services.config import PublishedServiceConfig
+from oarepo_published_service.services.records.components.bucket import (
+    CreatePublishedBucketComponent,
+)
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
+from oarepo_runtime.services.files import FilesComponent
 
 
 class LterPublishedServiceConfig(PublishedServiceConfig, PermissionsPresetsConfigMixin):
@@ -7,4 +11,4 @@ class LterPublishedServiceConfig(PublishedServiceConfig, PermissionsPresetsConfi
 
     @property
     def components(self):
-        return [*super().components]
+        return [*super().components, FilesComponent, CreatePublishedBucketComponent]
