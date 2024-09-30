@@ -1,13 +1,17 @@
+from invenio_communities.records.records.models import CommunityRelationMixin
 from invenio_db import db
 from invenio_drafts_resources.records import (
     DraftMetadataBase,
     ParentRecordMixin,
     ParentRecordStateMixin,
 )
+from invenio_files_rest.models import Bucket
 from invenio_records.models import RecordMetadataBase
+from oarepo_workflows.records.models import RecordWorkflowParentModelMixin
+from sqlalchemy_utils import UUIDType
 
 
-class LterParentMetadata(db.Model, RecordMetadataBase):
+class LterParentMetadata(RecordWorkflowParentModelMixin, db.Model, RecordMetadataBase):
 
     __tablename__ = "lter_parent_record_metadata"
 
@@ -21,6 +25,8 @@ class LterMetadata(db.Model, RecordMetadataBase, ParentRecordMixin):
     __versioned__ = {}
 
     __parent_record_model__ = LterParentMetadata
+    bucket_id = db.Column(UUIDType, db.ForeignKey(Bucket.id))
+    bucket = db.relationship(Bucket)
 
 
 class LterDraftMetadata(db.Model, DraftMetadataBase, ParentRecordMixin):
@@ -29,6 +35,13 @@ class LterDraftMetadata(db.Model, DraftMetadataBase, ParentRecordMixin):
     __tablename__ = "lter_draft_metadata"
 
     __parent_record_model__ = LterParentMetadata
+    bucket_id = db.Column(UUIDType, db.ForeignKey(Bucket.id))
+    bucket = db.relationship(Bucket)
+
+
+class LterCommunitiesMetadata(db.Model, CommunityRelationMixin):
+    __tablename__ = "lter_communities_metadata"
+    __record_model__ = LterParentMetadata
 
 
 class LterParentState(db.Model, ParentRecordStateMixin):

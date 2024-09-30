@@ -2,6 +2,21 @@
          Invenio Menu Overrides
 ***********************************************/
 
+.ui.menu.secondary.pointing .item.active {
+  border-color: #0A5A98;
+  color: @carrotOrange;
+}
+
+#invenio-nav.ui.menu #user-profile-dropdown #user-profile-dropdown-btn {
+  width: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: transparent;
+  color: white;
+  font-size: medium;
+}
+
 .ui.menu {
   &.pagination {
     a.item[type="prevItem"],

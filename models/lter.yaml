@@ -10,18 +10,26 @@ plugins:
   - oarepo-model-builder-cf
   - oarepo-model-builder-ui
   - oarepo-model-builder-requests
+  - oarepo-model-builder-files
+  - oarepo-model-builder-communities
+  - oarepo-model-builder-drafts-files
+
 profiles:
 - record
 - draft
+- files
+- draft_files
+
 record:
   draft: {}
+  files: {}
+  draft-files: {}
+
   module:
     qualified: lter
   permissions:
     presets:
-#      TODO change this
-      - everyone
-#      - read_only
+      - community-workflow
   pid:
     type: lter
   properties:
@@ -42,7 +50,8 @@ record:
 #    fields:
 #      sort_options: "{{oarepo_runtime.services.search.ICUSortOptions}}('lter')"
 runtime-dependencies:
-  nr-vocabularies: 2.0.0
+  oarepo-published-service: 1.0.2
+
 settings:
   i18n-languages:
   - en

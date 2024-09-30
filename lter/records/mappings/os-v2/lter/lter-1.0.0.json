@@ -507,6 +507,10 @@
                                 }
                             }
                         }
+                    },
+                    "version": {
+                        "type": "keyword",
+                        "ignore_above": 1024
                     }
                 }
             },
@@ -529,6 +533,10 @@
                         "ignore_above": 1024
                     }
                 }
+            },
+            "state": {
+                "type": "keyword",
+                "ignore_above": 1024
             },
             "substring_search_field": {
                 "type": "text",

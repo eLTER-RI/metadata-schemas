@@ -499,6 +499,9 @@
                             }
                         }
                     }
+                },
+                "version": {
+                    "type": "string"
                 }
             }
         },
@@ -518,6 +521,9 @@
                     "type": "string"
                 }
             }
+        },
+        "state": {
+            "type": "string"
         },
         "substring_search_field": {
             "type": "string"

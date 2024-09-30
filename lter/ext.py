@@ -3,6 +3,7 @@ from functools import cached_property
 
 from oarepo_requests.proxies import current_oarepo_requests_service
 from oarepo_requests.resources.draft.config import DraftRecordRequestsResourceConfig
+from oarepo_requests.resources.draft.types.config import DraftRequestTypesResourceConfig
 
 from lter import config
 
@@ -56,6 +57,8 @@ class LterExt:
     def service_records(self):
         return config.LTER_RECORD_SERVICE_CLASS(
             config=config.LTER_RECORD_SERVICE_CONFIG(),
+            files_service=self.service_files,
+            draft_files_service=self.service_draft_files,
         )
 
     @cached_property
@@ -66,18 +69,33 @@ class LterExt:
         )
 
     @cached_property
-    def service_requests(self):
+    def service_record_requests(self):
         return config.LTER_REQUESTS_SERVICE_CLASS(
             record_service=self.service_records,
             oarepo_requests_service=current_oarepo_requests_service,
         )
 
     @cached_property
-    def resource_requests(self):
+    def resource_record_requests(self):
         return config.LTER_REQUESTS_RESOURCE_CLASS(
-            service=self.service_requests,
+            service=self.service_record_requests,
             config=config.LTER_RECORD_RESOURCE_CONFIG(),
             record_requests_config=DraftRecordRequestsResourceConfig(),
+        )
+
+    @cached_property
+    def service_record_request_types(self):
+        return config.LTER_REQUEST_TYPES_SERVICE_CLASS(
+            record_service=self.service_records,
+            oarepo_requests_service=current_oarepo_requests_service,
+        )
+
+    @cached_property
+    def resource_record_request_types(self):
+        return config.LTER_REQUEST_TYPES_RESOURCE_CLASS(
+            service=self.service_record_request_types,
+            config=config.LTER_RECORD_RESOURCE_CONFIG(),
+            record_requests_config=DraftRequestTypesResourceConfig(),
         )
 
     @cached_property
@@ -89,4 +107,39 @@ class LterExt:
             config=LterPublishedServiceConfig(
                 proxied_drafts_config=self.service_records.config
             ),
+        )
+
+    @cached_property
+    def service_files(self):
+        return config.LTER_FILES_SERVICE_CLASS(
+            config=config.LTER_FILES_SERVICE_CONFIG(),
+        )
+
+    @cached_property
+    def resource_files(self):
+        return config.LTER_FILES_RESOURCE_CLASS(
+            service=self.service_files,
+            config=config.LTER_FILES_RESOURCE_CONFIG(),
+        )
+
+    @cached_property
+    def published_service_files(self):
+        from lter.services.files.published.config import LterFilePublishedServiceConfig
+        from lter.services.files.published.service import LterFilePublishedService
+
+        return LterFilePublishedService(
+            config=LterFilePublishedServiceConfig(),
+        )
+
+    @cached_property
+    def service_draft_files(self):
+        return config.LTER_DRAFT_FILES_SERVICE_CLASS(
+            config=config.LTER_DRAFT_FILES_SERVICE_CONFIG(),
+        )
+
+    @cached_property
+    def resource_draft_files(self):
+        return config.LTER_DRAFT_FILES_RESOURCE_CLASS(
+            service=self.service_draft_files,
+            config=config.LTER_DRAFT_FILES_RESOURCE_CONFIG(),
         )
