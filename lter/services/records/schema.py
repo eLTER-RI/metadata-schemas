@@ -347,7 +347,7 @@ class FilesItemSchema(DictOnlySchema):
 
     name = ma_fields.String(required=True)
 
-    size = ma_fields.Integer()
+    size = ma_fields.String()
 
     sourceUrl = ma_fields.String()
 

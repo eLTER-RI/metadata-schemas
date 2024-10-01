@@ -182,7 +182,7 @@
                                 "type": "string"
                             },
                             "size": {
-                                "type": "integer"
+                                "type": "string"
                             },
                             "sourceUrl": {
                                 "type": "string"

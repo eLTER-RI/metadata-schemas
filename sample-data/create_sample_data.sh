@@ -35,7 +35,7 @@ generate_token() {
   local name="$2"
   local -n varname="$3"
 
-  varname=$(invenio tokens create -n "$name" -u "$email")
+  echo $(invenio tokens create -n "$name" -u "$email")
 }
 
 create_record() {
@@ -131,27 +131,18 @@ upload_file() {
 # if the file is sourced, stop here
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
 
-  create_user "harvester@lter.com" "testtest"
-  create_user "admin@lter.com" "testtest"
+  create_user "harvester@lter.com" "idontknowthepassword"
+  create_user "admin@lter.com" "idontknowthepassword"
 
   create_community "b2share" "B2SHARE" "admin@lter.com"
+  create_community "b2share_jeulich" "B2SHARE_JEULICH" "admin@lter.com"
   create_community "zenodo" "ZENODO" "admin@lter.com"
+  create_community "elter" "eLTER" "admin@lter.com"
 
   add_community_member "b2share" "harvester@lter.com" "submitter"
+  add_community_member "b2share_jeulich" "harvester@lter.com" "submitter"
   add_community_member "zenodo" "harvester@lter.com" "submitter"
 
   generate_token "harvester@lter.com" upload-token HARVESTER_UPLOAD_TOKEN
-
-  # export the token for subsequent commands
-  export TOKEN=$HARVESTER_UPLOAD_TOKEN
-
-  create_record sample-data/001.json b2share /tmp/rec.json REC_ID
-  echo "Record id: $REC_ID"
-  publish_record $REC_ID
-
-  create_record sample-data/001_with_files.json b2share /tmp/rec.json REC_ID
-  echo "Record id: $REC_ID"
-  upload_file $REC_ID invenio.cfg
-  publish_record $REC_ID
 
 fi

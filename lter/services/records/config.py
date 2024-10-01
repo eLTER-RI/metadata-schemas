@@ -54,9 +54,9 @@ class LterServiceConfig(
         CommunityDefaultWorkflowComponent,
         CommunityInclusionComponent,
         OwnersComponent,
+        DraftFilesComponent,
         FilesComponent,
         CustomFieldsComponent,
-        DraftFilesComponent,
         WorkflowComponent,
     ]
 

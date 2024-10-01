@@ -1006,7 +1006,7 @@
                                     "label.en": "File name"
                                 },
                                 "size": {
-                                    "type": "integer",
+                                    "type": "keyword",
                                     "label.en": "File size"
                                 },
                                 "sourceUrl": {

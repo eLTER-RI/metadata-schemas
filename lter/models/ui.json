@@ -444,8 +444,8 @@
                                 "facet": "metadata_files_name"
                             },
                             "size": {
-                                "detail": "integer",
-                                "input": "integer",
+                                "detail": "keyword",
+                                "input": "keyword",
                                 "help": "metadata/files/size.help",
                                 "label": "metadata/files/size.label",
                                 "hint": "metadata/files/size.hint",

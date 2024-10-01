@@ -427,7 +427,7 @@ File:
       required: true
       label.en: File format
     size:
-      type: integer
+      type: keyword
       label.en: File size
     name:
       type: keyword

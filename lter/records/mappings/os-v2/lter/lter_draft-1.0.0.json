@@ -190,7 +190,8 @@
                                 "ignore_above": 1024
                             },
                             "size": {
-                                "type": "integer"
+                                "type": "keyword",
+                                "ignore_above": 1024
                             },
                             "sourceUrl": {
                                 "type": "keyword",
@@ -539,8 +540,8 @@
                 "ignore_above": 1024
             },
             "substring_search_field": {
-                "type": "text",
-                "analyzer": "substring"
+                "analyzer": "substring",
+                "type": "text"
             },
             "updated": {
                 "type": "date",
