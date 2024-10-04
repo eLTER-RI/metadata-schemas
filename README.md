@@ -7,6 +7,10 @@ Keywords
 
 XML
 
+```bash
+invenio files location
+```
+
 ## Docker 
 Run from the root repo
 ```bash

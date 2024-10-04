@@ -3,14 +3,18 @@
 {%- extends "invenio_theme/frontpage.html" %}
 
 {# TODO (UI): prepare a proper initial title page !!! #}
+{%- if current_user.is_authenticated %}
+    {%- block javascript %}
+        <link rel="stylesheet" href="https://dataspace.elter-ri.eu/static-data-dev/page.css"/>
+        <script type="module" src="https://dataspace.elter-ri.eu/static-data-dev/page.js"></script>
+    {%- endblock %}
+{%- endif %}
 
 {%- block page_header %}
     {% include "header.html" %}
 {%- endblock page_header %}
 
 {%- block page_body %}
-
-
 
     <div class="title-image">
         <img class="full-width" src="{{ url_for('static', filename=config.PHOTO2) }}" alt="photo 1">
@@ -60,7 +64,10 @@
         </div>
 
         <div class="title-communities-container container container-fluid">
-
+            {%- if current_user.is_authenticated %}
+                <div id="ingestRoot"></div>
+                TEST
+            {%- endif %}
         </div>
 
     {% endblock main_column %}
