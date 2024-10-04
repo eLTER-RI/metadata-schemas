@@ -62,6 +62,7 @@ lter_requests = "lter.views.requests.api:create_api_blueprint"
 lter_request_types = "lter.views.request_types.api:create_api_blueprint"
 lter_file = "lter.views.files.api:create_api_blueprint"
 lter_file_draft = "lter.views.draft_files.api:create_api_blueprint"
+lter_api = "custom_api.views:api"
 
 [project.entry-points."invenio_search.mappings"]
 lter = "lter.records.mappings"
