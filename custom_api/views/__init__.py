@@ -1,4 +1,6 @@
 import json
+import mimetypes
+
 import requests
 
 from flask import Blueprint, Response, current_app, request
@@ -9,14 +11,14 @@ api = Blueprint('ingest_api', __name__)
 def get_ingest_headers():
     return {
         'Content-Type': 'application/json',
-        'Authorization': current_app.config["INGEST_API_KEY"]
+        'Authorization': f'Bearer {current_app.config["INGEST_API_KEY"]}'
     }
 
 
 def get_workflows_headers():
     return {
         'Content-Type': 'application/json',
-        'Authorization': current_app.config["WORKFLOWS_API_KEY"]
+        'Authorization': f'Bearer {current_app.config["WORKFLOWS_API_KEY"]}'
     }
 
 
@@ -30,20 +32,25 @@ batch_api = '/v1/ingest/batch'
 
 @api.route('%s/temp-data-upload/credentials' % batch_api, methods=['GET'])
 def get_credentials():
-    metadata_name = request.args.get('metadataFileName')
-    file_names = request.args.getlist('fileNames')
 
+    full_path = request.full_path
+    # metadata_name = request.args.get('metadataFileName')
+    # file_names = request.args.getlist('fileNames')
+
+    # file_names_url_part = ''
+    #
+    # for file_name in file_names:
+    #     file_names_url_part += '&fileNames=' + file_name
+    #
     api_hostname = current_app.config["INGEST_API_HOSTNAME"]
-    url = f'{api_hostname}/api{batch_api}/temp-data-upload/credentials'
+    url = f'{api_hostname}/api{full_path}'
 
-    params = {
-        'metadataFileName': metadata_name,
-        'fileNames': ','.join(file_names)
-    }
+    # url = f'{api_hostname}/api{batch_api}/temp-data-upload/credentials?metadataFileName={metadata_name}{file_names_url_part}'
 
-    response = requests.get(url, headers=get_ingest_headers(), params=params)
+    response = requests.get(url, headers=get_ingest_headers())
+    # return url, 200
+    return response.json(), response.status_code
 
-    return response.json()
 
 
 @api.route(f'{batch_api}/temp-bucket-data-source/<string:workflow_id>', methods=['POST'])
@@ -68,7 +75,8 @@ workflows_api = '/v1/workflows'
 def get_workflows_status(id):
     api_hostname = current_app.config["WORKFLOWS_API_HOSTNAME"]
     url = f'{api_hostname}/api{workflows_api}/status/{id}'
-    return requests.get(url, headers=get_workflows_headers())
+    response = requests.get(url, headers=get_workflows_headers())
+    return response.json(), response.status_code
 
 
 @api.route('%s/status' % workflows_api)
@@ -77,11 +85,13 @@ def get_workflows_status_overview():
     api_hostname = current_app.config["WORKFLOWS_API_HOSTNAME"]
     url = f'{api_hostname}/api{workflows_api}/status'
     params = {'Limit': limit}
-    return requests.get(url, headers=get_workflows_headers(), params=params)
+    response = requests.get(url, headers=get_workflows_headers(), params=params)
+    return response.json(), response.status_code
 
 
 @api.route('%s/report/{id}' % workflows_api)
 def get_workflows_report(id):
     api_hostname = current_app.config["WORKFLOWS_API_HOSTNAME"]
     url = f'{api_hostname}/api{workflows_api}/report/{id}'
-    return requests.get(url, headers=get_workflows_headers())
+    response = requests.get(url, headers=get_workflows_headers())
+    return response.json(), response.status_code

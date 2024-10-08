@@ -4,10 +4,12 @@
 
 
 {%- block javascript %}
-    <link rel="stylesheet" href="https://dataspace.elter-ri.eu/static-data-dev/page.css"/>
+    <script href="https://dataspace.elter-ri.eu/static-data-dev/tailwind.js"></script>
     <script type="module" src="https://dataspace.elter-ri.eu/static-data-dev/page.js"></script>
 {%- endblock %}
 
 {%- block page_body %}
-    <div id="ingestRoot"></div>
+    <div class="search-result-container">
+        <div id="ingestRoot"></div>
+    </div>
 {% endblock %}

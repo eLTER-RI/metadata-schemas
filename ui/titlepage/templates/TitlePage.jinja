@@ -5,7 +5,7 @@
 {# TODO (UI): prepare a proper initial title page !!! #}
 {%- if current_user.is_authenticated %}
     {%- block javascript %}
-        <link rel="stylesheet" href="https://dataspace.elter-ri.eu/static-data-dev/page.css"/>
+        <script src="https://dataspace.elter-ri.eu/static-data-dev/tailwind.js"></script>
         <script type="module" src="https://dataspace.elter-ri.eu/static-data-dev/page.js"></script>
     {%- endblock %}
 {%- endif %}
@@ -38,7 +38,7 @@
             </div>
             <div class="ui grid title-stats">
                 <div class="three column item bg-lightBlue">
-                    <i class="file outline icon"></i>
+                    <i class="file icon"></i>
                     <div class="info">
                         <div class="number">250 000</div>
                         <div class="description"><b>Files</b></div>
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="three column item bg-yellowGreen">
-                    <i class="user outline icon"></i>
+                    <i class="user icon"></i>
                     <div class="info">
                         <div class="number">1000</div>
                         <div class="description"><b>Sources</b></div>
