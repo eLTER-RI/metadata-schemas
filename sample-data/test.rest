@@ -9,6 +9,10 @@ GET https://127.0.0.1:5000/api/lter/dsq2m-rjn54
 Accept: text/xml
 
 ###
+GET https://localhost:5000/api/v1/ingest/batch/temp-data-upload/credentials?metadataFileName=test1&fileName=testfile.txt
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTk1NjU1OTksImlzcyI6InNpbXBsZS1hdXRoIiwiYXVkIjoid29ya2Zsb3ctbWFuYWdlbWVudCJ9.W21A8K88kx94KMWiNPDlywJr4Cn_8UfABsrdBlyaBTc
+
+###
 POST https://127.0.0.1:5000/api/lter/ytde7-sy324/draft/actions/publish
 
 ###

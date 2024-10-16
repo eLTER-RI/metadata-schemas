@@ -1,19 +1,24 @@
-import json
-import mimetypes
-
 import requests
 
-from flask import Blueprint, Response, current_app, request
+from flask import Blueprint, current_app, request
+from flask_cors import CORS
 
 api = Blueprint('ingest_api', __name__)
 
+CORS(api, resources={r"/api/v1/*": {"origins":
+    [
+        "https://localhost",
+        "https://127.0.0.1",
+        "https://https://catalog.elter-ri.eu/",
+        "https://catalog.elter.cerit-sc.cz/"
+    ]
+}})
 
 def get_ingest_headers():
     return {
         'Content-Type': 'application/json',
         'Authorization': f'Bearer {current_app.config["INGEST_API_KEY"]}'
     }
-
 
 def get_workflows_headers():
     return {
@@ -29,28 +34,14 @@ api_suffix = '.svc.cluster.local'
 
 batch_api = '/v1/ingest/batch'
 
-
 @api.route('%s/temp-data-upload/credentials' % batch_api, methods=['GET'])
 def get_credentials():
-
     full_path = request.full_path
-    # metadata_name = request.args.get('metadataFileName')
-    # file_names = request.args.getlist('fileNames')
-
-    # file_names_url_part = ''
-    #
-    # for file_name in file_names:
-    #     file_names_url_part += '&fileNames=' + file_name
-    #
     api_hostname = current_app.config["INGEST_API_HOSTNAME"]
     url = f'{api_hostname}/api{full_path}'
 
-    # url = f'{api_hostname}/api{batch_api}/temp-data-upload/credentials?metadataFileName={metadata_name}{file_names_url_part}'
-
     response = requests.get(url, headers=get_ingest_headers())
-    # return url, 200
     return response.json(), response.status_code
-
 
 
 @api.route(f'{batch_api}/temp-bucket-data-source/<string:workflow_id>', methods=['POST'])
@@ -69,7 +60,6 @@ def run_ingest(workflow_id):
 
 
 workflows_api = '/v1/workflows'
-
 
 @api.route('%s/status/<int:id>' % workflows_api)
 def get_workflows_status(id):

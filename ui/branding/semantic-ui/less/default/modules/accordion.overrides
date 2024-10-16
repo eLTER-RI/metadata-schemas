@@ -2,3 +2,13 @@
 .ui.accordion .accordion .active.title .icon:not(.button) {
   color: @carrotOrange;
 }
+
+.ui.accordion .title:not(.ui) {
+  font-family: Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 1.28571429rem;
+  padding: .5em 0;
+}
+
+.ui.accordion .accordion {
+  padding: 0 0 0 2em;
+}
