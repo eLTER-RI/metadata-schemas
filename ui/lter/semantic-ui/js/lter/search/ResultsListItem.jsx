@@ -40,8 +40,6 @@ export const ResultsListItemComponent = ({
                                          }) => {
     const searchAppConfig = useContext(SearchConfigurationContext);
 
-    console.log(searchAppConfig)
-
     const titles = _get(result, "metadata.titles", [{"text": "No Title"}]);
     const descriptions = _get(result, "metadata.descriptions", [{"description": "No Description"}])
     const keywords = _get(result, "metadata.keywords", [])

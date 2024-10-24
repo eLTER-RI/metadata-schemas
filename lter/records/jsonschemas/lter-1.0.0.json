@@ -8,6 +8,17 @@
             "type": "string",
             "format": "date-time"
         },
+        "external_workflow": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
         "id": {
             "type": "string"
         },

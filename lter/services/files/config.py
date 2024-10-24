@@ -1,13 +1,13 @@
-from invenio_records_resources.services import FileLink, FileServiceConfig, RecordLink
+from invenio_records_resources.services import FileLink, RecordLink
 from oarepo_runtime.services.components import CustomFieldsComponent
-from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 
 from lter.records.api import LterDraft, LterRecord
 from lter.services.files.schema import LterFileSchema
 from lter.services.records.permissions import LterPermissionPolicy
+from shared.services.files.config import ELterServiceConfig
 
 
-class LterFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
+class LterFileServiceConfig(ELterServiceConfig):
     """LterRecord service config."""
 
     PERMISSIONS_PRESETS = ["everyone"]
@@ -22,11 +22,7 @@ class LterFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
 
     service_id = "lter_file"
 
-    components = [
-        *PermissionsPresetsConfigMixin.components,
-        *FileServiceConfig.components,
-        CustomFieldsComponent,
-    ]
+    components = [*ELterServiceConfig.components, CustomFieldsComponent]
 
     model = "lter"
     allowed_mimetypes = []
@@ -49,7 +45,7 @@ class LterFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
         }
 
 
-class LterFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
+class LterFileDraftServiceConfig(ELterServiceConfig):
     """LterDraft service config."""
 
     PERMISSIONS_PRESETS = ["everyone"]
@@ -62,11 +58,7 @@ class LterFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfi
 
     service_id = "lter_file_draft"
 
-    components = [
-        *PermissionsPresetsConfigMixin.components,
-        *FileServiceConfig.components,
-        CustomFieldsComponent,
-    ]
+    components = [*ELterServiceConfig.components, CustomFieldsComponent]
 
     model = "lter"
 

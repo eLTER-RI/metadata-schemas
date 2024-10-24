@@ -4,6 +4,9 @@ from oarepo_ui.resources.config import RecordsUIResourceConfig
 from oarepo_ui.resources.resource import RecordsUIResource
 from oarepo_runtime.i18n import lazy_gettext as _
 from oarepo_ui.resources.components import AllowedCommunitiesComponent
+from oarepo_vocabularies.ui.resources.components import (
+    DepositVocabularyOptionsComponent,
+)
 
 
 class LterResourceConfig(RecordsUIResourceConfig):
@@ -15,19 +18,13 @@ class LterResourceConfig(RecordsUIResourceConfig):
     search_component = "lter/search/ResultsListItem"
 
     components = [
-        # AllowedHtmlTagsComponent,
+        AllowedHtmlTagsComponent,
         BabelComponent,
-        # PermissionsComponent,
-        # FilesComponent,
-        # AllowedCommunitiesComponent
+        PermissionsComponent,
+        FilesComponent,
+        # AllowedCommunitiesComponent,
+        DepositVocabularyOptionsComponent
     ]
-    try:
-        from oarepo_vocabularies.ui.resources.components import (
-            DepositVocabularyOptionsComponent,
-        )
-        components.append(DepositVocabularyOptionsComponent)
-    except ImportError:
-        pass
 
     application_id = "lter"
 

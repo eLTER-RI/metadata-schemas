@@ -22,8 +22,6 @@ profiles:
 
 record:
   draft: {}
-  files: {}
-  draft-files: {}
 
   module:
     qualified: lter
@@ -35,6 +33,33 @@ record:
   properties:
     metadata:
       use: ./lter-metadata.yaml#LTERMetadata
+    external_workflow:
+      properties:
+        id:
+          type: keyword
+          label.en: ID of the external workflow
+          marshmallow:
+            read: true
+            write: false
+        status:
+          type: keyword
+          label.en: Status of the execution of external workflow
+          enum: [running, finished, failed]
+          marshmallow:
+            read: true
+            write: false
+
+  # system fields
+  record:
+    service-config:
+      "extend:components":
+        - shared.services.components.lter_component.LterComponent
+    service:
+      base-classes:
+        - shared.services.records.service.LterBaseRecordService
+    fields:
+      external_workflow: "{{invenio_records.systemfields.dict.DictField}}()"
+
   resource-config:
     base-html-url: /lter/
   use:
@@ -45,10 +70,26 @@ record:
   search-options:
     base-classes:
       - oarepo_runtime.services.search.I18nSearchOptions
-#    TODO add extra sort options
-#    sort-options-field: extra_sort_options
-#    fields:
-#      sort_options: "{{oarepo_runtime.services.search.ICUSortOptions}}('lter')"
+
+
+  # files
+  draft-files:
+    resource:
+      base-classes: [ oarepo_ui.resources.file_resource.S3RedirectFileResource ]
+    service-config:
+      base-classes:
+        - shared.services.files.config.ELterServiceConfig
+
+
+  files:
+    resource:
+      base-classes: [ oarepo_ui.resources.file_resource.S3RedirectFileResource ]
+    properties: {}
+    service-config:
+      base-classes:
+        - shared.services.files.config.ELterServiceConfig
+
+
 runtime-dependencies:
   oarepo-published-service: 1.0.2
 

@@ -1,0 +1,31 @@
+// Dont push tokens from production !!!!
+@authToken = MCUTptsAkJbuSQtbh7U338y7Zp8MhiRkY9vvvhi3Cjte4r8zWVw6ZGsEghv0
+@draftId = 1zmzx-jec05
+@communityName = "test"
+@filesEnabled = "True"
+
+// Uncomment one related hostname
+@hostname = https://127.0.0.1:5000
+#@hostname = https://catalog.elter.cerit-sc.cz/
+#@hostname = https://catalog.elter-ri.eu/
+
+### Update draft - poslat eTag z getu
+PUT {{hostname}}/api/lter/{{draftId}}/draft
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "parent": {"communities": {"default":  {{communityName}}}},
+  "metadata": {
+    "datasetIds": [
+      {
+        "sourceName": "update",
+        "identifier": "id",
+        "url": "https://b2share.com",
+        "type": "PID"
+      }
+    ],
+    "publicationDate": "1999-02-24",
+    "language": "english"
+  }
+}

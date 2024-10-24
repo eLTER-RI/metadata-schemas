@@ -22,6 +22,32 @@
             "label": "created.label",
             "hint": "created.hint"
         },
+        "external_workflow": {
+            "detail": false,
+            "input": false,
+            "help": "external_workflow.help",
+            "label": "external_workflow.label",
+            "hint": "external_workflow.hint",
+            "children": {
+                "id": {
+                    "detail": "keyword",
+                    "input": "keyword",
+                    "help": "external_workflow/id.help",
+                    "label": "external_workflow/id.label",
+                    "hint": "external_workflow/id.hint",
+                    "facet": "external_workflow_id"
+                },
+                "status": {
+                    "detail": "keyword",
+                    "input": "keyword",
+                    "help": "external_workflow/status.help",
+                    "label": "external_workflow/status.label",
+                    "hint": "external_workflow/status.hint",
+                    "enum": "external_workflow/status.enum",
+                    "facet": "external_workflow_status"
+                }
+            }
+        },
         "id": {
             "detail": "keyword",
             "input": "keyword",

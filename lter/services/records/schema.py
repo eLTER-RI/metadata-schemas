@@ -22,6 +22,8 @@ class LterSchema(BaseRecordSchema):
     class Meta:
         unknown = ma.RAISE
 
+    external_workflow = ma_fields.Nested(lambda: ExternalWorkflowSchema())
+
     metadata = ma_fields.Nested(lambda: LterMetadataSchema())
 
     state = ma_fields.String(dump_only=True)
@@ -335,6 +337,17 @@ class EcosystemSchema(DictOnlySchema):
     PID = ma_fields.String()
 
     name = ma_fields.String()
+
+
+class ExternalWorkflowSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma_fields.String(dump_only=True, data_key="id", attribute="id")
+
+    status = ma_fields.String(
+        dump_only=True, validate=[OneOf(["running", "finished", "failed"])]
+    )
 
 
 class FilesItemSchema(DictOnlySchema):

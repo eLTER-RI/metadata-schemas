@@ -23,6 +23,7 @@ from lter.services.records.permissions import LterPermissionPolicy
 from lter.services.records.results import LterRecordItem, LterRecordList
 from lter.services.records.schema import LterSchema
 from lter.services.records.search import LterSearchOptions
+from shared.services.components.lter_component import LterComponent
 
 
 class LterServiceConfig(
@@ -58,6 +59,7 @@ class LterServiceConfig(
         FilesComponent,
         CustomFieldsComponent,
         WorkflowComponent,
+        LterComponent,
     ]
 
     model = "lter"

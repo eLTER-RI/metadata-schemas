@@ -31,9 +31,10 @@
             "file": "lter/records/mappings/os-v2/lter/lter-1.0.0.json",
             "index-field-args": []
         },
+        "custom-fields": [],
         "permissions": {
             "presets": [
-                "community"
+                "community-workflow"
             ],
             "generate": true,
             "extra-code": "",
@@ -54,24 +55,7 @@
             "class": "lter.services.records.schema.LterSchema",
             "extra-code": ""
         },
-        "custom-fields": [],
         "searchable": true,
-        "ui": {
-            "marshmallow": {
-                "imports": [],
-                "base-classes": [
-                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
-                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
-                ],
-                "generate": true,
-                "module": "lter.services.records.ui_schema",
-                "class": "lter.services.records.ui_schema.LterUISchema",
-                "extra-code": ""
-            },
-            "module": "lter.models",
-            "file": "lter/models/ui.json",
-            "alias": "lter"
-        },
         "pid": {
             "type": "lter",
             "provider-base-classes": [
@@ -95,20 +79,21 @@
             ],
             "extra-code": ""
         },
-        "facets": {
-            "facet-groups": {
-                "default": {
-                    "metadata.dataLevel": 1,
-                    "metadata.keywords.name": 2,
-                    "metadata.datasetIds.sourceName": 3,
-                    "metadata.siteReference.name": 4,
-                    "metadata.SOReference.name": 5
-                }
+        "ui": {
+            "marshmallow": {
+                "imports": [],
+                "base-classes": [
+                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
+                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
+                ],
+                "generate": true,
+                "module": "lter.services.records.ui_schema",
+                "class": "lter.services.records.ui_schema.LterUISchema",
+                "extra-code": ""
             },
-            "generate": true,
-            "module": "lter.services.records.facets",
-            "extra-code": "",
-            "groups": true
+            "module": "lter.models",
+            "file": "lter/models/ui.json",
+            "alias": "lter"
         },
         "search-options": {
             "base-classes": [
@@ -136,6 +121,35 @@
             "imports": [],
             "additional-args": []
         },
+        "record": {
+            "fields": {
+                "external_workflow": "{{invenio_records.systemfields.dict.DictField}}()",
+                "state": "{{oarepo_workflows.records.systemfields.state.RecordStateField}}(initial='published')"
+            },
+            "base-classes": [
+                "invenio_drafts_resources.records.api.Record{InvenioRecord}"
+            ],
+            "generate": true,
+            "module": "lter.records.api",
+            "class": "lter.records.api.LterRecord",
+            "imports": [],
+            "extra-code": ""
+        },
+        "facets": {
+            "facet-groups": {
+                "default": {
+                    "metadata.dataLevel": 1,
+                    "metadata.keywords.name": 2,
+                    "metadata.datasetIds.sourceName": 3,
+                    "metadata.siteReference.name": 4,
+                    "metadata.SOReference.name": 5
+                }
+            },
+            "generate": true,
+            "module": "lter.services.records.facets",
+            "extra-code": "",
+            "groups": true
+        },
         "module": {
             "qualified": "lter",
             "alias": "lter",
@@ -155,6 +169,16 @@
             "type": "draft-file",
             "properties": {},
             "searchable": true,
+            "service-config": {
+                "base-classes": [
+                    "shared.services.files.config.ELterServiceConfig"
+                ]
+            },
+            "resource": {
+                "base-classes": [
+                    "oarepo_ui.resources.file_resource.S3RedirectFileResource"
+                ]
+            },
             "tests": {
                 "extra-fixtures": [],
                 "extra-code": "",
@@ -180,6 +204,16 @@
             "type": "file",
             "properties": {},
             "searchable": true,
+            "service-config": {
+                "base-classes": [
+                    "shared.services.files.config.ELterServiceConfig"
+                ]
+            },
+            "resource": {
+                "base-classes": [
+                    "oarepo_ui.resources.file_resource.S3RedirectFileResource"
+                ]
+            },
             "tests": {
                 "extra-fixtures": [],
                 "extra-code": "",
@@ -194,46 +228,6 @@
             "skip": false
         },
         "model-name": "Lter",
-        "record": {
-            "base-classes": [
-                "invenio_drafts_resources.records.api.Record{InvenioRecord}"
-            ],
-            "generate": true,
-            "module": "lter.records.api",
-            "class": "lter.records.api.LterRecord",
-            "imports": [],
-            "extra-code": "",
-            "fields": {
-                "state": "{{oarepo_workflows.records.systemfields.state.RecordStateField}}(initial='published')"
-            }
-        },
-        "resource": {
-            "base-classes": [
-                "invenio_drafts_resources.resources.RecordResource"
-            ],
-            "generate": true,
-            "config-key": "LTER_RECORD_RESOURCE_CLASS",
-            "module": "lter.resources.records.resource",
-            "class": "lter.resources.records.resource.LterResource",
-            "proxy": "current_resource",
-            "extra-code": "",
-            "imports": [],
-            "additional-args": []
-        },
-        "record-resolver": {
-            "generate": true,
-            "module": "lter.records.requests.resolvers",
-            "class": "lter.records.requests.resolvers.LterResolver",
-            "base-classes": [
-                "oarepo_runtime.records.entity_resolvers.RecordResolver"
-            ],
-            "imports": [],
-            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
-        },
-        "ui-record-resolver": {
-            "generate": true,
-            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
-        },
         "config": {
             "generate": true,
             "module": "lter.config",
@@ -274,6 +268,33 @@
             "module": "lter.proxies",
             "generate": true
         },
+        "resource": {
+            "base-classes": [
+                "invenio_drafts_resources.resources.RecordResource"
+            ],
+            "generate": true,
+            "config-key": "LTER_RECORD_RESOURCE_CLASS",
+            "module": "lter.resources.records.resource",
+            "class": "lter.resources.records.resource.LterResource",
+            "proxy": "current_resource",
+            "extra-code": "",
+            "imports": [],
+            "additional-args": []
+        },
+        "record-resolver": {
+            "generate": true,
+            "module": "lter.records.requests.resolvers",
+            "class": "lter.records.requests.resolvers.LterResolver",
+            "base-classes": [
+                "oarepo_runtime.records.entity_resolvers.RecordResolver"
+            ],
+            "imports": [],
+            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
+        },
+        "ui-record-resolver": {
+            "generate": true,
+            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
+        },
         "draft-parent-record-metadata": {
             "base-classes": [
                 "oarepo_workflows.records.models.RecordWorkflowParentModelMixin",
@@ -293,6 +314,30 @@
             "module": "lter.services.records.schema",
             "class": "lter.services.records.schema.GeneratedParentSchema",
             "generate": true
+        },
+        "json-schema-settings": {
+            "generate": true,
+            "alias": "lter",
+            "version": "1.0.0",
+            "module": "lter.records.jsonschemas",
+            "name": "lter-1.0.0.json",
+            "file": "lter/records/jsonschemas/lter-1.0.0.json"
+        },
+        "json-serializer": {
+            "module": "lter.resources.records.ui",
+            "class": "lter.resources.records.ui.LterUIJSONSerializer",
+            "base-classes": [
+                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
+            ],
+            "imports": [],
+            "extra-code": "",
+            "generate": true,
+            "list_schema_cls": "flask_resources.BaseListSchema",
+            "format_serializer_cls": "flask_resources.serializers.JSONSerializer",
+            "schema-context-args": {
+                "\"object_key\"": "\"ui\"",
+                "\"identity\"": "{{ flask.g{g.identity} }}"
+            }
         },
         "files-field": {
             "generate": true,
@@ -359,29 +404,16 @@
             "service-id": "lter",
             "additional-args": []
         },
-        "json-schema-settings": {
+        "edtf-interval-dumper": {
             "generate": true,
-            "alias": "lter",
-            "version": "1.0.0",
-            "module": "lter.records.jsonschemas",
-            "name": "lter-1.0.0.json",
-            "file": "lter/records/jsonschemas/lter-1.0.0.json"
-        },
-        "json-serializer": {
-            "module": "lter.resources.records.ui",
-            "class": "lter.resources.records.ui.LterUIJSONSerializer",
+            "module": "lter.records.dumpers.edtf",
+            "class": "lter.records.dumpers.edtf.LterEDTFIntervalDumperExt",
             "base-classes": [
-                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
+                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
             ],
-            "imports": [],
             "extra-code": "",
-            "generate": true,
-            "list_schema_cls": "flask_resources.BaseListSchema",
-            "format_serializer_cls": "flask_resources.serializers.JSONSerializer",
-            "schema-context-args": {
-                "\"object_key\"": "\"ui\"",
-                "\"identity\"": "{{ flask.g{g.identity} }}"
-            }
+            "extensions": [],
+            "imports": []
         },
         "draft-parent-record": {
             "class": "lter.records.api.LterParentRecord",
@@ -427,15 +459,29 @@
                 "draft_files_service=self.service_draft_files"
             ]
         },
-        "edtf-interval-dumper": {
+        "record-list": {
             "generate": true,
-            "module": "lter.records.dumpers.edtf",
-            "class": "lter.records.dumpers.edtf.LterEDTFIntervalDumperExt",
-            "base-classes": [
-                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
-            ],
+            "module": "lter.services.records.results",
+            "class": "lter.services.records.results.LterRecordList",
             "extra-code": "",
-            "extensions": [],
+            "base-classes": [
+                "oarepo_runtime.services.results.RecordList"
+            ],
+            "components": [],
+            "imports": []
+        },
+        "record-item": {
+            "generate": true,
+            "module": "lter.services.records.results",
+            "class": "lter.services.records.results.LterRecordItem",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_runtime.services.results.RecordItem"
+            ],
+            "components": [
+                "{{oarepo_requests.services.results.RequestsComponent}}()",
+                "{{oarepo_requests.services.results.RequestTypesComponent}}()"
+            ],
             "imports": []
         },
         "published-service-config": {
@@ -463,31 +509,6 @@
             "extra-code": "",
             "base-classes": [
                 "oarepo_published_service.services.service.PublishedService"
-            ],
-            "imports": []
-        },
-        "record-list": {
-            "generate": true,
-            "module": "lter.services.records.results",
-            "class": "lter.services.records.results.LterRecordList",
-            "extra-code": "",
-            "base-classes": [
-                "oarepo_runtime.services.results.RecordList"
-            ],
-            "components": [],
-            "imports": []
-        },
-        "record-item": {
-            "generate": true,
-            "module": "lter.services.records.results",
-            "class": "lter.services.records.results.LterRecordItem",
-            "extra-code": "",
-            "base-classes": [
-                "oarepo_runtime.services.results.RecordItem"
-            ],
-            "components": [
-                "{{oarepo_requests.services.results.RequestsComponent}}()",
-                "{{oarepo_requests.services.results.RequestTypesComponent}}()"
             ],
             "imports": []
         },
@@ -609,6 +630,42 @@
                 },
                 "sample": {
                     "skip": true
+                }
+            },
+            "external_workflow": {
+                "type": "object",
+                "marshmallow": {
+                    "generate": true,
+                    "class": "lter.services.records.schema.ExternalWorkflowSchema"
+                },
+                "ui": {
+                    "marshmallow": {
+                        "generate": true,
+                        "class": "lter.services.records.ui_schema.ExternalWorkflowUISchema"
+                    }
+                },
+                "properties": {
+                    "id": {
+                        "type": "keyword",
+                        "marshmallow": {
+                            "read": true,
+                            "write": false
+                        },
+                        "label.en": "ID of the external workflow"
+                    },
+                    "status": {
+                        "type": "keyword",
+                        "marshmallow": {
+                            "read": true,
+                            "write": false
+                        },
+                        "enum": [
+                            "running",
+                            "finished",
+                            "failed"
+                        ],
+                        "label.en": "Status of the execution of external workflow"
+                    }
                 }
             },
             "id": {
@@ -1809,8 +1866,8 @@
             "substring_search_field": {
                 "type": "fulltext",
                 "mapping": {
-                    "type": "text",
-                    "analyzer": "substring"
+                    "analyzer": "substring",
+                    "type": "text"
                 },
                 "marshmallow": {
                     "read": false,

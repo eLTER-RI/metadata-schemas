@@ -5,6 +5,14 @@ from oarepo_runtime.i18n import lazy_gettext as _
 from oarepo_runtime.services.facets.date import DateTimeFacet
 from oarepo_runtime.services.facets.nested_facet import NestedLabeledFacet
 
+external_workflow_id = TermsFacet(
+    field="external_workflow.id", label=_("external_workflow/id.label")
+)
+
+external_workflow_status = TermsFacet(
+    field="external_workflow.status", label=_("external_workflow/status.label")
+)
+
 metadata_SOReference_name = TermsFacet(
     field="metadata.SOReference.name", label=_("metadata/SOReference/name.label")
 )
