@@ -3,6 +3,7 @@ from invenio_drafts_resources.records.api import Draft as InvenioDraft
 from invenio_drafts_resources.records.api import DraftRecordIdProviderV2, ParentRecord
 from invenio_drafts_resources.records.api import Record as InvenioRecord
 from invenio_records.systemfields import ConstantField, ModelField
+from invenio_records.systemfields.dict import DictField
 from invenio_records_resources.records.systemfields import FilesField, IndexField
 from invenio_records_resources.records.systemfields.pid import PIDField, PIDFieldContext
 from oarepo_communities.records.systemfields.communities import (
@@ -54,6 +55,8 @@ class LterRecord(InvenioRecord):
     pid = PIDField(provider=LterIdProvider, context_cls=PIDFieldContext, create=True)
 
     dumper = LterDumper()
+
+    external_workflow = DictField()
 
     state = RecordStateField(initial="published")
 

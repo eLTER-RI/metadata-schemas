@@ -12,16 +12,33 @@
             </a>
             {%- endif %}
         </div>
-        <div class="right menu">
+        <div class="left menu">
             <a class="ui item" href="/lter">Datasets</a>
             {%- if current_user.is_authenticated %}
-                <a href="/me/records" class="ui item">Dashboard</a>
+            <a href="/me/records" class="ui item">Dashboard</a>
             {%- endif %}
-            <!--            <a class="ui item">Communities</a>-->
-            <!--            <a class="ui item">Help</a>-->
-            <!--            <a class="ui item">Login</a>-->
         </div>
-        {%- include "header_login.html" %}
+        {%- block navbar_right %}
+        <div class="right menu item">
+            {%- include "header_login.html" %}
+
+            {%- if config.I18N_LANGUAGES %}
+            <form id="language-code-form" class="lang-select"
+                  action="{{ url_for('invenio_i18n.set_lang')}}"
+                  method="POST">
+                <div>
+                    <select id="lang-code" name="lang_code" class="ui selection dropdown language-selector">
+                        {% for l in current_i18n.get_locales() %}
+                        <option {% if current_i18n.language== l.language %}selected {% endif %}value="{{ l.language }}">
+                            {{ l.get_display_name() }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </form>
+            {%- endif %}
+        </div>
+        {%- endblock navbar_right %}
     </nav>
 </div>
 {%- endblock navbar %}
@@ -58,22 +75,6 @@
 
 
 <!--        {# Language selector #}-->
-<!--        {%- block navbar_right %}-->
-<!--        <div class="right menu item">-->
-<!--          {%- if config.I18N_LANGUAGES %}-->
-<!--          <form id="language-code-form" class="lang-select"-->
-<!--              action="{{ url_for('invenio_i18n.set_lang')}}"-->
-<!--              method="POST">-->
-<!--            <div>-->
-<!--              <select id="lang-code" name="lang_code" class="ui selection dropdown language-selector">-->
-<!--                {% for l in current_i18n.get_locales() %}-->
-<!--                  <option {% if current_i18n.language == l.language %}selected {% endif %}value="{{ l.language }}">{{ l.get_display_name() }}</option>-->
-<!--                {% endfor %}-->
-<!--              </select>-->
-<!--            </div>-->
-<!--          </form>-->
-<!--          {%- endif %}-->
-<!--        </div>-->
-<!--        {%- endblock navbar_right %}-->
+
 <!--      </div>-->
 

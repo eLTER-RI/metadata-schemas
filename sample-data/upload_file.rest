@@ -1,0 +1,47 @@
+// Change the draft id
+@draftId =3qvh0-tvv09
+
+// Dont push tokens from production !!!!
+@authToken = n1BDY8xfVhP64mdlnA4FqRZNHPkwJqZ2sCtlLjg2gYHjutVYCAprTOmAsHHH
+
+@fileName = test.csv
+
+// Uncomment one related hostname
+#@hostname = https://127.0.0.1:5000
+#@hostname = https://catalog.elter.cerit-sc.cz/
+@hostname = https://catalog.elter-ri.eu/
+
+### Get files of the draft
+GET {{hostname}}/api/lter/{{draftId}}/draft/files
+Authorization: Bearer {{authToken}}
+
+### Upload file to the draft
+POST {{hostname}}/api/lter/{{draftId}}/draft/files
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+[
+  {
+    "key": "{{fileName}}"
+  }
+]
+
+### Set file content before commit
+PUT {{hostname}}/api/lter/{{draftId}}/draft/files/{{fileName}}/content
+Content-Type: application/octet-stream
+Authorization: Bearer {{authToken}}
+
+TestFile
+
+### Get file content
+GET {{hostname}}/api/lter/{{draftId}}/draft/files/{{fileName}}/content
+Content-Type: application/octet-stream
+Authorization: Bearer {{authToken}}
+
+
+### Commit file after upload
+POST {{hostname}}/api/lter/{{draftId}}/draft/files/{{fileName}}/commit
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{}

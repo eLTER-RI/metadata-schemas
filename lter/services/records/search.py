@@ -18,6 +18,8 @@ class LterSearchOptions(I18nSearchOptions):
     }
 
     facets = {
+        "external_workflow_id": facets.external_workflow_id,
+        "external_workflow_status": facets.external_workflow_status,
         "metadata_SOReference_name": facets.metadata_SOReference_name,
         "metadata_SOReference_url": facets.metadata_SOReference_url,
         "metadata_additionalMetadata_name": facets.metadata_additionalMetadata_name,

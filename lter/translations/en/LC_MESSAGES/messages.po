@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-10-01T10:47:11.659389\n"
-"PO-Revision-Date: 2024-10-01T10:47:11.659410\n"
+"POT-Creation-Date: 2024-10-15T08:17:55.614006\n"
+"PO-Revision-Date: 2024-10-15T08:17:55.614015\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,6 +24,42 @@ msgid "created.label"
 msgstr ""
 
 msgid "created.hint"
+msgstr ""
+
+msgid "external_workflow.help"
+msgstr ""
+
+msgid "external_workflow.label"
+msgstr ""
+
+msgid "external_workflow.hint"
+msgstr ""
+
+msgid "external_workflow/id.label"
+msgstr "ID of the external workflow"
+
+msgid "external_workflow/id.help"
+msgstr ""
+
+msgid "external_workflow/id.hint"
+msgstr ""
+
+msgid "external_workflow/status.label"
+msgstr "Status of the execution of external workflow"
+
+msgid "external_workflow/status.help"
+msgstr ""
+
+msgid "external_workflow/status.hint"
+msgstr ""
+
+msgid "external_workflow/status.enum.running"
+msgstr ""
+
+msgid "external_workflow/status.enum.finished"
+msgstr ""
+
+msgid "external_workflow/status.enum.failed"
 msgstr ""
 
 msgid "id.help"

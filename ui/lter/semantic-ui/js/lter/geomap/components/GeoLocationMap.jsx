@@ -29,7 +29,6 @@ export const GeoLocationMap = ({geoLocations}) => {
     }
 
     const renderGeoLocation = (location, index) => {
-        console.log(location)
         const {EX_GeographicDescription, Point, EX_GeographicBoundingBox, EX_BoundingPolygon} = location;
 
         if (Point) {

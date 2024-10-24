@@ -1,0 +1,14 @@
+// Change the draft id
+@draftId = p8xfp-2yh03
+@publishSubmitRequestId =97d516cf-6772-4082-8efa-3ab87f81f9e5
+
+// Dont push tokens from production !!!!
+@authToken = ZxHIwgWpZLyFcaccRfDlA9VqZsWUPxpmLHKxJdwk8qOurlNWr9caQ0dlK85h
+
+@fileName = test.csv
+
+// Uncomment one related hostname
+@hostname = https://127.0.0.1:5000
+#@hostname = https://catalog.elter.cerit-sc.cz/
+#@hostname = https://catalog.elter-ri.eu/
+

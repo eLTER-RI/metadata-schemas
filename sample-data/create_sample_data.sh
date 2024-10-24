@@ -35,7 +35,7 @@ generate_token() {
   local name="$2"
   local -n varname="$3"
 
-  echo $(invenio tokens create -n "$name" -u "$email")
+  varname=$(invenio tokens create -n "$name" -u "$email")
 }
 
 create_record() {
@@ -144,5 +144,17 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
   add_community_member "zenodo" "harvester@lter.com" "submitter"
 
   generate_token "harvester@lter.com" upload-token HARVESTER_UPLOAD_TOKEN
+
+  # export the token for subsequent commands
+  export TOKEN=$HARVESTER_UPLOAD_TOKEN
+
+  create_record sample-data/001.json b2share /tmp/rec.json REC_ID
+  echo "Record id: $REC_ID"
+  publish_record $REC_ID
+
+  create_record sample-data/001_with_files.json b2share /tmp/rec.json REC_ID
+  echo "Record id: $REC_ID"
+  upload_file $REC_ID invenio.cfg
+  publish_record $REC_ID
 
 fi

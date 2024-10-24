@@ -11,6 +11,8 @@ class LterUISchema(UIRequestsSerializationMixin, InvenioUISchema):
     class Meta:
         unknown = ma.RAISE
 
+    external_workflow = ma_fields.Nested(lambda: ExternalWorkflowUISchema())
+
     metadata = ma_fields.Nested(lambda: LterMetadataUISchema())
 
     state = ma_fields.String(dump_only=True)
@@ -301,6 +303,15 @@ class EcosystemUISchema(DictOnlySchema):
     PID = ma_fields.String()
 
     name = ma_fields.String()
+
+
+class ExternalWorkflowUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma_fields.String(data_key="id", attribute="id")
+
+    status = ma_fields.String(validate=[OneOf(["running", "finished", "failed"])])
 
 
 class FilesItemUISchema(DictOnlySchema):

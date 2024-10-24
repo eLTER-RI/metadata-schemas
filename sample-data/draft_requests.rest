@@ -1,0 +1,59 @@
+// Change the draft id
+@draftId =1zmzx-jec05
+@publishSubmitRequestId =df8c75c4-7f25-4a73-864a-6a3715c6eb69
+@requestId=3d4cbe6c-609e-4e69-954f-90e156449aff
+
+// Dont push tokens from production !!!!
+@authToken = p5OKl0HDLOKq0Ly5lDZB4qAYRmqNUiYIZbVeg2yiUEGBLfCCxd0WEi10JHlh
+
+@fileName = test.csv
+
+// Uncomment one related hostname
+@hostname = https://127.0.0.1:5000
+#@hostname = https://catalog.elter.cerit-sc.cz/
+#@hostname = https://catalog.elter-ri.eu/
+
+
+### Get draft info
+GET {{hostname}}/api/lter/{{draftId}}/draft
+Authorization: Bearer {{authToken}}
+
+### Get requests of the draft
+GET {{hostname}}/api/lter/{{draftId}}/draft/requests
+Authorization: Bearer {{authToken}}
+
+### Get applicable requests on draft record
+GET {{hostname}}/api/lter/{{draftId}}/draft/requests/applicable
+Authorization: Bearer {{authToken}}
+
+### Create request of the draft record
+POST {{hostname}}/api/lter/{{draftId}}/draft/requests/publish_draft
+Authorization: Bearer {{authToken}}
+
+### Create PUBLISH request of the draft record
+POST {{hostname}}/api/lter/{{draftId}}/draft/requests/publish_draft
+Authorization: Bearer {{authToken}}
+
+### Submit PUBLISH request
+POST {{hostname}}/api/requests/{{publishSubmitRequestId}}/actions/submit
+Authorization: Bearer {{authToken}}
+
+### Get request status
+GET {{hostname}}/api/requests/extended/{{requestId}}
+Authorization: Bearer {{authToken}}
+
+### Get timeline request status
+GET {{hostname}}/api/requests/extended/{{requestId}}/timeline
+Authorization: Bearer {{authToken}}
+
+### Create comment on workflow - Status
+POST {{hostname}}/api/requests/extended/{{requestId}}/comments
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+### Get Requests for approval
+GET {{hostname}}/api/requests
+Authorization: {{authToken}}
+
+### Delete published record
+# TODO

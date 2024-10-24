@@ -1,5 +1,4 @@
-from invenio_drafts_resources.services import RecordService as InvenioRecordService
+from shared.services.records.service import LterBaseRecordService
 
-
-class LterService(InvenioRecordService):
+class LterService(LterBaseRecordService):
     """LterRecord service."""
