@@ -1,0 +1,48 @@
+- After a pure deployment without init script Invenio needs to be create db tables and its values (and more e.g. admin user with auth token):
+	1. Index and create db:
+		invenio db init && invenio db create && invenio index destroy --yes-i-know && invenio index init && invenio index queue init purge && invenio oarepo cf init && invenio oarepo index reindex
+	3. Create user:
+		invenio users create -a -c admin@elter.com --password thisisadminspassword
+
+	2. Setup role:
+		invenio roles create administrator && invenio roles add admin@elter.com administrator
+
+	3. Create location:
+		invenio files location create default s3://catalog-data --default
+
+	4. Create community and add member:
+		invenio oarepo communities create test TEST
+  		invenio oarepo communities members add test admin@elter.com "owner"
+
+  		Community roles:
+  			- owner - can edit, delete, see, ... do everything on every record
+  			- submitter
+  			- harvester - TODO - can publish non validated records
+
+
+	1. Create admin role + admin user:
+		invenio roles create admin && invenio access allow superuser-access role admin && invenio users create --active --password=secretPassword user@example.com && invenio roles add user@example.com admin
+
+	2. Create token:
+		invenio tokens create -n admin_token -u user@example.com -i
+
+	1. Clean db:
+		invenio db drop --yes-i-know
+
+
+PYCSW:
+	Import:
+		kubectl cp output dar/pycsw-df7bf644d-l5bpx:sample_data
+		pycsw-admin.py load-records -c ../../etc/pycsw/pycsw.yml --path sample_data/output
+
+invenio files location create default s3://invenio_dar --default && invenio oarepo communities create b2share B2SHARE && invenio oarepo communities members add b2share admin@elter.com "owner" && invenio oarepo communities create b2share_juelich B2SHARE_Juelich && invenio oarepo communities members add b2share_juelich admin@elter.com "owner" && invenio oarepo communities create zenodo ZENODO && invenio oarepo communities members add zenodo admin@elter.com "owner" && invenio oarepo communities create elter eLTER && invenio oarepo communities members add elter admin@elter.com "owner"
+
+Localhost:
+invenio users create -a -c admin@elter.com --password testtest && invenio roles create administrator && invenio users create -a -c external@elter.com --password testtest && invenio oarepo communities create test TEST && invenio oarepo communities members add test admin@elter.com "owner" && invenio tokens create -n admin_token -u admin@elter.com -i && invenio oarepo communities members add test external@elter.com "owner" && invenio tokens create -n submit -u external@elter.com -i && invenio users create -a -c harvest@elter.com --password testtest && invenio oarepo communities members add test harvest@elter.com "curator" && invenio tokens create -n submit -u harvest@elter.com -i
+
+Deployment:
+
+invenio users create -a -c external@elter.com --password thisisadminspassword && invenio oarepo communities members add elter external@elter.com "owner" && invenio tokens create -n ingest_token -u external@elter.com -i
+
+invenio users create -a -c creator@elter.com --password elteristhebest && invenio oarepo communities members add elter creator@elter.com "submitter" && invenio tokens create -n create_token -u creator@elter.com -i
+invenio users create -a -c michal@elter.com --password elteristhebest && invenio oarepo communities members add elter michal@elter.com "submitter" && invenio tokens create -n create_token -u michal@elter.com -i
