@@ -1,15 +1,16 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import PropTypes from "prop-types";
 import Overridable from "react-overridable";
 
 import _get from "lodash/get";
 
-import {Grid, Item, Label, Icon} from "semantic-ui-react";
+import {Grid, Item, Label, Icon, Button, Modal} from "semantic-ui-react";
 import {withState, buildUID} from "react-searchkit";
 import {SearchConfigurationContext} from "@js/invenio_search_ui/components";
+import axios from "axios";
 
-import {i18next} from "@translations/i18next";
-import PublishButton from "./components/PublishButton";
+
+// import {i18next} from "@translations/i18next";
 
 
 const stateIcons = {
@@ -73,8 +74,8 @@ export const ResultsListItemComponent = ({
                   href={result.links.self_html}>
                 <Item.Content className="content">
                     <Grid>
-                        <Grid.Row columns={1}>
-                            <Grid.Column className="results-list item-main">
+                        <Grid.Row columns={2}>
+                            <Grid.Column width={13} className="results-list item-main">
                                 <ItemHeader
                                     titles={titles}
                                     state={state}
@@ -97,10 +98,8 @@ export const ResultsListItemComponent = ({
                                     <span>No keywords available</span>
                                 )}
                             </Grid.Column>
-                        </Grid.Row>
-                        <Grid.Row columns={1}>
-                            <Grid.Column>
-                                {state === 'validated' && <PublishButton/>}
+                            <Grid.Column width={3}>
+                                {state === 'validated' && <PublishButton record={result}/>}
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>
@@ -160,4 +159,67 @@ ResultsListItemWithState.defaultProps = {
     currentQueryState: null,
 };
 
+const PublishButton = ({record}) => {
+    const [open, setOpen] = useState(false); // State to control modal visibility
+    const [loading, setLoading] = useState(false); // State to control button loading state
+
+    const draftId = _get(record, "id", "No-Id")
+
+    const handlePublish = async (id) => {
+        setLoading(true);
+        try {
+            const requestInfo = await axios.post(`/api/lter/${draftId}/draft/requests/publish_draft`)
+            const publishRequestId = _get(requestInfo.data, "id", "No Link")
+            await axios.post(`/api/requests/${publishRequestId}/actions/submit`)
+            setOpen(false);
+        } catch (error) {
+            console.error("Error publishing:", error);
+        } finally {
+            setLoading(false);
+            location.reload();
+        }
+    };
+
+    const handlePublishButtonClick = (event) => {
+        event.preventDefault();
+        setOpen(true)
+    }
+
+    return (
+        <div>
+            <Button secondary onClick={(e) => handlePublishButtonClick(e)}>Publish</Button>
+
+            <Modal
+                open={open}
+                onClose={() => setOpen(false)}
+                size="small"
+            >
+                <Modal.Header>Confirm Publish</Modal.Header>
+                <Modal.Content>
+                    <p>Are you sure you want to publish the draft ?</p>
+                </Modal.Content>
+                <Modal.Actions>
+                    <Button onClick={() => setOpen(false)} disabled={loading}>
+                        Cancel
+                    </Button>
+                    <Button
+                        color="green"
+                        onClick={() => handlePublish(draftId)}
+                        loading={loading}
+                        disabled={loading}
+                    >
+                        Confirm Publish
+                    </Button>
+                </Modal.Actions>
+            </Modal>
+        </div>
+    );
+};
+
+// Define PropTypes
+PublishButton.propTypes = {
+    record: PropTypes.object,
+};
+
 export default ResultsListItemWithState;
+

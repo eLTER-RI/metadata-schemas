@@ -116,6 +116,11 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
                         className="search-app"
                     >
                         <Grid.Row>
+                            <Grid.Column floated="right">
+                                <Button secondary fluid href="/lter/_new" >Create asset</Button>
+                            </Grid.Column>
+                        </Grid.Row>
+                        <Grid.Row>
                             <Grid.Column only="computer" width={4}/>
                             <Grid.Column {...resultsPaneLayout}>
                                 <SearchBar buildUID={buildUID} appName={appName}/>
