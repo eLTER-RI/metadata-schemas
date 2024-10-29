@@ -2,6 +2,10 @@
 
 {% extends "oarepo_ui/form.html" %}
 
+{%- block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="https://unpkg.com/react-datepicker/dist/react-datepicker.css">
+{%- endblock %}
 
 {%- block javascript %}
     <script src="https://dataspace.elter-ri.eu/static-data-dev/tailwind.js"></script>
