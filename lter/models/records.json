@@ -137,11 +137,12 @@
         "facets": {
             "facet-groups": {
                 "default": {
-                    "metadata.dataLevel": 1,
-                    "metadata.keywords.name": 2,
-                    "metadata.datasetIds.sourceName": 3,
-                    "metadata.siteReference.name": 4,
-                    "metadata.SOReference.name": 5
+                    "state": 1,
+                    "metadata.dataLevel": 2,
+                    "metadata.keywords.name": 3,
+                    "metadata.datasetIds.sourceName": 4,
+                    "metadata.siteReference.name": 5,
+                    "metadata.SOReference.name": 6
                 }
             },
             "generate": true,
@@ -1867,8 +1868,8 @@
             "substring_search_field": {
                 "type": "fulltext",
                 "mapping": {
-                    "analyzer": "substring",
-                    "type": "text"
+                    "type": "text",
+                    "analyzer": "substring"
                 },
                 "marshmallow": {
                     "read": false,

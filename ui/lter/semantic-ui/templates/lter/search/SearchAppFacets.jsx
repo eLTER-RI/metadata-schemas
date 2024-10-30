@@ -18,11 +18,11 @@ const SearchAppFacets = ({ aggs }) => {
       <div className="facet-list">
         <Accordion exclusive={false} className="facets-accordion">
           {aggs.map((agg) => (
-            <BucketAggregation
-              key={agg.aggName}
-              title={agg.title}
-              agg={agg}
-            />
+                agg.aggName !== 'state' && <BucketAggregation
+                    key={agg.aggName}
+                    title={agg.title}
+                    agg={agg}
+                />
           ))}
         </Accordion>
       </div>
