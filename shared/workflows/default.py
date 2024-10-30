@@ -78,6 +78,7 @@ class DefaultWorkflowPermissions(CommunityDefaultWorkflowPermissions):
             IfInState("draft", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
             IfInState("error", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
             IfInState("validated", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
+            IfInState("running", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
             IfInState("published", then_=[RecordOwners(), PrimaryCommunityRole("owner")]), #TODO Remove this permission in future
     ] + CommunityDefaultWorkflowPermissions.can_delete
 

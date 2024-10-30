@@ -29,10 +29,12 @@ class ExternalWorkflowSubmitAction(OARepoSubmitAction):
         }
         headers = get_ingest_headers()
         hostname = current_app.config['INGEST_API_HOSTNAME']
-        # TODO Store cluster workflow template Id in the metadata 'simple-dag'
-        response = requests.post(f"{hostname}/api/v1/ingest/batch/simple/basic-ingest", json=data, headers=headers)
-        response.raise_for_status()
-        return response
+        dev = current_app.config['DEV']
+        if not dev:
+            # TODO Store cluster workflow template Id in the metadata 'simple-dag'
+            response = requests.post(f"{hostname}/api/v1/ingest/batch/simple/basic-ingest", json=data, headers=headers)
+            response.raise_for_status()
+            return response
 
 
 class ExternalWorkflowDeclineAction(OARepoDeclineAction):

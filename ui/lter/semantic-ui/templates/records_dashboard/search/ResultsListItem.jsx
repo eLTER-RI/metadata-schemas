@@ -4,7 +4,7 @@ import Overridable from "react-overridable";
 
 import _get from "lodash/get";
 
-import {Grid, Item, Label, Icon, Button, Modal} from "semantic-ui-react";
+import {Grid, Item, Label, Icon, Button, Modal, Loader, Popup} from "semantic-ui-react";
 import {withState, buildUID} from "react-searchkit";
 import {SearchConfigurationContext} from "@js/invenio_search_ui/components";
 import axios from "axios";
@@ -16,17 +16,22 @@ import axios from "axios";
 const stateIcons = {
     validated: {name: 'check circle', color: 'green'},
     error: {name: 'times circle', color: 'red'},
-    queued: {name: 'question circle', color: 'blue'},
-    draft: {name: 'question circle', color: 'blue'}
+    draft: {name: 'question circle', color: 'blue'},
+    published: {name: 'globe', color: 'blue'}
 };
 
 const ItemHeader = ({titles, state, viewLink}) => {
-
     const iconProps = stateIcons[state] || {};
 
     return (
-        <Item.Header as="h2">
-            {iconProps.name && <Icon {...iconProps} />}
+        <Item.Header>
+            <Popup content={state} trigger={
+                state === 'running' ? (
+                    <Loader active inline size="mini" indeterminate/>
+                ) : (
+                    iconProps.name && <Icon {...iconProps} aria-label={state}/>
+                )
+            }/>
             <a href={viewLink}>{titles[0].text}</a>
         </Item.Header>
     );
@@ -74,8 +79,8 @@ export const ResultsListItemComponent = ({
                   href={result.links.self_html}>
                 <Item.Content className="content">
                     <Grid>
-                        <Grid.Row columns={2}>
-                            <Grid.Column width={13} className="results-list item-main">
+                        <Grid.Row columns={3}>
+                            <Grid.Column width={12} className="results-list item-main">
                                 <ItemHeader
                                     titles={titles}
                                     state={state}
@@ -98,8 +103,11 @@ export const ResultsListItemComponent = ({
                                     <span>No keywords available</span>
                                 )}
                             </Grid.Column>
-                            <Grid.Column width={3}>
+                            <Grid.Column width={2}>
                                 {state === 'validated' && <PublishButton record={result}/>}
+                            </Grid.Column>
+                            <Grid.Column width={2}>
+                                {!['published'].includes(state) && <DeleteButton record={result}/> }
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>
@@ -165,7 +173,7 @@ const PublishButton = ({record}) => {
 
     const draftId = _get(record, "id", "No-Id")
 
-    const handlePublish = async (id) => {
+    const handlePublish = async () => {
         setLoading(true);
         try {
             const requestInfo = await axios.post(`/api/lter/${draftId}/draft/requests/publish_draft`)
@@ -187,7 +195,7 @@ const PublishButton = ({record}) => {
 
     return (
         <div>
-            <Button secondary onClick={(e) => handlePublishButtonClick(e)}>Publish</Button>
+            <Button fluid secondary onClick={(e) => handlePublishButtonClick(e)}>Publish</Button>
 
             <Modal
                 open={open}
@@ -218,8 +226,68 @@ const PublishButton = ({record}) => {
 
 // Define PropTypes
 PublishButton.propTypes = {
-    record: PropTypes.object,
+    record: PropTypes.object.required,
 };
+
+const DeleteButton = ({ record }) => {
+    const [open, setOpen] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    const draftId = _get(record, "id", "No-Id");
+
+    const handleDelete = async (id) => {
+        setLoading(true);
+        try {
+            await axios.delete(`/api/lter/${draftId}/draft`);
+            setOpen(false);
+        } catch (error) {
+            console.error("Error deleting:", error);
+        } finally {
+            setLoading(false);
+            location.reload();
+        }
+    };
+
+    const handleDeleteButtonClick = (event) => {
+        event.preventDefault();
+        setOpen(true);
+    };
+
+    return (
+        <div>
+            <Button fluid negative onClick={(e) => handleDeleteButtonClick(e)}>Delete</Button>
+
+            <Modal
+                open={open}
+                onClose={() => setOpen(false)}
+                size="small"
+            >
+                <Modal.Header>Confirm Delete</Modal.Header>
+                <Modal.Content>
+                    <p>Are you sure you want to delete this draft? This action cannot be undone.</p>
+                </Modal.Content>
+                <Modal.Actions>
+                    <Button onClick={() => setOpen(false)} disabled={loading}>
+                        Cancel
+                    </Button>
+                    <Button
+                        color="red"
+                        onClick={() => handleDelete(draftId)}
+                        loading={loading}
+                        disabled={loading}
+                    >
+                        Confirm Delete
+                    </Button>
+                </Modal.Actions>
+            </Modal>
+        </div>
+    );
+};
+
+DeleteButton.propTypes = {
+    record: PropTypes.object.required,
+};
+
 
 export default ResultsListItemWithState;
 

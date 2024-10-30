@@ -52,6 +52,7 @@ class LterServiceConfig(
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
+        LterComponent,
         CommunityDefaultWorkflowComponent,
         CommunityInclusionComponent,
         OwnersComponent,
@@ -59,7 +60,6 @@ class LterServiceConfig(
         FilesComponent,
         CustomFieldsComponent,
         WorkflowComponent,
-        LterComponent,
     ]
 
     model = "lter"

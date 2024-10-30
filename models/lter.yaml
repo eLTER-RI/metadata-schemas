@@ -50,13 +50,15 @@ record:
             write: false
 
   # system fields
+
+  service-config:
+    components:
+      - "{{shared.services.components.lter_component.LterComponent}}"
+  service:
+    base-classes:
+      - shared.services.records.service.LterBaseRecordService
+
   record:
-    service-config:
-      "extend:components":
-        - shared.services.components.lter_component.LterComponent
-    service:
-      base-classes:
-        - shared.services.records.service.LterBaseRecordService
     fields:
       external_workflow: "{{invenio_records.systemfields.dict.DictField}}()"
 

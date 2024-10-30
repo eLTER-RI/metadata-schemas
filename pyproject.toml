@@ -82,7 +82,6 @@ lter = "shared.resources:lter_serializers"
 [project.entry-points."invenio_requests.types"]
 run_external_workflow = "shared.requests.external_workflow:ExternalWorkflowRequestType"
 
-
 [project.optional-dependencies]
 tests = [
     "pytest-invenio>=1.4.11",
