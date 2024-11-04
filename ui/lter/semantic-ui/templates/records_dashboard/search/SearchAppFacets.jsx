@@ -18,7 +18,6 @@ const SearchAppFacets = ({aggs}) => {
             <div className="facet-list">
                 <Accordion exclusive={false} className="facets-accordion">
                     {aggs.map((agg) => {
-                        console.log(agg);
                         return (
                             <BucketAggregation
                                 key={agg.aggName}

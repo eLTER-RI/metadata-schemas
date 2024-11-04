@@ -65,8 +65,6 @@ export const ResultsListItemComponent = ({
 
     const state = _get(result, "state")
 
-    console.log(state)
-
     return (
         <Overridable
             id={buildUID("RecordsResultsListItem.layout", "", appName)}
