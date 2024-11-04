@@ -3,12 +3,13 @@
 {%- extends "invenio_theme/frontpage.html" %}
 
 {# TODO (UI): prepare a proper initial title page !!! #}
-{%- if current_user.is_authenticated %}
-    {%- block javascript %}
+{%- block javascript %}
+    {{ super() }}
+    {%- if current_user.is_authenticated %}
         <script src="https://dataspace.elter-ri.eu/static-data-dev/tailwind.js"></script>
         <script type="module" src="https://dataspace.elter-ri.eu/static-data-dev/page.js"></script>
-    {%- endblock %}
-{%- endif %}
+    {%- endif %}
+{%- endblock %}
 
 {%- block page_header %}
     {% include "header.html" %}
