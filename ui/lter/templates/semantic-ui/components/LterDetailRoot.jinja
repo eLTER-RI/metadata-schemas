@@ -1,4 +1,4 @@
-{# def md, search_link #}
+{# def md, context, search_link #}
 
 {% set ns = namespace(abstract_description = None, other_descriptions = []) %}
 
@@ -111,5 +111,5 @@
             </AccordionField>
         {% endfor %}
     {% endif %}
-    <Files files={md.files}></Files>
+    <Files files={context.files} external_files={md.files}></Files>
 </table>
