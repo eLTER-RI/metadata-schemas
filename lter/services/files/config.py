@@ -10,7 +10,7 @@ from shared.services.files.config import ELterServiceConfig
 class LterFileServiceConfig(ELterServiceConfig):
     """LterRecord service config."""
 
-    PERMISSIONS_PRESETS = ["everyone"]
+    PERMISSIONS_PRESETS = ["workflow"]
 
     url_prefix = "/lter/<pid_value>"
 
@@ -48,7 +48,7 @@ class LterFileServiceConfig(ELterServiceConfig):
 class LterFileDraftServiceConfig(ELterServiceConfig):
     """LterDraft service config."""
 
-    PERMISSIONS_PRESETS = ["everyone"]
+    PERMISSIONS_PRESETS = ["workflow"]
 
     url_prefix = "/lter/<pid_value>/draft"
 

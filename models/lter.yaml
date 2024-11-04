@@ -84,6 +84,8 @@ record:
 
 
   files:
+    use:
+    - invenio_files
     resource:
       base-classes: [ oarepo_ui.resources.file_resource.S3RedirectFileResource ]
     properties: {}

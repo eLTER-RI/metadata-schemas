@@ -29,6 +29,10 @@ metadata_additionalMetadata_name = NestedLabeledFacet(
     ),
 )
 
+metadata_assetType = TermsFacet(
+    field="metadata.assetType", label=_("metadata/assetType.label")
+)
+
 metadata_authors_email = TermsFacet(
     field="metadata.authors.email", label=_("metadata/authors/email.label")
 )

@@ -30,6 +30,22 @@ class LterMetadataUISchema(Schema):
         ma_fields.Nested(lambda: AdditionalMetadataItemUISchema())
     )
 
+    assetType = ma_fields.String(
+        validate=[
+            OneOf(
+                [
+                    "SOATM_027",
+                    "SOBIO_017",
+                    "SOBIO_096",
+                    "SOGEO_001",
+                    "SOHYD_004",
+                    "SOHYD_168",
+                    "NotSpecified",
+                ]
+            )
+        ]
+    )
+
     authors = ma_fields.List(ma_fields.Nested(lambda: AuthorsItemUISchema()))
 
     contributors = ma_fields.List(ma_fields.Nested(lambda: ContributorsItemUISchema()))

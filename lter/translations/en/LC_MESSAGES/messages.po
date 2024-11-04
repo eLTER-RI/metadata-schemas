@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-10-30T13:50:26.119780\n"
-"PO-Revision-Date: 2024-10-30T13:50:26.119798\n"
+"POT-Creation-Date: 2024-11-04T08:31:38.540611\n"
+"PO-Revision-Date: 2024-11-04T08:31:38.540620\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -132,6 +132,36 @@ msgid "metadata/additionalMetadata/value.label"
 msgstr ""
 
 msgid "metadata/additionalMetadata/value.hint"
+msgstr ""
+
+msgid "metadata/assetType.help"
+msgstr ""
+
+msgid "metadata/assetType.label"
+msgstr ""
+
+msgid "metadata/assetType.hint"
+msgstr ""
+
+msgid "metadata/assetType.enum.SOATM_027"
+msgstr ""
+
+msgid "metadata/assetType.enum.SOBIO_017"
+msgstr ""
+
+msgid "metadata/assetType.enum.SOBIO_096"
+msgstr ""
+
+msgid "metadata/assetType.enum.SOGEO_001"
+msgstr ""
+
+msgid "metadata/assetType.enum.SOHYD_004"
+msgstr ""
+
+msgid "metadata/assetType.enum.SOHYD_168"
+msgstr ""
+
+msgid "metadata/assetType.enum.NotSpecified"
 msgstr ""
 
 msgid "metadata/authors.label"

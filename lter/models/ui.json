@@ -120,6 +120,15 @@
                         }
                     }
                 },
+                "assetType": {
+                    "detail": "keyword",
+                    "input": "keyword",
+                    "help": "metadata/assetType.help",
+                    "label": "metadata/assetType.label",
+                    "hint": "metadata/assetType.hint",
+                    "enum": "metadata/assetType.enum",
+                    "facet": "metadata_assetType"
+                },
                 "authors": {
                     "detail": "array",
                     "input": "array",
