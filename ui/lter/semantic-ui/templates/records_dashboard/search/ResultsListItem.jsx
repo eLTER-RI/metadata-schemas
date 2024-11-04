@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import PropTypes from "prop-types";
 import Overridable from "react-overridable";
 
@@ -7,8 +7,7 @@ import _get from "lodash/get";
 import {Grid, Item, Label, Icon, Button, Modal, Loader, Popup} from "semantic-ui-react";
 import {withState, buildUID} from "react-searchkit";
 import {SearchConfigurationContext} from "@js/invenio_search_ui/components";
-import axios from "axios";
-import {DeleteButton, PublishButton} from "./components/ActionButtons";
+import {ActionButton, PublishButton} from "./components/ActionButtons";
 
 
 // import {i18next} from "@translations/i18next";
@@ -76,12 +75,11 @@ export const ResultsListItemComponent = ({
             state={state}
             {...rest}
         >
-            <Item data-testid="directions" key={result.id} className="search-listing-item"
-                  href={result.links.self_html}>
+            <Item data-testid="directions" key={result.id} className="search-listing-item">
                 <Item.Content className="content">
                     <Grid>
                         <Grid.Row columns={3}>
-                            <Grid.Column width={12} className="results-list item-main">
+                            <Grid.Column width={11} className="results-list item-main">
                                 <ItemHeader
                                     titles={titles}
                                     state={state}
@@ -107,8 +105,8 @@ export const ResultsListItemComponent = ({
                             <Grid.Column width={2}>
                                 {state === 'validated' && <PublishButton record={result}/>}
                             </Grid.Column>
-                            <Grid.Column width={2}>
-                                {!['published'].includes(state) && <DeleteButton record={result}/> }
+                            <Grid.Column width={3}>
+                                {!['published'].includes(state) && <ActionButton record={result}/> }
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>
