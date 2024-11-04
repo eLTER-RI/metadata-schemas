@@ -231,3 +231,45 @@ export const ExternalWorkflowButton = ({record}) => {
         </>
     )
 }
+
+export const CreateAssetButton = () => {
+    const [open, setOpen] = useState(false);
+
+    const handleCreateButtonClick = async () => {
+        setOpen(false);
+    }
+
+    const handleButtonClick = (event) => {
+        event.preventDefault();
+        setOpen(true);
+    }
+
+    return (
+        <>
+            <Button fluid secondary onClick={handleButtonClick}>Create asset</Button>
+
+            <Modal
+                open={open}
+                onClose={() => setOpen(false)}
+                size="small"
+            >
+                <Modal.Header>Confirm creating a new draft record</Modal.Header>
+                <Modal.Content>
+                    <p>This action will create a new draft record. Do you want to continue?</p>
+                </Modal.Content>
+                <Modal.Actions>
+                    <Button onClick={() => setOpen(false)}>
+                        Cancel
+                    </Button>
+                    <Button
+                        color="green"
+                        href={'/lter/_new'}
+                        onClick={() => handleCreateButtonClick()}
+                    >
+                        Confirm create
+                    </Button>
+                </Modal.Actions>
+            </Modal>
+        </>
+    )
+}
