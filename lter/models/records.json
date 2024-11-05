@@ -710,7 +710,7 @@
                     "skip": true
                 }
             },
-            "external_workflow": {
+            "externalWorkflow": {
                 "type": "object",
                 "marshmallow": {
                     "generate": true,
@@ -723,26 +723,47 @@
                     }
                 },
                 "properties": {
-                    "id": {
-                        "type": "keyword",
-                        "marshmallow": {
-                            "read": true,
-                            "write": false
-                        },
-                        "label.en": "ID of the external workflow"
+                    "defaultWorkflowTemplateId": {
+                        "type": "keyword"
                     },
-                    "status": {
-                        "type": "keyword",
-                        "marshmallow": {
-                            "read": true,
-                            "write": false
-                        },
-                        "enum": [
-                            "running",
-                            "finished",
-                            "failed"
-                        ],
-                        "label.en": "Status of the execution of external workflow"
+                    "history": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "marshmallow": {
+                                "read": true,
+                                "write": false,
+                                "generate": true,
+                                "class": "lter.services.records.schema.HistoryItemSchema"
+                            },
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": true,
+                                    "class": "lter.services.records.ui_schema.HistoryItemUISchema"
+                                }
+                            },
+                            "properties": {
+                                "date": {
+                                    "type": "datetime"
+                                },
+                                "status": {
+                                    "type": "keyword",
+                                    "enum": [
+                                        "Running",
+                                        "Accepted",
+                                        "Declined",
+                                        "Canceled",
+                                        "Error"
+                                    ]
+                                },
+                                "workflowHandle": {
+                                    "type": "keyword"
+                                },
+                                "workflowTemplateId": {
+                                    "type": "keyword"
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -839,18 +860,6 @@
                                 }
                             }
                         }
-                    },
-                    "assetType": {
-                        "type": "keyword",
-                        "enum": [
-                            "SOATM_027",
-                            "SOBIO_017",
-                            "SOBIO_096",
-                            "SOGEO_001",
-                            "SOHYD_004",
-                            "SOHYD_168",
-                            "NotSpecified"
-                        ]
                     },
                     "authors": {
                         "type": "array",

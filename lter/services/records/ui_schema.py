@@ -4,14 +4,18 @@ from marshmallow import fields as ma_fields
 from marshmallow.validate import OneOf
 from oarepo_requests.services.ui_schema import UIRequestsSerializationMixin
 from oarepo_runtime.services.schema.marshmallow import DictOnlySchema
-from oarepo_runtime.services.schema.ui import InvenioUISchema, LocalizedDate
+from oarepo_runtime.services.schema.ui import (
+    InvenioUISchema,
+    LocalizedDate,
+    LocalizedDateTime,
+)
 
 
 class LterUISchema(UIRequestsSerializationMixin, InvenioUISchema):
     class Meta:
         unknown = ma.RAISE
 
-    external_workflow = ma_fields.Nested(lambda: ExternalWorkflowUISchema())
+    externalWorkflow = ma_fields.Nested(lambda: ExternalWorkflowUISchema())
 
     metadata = ma_fields.Nested(lambda: LterMetadataUISchema())
 
@@ -28,22 +32,6 @@ class LterMetadataUISchema(Schema):
 
     additionalMetadata = ma_fields.List(
         ma_fields.Nested(lambda: AdditionalMetadataItemUISchema())
-    )
-
-    assetType = ma_fields.String(
-        validate=[
-            OneOf(
-                [
-                    "SOATM_027",
-                    "SOBIO_017",
-                    "SOBIO_096",
-                    "SOGEO_001",
-                    "SOHYD_004",
-                    "SOHYD_168",
-                    "NotSpecified",
-                ]
-            )
-        ]
     )
 
     authors = ma_fields.List(ma_fields.Nested(lambda: AuthorsItemUISchema()))
@@ -203,6 +191,15 @@ class EXBoundingPolygonItemUISchema(DictOnlySchema):
     )
 
 
+class ExternalWorkflowUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    defaultWorkflowTemplateId = ma_fields.String()
+
+    history = ma_fields.List(ma_fields.Nested(lambda: HistoryItemUISchema()))
+
+
 class FeaturesUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -321,15 +318,6 @@ class EcosystemUISchema(DictOnlySchema):
     name = ma_fields.String()
 
 
-class ExternalWorkflowUISchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    _id = ma_fields.String(data_key="id", attribute="id")
-
-    status = ma_fields.String(validate=[OneOf(["running", "finished", "failed"])])
-
-
 class FilesItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -343,6 +331,21 @@ class FilesItemUISchema(DictOnlySchema):
     size = ma_fields.String()
 
     sourceUrl = ma_fields.String()
+
+
+class HistoryItemUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    date = LocalizedDateTime()
+
+    status = ma_fields.String(
+        validate=[OneOf(["Running", "Accepted", "Declined", "Canceled", "Error"])]
+    )
+
+    workflowHandle = ma_fields.String()
+
+    workflowTemplateId = ma_fields.String()
 
 
 class IdsItemUISchema(DictOnlySchema):

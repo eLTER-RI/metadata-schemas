@@ -8,14 +8,32 @@
             "type": "string",
             "format": "date-time"
         },
-        "external_workflow": {
+        "externalWorkflow": {
             "type": "object",
             "properties": {
-                "id": {
+                "defaultWorkflowTemplateId": {
                     "type": "string"
                 },
-                "status": {
-                    "type": "string"
+                "history": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "date": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "status": {
+                                "type": "string"
+                            },
+                            "workflowHandle": {
+                                "type": "string"
+                            },
+                            "workflowTemplateId": {
+                                "type": "string"
+                            }
+                        }
+                    }
                 }
             }
         },
@@ -49,9 +67,6 @@
                             }
                         }
                     }
-                },
-                "assetType": {
-                    "type": "string"
                 },
                 "authors": {
                     "type": "array",

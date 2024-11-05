@@ -19,12 +19,14 @@ class LterSearchOptions(I18nSearchOptions):
     }
 
     facets = {
-        "external_workflow_id": facets.external_workflow_id,
-        "external_workflow_status": facets.external_workflow_status,
+        "externalWorkflow_defaultWorkflowTemplateId": facets.externalWorkflow_defaultWorkflowTemplateId,
+        "externalWorkflow_history_date": facets.externalWorkflow_history_date,
+        "externalWorkflow_history_status": facets.externalWorkflow_history_status,
+        "externalWorkflow_history_workflowHandle": facets.externalWorkflow_history_workflowHandle,
+        "externalWorkflow_history_workflowTemplateId": facets.externalWorkflow_history_workflowTemplateId,
         "metadata_SOReference_name": facets.metadata_SOReference_name,
         "metadata_SOReference_url": facets.metadata_SOReference_url,
         "metadata_additionalMetadata_name": facets.metadata_additionalMetadata_name,
-        "metadata_assetType": facets.metadata_assetType,
         "metadata_authors_email": facets.metadata_authors_email,
         "metadata_authors_familyName": facets.metadata_authors_familyName,
         "metadata_authors_fullName": facets.metadata_authors_fullName,

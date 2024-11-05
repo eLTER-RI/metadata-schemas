@@ -1,5 +1,44 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import axios from 'axios';
+
+// Not used - probably in the future ?
+export const useCreateDraft = () => {
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [response, setResponse] = useState(null)
+
+    const createDraft = async (metadata) => {
+        setLoading(true);
+        setError(null);
+        try {
+            let data = {
+                "files": {
+                    "enabled": true
+                },
+                "parent": {
+                    "communities": {
+                        "default": "elter"
+                    }
+                },
+                "metadata": {}
+            }
+            if (metadata) {
+                data = metadata
+            }
+            const res = await axios.post("/api/lter", data, {
+                headers: {
+                    "Content-Type": 'application/json'
+                }
+            })
+            setResponse(response.data)
+        } catch (err) {
+            setError(err)
+            console.log(err)
+        } finally {
+            setLoading(false);
+        }
+    }
+}
 
 export const useDeleteDraft = (draftId) => {
     const [loading, setLoading] = useState(false);
@@ -18,7 +57,7 @@ export const useDeleteDraft = (draftId) => {
         }
     };
 
-    return { deleteDraft, loading, error };
+    return {deleteDraft, loading, error};
 };
 
 export const usePublishDraft = (draftId) => {
@@ -40,7 +79,7 @@ export const usePublishDraft = (draftId) => {
         }
     };
 
-    return { publishDraft, loading, error };
+    return {publishDraft, loading, error};
 };
 
 export const useRunExternalWorkflow = (draftId) => {
@@ -62,5 +101,5 @@ export const useRunExternalWorkflow = (draftId) => {
         }
     };
 
-    return { runExternalWorkflow, loading, error };
+    return {runExternalWorkflow, loading, error};
 };

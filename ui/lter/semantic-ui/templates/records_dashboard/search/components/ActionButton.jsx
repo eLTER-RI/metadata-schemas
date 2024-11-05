@@ -12,9 +12,8 @@ export const ActionButton = ({record}) => {
 
     return (
         <Dropdown
-            fluid
-            text={'Action Menu'}
-            icon="caret down"
+            text={'Actions'}
+            icon="list"
             floating
             labeled
             button

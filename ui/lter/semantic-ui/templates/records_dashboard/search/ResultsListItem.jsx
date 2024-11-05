@@ -10,6 +10,8 @@ import {SearchConfigurationContext} from "@js/invenio_search_ui/components";
 import {ActionButton} from "./components/ActionButton";
 import {PublishButton} from "./components/PublishButton";
 
+import { useMediaQuery } from 'react-responsive';
+
 
 // import {i18next} from "@translations/i18next";
 
@@ -66,6 +68,8 @@ export const ResultsListItemComponent = ({
 
     const state = _get(result, "state")
 
+     const isLargeScreen = useMediaQuery({ minWidth: 2560 });
+
     return (
         <Overridable
             id={buildUID("RecordsResultsListItem.layout", "", appName)}
@@ -78,7 +82,7 @@ export const ResultsListItemComponent = ({
                 <Item.Content className="content">
                     <Grid>
                         <Grid.Row columns={3}>
-                            <Grid.Column width={11} className="results-list item-main">
+                            <Grid.Column width={isLargeScreen ? 13 : 12} className="results-list item-main">
                                 <ItemHeader
                                     titles={titles}
                                     state={state}
@@ -104,7 +108,7 @@ export const ResultsListItemComponent = ({
                             <Grid.Column width={2}>
                                 {state === 'validated' && <PublishButton record={result}/>}
                             </Grid.Column>
-                            <Grid.Column width={3}>
+                            <Grid.Column width={isLargeScreen ? 1 : 2}>
                                 {!['published'].includes(state) && <ActionButton record={result}/> }
                             </Grid.Column>
                         </Grid.Row>

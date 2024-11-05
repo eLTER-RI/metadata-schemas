@@ -22,29 +22,69 @@
             "label": "created.label",
             "hint": "created.hint"
         },
-        "external_workflow": {
+        "externalWorkflow": {
             "detail": false,
             "input": false,
-            "help": "external_workflow.help",
-            "label": "external_workflow.label",
-            "hint": "external_workflow.hint",
+            "help": "externalWorkflow.help",
+            "label": "externalWorkflow.label",
+            "hint": "externalWorkflow.hint",
             "children": {
-                "id": {
+                "defaultWorkflowTemplateId": {
                     "detail": "keyword",
                     "input": "keyword",
-                    "help": "external_workflow/id.help",
-                    "label": "external_workflow/id.label",
-                    "hint": "external_workflow/id.hint",
-                    "facet": "external_workflow_id"
+                    "help": "externalWorkflow/defaultWorkflowTemplateId.help",
+                    "label": "externalWorkflow/defaultWorkflowTemplateId.label",
+                    "hint": "externalWorkflow/defaultWorkflowTemplateId.hint",
+                    "facet": "externalWorkflow_defaultWorkflowTemplateId"
                 },
-                "status": {
-                    "detail": "keyword",
-                    "input": "keyword",
-                    "help": "external_workflow/status.help",
-                    "label": "external_workflow/status.label",
-                    "hint": "external_workflow/status.hint",
-                    "enum": "external_workflow/status.enum",
-                    "facet": "external_workflow_status"
+                "history": {
+                    "detail": "array",
+                    "input": "array",
+                    "help": "externalWorkflow/history.help",
+                    "label": "externalWorkflow/history.label",
+                    "hint": "externalWorkflow/history.hint",
+                    "child": {
+                        "detail": false,
+                        "input": false,
+                        "help": "externalWorkflow/history.help",
+                        "label": "externalWorkflow/history.label",
+                        "hint": "externalWorkflow/history.hint",
+                        "children": {
+                            "date": {
+                                "detail": "datetime",
+                                "input": "datetime",
+                                "help": "externalWorkflow/history/date.help",
+                                "label": "externalWorkflow/history/date.label",
+                                "hint": "externalWorkflow/history/date.hint",
+                                "facet": "externalWorkflow_history_date"
+                            },
+                            "status": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "externalWorkflow/history/status.help",
+                                "label": "externalWorkflow/history/status.label",
+                                "hint": "externalWorkflow/history/status.hint",
+                                "enum": "externalWorkflow/history/status.enum",
+                                "facet": "externalWorkflow_history_status"
+                            },
+                            "workflowHandle": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "externalWorkflow/history/workflowHandle.help",
+                                "label": "externalWorkflow/history/workflowHandle.label",
+                                "hint": "externalWorkflow/history/workflowHandle.hint",
+                                "facet": "externalWorkflow_history_workflowHandle"
+                            },
+                            "workflowTemplateId": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "externalWorkflow/history/workflowTemplateId.help",
+                                "label": "externalWorkflow/history/workflowTemplateId.label",
+                                "hint": "externalWorkflow/history/workflowTemplateId.hint",
+                                "facet": "externalWorkflow_history_workflowTemplateId"
+                            }
+                        }
+                    }
                 }
             }
         },
@@ -119,15 +159,6 @@
                             }
                         }
                     }
-                },
-                "assetType": {
-                    "detail": "keyword",
-                    "input": "keyword",
-                    "help": "metadata/assetType.help",
-                    "label": "metadata/assetType.label",
-                    "hint": "metadata/assetType.hint",
-                    "enum": "metadata/assetType.enum",
-                    "facet": "metadata_assetType"
                 },
                 "authors": {
                     "detail": "array",

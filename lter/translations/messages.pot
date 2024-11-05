@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-11-04T08:31:38.540642\n"
-"PO-Revision-Date: 2024-11-04T08:31:38.540644\n"
+"POT-Creation-Date: 2024-11-05T13:20:21.771232\n"
+"PO-Revision-Date: 2024-11-05T13:20:21.771235\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,40 +26,82 @@ msgstr ""
 msgid "created.hint"
 msgstr ""
 
-msgid "external_workflow.help"
+msgid "externalWorkflow.help"
 msgstr ""
 
-msgid "external_workflow.label"
+msgid "externalWorkflow.label"
 msgstr ""
 
-msgid "external_workflow.hint"
+msgid "externalWorkflow.hint"
 msgstr ""
 
-msgid "external_workflow/id.label"
+msgid "externalWorkflow/defaultWorkflowTemplateId.help"
 msgstr ""
 
-msgid "external_workflow/id.help"
+msgid "externalWorkflow/defaultWorkflowTemplateId.label"
 msgstr ""
 
-msgid "external_workflow/id.hint"
+msgid "externalWorkflow/defaultWorkflowTemplateId.hint"
 msgstr ""
 
-msgid "external_workflow/status.label"
+msgid "externalWorkflow/history.help"
 msgstr ""
 
-msgid "external_workflow/status.help"
+msgid "externalWorkflow/history.label"
 msgstr ""
 
-msgid "external_workflow/status.hint"
+msgid "externalWorkflow/history.hint"
 msgstr ""
 
-msgid "external_workflow/status.enum.running"
+msgid "externalWorkflow/history/date.help"
 msgstr ""
 
-msgid "external_workflow/status.enum.finished"
+msgid "externalWorkflow/history/date.label"
 msgstr ""
 
-msgid "external_workflow/status.enum.failed"
+msgid "externalWorkflow/history/date.hint"
+msgstr ""
+
+msgid "externalWorkflow/history/status.help"
+msgstr ""
+
+msgid "externalWorkflow/history/status.label"
+msgstr ""
+
+msgid "externalWorkflow/history/status.hint"
+msgstr ""
+
+msgid "externalWorkflow/history/status.enum.Running"
+msgstr ""
+
+msgid "externalWorkflow/history/status.enum.Accepted"
+msgstr ""
+
+msgid "externalWorkflow/history/status.enum.Declined"
+msgstr ""
+
+msgid "externalWorkflow/history/status.enum.Canceled"
+msgstr ""
+
+msgid "externalWorkflow/history/status.enum.Error"
+msgstr ""
+
+msgid "externalWorkflow/history/workflowHandle.help"
+msgstr ""
+
+msgid "externalWorkflow/history/workflowHandle.label"
+msgstr ""
+
+msgid "externalWorkflow/history/workflowHandle.hint"
+msgstr ""
+
+msgid "externalWorkflow/history/workflowTemplateId.help"
+msgstr ""
+
+msgid "externalWorkflow/history/workflowTemplateId.label"
+msgstr ""
+
+msgid "externalWorkflow/history/workflowTemplateId.hint"
 msgstr ""
 
 msgid "id.help"
@@ -132,36 +174,6 @@ msgid "metadata/additionalMetadata/value.label"
 msgstr ""
 
 msgid "metadata/additionalMetadata/value.hint"
-msgstr ""
-
-msgid "metadata/assetType.help"
-msgstr ""
-
-msgid "metadata/assetType.label"
-msgstr ""
-
-msgid "metadata/assetType.hint"
-msgstr ""
-
-msgid "metadata/assetType.enum.SOATM_027"
-msgstr ""
-
-msgid "metadata/assetType.enum.SOBIO_017"
-msgstr ""
-
-msgid "metadata/assetType.enum.SOBIO_096"
-msgstr ""
-
-msgid "metadata/assetType.enum.SOGEO_001"
-msgstr ""
-
-msgid "metadata/assetType.enum.SOHYD_004"
-msgstr ""
-
-msgid "metadata/assetType.enum.SOHYD_168"
-msgstr ""
-
-msgid "metadata/assetType.enum.NotSpecified"
 msgstr ""
 
 msgid "metadata/authors.label"

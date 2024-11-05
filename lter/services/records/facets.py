@@ -5,12 +5,29 @@ from oarepo_runtime.i18n import lazy_gettext as _
 from oarepo_runtime.services.facets.date import DateTimeFacet
 from oarepo_runtime.services.facets.nested_facet import NestedLabeledFacet
 
-external_workflow_id = TermsFacet(
-    field="external_workflow.id", label=_("external_workflow/id.label")
+externalWorkflow_defaultWorkflowTemplateId = TermsFacet(
+    field="externalWorkflow.defaultWorkflowTemplateId",
+    label=_("externalWorkflow/defaultWorkflowTemplateId.label"),
 )
 
-external_workflow_status = TermsFacet(
-    field="external_workflow.status", label=_("external_workflow/status.label")
+externalWorkflow_history_date = DateTimeFacet(
+    field="externalWorkflow.history.date",
+    label=_("externalWorkflow/history/date.label"),
+)
+
+externalWorkflow_history_status = TermsFacet(
+    field="externalWorkflow.history.status",
+    label=_("externalWorkflow/history/status.label"),
+)
+
+externalWorkflow_history_workflowHandle = TermsFacet(
+    field="externalWorkflow.history.workflowHandle",
+    label=_("externalWorkflow/history/workflowHandle.label"),
+)
+
+externalWorkflow_history_workflowTemplateId = TermsFacet(
+    field="externalWorkflow.history.workflowTemplateId",
+    label=_("externalWorkflow/history/workflowTemplateId.label"),
 )
 
 metadata_SOReference_name = TermsFacet(
@@ -27,10 +44,6 @@ metadata_additionalMetadata_name = NestedLabeledFacet(
         field="metadata.additionalMetadata.name",
         label=_("metadata/additionalMetadata/name.label"),
     ),
-)
-
-metadata_assetType = TermsFacet(
-    field="metadata.assetType", label=_("metadata/assetType.label")
 )
 
 metadata_authors_email = TermsFacet(
@@ -353,7 +366,7 @@ metadata_version = TermsFacet(
     field="metadata.version", label=_("metadata/version.label")
 )
 
-state = TermsFacet(field="state", label=_("Draft State"))
+state = TermsFacet(field="state", label=_("state.label"))
 
 
 record_status = TermsFacet(field="record_status", label=_("record_status"))

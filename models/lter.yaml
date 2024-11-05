@@ -33,22 +33,6 @@ record:
   properties:
     metadata:
       use: ./lter-metadata.yaml#LTERMetadata
-    external_workflow:
-      properties:
-        id:
-          type: keyword
-          label.en: ID of the external workflow
-          marshmallow:
-            read: true
-            write: false
-        status:
-          type: keyword
-          label.en: Status of the execution of external workflow
-          enum: [running, finished, failed]
-          marshmallow:
-            read: true
-            write: false
-
   # system fields
 
   service-config:
@@ -68,6 +52,7 @@ record:
   - invenio
   - ./lter-custom_fields.yaml
   - ./lter-facets.yaml
+  - ./lter-external_workflows.yaml
 
   search-options:
     base-classes:

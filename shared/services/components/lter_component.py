@@ -8,3 +8,14 @@ class LterComponent(ServiceComponent):
     def update_draft(self, identity, data=None, record=None, **kwargs):
         if record and record.state in ['validated', 'error']:
             record.state = 'draft'
+        self.fill_external_workflow(data, record)
+
+    def create(self, identity, data=None, record=None, **kwargs):
+        self.fill_external_workflow(data, record)
+
+    @staticmethod
+    def fill_external_workflow(data, record):
+        external_workflow = record.setdefault("externalWorkflow", {})
+        actual_type_id = data.get('externalWorkflow', {}).get('defaultWorkflowTemplateId')
+        if actual_type_id:
+            external_workflow['defaultWorkflowTemplateId'] = actual_type_id

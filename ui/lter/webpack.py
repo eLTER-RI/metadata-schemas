@@ -17,6 +17,7 @@ theme = WebpackThemeBundle(
                 "react-leaflet": "^2.1.4",
                 "@oarepo/file-manager": "^1.1.0",
                 "react-searchkit": "^2.0.0",
+                "react-responsive": "^10.0.0",
             },
             devDependencies={},
             aliases={
