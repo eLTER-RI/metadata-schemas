@@ -4,10 +4,11 @@ import Overridable from "react-overridable";
 
 import _get from "lodash/get";
 
-import {Grid, Item, Label, Icon, Button, Modal, Loader, Popup} from "semantic-ui-react";
+import {Grid, Item, Label, Icon, Loader, Popup} from "semantic-ui-react";
 import {withState, buildUID} from "react-searchkit";
 import {SearchConfigurationContext} from "@js/invenio_search_ui/components";
-import {ActionButton, PublishButton} from "./components/ActionButtons";
+import {ActionButton} from "./components/ActionButton";
+import {PublishButton} from "./components/PublishButton";
 
 
 // import {i18next} from "@translations/i18next";

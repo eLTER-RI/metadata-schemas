@@ -15,7 +15,7 @@ import {
 } from "@js/invenio_search_ui/components";
 import {ResultOptions} from "@js/invenio_search_ui/components/Results";
 import {ResultCountWithState, ResultsPerPageLabel, GridResponsiveSidebarColumn} from "@lter_search";
-import {CreateAssetButton} from "./components/ActionButtons";
+import {CreateAssetButton} from "./components/CreateAssetButton";
 
 const ResultOptionsWithState = withState(ResultOptions);
 
