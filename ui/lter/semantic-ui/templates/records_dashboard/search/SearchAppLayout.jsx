@@ -15,7 +15,6 @@ import {
 } from "@js/invenio_search_ui/components";
 import {ResultOptions} from "@js/invenio_search_ui/components/Results";
 import {ResultCountWithState, ResultsPerPageLabel, GridResponsiveSidebarColumn} from "@lter_search";
-import {CreateAssetButton} from "./components/CreateAssetButton";
 
 const ResultOptionsWithState = withState(ResultOptions);
 
@@ -118,7 +117,7 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
                     >
                         <Grid.Row>
                             <Grid.Column floated="right">
-                                <CreateAssetButton />
+                                <Button fluid secondary href={'/lter/_new'}>Create Asset</Button>
                             </Grid.Column>
                         </Grid.Row>
                         <Grid.Row>
