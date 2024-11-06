@@ -70,12 +70,20 @@
                     </div>
                 </div>
                 <div class="center aligned two column row">
-                    <div class="twelve wide column">
+                    <div class="eleven wide column">
                         <article class="column main-record-content">
-                            <LterDetailRoot md={d.metadata} context={extra_context} search_link={record.links.search_link}/>
+                            <LterDetailRoot md={d.metadata} context={extra_context}
+                                            search_link={record.links.search_link}/>
                         </article>
                     </div>
-                    <div class="four wide computer only column">
+                    <div class="five wide computer only column">
+                        {% if d.state | string != 'published' %}
+                            {# TODO add translation#}
+                            <AccordionField label="Workflow history"
+                                                    active>
+                                <ExternalWorkflowHistory externalWorkflow={d.externalWorkflow}/>
+                            </AccordionField>
+                        {% endif %}
                         {% if d.metadata.geoLocations %}
                             <AccordionField label={_('GeoMap')}
                                             active>
