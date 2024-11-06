@@ -27,6 +27,7 @@ class LterSearchOptions(I18nSearchOptions):
         "metadata_SOReference_name": facets.metadata_SOReference_name,
         "metadata_SOReference_url": facets.metadata_SOReference_url,
         "metadata_additionalMetadata_name": facets.metadata_additionalMetadata_name,
+        "metadata_assetType": facets.metadata_assetType,
         "metadata_authors_email": facets.metadata_authors_email,
         "metadata_authors_familyName": facets.metadata_authors_familyName,
         "metadata_authors_fullName": facets.metadata_authors_fullName,

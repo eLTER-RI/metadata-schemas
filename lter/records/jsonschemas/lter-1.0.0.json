@@ -68,6 +68,9 @@
                         }
                     }
                 },
+                "assetType": {
+                    "type": "string"
+                },
                 "authors": {
                     "type": "array",
                     "items": {

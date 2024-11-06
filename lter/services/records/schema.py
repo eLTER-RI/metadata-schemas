@@ -58,6 +58,22 @@ class LterMetadataSchema(Schema):
         ma_fields.Nested(lambda: AdditionalMetadataItemSchema())
     )
 
+    assetType = ma_fields.String(
+        validate=[
+            OneOf(
+                [
+                    "SOATM_027",
+                    "SOBIO_017",
+                    "SOBIO_096",
+                    "SOGEO_001",
+                    "SOHYD_004",
+                    "SOHYD_168",
+                    "NotSpecified",
+                ]
+            )
+        ]
+    )
+
     authors = ma_fields.List(ma_fields.Nested(lambda: AuthorsItemSchema()))
 
     contributors = ma_fields.List(ma_fields.Nested(lambda: ContributorsItemSchema()))

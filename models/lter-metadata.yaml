@@ -2,16 +2,16 @@ LTERMetadata:
   $id: LTERMetadata
 
   properties:
-#    assetType:
-#      type: keyword
-#      enum:
-#        - SOATM_027
-#        - SOBIO_017
-#        - SOBIO_096
-#        - SOGEO_001
-#        - SOHYD_004
-#        - SOHYD_168
-#        - NotSpecified
+    assetType:
+      type: keyword
+      enum:
+        - SOATM_027
+        - SOBIO_017
+        - SOBIO_096
+        - SOGEO_001
+        - SOHYD_004
+        - SOHYD_168
+        - NotSpecified
 
     datasetIds[]:
       use: "./lter-datatypes.yaml#AlternateIdentifier"

@@ -77,10 +77,17 @@
                         </article>
                     </div>
                     <div class="five wide computer only column">
+{#                        {% if d.state | string != 'published' %}#}
+                            {# TODO add translation#}
+{#                            <AccordionField label="Actions"#}
+{#                                            active>#}
+{#                                <ActionMenu d={d}/>#}
+{#                            </AccordionField>#}
+{#                        {% endif %}#}
                         {% if d.state | string != 'published' %}
                             {# TODO add translation#}
-                            <AccordionField label="Workflow history"
-                                                    active>
+                            <AccordionField label="Quality checks history"
+                                            active>
                                 <ExternalWorkflowHistory externalWorkflow={d.externalWorkflow}/>
                             </AccordionField>
                         {% endif %}
@@ -105,4 +112,5 @@
 {%- block javascript %}
     {{ super() }}
     {{ webpack['lter_geomap.js'] }}
+{#    {{ webpack['lter_actionmenu.js'] }}#}
 {%- endblock %}

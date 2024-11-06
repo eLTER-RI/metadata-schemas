@@ -46,6 +46,10 @@ metadata_additionalMetadata_name = NestedLabeledFacet(
     ),
 )
 
+metadata_assetType = TermsFacet(
+    field="metadata.assetType", label=_("metadata/assetType.label")
+)
+
 metadata_authors_email = TermsFacet(
     field="metadata.authors.email", label=_("metadata/authors/email.label")
 )
@@ -366,7 +370,7 @@ metadata_version = TermsFacet(
     field="metadata.version", label=_("metadata/version.label")
 )
 
-state = TermsFacet(field="state", label=_("state.label"))
+state = TermsFacet(field="state", label=_("Draft State"))
 
 
 record_status = TermsFacet(field="record_status", label=_("record_status"))

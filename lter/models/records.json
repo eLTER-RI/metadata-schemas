@@ -861,6 +861,18 @@
                             }
                         }
                     },
+                    "assetType": {
+                        "type": "keyword",
+                        "enum": [
+                            "SOATM_027",
+                            "SOBIO_017",
+                            "SOBIO_096",
+                            "SOGEO_001",
+                            "SOHYD_004",
+                            "SOHYD_168",
+                            "NotSpecified"
+                        ]
+                    },
                     "authors": {
                         "type": "array",
                         "label.en": "Authors",
@@ -1965,8 +1977,8 @@
             "substring_search_field": {
                 "type": "fulltext",
                 "mapping": {
-                    "analyzer": "substring",
-                    "type": "text"
+                    "type": "text",
+                    "analyzer": "substring"
                 },
                 "marshmallow": {
                     "read": false,

@@ -71,6 +71,10 @@
                             }
                         }
                     },
+                    "assetType": {
+                        "type": "keyword",
+                        "ignore_above": 1024
+                    },
                     "authors": {
                         "type": "object",
                         "properties": {
@@ -570,8 +574,8 @@
                 "ignore_above": 1024
             },
             "substring_search_field": {
-                "analyzer": "substring",
-                "type": "text"
+                "type": "text",
+                "analyzer": "substring"
             },
             "updated": {
                 "type": "date",

@@ -47,6 +47,7 @@ class DefaultWorkflowPermissions(CommunityDefaultWorkflowPermissions):
     can_create = [
         PrimaryCommunityRole("submitter"),
         PrimaryCommunityRole("owner"),
+        PrimaryCommunityRole("system"),
         UserWithRole("administrator"),
     ]
 
@@ -54,6 +55,7 @@ class DefaultWorkflowPermissions(CommunityDefaultWorkflowPermissions):
         RecordOwners(),
         # administrator can see everything
         PrimaryCommunityRole("owner"),
+        PrimaryCommunityRole("system"),
         IfInState(
             "published",
             then_=[AnyUser()],
@@ -64,17 +66,15 @@ class DefaultWorkflowPermissions(CommunityDefaultWorkflowPermissions):
         IfInState("draft", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
         IfInState("error", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
         IfInState("validated", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
-        # if not draft, can not be directly updated by any means, must use request
-        # IfInState(
-        #     "submitted",
-        #     then_=[
-        #         UserWithRole("administrator"),
-        #     ],
-        # ),
+        IfInState("published", then_=[PrimaryCommunityRole("system")]),
+    ]
+
+    can_publish = [
+        PrimaryCommunityRole("system")
     ]
 
     can_delete = [
-        # draft can be deleted, published record must be deleted via request
+            PrimaryCommunityRole("system"),
             IfInState("draft", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
             IfInState("error", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
             IfInState("validated", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
@@ -85,7 +85,6 @@ class DefaultWorkflowPermissions(CommunityDefaultWorkflowPermissions):
 
 class DefaultWorkflowRequests(WorkflowRequestPolicy):
     run_external_workflow = WorkflowRequest(
-        # run external workflow when files have been uploaded
         requesters=[
             IfInState("draft", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
             IfInState("error", then_=[RecordOwners(),PrimaryCommunityRole("owner")]),
@@ -116,6 +115,7 @@ class DefaultWorkflowRequests(WorkflowRequestPolicy):
         # if the record is in draft state, the owner or curator can request publishing
         requesters=[
             IfInState("validated", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
+            IfInState("draft", then_=[PrimaryCommunityRole("system")])
         ],
         recipients=[
             AutoApprove(),
