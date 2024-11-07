@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import { Button, Modal } from "semantic-ui-react";
-import _get from "lodash/get";
 import {useDeleteDraft} from "../../../hooks";
+import {useNavigation} from "../../../tools";
 
-export const DeleteButton = ({ record }) => {
+export const DeleteButton = ({ draftId }) => {
     const [open, setOpen] = useState(false);
-    const draftId = _get(record, "id", "No-Id");
     const { deleteDraft, loading } = useDeleteDraft(draftId);
+    const navigate = useNavigation()
 
     const handleDelete = async () => {
         await deleteDraft();
         setOpen(false);
-        location.reload();
     };
 
     return (
@@ -34,5 +33,5 @@ export const DeleteButton = ({ record }) => {
 };
 
 DeleteButton.propTypes = {
-    record: PropTypes.object.isRequired,
+    draftId: PropTypes.string.isRequired,
 };

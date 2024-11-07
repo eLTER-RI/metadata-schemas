@@ -9,6 +9,7 @@ import {ExternalWorkflowButton} from "./ExternalWorkflowButton";
 export const ActionButton = ({record}) => {
 
     const state = _get(record, 'state')
+    const draftId = _get(record, 'id')
 
     return (
         <Dropdown
@@ -21,13 +22,13 @@ export const ActionButton = ({record}) => {
         >
             <Dropdown.Menu>
                 <Dropdown.Item>
-                    <DeleteButton record={record}/>
+                    <DeleteButton draftId={draftId}/>
                 </Dropdown.Item>
                 <Dropdown.Item disabled={['running'].includes(state)}>
-                    <EditButton record={record}/>
+                    <EditButton draftId={draftId}/>
                 </Dropdown.Item>
                 <Dropdown.Item disabled={['running'].includes(state)}>
-                    <ExternalWorkflowButton record={record}/>
+                    <ExternalWorkflowButton draftId={draftId}/>
                 </Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>

@@ -81,7 +81,7 @@
                             {# TODO add translation #}
                             <AccordionField label="Actions"
                                             active>
-                                <ActionMenu d={d}/>
+                                <div id="action-menu" draftId='{{ d.id | string }}' state='{{ d.state | string }}'></div>
                             </AccordionField>
                         {% endif %}
                         {% if d.state | string != 'published' %}

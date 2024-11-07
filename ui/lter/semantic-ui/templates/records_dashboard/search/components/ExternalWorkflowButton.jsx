@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import { Button, Modal } from "semantic-ui-react";
-import _get from "lodash/get";
 import {useRunExternalWorkflow} from "../../../hooks";
 
-export const ExternalWorkflowButton = ({ record }) => {
+export const ExternalWorkflowButton = ({ draftId, disabled }) => {
     const [open, setOpen] = useState(false);
-    const draftId = _get(record, 'id', "No_Id");
     const { runExternalWorkflow, loading } = useRunExternalWorkflow(draftId);
 
     const handleRun = async () => {
@@ -17,7 +15,7 @@ export const ExternalWorkflowButton = ({ record }) => {
 
     return (
         <>
-            <Button fluid secondary onClick={() => setOpen(true)}>Run workflow</Button>
+            <Button fluid secondary onClick={() => setOpen(true)} disabled={disabled ?? false}>Run workflow</Button>
 
             <Modal open={open} onClose={() => setOpen(false)} size="small">
                 <Modal.Header>Confirm Run External Workflow</Modal.Header>
@@ -34,5 +32,6 @@ export const ExternalWorkflowButton = ({ record }) => {
 };
 
 ExternalWorkflowButton.propTypes = {
-    record: PropTypes.object.isRequired,
+    draftId: PropTypes.string.isRequired,
+    disabled: PropTypes.boolean
 };

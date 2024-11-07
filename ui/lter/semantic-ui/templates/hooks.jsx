@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import axios from 'axios';
+import {useNavigation} from "./tools";
 
 // Not used - probably in the future ?
 export const useCreateDraft = () => {
@@ -44,6 +45,8 @@ export const useDeleteDraft = (draftId) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
+    const navigation = useNavigation();
+
     const deleteDraft = async () => {
         setLoading(true);
         setError(null);
@@ -54,6 +57,11 @@ export const useDeleteDraft = (draftId) => {
             setError(err);
         } finally {
             setLoading(false);
+            if (navigation.isOnPageWithPathPart('preview')) {
+                navigation.navigateToUrl("/me/records");
+            } else {
+                navigation.reloadPage()
+            }
         }
     };
 

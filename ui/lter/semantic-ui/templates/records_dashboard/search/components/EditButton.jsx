@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import { Button } from "semantic-ui-react";
-import _get from "lodash/get";
 
-export const EditButton = ({ record }) => {
-    const editUrl = _get(record, 'links.edit_html', 'Error');
+export const EditButton = ({ draftId, disabled }) => {
+    const editUrl = `/lter/${draftId}/edit`
     return (
-        <Button color="orange" fluid href={editUrl}>
+        <Button color="orange" fluid href={editUrl} disabled={disabled ?? false}>
             Edit
         </Button>
     );
 };
 
 EditButton.propTypes = {
-    record: PropTypes.object.isRequired,
+    draftId: PropTypes.string.isRequired,
+    disabled: PropTypes.boolean
 };
