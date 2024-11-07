@@ -1,15 +1,15 @@
 // Change the draft id
-@draftId =3qvh0-tvv09
+@draftId =fk1cc-aah11
 
 // Dont push tokens from production !!!!
-@authToken = n1BDY8xfVhP64mdlnA4FqRZNHPkwJqZ2sCtlLjg2gYHjutVYCAprTOmAsHHH
+@authToken = gjJoUW79j8LwyEwtTCrsQe5w56OJ7WMHSN6l2msvV84uVEGMvRAwx150NwxK
 
 @fileName = test.csv
 
 // Uncomment one related hostname
-#@hostname = https://127.0.0.1:5000
+@hostname = https://127.0.0.1:5000
 #@hostname = https://catalog.elter.cerit-sc.cz/
-@hostname = https://catalog.elter-ri.eu/
+#@hostname = https://catalog.elter-ri.eu/
 
 ### Get files of the draft
 GET {{hostname}}/api/lter/{{draftId}}/draft/files

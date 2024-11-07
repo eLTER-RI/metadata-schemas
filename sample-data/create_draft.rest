@@ -1,8 +1,8 @@
 // Dont push tokens from production !!!!
-@authToken = MCUTptsAkJbuSQtbh7U338y7Zp8MhiRkY9vvvhi3Cjte4r8zWVw6ZGsEghv0
+@authToken = thSnwqOjFG2rmNNoY7hhvdANv9KDiy6JtmNu2uvPx9lX6gJNCMhrTWVLjlk1
 
 @communityName = "test"
-@filesEnabled = "True"
+@filesEnabled = "False"
 
 // Uncomment one related hostname
 @hostname = https://127.0.0.1:5000
@@ -17,6 +17,9 @@ Authorization: Bearer {{authToken}}
 {
   "parent": {"communities": {"default":  {{communityName}}}},
   "files": {"enabled": {{filesEnabled}}},
+  "externalWorkflow": {
+    "defaultWorkflowTemplateId": "basic-ingest"
+  },
   "metadata": {
     "datasetIds": [
       {
@@ -208,6 +211,15 @@ Authorization: Bearer {{authToken}}
       {
         "name": "Metadata name",
         "value": "Random value"
+      }
+    ],
+    "files": [
+      {
+        "name": "File",
+        "sourceUrl": "www.google.com",
+        "format": "csw",
+        "md5": "haha",
+        "size": "22"
       }
     ],
     "geoServerInfo": {

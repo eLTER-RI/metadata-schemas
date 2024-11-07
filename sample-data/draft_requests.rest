@@ -1,10 +1,10 @@
 // Change the draft id
-@draftId =1zmzx-jec05
+@draftId =ehn34-qa008
 @publishSubmitRequestId =df8c75c4-7f25-4a73-864a-6a3715c6eb69
 @requestId=3d4cbe6c-609e-4e69-954f-90e156449aff
 
 // Dont push tokens from production !!!!
-@authToken = p5OKl0HDLOKq0Ly5lDZB4qAYRmqNUiYIZbVeg2yiUEGBLfCCxd0WEi10JHlh
+@authToken = vuJz0InmgQ1wDedmrqushXXmGl4eJKnHdD2Z9dNBedEA16R9L8OYR5tgg8u3
 
 @fileName = test.csv
 
@@ -24,10 +24,6 @@ Authorization: Bearer {{authToken}}
 
 ### Get applicable requests on draft record
 GET {{hostname}}/api/lter/{{draftId}}/draft/requests/applicable
-Authorization: Bearer {{authToken}}
-
-### Create request of the draft record
-POST {{hostname}}/api/lter/{{draftId}}/draft/requests/publish_draft
 Authorization: Bearer {{authToken}}
 
 ### Create PUBLISH request of the draft record

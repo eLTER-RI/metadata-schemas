@@ -1,14 +1,16 @@
 // Change the draft id
-@draftId = p8xfp-2yh03
+@draftId =95vz9-31z91
 @publishSubmitRequestId =97d516cf-6772-4082-8efa-3ab87f81f9e5
 
 // Dont push tokens from production !!!!
-@authToken = ZxHIwgWpZLyFcaccRfDlA9VqZsWUPxpmLHKxJdwk8qOurlNWr9caQ0dlK85h
+@authToken = 5SLfOonF6OxbvnLaXVDVxze2HFxFl84zzyg7cOu3sJamzjN39NBRfkk1Ow35
 
 @fileName = test.csv
 
 // Uncomment one related hostname
-@hostname = https://127.0.0.1:5000
+#@hostname = https://127.0.0.1:5000
 #@hostname = https://catalog.elter.cerit-sc.cz/
-#@hostname = https://catalog.elter-ri.eu/
+@hostname = https://catalog.elter-ri.eu/
 
+DELETE {{hostname}}/api/lter/{{draftId}}
+Authorization: Bearer {{authToken}}

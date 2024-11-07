@@ -77,13 +77,13 @@
                         </article>
                     </div>
                     <div class="five wide computer only column">
-{#                        {% if d.state | string != 'published' %}#}
-                            {# TODO add translation#}
-{#                            <AccordionField label="Actions"#}
-{#                                            active>#}
-{#                                <ActionMenu d={d}/>#}
-{#                            </AccordionField>#}
-{#                        {% endif %}#}
+                        {% if d.state | string != 'published' %}
+                            {# TODO add translation #}
+                            <AccordionField label="Actions"
+                                            active>
+                                <ActionMenu d={d}/>
+                            </AccordionField>
+                        {% endif %}
                         {% if d.state | string != 'published' %}
                             {# TODO add translation#}
                             <AccordionField label="Quality checks history"
@@ -112,5 +112,5 @@
 {%- block javascript %}
     {{ super() }}
     {{ webpack['lter_geomap.js'] }}
-{#    {{ webpack['lter_actionmenu.js'] }}#}
+    {{ webpack['lter_actionmenu.js'] }}
 {%- endblock %}

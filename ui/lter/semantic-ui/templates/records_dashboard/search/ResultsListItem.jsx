@@ -78,7 +78,7 @@ export const ResultsListItemComponent = ({
             state={state}
             {...rest}
         >
-            <Item data-testid="directions" key={result.id} className="search-listing-item">
+            <Item data-testid="dashboardAssetListItem" key={result.id} className="search-listing-item">
                 <Item.Content className="content">
                     <Grid>
                         <Grid.Row columns={3}>
