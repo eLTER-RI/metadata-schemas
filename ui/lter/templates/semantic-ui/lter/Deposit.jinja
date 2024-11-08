@@ -11,6 +11,11 @@
     {{ super() }}
     <script src="https://dataspace.elter-ri.eu/static-data-dev/tailwind.js"></script>
     <script type="module" src="https://dataspace.elter-ri.eu/static-data-dev/page.js"></script>
+    <script>
+        tailwind.config = {
+            prefix: 'tw-',
+        }
+    </script>
 {%- endblock %}
 
 {%- block page_body %}
