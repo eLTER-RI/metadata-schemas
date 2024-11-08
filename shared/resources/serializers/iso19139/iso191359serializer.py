@@ -69,7 +69,7 @@ def create_element(tag, text, nsmap=None):
 def create_root_element(nsmap):
     root = etree.Element("{http://www.isotc211.org/2005/gmd}MD_Metadata", nsmap=nsmap)
     root.set("{http://www.w3.org/2001/XMLSchema-instance}schemaLocation",
-             "http://www.isotc211.org/2005/gmd http://schemas.opengis.net/iso/19139/20060504/gmd/gmd.xsd http://www.w3.org/1999/xlink http://www.isotc211.org/2005/gmx")
+             "http://www.isotc211.org/2005/gmd http://schemas.opengis.net/iso/19139/20060504/gmd/gmd.xsd http://www.w3.org/1999/xlink http://www.isotc211.org/2005/gmx http://www.opengis.net/gml")
     return root
 
 
@@ -121,7 +121,8 @@ def add_authors(root, authors, nsmap):
         individual_name = etree.SubElement(ci_responsible_party, "{http://www.isotc211.org/2005/gmd}individualName")
         individual_name.append(
             create_element("{http://www.isotc211.org/2005/gco}CharacterString",
-                           author.get('fullName', f'{author.get('givenName', '')} {author.get('familyName', '')}'), nsmap))
+                           author.get('fullName', f'{author.get('givenName', '')} {author.get('familyName', '')}'),
+                           nsmap))
 
         contact_info = etree.SubElement(ci_responsible_party, "{http://www.isotc211.org/2005/gmd}contactInfo")
         ci_contact = etree.SubElement(contact_info, "{http://www.isotc211.org/2005/gmd}CI_Contact")
@@ -138,36 +139,48 @@ def add_authors(root, authors, nsmap):
                                         codeListValue="pointOfContact")
         ci_role_code.text = "pointOfContact"
 
+
 def add_license_info(root, licenses):
     if len(licenses) > 0:
-        md_restriction_code = etree.SubElement(root, "{http://www.isotc211.org/2005/gmd}MD_RestrictionCode")
-        for ele_license in licenses:
-            md_license = etree.SubElement(md_restriction_code, "{http://www.isotc211.org/2005/gmd}MD_License")
+        resource_constraints = etree.SubElement(root, "{http://www.isotc211.org/2005/gmd}resourceConstraints")
 
-            anchor = etree.SubElement(md_license, "{http://www.isotc211.org/2005/gmx}Anchor", {
+        md_legal_constraints = etree.SubElement(resource_constraints,
+                                                "{http://www.isotc211.org/2005/gmd}MD_LegalConstraints")
+
+        use_constraints = etree.SubElement(md_legal_constraints, "{http://www.isotc211.org/2005/gmd}useConstraints")
+        etree.SubElement(use_constraints, "{http://www.isotc211.org/2005/gmd}MD_RestrictionCode",
+                         {
+                             'codeList': "http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_RestrictionCode",
+                             'codeListValue': "otherRestrictions"
+                         })
+
+        for ele_license in licenses:
+            other_constraints = etree.SubElement(md_legal_constraints,
+                                                 "{http://www.isotc211.org/2005/gmd}otherConstraints")
+            anchor = etree.SubElement(other_constraints, "{http://www.isotc211.org/2005/gmx}Anchor", {
                 '{http://www.w3.org/1999/xlink}href': ele_license.get('url', 'Error')
             })
-
             anchor.text = ele_license.get('name', 'NoName')
 
 
 def add_temporal_extent_info(root, temporal_coverage):
     if len(temporal_coverage) > 0:
-        temporal_element = etree.SubElement(root, "{http://www.isotc211.org/2005/gmd}temporalElement")
+        md_data_identification = etree.SubElement(root, "{http://www.isotc211.org/2005/gmd}MD_DataIdentification")
+        extent = etree.SubElement(md_data_identification, "{http://www.isotc211.org/2005/gmd}extent")
+
+        ex_extent = etree.SubElement(extent, "{http://www.isotc211.org/2005/gmd}EX_Extent")
 
         for coverage in temporal_coverage:
+            temporal_element = etree.SubElement(ex_extent, "{http://www.isotc211.org/2005/gmd}temporalElement")
             ex_temporal_extent = etree.SubElement(temporal_element,
                                                   "{http://www.isotc211.org/2005/gmd}EX_TemporalExtent")
+            gmd_extent = etree.SubElement(ex_temporal_extent, "{http://www.isotc211.org/2005/gmd}extent")
 
-            if 'startDate' in coverage:
-                start_date = etree.SubElement(ex_temporal_extent, "{http://www.isotc211.org/2005/gmd}extent")
-                gco_start = etree.SubElement(start_date, "{http://www.isotc211.org/2005/gco}DateTime")
-                gco_start.text = coverage['startDate']
-
-            if 'endDate' in coverage:
-                end_date = etree.SubElement(ex_temporal_extent, "{http://www.isotc211.org/2005/gmd}extent")
-                gco_end = etree.SubElement(end_date, "{http://www.isotc211.org/2005/gco}DateTime")
-                gco_end.text = coverage['endDate']
+            time_period = etree.SubElement(gmd_extent, "{http://www.opengis.net/gml}TimePeriod")
+            begin_position = etree.SubElement(time_period, "{http://www.opengis.net/gml}beginPosition")
+            begin_position.text = coverage.get('startDate')
+            end_position = etree.SubElement(time_period, "{http://www.opengis.net/gml}endPosition")
+            end_position.text = coverage.get('endDate')
 
 
 def add_identification_info(root, metadata, nsmap):
@@ -216,7 +229,6 @@ def add_identification_info(root, metadata, nsmap):
         anchor_element.set("{http://www.w3.org/1999/xlink}href", f"https://deims.org/{site.get('PID', 'Error')}")
         anchor_element.text = site.get("name", "SitesNoName")
         keyword_element.append(anchor_element)
-
 
     add_language_code(data_identification, language_table.get(metadata.get('language')),
                       metadata.get('language'))
@@ -326,7 +338,8 @@ def generate_xml(json_data):
         "gco": "http://www.isotc211.org/2005/gco",
         "xsi": "http://www.w3.org/2001/XMLSchema-instance",
         "xlink": "http://www.w3.org/1999/xlink",
-        "gmx": "http://www.isotc211.org/2005/gmx"
+        "gmx": "http://www.isotc211.org/2005/gmx",
+        "gml": "http://www.opengis.net/gml"
     }
 
     root = create_root_element(nsmap)
