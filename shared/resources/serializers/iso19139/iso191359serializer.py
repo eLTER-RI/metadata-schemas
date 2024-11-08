@@ -69,7 +69,7 @@ def create_element(tag, text, nsmap=None):
 def create_root_element(nsmap):
     root = etree.Element("{http://www.isotc211.org/2005/gmd}MD_Metadata", nsmap=nsmap)
     root.set("{http://www.w3.org/2001/XMLSchema-instance}schemaLocation",
-             "http://www.isotc211.org/2005/gmd http://schemas.opengis.net/iso/19139/20060504/gmd/gmd.xsd")
+             "http://www.isotc211.org/2005/gmd http://schemas.opengis.net/iso/19139/20060504/gmd/gmd.xsd http://www.w3.org/1999/xlink http://www.isotc211.org/2005/gmx")
     return root
 
 
@@ -120,7 +120,8 @@ def add_authors(root, authors, nsmap):
 
         individual_name = etree.SubElement(ci_responsible_party, "{http://www.isotc211.org/2005/gmd}individualName")
         individual_name.append(
-            create_element("{http://www.isotc211.org/2005/gco}CharacterString", author['fullName'], nsmap))
+            create_element("{http://www.isotc211.org/2005/gco}CharacterString",
+                           author.get('fullName', f'{author.get('givenName', '')} {author.get('familyName', '')}'), nsmap))
 
         contact_info = etree.SubElement(ci_responsible_party, "{http://www.isotc211.org/2005/gmd}contactInfo")
         ci_contact = etree.SubElement(contact_info, "{http://www.isotc211.org/2005/gmd}CI_Contact")
@@ -129,7 +130,7 @@ def add_authors(root, authors, nsmap):
         electronic_mail_address = etree.SubElement(ci_address,
                                                    "{http://www.isotc211.org/2005/gmd}electronicMailAddress")
         electronic_mail_address.append(
-            create_element("{http://www.isotc211.org/2005/gco}CharacterString", author['email'], nsmap))
+            create_element("{http://www.isotc211.org/2005/gco}CharacterString", author.get('email', 'NoEmail'), nsmap))
 
         role = etree.SubElement(ci_responsible_party, "{http://www.isotc211.org/2005/gmd}role")
         ci_role_code = etree.SubElement(role, "{http://www.isotc211.org/2005/gmd}CI_RoleCode",
@@ -167,10 +168,24 @@ def add_identification_info(root, metadata, nsmap):
     descriptive_keywords = etree.SubElement(data_identification,
                                             "{http://www.isotc211.org/2005/gmd}descriptiveKeywords")
     md_keywords = etree.SubElement(descriptive_keywords, "{http://www.isotc211.org/2005/gmd}MD_Keywords")
-    for keyword in metadata['keywords']:
+
+    keywords = metadata.get('keywords', [])
+    for keyword in keywords:
         keyword_element = etree.SubElement(md_keywords, "{http://www.isotc211.org/2005/gmd}keyword")
         keyword_element.append(
             create_element("{http://www.isotc211.org/2005/gco}CharacterString", keyword['name'], nsmap))
+
+    sites = metadata.get('siteReference', [])
+    for site in sites:
+        keyword_element = etree.SubElement(md_keywords, "{http://www.isotc211.org/2005/gmd}keyword")
+        anchor_element = etree.Element(
+            "{http://www.isotc211.org/2005/gmx}Anchor",
+            nsmap=nsmap
+        )
+        anchor_element.set("{http://www.w3.org/1999/xlink}href", f"https://deims.org/{site.get('PID', 'Error')}")
+        anchor_element.text = site.get("name", "SitesNoName")
+        keyword_element.append(anchor_element)
+
 
     add_language_code(data_identification, language_table.get(metadata.get('language')),
                       metadata.get('language'))
@@ -278,7 +293,9 @@ def generate_xml(json_data):
     nsmap = {
         "gmd": "http://www.isotc211.org/2005/gmd",
         "gco": "http://www.isotc211.org/2005/gco",
-        "xsi": "http://www.w3.org/2001/XMLSchema-instance"
+        "xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "xlink": "http://www.w3.org/1999/xlink",
+        "gmx": "http://www.isotc211.org/2005/gmx"
     }
 
     root = create_root_element(nsmap)
