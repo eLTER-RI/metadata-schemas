@@ -26,6 +26,9 @@ const stateIcons = {
 const ItemHeader = ({titles, state, viewLink}) => {
     const iconProps = stateIcons[state] || {};
 
+    let firstTitle = titles[0];
+    const title = firstTitle.text ? firstTitle.text : "[NO TITLE - PLEASE FILL THE TITLE]";
+
     return (
         <Item.Header>
             <Popup content={state} trigger={
@@ -35,7 +38,7 @@ const ItemHeader = ({titles, state, viewLink}) => {
                     iconProps.name && <Icon {...iconProps} aria-label={state}/>
                 )
             }/>
-            <a href={viewLink}>{titles[0].text}</a>
+            <a href={viewLink}>{title}</a>
         </Item.Header>
     );
 };
