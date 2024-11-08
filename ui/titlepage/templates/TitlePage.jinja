@@ -11,6 +11,16 @@
         <script>
             tailwind.config = {
                 prefix: 'tw-',
+                theme: {
+                    extend: {
+                        colors: {
+                            "elter-backgroud-blue": "#0A2033",
+                            "elter-baclground-light-blue": "#0A5A98",
+                            "elter-orange": "#ED9632",
+                            "elter-orange-emph": "#FCA035",
+                        },
+                    },
+                },
             }
         </script>
     {%- endif %}
@@ -21,59 +31,63 @@
 {%- endblock page_header %}
 
 {%- block page_body %}
-
-    <div class="title-image">
-        <img class="full-width" src="{{ url_for('static', filename=config.PHOTO2) }}" alt="photo 1">
-    </div>
+    {%- if not current_user.is_authenticated %}
+        <div class="title-image">
+            <img class="full-width" src="{{ url_for('static', filename=config.PHOTO2) }}" alt="photo 1">
+        </div>
+    {%- endif %}
     {% block main_column %}
         <div class="ui title-search-container backdrop container container-fluid">
+            {%- if not current_user.is_authenticated %}
 
-            <div class="row rel-mt-5">
-                <form action="{{ url_for('lter.search') }}" class="ui form" role="search">
-                    <div id="frontpage-search-input" class="ui fluid action input search-input">
-                        <input type="text" name="q" class="form-control" placeholder="{{ _('Search') }}">
-                        <button type="submit" class="ui icon search button" aria-label="{{ _('Search') }}"><i
-                                class="search icon"></i>
-                        </button>
+                <div class="row rel-mt-5">
+                    <form action="{{ url_for('lter.search') }}" class="ui form" role="search">
+                        <div id="frontpage-search-input" class="ui fluid action input search-input">
+                            <input type="text" name="q" class="form-control" placeholder="{{ _('Search') }}">
+                            <button type="submit" class="ui icon search button" aria-label="{{ _('Search') }}"><i
+                                    class="search icon"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="row rel-mt-1">
+                    <a href="{{ url_for('lter.search') }}"
+                       class="right-floated carrotOrange">{{ _('Show all records') }}</a>
+                </div>
+                <div class="ui grid title-stats">
+                    <div class="three column item bg-lightBlue">
+                        <i class="file icon"></i>
+                        <div class="info">
+                            <div class="number">250 000</div>
+                            <div class="description"><b>Files</b></div>
+                        </div>
                     </div>
-                </form>
-            </div>
-            <div class="row rel-mt-1">
-                <a href="{{ url_for('lter.search') }}"
-                   class="right-floated carrotOrange">{{ _('Show all records') }}</a>
-            </div>
-            <div class="ui grid title-stats">
-                <div class="three column item bg-lightBlue">
-                    <i class="file icon"></i>
-                    <div class="info">
-                        <div class="number">250 000</div>
-                        <div class="description"><b>Files</b></div>
+
+                    <div class="three column item bg-carrotOrange">
+                        <i class="database icon"></i>
+                        <div class="info">
+                            <div class="number">250 000</div>
+                            <div class="description"><b>Datasets</b></div>
+                        </div>
+                    </div>
+
+                    <div class="three column item bg-yellowGreen">
+                        <i class="user icon"></i>
+                        <div class="info">
+                            <div class="number">1000</div>
+                            <div class="description"><b>Sources</b></div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="three column item bg-carrotOrange">
-                    <i class="database icon"></i>
-                    <div class="info">
-                        <div class="number">250 000</div>
-                        <div class="description"><b>Datasets</b></div>
-                    </div>
-                </div>
-
-                <div class="three column item bg-yellowGreen">
-                    <i class="user icon"></i>
-                    <div class="info">
-                        <div class="number">1000</div>
-                        <div class="description"><b>Sources</b></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="title-communities-container">
-            {%- if current_user.is_authenticated %}
-                <div id="ingestRoot"></div>
             {%- endif %}
+
         </div>
+
+        {%- if current_user.is_authenticated %}
+            <div class="search-result-container">
+                <div id="ingestRoot"></div>
+            </div>
+        {%- endif %}
 
     {% endblock main_column %}
 
