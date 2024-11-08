@@ -81,7 +81,8 @@
                             {# TODO add translation #}
                             <AccordionField label="Actions"
                                             active>
-                                <div id="action-menu" draftId='{{ d.id | string }}' state='{{ d.state | string }}'></div>
+                                <div id="action-menu" draftId='{{ d.id | string }}'
+                                     state='{{ d.state | string }}'></div>
                             </AccordionField>
                         {% endif %}
                         {% if d.state | string != 'published' %}
@@ -97,10 +98,12 @@
                                 <GeoMap d={d.metadata.geoLocations}/>
                             </AccordionField>
                         {% endif %}
-                        <AccordionField label={_('Tools')} active>
-                            <a class="ui secondary full-width button"
-                               href="{{ d.id }}/export/iso19139">Download ISO19139</a>
-                        </AccordionField>
+                        {% if d.state | string == 'published' %}
+                            <AccordionField label={_('Tools')} active>
+                                <a class="ui secondary full-width button"
+                                   href="{{ d.id }}/export/iso19139">Download ISO19139</a>
+                            </AccordionField>
+                        {% endif %}
                     </div>
                 </div>
             </div>

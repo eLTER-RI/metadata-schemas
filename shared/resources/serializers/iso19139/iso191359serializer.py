@@ -138,6 +138,37 @@ def add_authors(root, authors, nsmap):
                                         codeListValue="pointOfContact")
         ci_role_code.text = "pointOfContact"
 
+def add_license_info(root, licenses):
+    if len(licenses) > 0:
+        md_restriction_code = etree.SubElement(root, "{http://www.isotc211.org/2005/gmd}MD_RestrictionCode")
+        for ele_license in licenses:
+            md_license = etree.SubElement(md_restriction_code, "{http://www.isotc211.org/2005/gmd}MD_License")
+
+            anchor = etree.SubElement(md_license, "{http://www.isotc211.org/2005/gmx}Anchor", {
+                '{http://www.w3.org/1999/xlink}href': ele_license.get('url', 'Error')
+            })
+
+            anchor.text = ele_license.get('name', 'NoName')
+
+
+def add_temporal_extent_info(root, temporal_coverage):
+    if len(temporal_coverage) > 0:
+        temporal_element = etree.SubElement(root, "{http://www.isotc211.org/2005/gmd}temporalElement")
+
+        for coverage in temporal_coverage:
+            ex_temporal_extent = etree.SubElement(temporal_element,
+                                                  "{http://www.isotc211.org/2005/gmd}EX_TemporalExtent")
+
+            if 'startDate' in coverage:
+                start_date = etree.SubElement(ex_temporal_extent, "{http://www.isotc211.org/2005/gmd}extent")
+                gco_start = etree.SubElement(start_date, "{http://www.isotc211.org/2005/gco}DateTime")
+                gco_start.text = coverage['startDate']
+
+            if 'endDate' in coverage:
+                end_date = etree.SubElement(ex_temporal_extent, "{http://www.isotc211.org/2005/gmd}extent")
+                gco_end = etree.SubElement(end_date, "{http://www.isotc211.org/2005/gco}DateTime")
+                gco_end.text = coverage['endDate']
+
 
 def add_identification_info(root, metadata, nsmap):
     identification_info = etree.SubElement(root, "{http://www.isotc211.org/2005/gmd}identificationInfo")
@@ -308,7 +339,8 @@ def generate_xml(json_data):
     add_authors(root, metadata.get('authors', []), nsmap)
     add_date_stamp(root, get_current_datetime())
     add_identification_info(root, metadata, nsmap)
-
+    add_license_info(root, metadata.get('licenses', []))
+    add_temporal_extent_info(root, metadata.get('temporalCoverages', []))
     add_geo_server_info(root, metadata.get('geoServerInfo'), nsmap)
 
     tree = etree.ElementTree(root)

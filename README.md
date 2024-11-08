@@ -50,6 +50,8 @@ docker push copas-market.cerit-sc.cz/elter/lter_dar:TAG
 - `OSError: [Errno 28] inotify watch limit reached`
   - `echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system`
 
+## E2E Testing mark:
+- Mark div or the component with the `data-testid` 
 
 ## Links:
 - Title Page: https://127.0.0.1:5000/
