@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import PropTypes from "prop-types";
-import { Button, Modal } from "semantic-ui-react";
-import _get from "lodash/get";
+import {Button, Modal, Popup} from "semantic-ui-react";
 import {usePublishDraft} from "../../../hooks";
 
-export const PublishButton = ({ record }) => {
+export const PublishButton = ({draftId, disabled}) => {
     const [open, setOpen] = useState(false);
-    const draftId = _get(record, "id", "No-Id");
-    const { publishDraft, loading } = usePublishDraft(draftId);
+    const {publishDraft, loading} = usePublishDraft(draftId);
 
     const handlePublish = async () => {
         await publishDraft();
@@ -17,7 +15,7 @@ export const PublishButton = ({ record }) => {
 
     return (
         <>
-            <Button fluid secondary onClick={() => setOpen(true)}>Publish</Button>
+            <Button fluid secondary disabled={disabled ?? false} onClick={() => setOpen(true)}>Publish</Button>
 
             <Modal open={open} onClose={() => setOpen(false)} size="small">
                 <Modal.Header>Confirm Publish</Modal.Header>
@@ -26,7 +24,8 @@ export const PublishButton = ({ record }) => {
                 </Modal.Content>
                 <Modal.Actions>
                     <Button onClick={() => setOpen(false)} disabled={loading}>Cancel</Button>
-                    <Button color="green" onClick={handlePublish} loading={loading} disabled={loading}>Confirm Publish</Button>
+                    <Button color="green" onClick={handlePublish} loading={loading} disabled={loading}>Confirm
+                        Publish</Button>
                 </Modal.Actions>
             </Modal>
         </>
@@ -34,5 +33,6 @@ export const PublishButton = ({ record }) => {
 };
 
 PublishButton.propTypes = {
-    record: PropTypes.object.isRequired,
+    draftId: PropTypes.string.isRequired,
+    disabled: PropTypes.boolean
 };

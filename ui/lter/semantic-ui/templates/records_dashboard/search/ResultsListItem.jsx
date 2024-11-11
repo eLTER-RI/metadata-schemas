@@ -68,7 +68,7 @@ export const ResultsListItemComponent = ({
     const titles = _get(result, "metadata.titles", [{"text": "No Title"}]);
     const descriptions = _get(result, "metadata.descriptions", [{"description": "No Description"}])
     const keywords = _get(result, "metadata.keywords", [])
-
+    const draftId = _get(result, "id", "error")
     const state = _get(result, "state")
 
      const isLargeScreen = useMediaQuery({ minWidth: 2560 });
@@ -109,7 +109,7 @@ export const ResultsListItemComponent = ({
                                 )}
                             </Grid.Column>
                             <Grid.Column width={2}>
-                                {state === 'validated' && <PublishButton record={result}/>}
+                                {state === 'validated' && <PublishButton draftId={draftId}/>}
                             </Grid.Column>
                             <Grid.Column width={isLargeScreen ? 1 : 2}>
                                 {!['published'].includes(state) && <ActionButton record={result}/> }
