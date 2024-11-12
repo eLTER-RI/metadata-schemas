@@ -1,6 +1,5 @@
 import React from 'react';
 import {Icon, Loader, Popup} from "semantic-ui-react";
-import {ResultsListItem} from "../records_dashboard/search/ResultsListItem";
 import PropTypes from "prop-types";
 
 const stateIcons = {
