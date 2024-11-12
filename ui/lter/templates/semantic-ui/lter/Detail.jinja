@@ -7,9 +7,12 @@
         <div class="ui centered grid page-nav-container">
             <div class="row detail-search-menu">
                 <div class="sixteen wide mobile four wide computer column detail-back-to-search-link">
-                    <a href="{{ url_for('lter.search') }}" class="text-big"
-                       aria-label="{{ _('Back to search results') }}">
-                        <i class="left chevron icon"></i>{{ _('Back to search results')|upper }}
+                    {% set nav_url = '/me/records' if is_preview else '/lter' %}
+                    {% set back_text = 'Back to the dashboard' if is_preview else 'Back to published records' %}
+                    <a href="{{ nav_url }}" class="text-big"
+                       aria-label="{{back_text}}">
+                        {# TODO translations#}
+                        <i class="left chevron icon"></i>{{ back_text }}
                     </a>
                 </div>
                 <div class="sixteen wide mobile twelve wide computer column center aligned right floated">
