@@ -33,5 +33,5 @@ export const ExternalWorkflowButton = ({ draftId, disabled }) => {
 
 ExternalWorkflowButton.propTypes = {
     draftId: PropTypes.string.isRequired,
-    disabled: PropTypes.boolean
+    disabled: PropTypes.bool
 };

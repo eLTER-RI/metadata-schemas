@@ -34,5 +34,5 @@ export const PublishButton = ({draftId, disabled}) => {
 
 PublishButton.propTypes = {
     draftId: PropTypes.string.isRequired,
-    disabled: PropTypes.boolean
+    disabled: PropTypes.bool
 };

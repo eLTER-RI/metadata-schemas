@@ -13,5 +13,5 @@ export const EditButton = ({ draftId, disabled }) => {
 
 EditButton.propTypes = {
     draftId: PropTypes.string.isRequired,
-    disabled: PropTypes.boolean
+    disabled: PropTypes.bool
 };
