@@ -5,13 +5,19 @@ import {DeleteButton} from "../../../templates/records_dashboard/search/componen
 import {EditButton} from "../../../templates/records_dashboard/search/components/EditButton";
 import {ExternalWorkflowButton} from "../../../templates/records_dashboard/search/components/ExternalWorkflowButton";
 import {PublishButton} from "../../../templates/records_dashboard/search/components/PublishButton";
+import StateIcon from "../../../templates/components/StateIcon";
 
 export const ActionMenu = ({draftId, state}) => {
     return (
         <Grid divided>
             <Grid.Row>
                 <Grid.Column>
-                    <Label basic color="secondary" size="large">{state}</Label>
+                    <div>
+                        <Grid.Row columns={2}>
+                            <StateIcon state={state} disabledPopup={true}/>
+                            <Label basic color="secondary" size="large">{state}</Label>
+                        </Grid.Row>
+                    </div>
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={3}>

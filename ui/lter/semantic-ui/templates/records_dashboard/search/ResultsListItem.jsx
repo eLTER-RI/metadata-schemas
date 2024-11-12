@@ -11,33 +11,20 @@ import {ActionButton} from "./components/ActionButton";
 import {PublishButton} from "./components/PublishButton";
 
 import { useMediaQuery } from 'react-responsive';
+import StateIcon from "../../components/StateIcon";
 
 
 // import {i18next} from "@translations/i18next";
 
 
-const stateIcons = {
-    validated: {name: 'check circle', color: 'green'},
-    error: {name: 'times circle', color: 'red'},
-    draft: {name: 'question circle', color: 'blue'},
-    published: {name: 'globe', color: 'blue'}
-};
-
 const ItemHeader = ({titles, state, viewLink}) => {
-    const iconProps = stateIcons[state] || {};
 
     let firstTitle = titles[0];
     const title = firstTitle.text ? firstTitle.text : "[NO TITLE - PLEASE FILL THE TITLE]";
 
     return (
         <Item.Header>
-            <Popup content={state} trigger={
-                state === 'running' ? (
-                    <Loader active inline size="mini" indeterminate/>
-                ) : (
-                    iconProps.name && <Icon {...iconProps} aria-label={state}/>
-                )
-            }/>
+            <StateIcon state={state}/>
             <a href={viewLink}>{title}</a>
         </Item.Header>
     );
