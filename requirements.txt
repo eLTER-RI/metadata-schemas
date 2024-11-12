@@ -15,7 +15,7 @@ oarepo-communities==5.0.23
 oarepo-dashboard==1.0.12
 oarepo-global-search==1.0.27
 oarepo-published-service==1.0.3
-oarepo-requests==2.2.9
+oarepo-requests==2.2.10
 oarepo-runtime==1.5.69
 oarepo-ui==5.2.23
 oarepo-vocabularies==2.1.6
