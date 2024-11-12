@@ -102,6 +102,7 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
                             <Grid.Column only="computer" width={4}/>
                             <Grid.Column {...resultsPaneLayout}>
                                 <SearchBar buildUID={buildUID} appName={appName}/>
+
                                 {facetsAvailable && (
                                     <ShouldActiveFiltersRender>
                                         <ActiveFilters/>
@@ -148,7 +149,7 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
                                                  width={3}>
                                         <ResultCountWithState/>
                                     </Grid.Column>
-                                    <Grid.Column floated=" right" textAlign=" right" width={13}>
+                                    <Grid.Column floated="right" textAlign="right" width={13}>
                                         <ResultsPerPage
                                             values={resultsPerPage}
                                             label={ResultsPerPageLabel}

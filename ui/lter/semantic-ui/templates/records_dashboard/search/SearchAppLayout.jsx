@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import _isEmpty from "lodash/isEmpty";
 import Overridable from "react-overridable";
 import {withState, ActiveFilters, ResultsPerPage} from "react-searchkit";
-import {Container, Label, Grid, Button, Header, TransitionablePortal, Icon} from "semantic-ui-react";
+import {Container, Grid, Button, Header, Icon} from "semantic-ui-react";
 import {i18next as i18nOARepo} from "@translations/oarepo_ui/i18next";
 import {i18next} from "@translations/i18next";
 import {ShouldActiveFiltersRender, ActiveFiltersCountFloatingLabel, ClearFiltersButton} from "@js/oarepo_ui";
@@ -107,7 +107,7 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
                         <Grid.Row>
                             <Grid.Column only="computer" width={4}/>
                             <Grid.Column {...resultsPaneLayout}>
-                                <SearchBar buildUID={buildUID} appName={appName}/>
+                                <SearchBar buildUID={buildUID} appName={appName} />
                                 {facetsAvailable && (
                                     <ShouldActiveFiltersRender>
                                         <ActiveFilters/>
