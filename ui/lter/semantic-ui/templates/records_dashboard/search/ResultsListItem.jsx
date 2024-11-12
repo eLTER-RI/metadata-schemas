@@ -4,7 +4,7 @@ import Overridable from "react-overridable";
 
 import _get from "lodash/get";
 
-import {Grid, Item, Label, Icon, Loader, Popup} from "semantic-ui-react";
+import {Grid, Item, Label} from "semantic-ui-react";
 import {withState, buildUID} from "react-searchkit";
 import {SearchConfigurationContext} from "@js/invenio_search_ui/components";
 import {ActionButton} from "./components/ActionButton";
