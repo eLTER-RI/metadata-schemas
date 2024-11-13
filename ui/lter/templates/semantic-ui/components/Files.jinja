@@ -29,17 +29,29 @@
         <AccordionField label="Files" accordion_class="detail-section" active="True">
             <div class="ui relaxed divided list">
                 {% for file in array(entries) %}
-                    <div class="item">
-                        <i class="large file middle aligned icon"></i>
-                        <div class="content">
-                            <a class="header" href={{ file.links.content }}>{{ file.key }}</a>
-                            <div class="description">
-                                <div class="ui basic file-format label">{{ file.mimetype }}</div>
-                                <a class="ui basic label" onclick="copyToClipboard(this)" title={{ file.checksum }}>md5</a>
-                                <a class="ui basic label" title={{ file.size | filesizeformat }}>size</a>
+                    {% if file.status | string == 'pending' %}
+                        <div class="item">
+                            <i class="large file middle aligned icon"></i>
+                            <div class="content">
+                                <a class="header"> {{ file.key }}</a>
+                                <div class="description">
+                                    <i class="spinner loading icon"></i> Waiting for upload
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {% else %}
+                        <div class="item">
+                            <i class="large file middle aligned icon"></i>
+                            <div class="content">
+                                <a class="header" href={{ file.links.content }}>{{ file.key }}</a>
+                                <div class="description">
+                                    <div class="ui basic file-format label">{{ file.mimetype }}</div>
+                                    <a class="ui basic label" onclick="copyToClipboard(this)" title={{ file.checksum }}>md5</a>
+                                    <a class="ui basic label" title={{ file.size | filesizeformat }}>size</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </AccordionField>
