@@ -13,7 +13,7 @@
                         <div class="description">
                             <div class="ui basic file-format label">File format: {{ file.format }}</div>
                             <a class="ui basic label" onclick="copyToClipboard(this)" title="Click to copy">Checksum: {{ file.md5 }}</a>
-                            <a class="ui basic label" title="File size - We dont know the filesize format - To be done">Filesize: {{ file.size }}</a>
+                            <div class="ui label" title="File size - We dont know the filesize format - To be done">Filesize: {{ file.size }}</div>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                                 <div class="description">
                                     <div class="ui basic file-format label">Mimetype: {{ file.mimetype }}</div>
                                     <a class="ui basic label" onclick="copyToClipboard(this)" title="Click to copy">Checksum: {{ file.checksum }}</a>
-                                    <a class="ui basic label" aria-label="File size">File size: {{ file.size | filesizeformat }}</a>
+                                    <div class="ui label" aria-label="File size">File size: {{ file.size | filesizeformat }}</div>
                                 </div>
                             </div>
                         </div>
