@@ -99,20 +99,18 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
                         relaxed
                         className="search-app"
                     >
-                        <Grid.Row>
-                            <Grid.Column floated="right">
-                                <Button fluid secondary href={'/lter/_new'}>Create Asset</Button>
-                            </Grid.Column>
-                        </Grid.Row>
-                        <Grid.Row>
+                        <Grid.Row columns={3}>
                             <Grid.Column only="computer" width={4}/>
-                            <Grid.Column {...resultsPaneLayout}>
+                            <Grid.Column width={6}>
                                 <SearchBar buildUID={buildUID} appName={appName} />
                                 {facetsAvailable && (
                                     <ShouldActiveFiltersRender>
                                         <ActiveFilters/>
                                     </ShouldActiveFiltersRender>
                                 )}
+                            </Grid.Column>
+                            <Grid.Column width={6}>
+                                <Button fluid secondary circular size="large" href={'/lter/_new'}>Create Asset</Button>
                             </Grid.Column>
                         </Grid.Row>
                         <Grid.Row verticalAlign="middle" className="result-options">

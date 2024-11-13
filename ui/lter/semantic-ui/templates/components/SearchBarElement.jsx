@@ -34,39 +34,36 @@ const SearchBarElement = withState(
         };
 
         return (
-            <Grid.Row>
-                <Input
-                    icon={
-                        queryString && (
-                            <Popup content="Clear search" trigger={
-                                <Icon
-                                    color="red"
-                                    name="delete"
-                                    link
-                                    onClick={clearInput}
-                                    aria-label={i18next.t("Clear search")}
-                                />}/>
-                        )
-                    }
-                    iconPosition="left"
-                    action={{
-                        icon: iconName,
-                        onClick: onBtnSearchClick,
-                        "aria-label": i18next.t("Search"),
-                        className: "search"
-                    }}
-                    placeholder={placeholder}
-                    aria-label={placeholder}
-                    onChange={(event, {value}) => {
-                        onInputChange(value);
-                    }}
-                    value={queryString}
-                    onKeyPress={onKeyPress}
-                    style={{ width: "50%" }}
-                    className="search-input"
-                />
-            </Grid.Row>
-
+            <Input
+                icon={
+                    queryString && (
+                        <Popup content="Clear search" trigger={
+                            <Icon
+                                color="red"
+                                name="delete"
+                                link
+                                onClick={clearInput}
+                                aria-label={i18next.t("Clear search")}
+                            />}/>
+                    )
+                }
+                iconPosition="left"
+                action={{
+                    icon: iconName,
+                    onClick: onBtnSearchClick,
+                    "aria-label": i18next.t("Search"),
+                    className: "search"
+                }}
+                placeholder={placeholder}
+                aria-label={placeholder}
+                onChange={(event, {value}) => {
+                    onInputChange(value);
+                }}
+                value={queryString}
+                onKeyPress={onKeyPress}
+                style={{width: "100%"}}
+                className="search-input"
+            />
         );
     }
 );
