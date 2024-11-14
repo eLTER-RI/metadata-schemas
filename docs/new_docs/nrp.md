@@ -1,65 +1,6 @@
-# Elter Catalog
+[Back to Menu](main.md)
 
-UI updates
-Filtering
-Geo Map
-Keywords
-
-XML
-
-```bash
-invenio files location
-```
-
-## Docker 
-Run from the root repo
-```bash
-docker buildx build -t copas-market.cerit-sc.cz/elter/lter_dar:TAG .
-```
-
-```bash
- docker login copas-market.cerit-sc.cz/elter
-```
-
-```bash
-docker push copas-market.cerit-sc.cz/elter/lter_dar:TAG
-```
-
-## How to run locally
-```bash
-./nrp develop
-```
-
-
-## Links:
-- Title Page: https://127.0.0.1:5000/
-- Search Result Page: https://127.0.0.1:5000/lter
-- API Page: https://127.0.0.1:5000/lter/api
-- XML schema export: https://127.0.0.1:5000/lter/id/export/xml
-
-# Documentation
-
-## Repository layout
-
-The repository contains the following files and directories:
-
-- `oarepo.yaml` - the main configuration file for the repository
-- `pyproject.toml` - python dependencies and plugins
-- `ui` - directory containing the UI sources, such as title page, search page, record detail page, etc.
-  - `ui/branding` - branding information, including colors, logo, favicon etc.
-- `models` - directory containing the metadata schemas
-- `tests` - directory containing tests for the repository
-- `shared` - directory with shared code, local implementation etc.
-- `nrp` - the nrp command line tool
-
-The following files/directories are generated automatically 
-and should not be modified:
-
-- `<modelname>` - one or more directories containing generated code for the models
-- `.venv` - virtual environment for the repository
-- `.venv-*` - additional virtual environments for tools
-
-## Basic commands
+# Nrp tool basic commands
 
 ### Checking requirements
 
@@ -246,3 +187,5 @@ the page to the flask application.
 
 If you run the command with `--react` option, it will also create
 react endpoint for the page and reference it from the jinjax template.
+
+[Back to Menu](main.md)
