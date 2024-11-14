@@ -1,3 +1,4 @@
+[Back to Menu](main.md)
 # Commands for database init
 
 - [Dev](#dev)
@@ -27,3 +28,5 @@ invenio oarepo communities create b2share B2SHARE && invenio oarepo communities 
 ```
 invenio db drop --yes-i-know && invenio db init && invenio db create && invenio index destroy --yes-i-know && invenio index init && invenio index queue init purge && invenio oarepo cf init && invenio oarepo index reindex && invenio oarepo index reindex 
 ```
+
+[Back to Menu](main.md)
