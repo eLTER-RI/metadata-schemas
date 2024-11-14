@@ -8,6 +8,8 @@ from oarepo_vocabularies.ui.resources.components import (
     DepositVocabularyOptionsComponent,
 )
 
+from ui.lter.components.lter_component import LterResourceCustomComponent
+
 
 class LterResourceConfig(RecordsUIResourceConfig):
     template_folder = "templates"
@@ -23,7 +25,8 @@ class LterResourceConfig(RecordsUIResourceConfig):
         PermissionsComponent,
         FilesComponent,
         # AllowedCommunitiesComponent,
-        DepositVocabularyOptionsComponent
+        DepositVocabularyOptionsComponent,
+        LterResourceCustomComponent
     ]
 
     application_id = "lter"
