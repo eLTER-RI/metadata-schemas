@@ -1,13 +1,17 @@
 @authToken = PfFLZ8CMOLUsq8HeIrtt0uVNTqVhWDBsLhBgfSgjZq8RWtymtqfggZw8z8XX
-@recordId = change_me
+@recordId =vattw-4m959
 
 // Uncomment one related hostname
-@hostname = https://127.0.0.1:5000
-#@hostname = https://catalog.elter.cerit-sc.cz/
+#@hostname = https://127.0.0.1:5000
+@hostname = https://catalog.elter.cerit-sc.cz
 #@hostname = https://catalog.elter-ri.eu/
 
 ### GET All as XML
-GET {{hostname}}/api/lter?q=size=500
+GET {{hostname}}/api/lter?size=500
+Accept: text/xml
+
+### GetRecord as XML
+GET {{hostname}}/api/lter/{{recordId}}
 Accept: text/xml
 
 ### GET All My records
@@ -15,7 +19,7 @@ GET {{hostname}}//api/user/lter
 Authorization: Bearer {{authToken}}
 
 ### GET All My draft records
-GET {{hostname}}//api/user/lter?state=draft
+GET {{hostname}}//api/user/lter?not(state=draft)
 Authorization: Bearer {{authToken}}
 
 ### Get All My actions

@@ -1,6 +1,8 @@
 import logging
 import pdb
 from datetime import datetime
+import random
+import string
 
 from invenio_records_resources.services.uow import RecordCommitOp
 
@@ -15,6 +17,10 @@ import requests
 from flask import current_app
 
 logger = logging.getLogger(__name__)
+
+def generate_random_string(size):
+    characters = string.ascii_letters + string.digits
+    return ''.join(random.choice(characters) for _ in range(size))
 
 
 def get_ingest_headers():
@@ -66,7 +72,7 @@ class ExternalWorkflowSubmitAction(ExternalWorkflowHistoryMixin, OARepoSubmitAct
             self.add_to_history(topic, workflow_template_id, workflow_type_id, 'Running', uow)
             return response
         else:
-            self.add_to_history(topic, "Dev_test_run", workflow_type_id, 'Running', uow)
+            self.add_to_history(topic, generate_random_string(10), workflow_type_id, 'Running', uow)
 
 class ExternalWorkflowDeclineAction(ExternalWorkflowHistoryMixin, OARepoDeclineAction):
     def apply(self, identity, request_type, topic, uow, *args, **kwargs):

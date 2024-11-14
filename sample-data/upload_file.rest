@@ -1,8 +1,8 @@
 // Change the draft id
-@draftId =fk1cc-aah11
+@draftId =hqcqm-44a95
 
 // Dont push tokens from production !!!!
-@authToken = gjJoUW79j8LwyEwtTCrsQe5w56OJ7WMHSN6l2msvV84uVEGMvRAwx150NwxK
+@authToken = q5fIMi3Hb7kRRSa8f3oanW7Yjs6qWoOG6PGoqTFUzLlnnJVCvVmteOVV8RsG
 
 @fileName = test.csv
 

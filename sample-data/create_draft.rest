@@ -1,5 +1,5 @@
 // Dont push tokens from production !!!!
-@authToken = thSnwqOjFG2rmNNoY7hhvdANv9KDiy6JtmNu2uvPx9lX6gJNCMhrTWVLjlk1
+@authToken = q5fIMi3Hb7kRRSa8f3oanW7Yjs6qWoOG6PGoqTFUzLlnnJVCvVmteOVV8RsG
 
 @communityName = "test"
 @filesEnabled = "False"
