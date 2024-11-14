@@ -10,16 +10,6 @@ import StateIcon from "../../../templates/components/StateIcon";
 export const ActionMenu = ({draftId, state}) => {
     return (
         <Grid divided>
-            <Grid.Row>
-                <Grid.Column>
-                    <div>
-                        <Grid.Row columns={2}>
-                            <StateIcon state={state} disabledPopup={true}/>
-                            <Label basic color="secondary" size="large">{state}</Label>
-                        </Grid.Row>
-                    </div>
-                </Grid.Column>
-            </Grid.Row>
             <Grid.Row columns={3}>
                 <Grid.Column>
                     <DeleteButton draftId={draftId}/>

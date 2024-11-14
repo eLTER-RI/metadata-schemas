@@ -40,8 +40,15 @@
                     {#TODO put this into a separate class#}
                     <div class="column">
                         <div class="ui grid">
-                            <div class="three column row">
-                                <div class="column detail-main-info-header">
+                            <div class="four column row">
+                                <div class="three wide column">
+                                    <div class="detail-main-info-header">
+                                        <i class="one wide column info icon"></i>
+                                        <div class="detail-main-info-header">Status</div>
+                                    </div>
+                                    <div class="detail-main-info-text">{{ d.state | capitalize }}</div>
+                                </div>
+                                <div class="five wide column">
                                     <div class="detail-main-info-header">
                                         <i class="four wide column key icon"></i>
                                         <div class="twelve wide column">Data keywords</div>
@@ -49,7 +56,7 @@
                                     <KeyWords keywords={metadata.keywords}
                                               search_link={record.links.search_link}></KeyWords>
                                 </div>
-                                <div class="column">
+                                <div class="five wide column">
                                     <div class="detail-main-info-header">
                                         <i class="four wide column linkify icon"></i>
                                         <div class="detail-main-info-header">Original source link</div>
@@ -61,12 +68,12 @@
                                         </div>
                                     {% endfor %}
                                 </div>
-                                <div class="column">
+                                <div class="three wide column">
                                     <div class="detail-main-info-header">
                                         <i class="four wide column language icon"></i>
                                         <div class="detail-main-info-header">Language</div>
                                     </div>
-                                    <div class="detail-main-info-text">{{ d.metadata.language }}</div>
+                                    <div class="detail-main-info-text">{{ d.metadata.language | capitalize }}</div>
                                 </div>
                             </div>
                         </div>
