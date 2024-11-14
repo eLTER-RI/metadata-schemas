@@ -15,7 +15,7 @@ export const ExternalWorkflowButton = ({ draftId, disabled }) => {
 
     return (
         <>
-            <Button fluid secondary onClick={() => setOpen(true)} disabled={disabled ?? false}>Run Quality Checks</Button>
+            <Button fluid secondary onClick={() => setOpen(true)} disabled={disabled ?? false}>Run QC</Button>
 
             <Modal open={open} onClose={() => setOpen(false)} size="small">
                 <Modal.Header>Confirm Run Quality Checks</Modal.Header>
