@@ -1,6 +1,6 @@
-{# def externalWorkflow #}
+{# def history #}
 
-{% if externalWorkflow.history %}
+{% if history %}
     <table class="ui celled table">
         <thead>
         <tr>
@@ -9,8 +9,9 @@
         </tr>
         </thead>
         <tbody>
-        {% for record in array(externalWorkflow.history) %}
+        {% for record in array(history) %}
             {% set status = record.status | string %}
+
             <tr>
                 <td>{{ record.date }}</td>
                 <td>

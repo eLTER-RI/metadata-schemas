@@ -92,7 +92,7 @@
                             {# TODO add translation#}
                             <AccordionField label="Quality checks history"
                                             active>
-                                <ExternalWorkflowHistory externalWorkflow={d.externalWorkflow}/>
+                                <ExternalWorkflowHistory history={extra_context.wf_latest_history}/>
                             </AccordionField>
                         {% endif %}
                         {% if d.metadata.geoLocations %}
