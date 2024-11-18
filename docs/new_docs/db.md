@@ -9,6 +9,9 @@
 
 
 ## Dev
+``` bash
+invenio users create -a -c admin@elter.com --password testtest && invenio oarepo communities create elter ELTER && invenio oarepo communities members add elter admin@elter.com "owner" && invenio tokens create -n admin_token -u admin@elter.com -i
+```
 
 ## General command
 
