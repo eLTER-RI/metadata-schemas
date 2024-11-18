@@ -63,14 +63,10 @@ class DefaultWorkflowPermissions(CommunityDefaultWorkflowPermissions):
     ]
 
     can_update = [
-        IfInState("draft", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
-        IfInState("error", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
-        IfInState("validated", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
+        IfInState("draft", then_=[RecordOwners(),PrimaryCommunityRole("system"), PrimaryCommunityRole("owner")]),
+        IfInState("error", then_=[RecordOwners(),PrimaryCommunityRole("system"), PrimaryCommunityRole("owner")]),
+        IfInState("validated", then_=[RecordOwners(),PrimaryCommunityRole("system"), PrimaryCommunityRole("owner")]),
         IfInState("published", then_=[PrimaryCommunityRole("system")]),
-    ]
-
-    can_publish = [
-        PrimaryCommunityRole("system")
     ]
 
     can_delete = [
