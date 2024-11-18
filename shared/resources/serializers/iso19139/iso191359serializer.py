@@ -163,9 +163,8 @@ def add_license_info(root, licenses):
             anchor.text = ele_license.get('name', 'NoName')
 
 
-def add_temporal_extent_info(root, temporal_coverage):
+def add_temporal_extent_info(md_data_identification, temporal_coverage):
     if len(temporal_coverage) > 0:
-        md_data_identification = etree.SubElement(root, "{http://www.isotc211.org/2005/gmd}MD_DataIdentification")
         extent = etree.SubElement(md_data_identification, "{http://www.isotc211.org/2005/gmd}extent")
 
         ex_extent = etree.SubElement(extent, "{http://www.isotc211.org/2005/gmd}EX_Extent")
@@ -238,17 +237,20 @@ def add_identification_info(root, metadata, nsmap):
     locations = metadata.get('geoLocations')
     for geolocation in locations:
         for locationKey, locationValue in geolocation.items():
-            geographic_element = etree.SubElement(ex_extent, "{http://www.isotc211.org/2005/gmd}geographicElement")
-            if locationKey == 'description':
-                description = etree.SubElement(geographic_element,
-                                               "{http://www.isotc211.org/2005/gmd}EX_GeographicDescription")
-                geographic_identifier = etree.SubElement(description,
-                                                         "{http://www.isotc211.org/2005/gmd}geographicIdentifier")
-                md_identifier = etree.SubElement(geographic_identifier,
-                                                 "{http://www.isotc211.org/2005/gmd}MD_Identifier")
-                code = etree.SubElement(md_identifier, "{http://www.isotc211.org/2005/gmd}code")
-                code.append(create_element("{http://www.isotc211.org/2005/gco}CharacterString", locationValue, nsmap))
-            elif locationKey == 'EX_GeographicBoundingBox':
+            # if locationKey == 'EX_GeographicDescription':
+            #     geographic_element = etree.SubElement(ex_extent, "{http://www.isotc211.org/2005/gmd}geographicElement")
+            #
+            #     description = etree.SubElement(geographic_element,
+            #                                    "{http://www.isotc211.org/2005/gmd}EX_GeographicDescription")
+            #     geographic_identifier = etree.SubElement(description,
+            #                                              "{http://www.isotc211.org/2005/gmd}geographicIdentifier")
+            #     md_identifier = etree.SubElement(geographic_identifier,
+            #                                      "{http://www.isotc211.org/2005/gmd}MD_Identifier")
+            #     code = etree.SubElement(md_identifier, "{http://www.isotc211.org/2005/gmd}code")
+            #     code.append(create_element("{http://www.isotc211.org/2005/gco}CharacterString", locationValue, nsmap))
+            if locationKey == 'EX_GeographicBoundingBox':
+                geographic_element = etree.SubElement(ex_extent, "{http://www.isotc211.org/2005/gmd}geographicElement")
+
                 bounding_box = etree.SubElement(geographic_element,
                                                 "{http://www.isotc211.org/2005/gmd}EX_GeographicBoundingBox")
                 west_bound_longitude = etree.SubElement(bounding_box,
@@ -275,6 +277,7 @@ def add_identification_info(root, metadata, nsmap):
                     create_element("{http://www.isotc211.org/2005/gco}Decimal",
                                    str(locationValue['northBoundLatitude']),
                                    nsmap))
+    add_temporal_extent_info(data_identification, metadata.get('temporalCoverages', []))
 
 
 def add_geo_server_info(root, geo_server_info, nsmap):
@@ -353,7 +356,7 @@ def generate_xml(json_data):
     add_date_stamp(root, get_current_datetime())
     add_identification_info(root, metadata, nsmap)
     add_license_info(root, metadata.get('licenses', []))
-    add_temporal_extent_info(root, metadata.get('temporalCoverages', []))
+
     add_geo_server_info(root, metadata.get('geoServerInfo'), nsmap)
 
     tree = etree.ElementTree(root)
