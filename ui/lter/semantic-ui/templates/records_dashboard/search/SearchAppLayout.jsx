@@ -88,7 +88,7 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
             <div className="page-nav-container">
                 <div className="page-nav">
                     <div className="page-title">
-                        Datasets
+                        Dashboard records
                     </div>
                 </div>
             </div>
@@ -102,7 +102,7 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
                         <Grid.Row columns={3}>
                             <Grid.Column only="computer" width={4}/>
                             <Grid.Column width={6}>
-                                <SearchBar buildUID={buildUID} appName={appName} />
+                                <SearchBar buildUID={buildUID} appName={appName}/>
                                 {facetsAvailable && (
                                     <ShouldActiveFiltersRender>
                                         <ActiveFilters/>
@@ -138,21 +138,21 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
                                     </Button>
                                 </Grid.Column>
                             )}
-                            <Grid.Column only=" computer" width={4}>
+                            <Grid.Column only="computer" width={4}>
                                 {facetsAvailable && (
                                     <Grid.Row>
-                                        <Header size=" medium"
+                                        <Header size="medium"
                                                 id=" search-filters-header-title">{i18nOARepo.t(" Filters")}</Header>
                                     </Grid.Row>
                                 )}
                             </Grid.Column>
                             <Grid.Column {...resultsPaneLayout} mobile={13} tablet={14}>
-                                <Grid as={Grid.Row} verticalAlign=" middle">
-                                    <Grid.Column className=" search-result-count" floated=" left" textAlign=" left"
+                                <Grid as={Grid.Row} verticalAlign="middle">
+                                    <Grid.Column className="search-result-count" floated="left" textAlign="left"
                                                  width={3}>
                                         <ResultCountWithState/>
                                     </Grid.Column>
-                                    <Grid.Column floated=" right" textAlign=" right" width={13}>
+                                    <Grid.Column floated="right" textAlign="right" width={13}>
                                         <ResultsPerPage
                                             values={resultsPerPage}
                                             label={ResultsPerPageLabel}
@@ -176,7 +176,7 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
                                         <>
                                             <ShouldActiveFiltersRender>
                                                 <ClearFiltersButton
-                                                    clearFiltersButtonClassName=" primary mobile tablet only"
+                                                    clearFiltersButtonClassName="primary mobile tablet only"
                                                 />
                                             </ShouldActiveFiltersRender>
                                             <Header size=" medium"
@@ -229,7 +229,7 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
 
 SearchAppLayout.propTypes = {
     config: PropTypes.shape({
-        searchApi: PropTypes.object.isRequired, // same as ReactSearchKit.searchApi
+        searchApi: PropTypes.object.isRequired,
         initialQueryState: PropTypes.shape({
             queryString: PropTypes.string,
             sortBy: PropTypes.string,
@@ -237,7 +237,7 @@ SearchAppLayout.propTypes = {
             page: PropTypes.number,
             size: PropTypes.number,
             hiddenParams: PropTypes.array,
-            layout: PropTypes.oneOf([" list", " grid"]),
+            layout: PropTypes.oneOf(["list", " grid"]),
         }),
     }),
 };
