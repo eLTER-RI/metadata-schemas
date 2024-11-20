@@ -11,7 +11,7 @@ COPY .. /repository
 WORKDIR /repository
 RUN rm -rf .nrp .pdm-build .venv
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-RUN PYTHON=`which python3` ./nrp build --override-config venv_dir=/invenio/venv --override-config invenio_instance_path=/invenio/instance
+RUN PYTHON=`which python3` PATH=/root/.local/bin:$PATH ./nrp build --override-config venv_dir=/invenio/venv --override-config invenio_instance_path=/invenio/instance
 
 # cleanup
 RUN rm -rf .nrp .pdm-build .venv
