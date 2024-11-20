@@ -163,11 +163,8 @@ def add_license_info(root, licenses):
             anchor.text = ele_license.get('name', 'NoName')
 
 
-def add_temporal_extent_info(md_data_identification, temporal_coverage):
+def add_temporal_extent_info(ex_extent, temporal_coverage):
     if len(temporal_coverage) > 0:
-        extent = etree.SubElement(md_data_identification, "{http://www.isotc211.org/2005/gmd}extent")
-
-        ex_extent = etree.SubElement(extent, "{http://www.isotc211.org/2005/gmd}EX_Extent")
 
         for coverage in temporal_coverage:
             temporal_element = etree.SubElement(ex_extent, "{http://www.isotc211.org/2005/gmd}temporalElement")
@@ -277,7 +274,7 @@ def add_identification_info(root, metadata, nsmap):
                     create_element("{http://www.isotc211.org/2005/gco}Decimal",
                                    str(locationValue['northBoundLatitude']),
                                    nsmap))
-    add_temporal_extent_info(data_identification, metadata.get('temporalCoverages', []))
+    add_temporal_extent_info(ex_extent, metadata.get('temporalCoverages', []))
 
 
 def add_geo_server_info(root, geo_server_info, nsmap):
