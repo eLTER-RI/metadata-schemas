@@ -9,7 +9,7 @@ under the terms of the MIT License; see LICENSE file for more details.
 {%- if config.ACCOUNTS %}
 {%- if not current_user.is_authenticated %}
 <form>
-    <a class="ui item" href="{{ url_for_security('login', next=request.path) }}">
+    <a class="ui header_menu_item item" href="{{ url_for_security('login', next=request.path) }}">
         <i class="sign-in icon"></i>
         {{ _('Log in') }}</a>
     {% if security.registerable %}

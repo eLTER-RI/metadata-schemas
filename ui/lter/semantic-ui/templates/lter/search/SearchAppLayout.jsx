@@ -84,143 +84,132 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
 
     return (
         <div>
-            <div className="page-nav-container">
-                <div className="page-nav">
-                    <div className="page-title">
-                        Datasets
-                    </div>
-                </div>
-            </div>
-            <div className="search-result-container">
-                <Container fluid>
-                    <Grid
-                        columns={columnsAmount}
-                        relaxed
-                        className="search-app"
-                    >
-                        <Grid.Row>
-                            <Grid.Column only="computer" width={4}/>
-                            <Grid.Column {...resultsPaneLayout}>
-                                <SearchBar buildUID={buildUID} appName={appName}/>
+            <Container fluid>
+                <Grid
+                    columns={columnsAmount}
+                    relaxed
+                    className="search-app"
+                >
+                    <Grid.Row>
+                        <Grid.Column only="computer" width={4}/>
+                        <Grid.Column {...resultsPaneLayout}>
+                            <SearchBar buildUID={buildUID} appName={appName}/>
 
-                                {facetsAvailable && (
-                                    <ShouldActiveFiltersRender>
-                                        <ActiveFilters/>
-                                    </ShouldActiveFiltersRender>
-                                )}
-                            </Grid.Column>
-                        </Grid.Row>
-                        <Grid.Row verticalAlign="middle" className="result-options">
                             {facetsAvailable && (
-                                <Grid.Column
-                                    floated="left"
-                                    only="mobile tablet"
-                                    mobile={3}
-                                    tablet={2}
-                                    textAlign="left"
-                                    verticalAlign="middle"
-                                    className="search-burger-sidebar-btn"
-                                >
-                                    <Button
-                                        basic
-                                        onClick={() => setSidebarVisible(true)}
-                                        title={i18next.t("Filter results")}
-                                        aria-label={i18next.t("Filter results")}
-                                        className="facets-sidebar-open-button"
-                                    >
-                                        <Icon name="filter"/>
-                                        <ShouldActiveFiltersRender>
-                                            <ActiveFiltersCountFloatingLabel className="bg-carrotOrange"/>
-                                        </ShouldActiveFiltersRender>
-                                    </Button>
-                                </Grid.Column>
+                                <ShouldActiveFiltersRender>
+                                    <ActiveFilters/>
+                                </ShouldActiveFiltersRender>
                             )}
-                            <Grid.Column only=" computer" width={4}>
-                                {facetsAvailable && (
-                                    <Grid.Row>
+                        </Grid.Column>
+                    </Grid.Row>
+                    <Grid.Row verticalAlign="middle" className="result-options">
+                        {facetsAvailable && (
+                            <Grid.Column
+                                floated="left"
+                                only="mobile tablet"
+                                mobile={3}
+                                tablet={2}
+                                textAlign="left"
+                                verticalAlign="middle"
+                                className="search-burger-sidebar-btn"
+                            >
+                                <Button
+                                    basic
+                                    onClick={() => setSidebarVisible(true)}
+                                    title={i18next.t("Filter results")}
+                                    aria-label={i18next.t("Filter results")}
+                                    className="facets-sidebar-open-button"
+                                >
+                                    <Icon name="filter"/>
+                                    <ShouldActiveFiltersRender>
+                                        <ActiveFiltersCountFloatingLabel className="bg-carrotOrange"/>
+                                    </ShouldActiveFiltersRender>
+                                </Button>
+                            </Grid.Column>
+                        )}
+                        <Grid.Column only=" computer" width={4}>
+                            {facetsAvailable && (
+                                <Grid.Row>
+                                    <Header size=" medium"
+                                            id=" search-filters-header-title">{i18nOARepo.t(" Filters")}</Header>
+                                </Grid.Row>
+                            )}
+                        </Grid.Column>
+                        <Grid.Column {...resultsPaneLayout} mobile={13} tablet={14}>
+                            <Grid as={Grid.Row} verticalAlign=" middle">
+                                <Grid.Column className=" search-result-count" floated=" left" textAlign=" left"
+                                             width={3}>
+                                    <ResultCountWithState/>
+                                </Grid.Column>
+                                <Grid.Column floated="right" textAlign="right" width={13}>
+                                    <ResultsPerPage
+                                        values={resultsPerPage}
+                                        label={ResultsPerPageLabel}
+                                    />
+                                    <ResultOptionsWithState/>
+                                </Grid.Column>
+                            </Grid>
+                        </Grid.Column>
+                    </Grid.Row>
+                    <Grid.Row columns={columnsAmount} className=" facets-and-search-listing">
+                        {facetsAvailable && (
+                            <GridResponsiveSidebarColumn
+                                mobile={4}
+                                tablet={4}
+                                computer={4}
+                                largeScreen={4}
+                                widescreen={4}
+                                open={sidebarVisible}
+                                onHideClick={() => setSidebarVisible(false)}
+                                mobileChildren={
+                                    <>
+                                        <ShouldActiveFiltersRender>
+                                            <ClearFiltersButton
+                                                clearFiltersButtonClassName=" primary mobile tablet only"
+                                            />
+                                        </ShouldActiveFiltersRender>
                                         <Header size=" medium"
                                                 id=" search-filters-header-title">{i18nOARepo.t(" Filters")}</Header>
-                                    </Grid.Row>
-                                )}
-                            </Grid.Column>
-                            <Grid.Column {...resultsPaneLayout} mobile={13} tablet={14}>
-                                <Grid as={Grid.Row} verticalAlign=" middle">
-                                    <Grid.Column className=" search-result-count" floated=" left" textAlign=" left"
-                                                 width={3}>
-                                        <ResultCountWithState/>
-                                    </Grid.Column>
-                                    <Grid.Column floated="right" textAlign="right" width={13}>
-                                        <ResultsPerPage
-                                            values={resultsPerPage}
-                                            label={ResultsPerPageLabel}
+                                        <SearchAppFacets
+                                            aggs={config.aggs}
+                                            appName={appName}
+                                            buildUID={buildUID}
                                         />
-                                        <ResultOptionsWithState/>
-                                    </Grid.Column>
-                                </Grid>
-                            </Grid.Column>
-                        </Grid.Row>
-                        <Grid.Row columns={columnsAmount} className=" facets-and-search-listing">
-                            {facetsAvailable && (
-                                <GridResponsiveSidebarColumn
-                                    mobile={4}
-                                    tablet={4}
-                                    computer={4}
-                                    largeScreen={4}
-                                    widescreen={4}
-                                    open={sidebarVisible}
-                                    onHideClick={() => setSidebarVisible(false)}
-                                    mobileChildren={
-                                        <>
-                                            <ShouldActiveFiltersRender>
-                                                <ClearFiltersButton
-                                                    clearFiltersButtonClassName=" primary mobile tablet only"
-                                                />
-                                            </ShouldActiveFiltersRender>
-                                            <Header size=" medium"
-                                                    id=" search-filters-header-title">{i18nOARepo.t(" Filters")}</Header>
-                                            <SearchAppFacets
-                                                aggs={config.aggs}
-                                                appName={appName}
-                                                buildUID={buildUID}
-                                            />
-                                        </>
-                                    }
-                                >
-                                    <SearchAppFacets
-                                        aggs={config.aggs}
-                                        appName={appName}
-                                        buildUID={buildUID}
-                                    />
-                                </GridResponsiveSidebarColumn>
-                            )}
-                            <Grid.Column {...resultsPaneLayout}>
-                                <SearchAppResultsPane
-                                    layoutOptions={config.layoutOptions}
+                                    </>
+                                }
+                            >
+                                <SearchAppFacets
+                                    aggs={config.aggs}
                                     appName={appName}
                                     buildUID={buildUID}
                                 />
+                            </GridResponsiveSidebarColumn>
+                        )}
+                        <Grid.Column {...resultsPaneLayout}>
+                            <SearchAppResultsPane
+                                layoutOptions={config.layoutOptions}
+                                appName={appName}
+                                buildUID={buildUID}
+                            />
+                        </Grid.Column>
+                        {hasButtonSidebar && (
+                            <Grid.Column
+                                mobile={16}
+                                tablet={16}
+                                computer={4}
+                                largeScreen={4}
+                                widescreen={4}
+                            >
+                                <Overridable
+                                    id={buildUID(" SearchApp.buttonSidebarContainer", "", appName)}
+                                ></Overridable>
                             </Grid.Column>
-                            {hasButtonSidebar && (
-                                <Grid.Column
-                                    mobile={16}
-                                    tablet={16}
-                                    computer={4}
-                                    largeScreen={4}
-                                    widescreen={4}
-                                >
-                                    <Overridable
-                                        id={buildUID(" SearchApp.buttonSidebarContainer", "", appName)}
-                                    ></Overridable>
-                                </Grid.Column>
-                            )}
-                        </Grid.Row>
-                    </Grid>
-                    <BackToTopButton/>
-                </Container>
-            </div>
-
+                        )}
+                    </Grid.Row>
+                </Grid>
+                <BackToTopButton/>
+            </Container>
         </div>
-
     );
 };
 

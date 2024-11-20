@@ -72,6 +72,8 @@ export const usePublishDraft = (draftId) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
+    const navigation = useNavigation();
+
     const publishDraft = async () => {
         setLoading(true);
         setError(null);
@@ -83,6 +85,9 @@ export const usePublishDraft = (draftId) => {
             console.error("Error publishing draft:", err);
             setError(err);
         } finally {
+            if (navigation.isOnPageWithPathPart('preview')) {
+                navigation.navigateToUrl(`/lter/${draftId}`);
+            }
             setLoading(false);
         }
     };

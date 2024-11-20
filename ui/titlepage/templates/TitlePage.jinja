@@ -33,22 +33,27 @@
 {%- block page_body %}
     {% block main_column %}
         {%- if not current_user.is_authenticated %}
-            <div class="">
-                <div class="flex items-center justify-center">
-                    <img class="title-image" src="{{ url_for('static', filename=config.LOGO) }}" alt="photo 1">
-                </div>
-                <form action="{{ url_for('lter.search') }}"
-                      class="ui form full-width flex items-center justify-center" role="search">
-                    <div id="frontpage-search-input" class="ui action input search-input title-page">
-                        <input type="text" name="q" class="form-control" placeholder="{{ _('Search') }}">
-                        <button type="submit" class="ui icon search button" aria-label="{{ _('Search') }}"><i
-                                class="search icon"></i>
-                        </button>
+            <div class="ui container full-height">
+                <div class="ui centered aligned">
+                    <div class="ui item">
+                        <img class="title-image" src="{{ url_for('static', filename=config.LOGO) }}" alt="photo 1">
+
                     </div>
-                </form>
-                <div class="flex items-center  justify-center">
-                    <a href="{{ url_for('lter.search') }}"
-                       class="right-floated oxfordBlue">{{ _('Show all records') }}</a>
+                    <div class="ui full-width item">
+                        <form action="{{ url_for('lter.search') }}"
+                              class="ui form full-width title-page-container-element" role="search">
+                            <div id="frontpage-search-input" class="ui action input search-input title-page ">
+                                <input type="text" name="q" class="form-control" placeholder="{{ _('Search') }}">
+                                <button type="submit" class="ui icon search button" aria-label="{{ _('Search') }}"><i
+                                        class="search icon"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="ui full-width item">
+                        <a href="{{ url_for('lter.search') }}"
+                           class="oxfordBlue">{{ _('Show all records') }}</a>
+                    </div>
                 </div>
             </div>
         {%- endif %}

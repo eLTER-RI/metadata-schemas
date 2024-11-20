@@ -31,3 +31,7 @@
     border: 1px solid @carrotOrange;
   }
 }
+
+.ui.action.input.search-input.title-page{
+    width: 30%;
+}

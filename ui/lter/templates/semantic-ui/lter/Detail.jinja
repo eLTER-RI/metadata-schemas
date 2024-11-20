@@ -10,7 +10,7 @@
                     {% set nav_url = '/me/records' if is_preview else '/lter' %}
                     {% set back_text = 'Back to the dashboard' if is_preview else 'Back to published records' %}
                     <a href="{{ nav_url }}" class="text-big"
-                       aria-label="{{back_text}}">
+                       aria-label="{{ back_text }}">
                         {# TODO translations#}
                         <i class="left chevron icon"></i>{{ back_text }}
                     </a>
@@ -34,91 +34,90 @@
                 </div>
             </div>
         </div>
-        <div class="search-result-container">
-            <div class="ui centered grid">
-                <div class="row detail-main-info">
-                    {#TODO put this into a separate class#}
-                    <div class="column">
-                        <div class="ui grid">
-                            <div class="four column row">
-                                <div class="three wide column">
-                                    <div class="detail-main-info-header">
-                                        <i class="one wide column info icon"></i>
-                                        <div class="detail-main-info-header">Status</div>
-                                    </div>
-                                    <div class="detail-main-info-text">{{ d.state | capitalize }}</div>
+        <div class="ui centered grid">
+            <div class="row detail-main-info">
+                {#TODO put this into a separate class#}
+                <div class="column">
+                    <div class="ui grid">
+                        <div class="four column row">
+                            <div class="three wide column">
+                                <div class="detail-main-info-header">
+                                    <i class="one wide column info icon"></i>
+                                    <div class="detail-main-info-header">Status</div>
                                 </div>
-                                <div class="five wide column">
-                                    <div class="detail-main-info-header">
-                                        <i class="four wide column key icon"></i>
-                                        <div class="twelve wide column">Data keywords</div>
-                                    </div>
-                                    <KeyWords keywords={metadata.keywords}
-                                              search_link={record.links.search_link}></KeyWords>
+                                <div class="detail-main-info-text">{{ d.state | capitalize }}</div>
+                            </div>
+                            <div class="five wide column">
+                                <div class="detail-main-info-header">
+                                    <i class="four wide column key icon"></i>
+                                    <div class="twelve wide column">Data keywords</div>
                                 </div>
-                                <div class="five wide column">
-                                    <div class="detail-main-info-header">
-                                        <i class="four wide column linkify icon"></i>
-                                        <div class="detail-main-info-header">Original source link</div>
-                                    </div>
-                                    {% for alternateId in array(d.metadata.datasetIds) %}
-                                        <div class="detail-main-info-text">
-                                            <a class="ui secondary button"
-                                               href={{ alternateId.url }}>{{ alternateId.sourceName }}</a>
-                                        </div>
-                                    {% endfor %}
+                                <KeyWords keywords={metadata.keywords}
+                                          search_link={record.links.search_link}></KeyWords>
+                            </div>
+                            <div class="five wide column">
+                                <div class="detail-main-info-header">
+                                    <i class="four wide column linkify icon"></i>
+                                    <div class="detail-main-info-header">Original source link</div>
                                 </div>
-                                <div class="three wide column">
-                                    <div class="detail-main-info-header">
-                                        <i class="four wide column language icon"></i>
-                                        <div class="detail-main-info-header">Language</div>
+                                {% for alternateId in array(d.metadata.datasetIds) %}
+                                    <div class="detail-main-info-text">
+                                        <a class="ui secondary button"
+                                           href={{ alternateId.url }}>{{ alternateId.sourceName }}</a>
                                     </div>
-                                    <div class="detail-main-info-text">{{ d.metadata.language | capitalize }}</div>
+                                {% endfor %}
+                            </div>
+                            <div class="three wide column">
+                                <div class="detail-main-info-header">
+                                    <i class="four wide column language icon"></i>
+                                    <div class="detail-main-info-header">Language</div>
                                 </div>
+                                <div class="detail-main-info-text">{{ d.metadata.language | capitalize }}</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="center aligned two column row">
-                    <div class="eleven wide column">
-                        <article class="column main-record-content">
-                            <LterDetailRoot md={d.metadata} context={extra_context}
-                                            search_link={record.links.search_link}/>
-                        </article>
-                    </div>
-                    <div class="five wide computer only column">
-                        {% if d.state | string != 'published' %}
-                            {# TODO add translation #}
-                            <AccordionField label="Actions"
-                                            active>
-                                <div id="action-menu" draftId='{{ d.id | string }}'
-                                     state='{{ d.state | string }}'></div>
-                            </AccordionField>
-                        {% endif %}
-                        {% if d.state | string != 'published' %}
-                            {# TODO add translation#}
-                            <AccordionField label="Quality checks history"
-                                            active>
-                                <ExternalWorkflowHistory history={extra_context.wf_latest_history}/>
-                            </AccordionField>
-                        {% endif %}
-                        {% if d.metadata.geoLocations %}
-                            <AccordionField label={_('GeoMap')}
-                                            active>
-                                <GeoMap d={d.metadata.geoLocations}/>
-                            </AccordionField>
-                        {% endif %}
-                        {% if d.state | string == 'published' %}
-                            <AccordionField label={_('Tools')} active>
-                                <a class="ui secondary full-width button"
-                                   href="{{ d.id }}/export/iso19139">Download ISO19139</a>
-                            </AccordionField>
-                        {% endif %}
-                    </div>
+            </div>
+            <div class="center aligned two column row">
+                <div class="eleven wide column">
+                    <article class="column main-record-content">
+                        <LterDetailRoot md={d.metadata} context={extra_context}
+                                        search_link={record.links.search_link}/>
+                    </article>
+                </div>
+                <div class="five wide computer only column">
+                    {% if d.state | string != 'published' %}
+                        {# TODO add translation #}
+                        <AccordionField label="Actions"
+                                        active>
+                            <div id="action-menu" draftId='{{ d.id | string }}'
+                                 state='{{ d.state | string }}'></div>
+                        </AccordionField>
+                    {% endif %}
+                    {% if d.state | string != 'published' %}
+                        {# TODO add translation#}
+                        <AccordionField label="Quality checks history"
+                                        active>
+                            <ExternalWorkflowHistory history={extra_context.wf_latest_history}/>
+                        </AccordionField>
+                    {% endif %}
+                    {% if d.metadata.geoLocations %}
+                        <AccordionField label={_('GeoMap')}
+                                        active>
+                            <GeoMap d={d.metadata.geoLocations}/>
+                        </AccordionField>
+                    {% endif %}
+                    {% if d.state | string == 'published' %}
+                        <AccordionField label={_('Tools')} active>
+                            <a class="ui secondary full-width button"
+                               href="{{ d.id }}/export/iso19139">Download ISO19139</a>
+                        </AccordionField>
+                    {% endif %}
                 </div>
             </div>
-
         </div>
+
+
     </div>
 {% endblock %}
 
