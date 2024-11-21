@@ -48,6 +48,7 @@ class DefaultWorkflowPermissions(CommunityDefaultWorkflowPermissions):
         PrimaryCommunityRole("submitter"),
         PrimaryCommunityRole("owner"),
         PrimaryCommunityRole("system"),
+        PrimaryCommunityRole("uploader"),
         UserWithRole("administrator"),
     ]
 
@@ -56,6 +57,7 @@ class DefaultWorkflowPermissions(CommunityDefaultWorkflowPermissions):
         # administrator can see everything
         PrimaryCommunityRole("owner"),
         PrimaryCommunityRole("system"),
+        PrimaryCommunityRole("uploader"),
         IfInState(
             "published",
             then_=[AnyUser()],
@@ -63,19 +65,48 @@ class DefaultWorkflowPermissions(CommunityDefaultWorkflowPermissions):
     ]
 
     can_update = [
-        IfInState("draft", then_=[RecordOwners(),PrimaryCommunityRole("system"), PrimaryCommunityRole("owner")]),
-        IfInState("error", then_=[RecordOwners(),PrimaryCommunityRole("system"), PrimaryCommunityRole("owner")]),
-        IfInState("validated", then_=[RecordOwners(),PrimaryCommunityRole("system"), PrimaryCommunityRole("owner")]),
-        IfInState("published", then_=[PrimaryCommunityRole("system")]),
+        IfInState("draft", then_=[
+            RecordOwners(),
+            PrimaryCommunityRole("system"),
+            PrimaryCommunityRole("owner")
+        ]),
+        IfInState("error", then_=[
+            RecordOwners(),
+            PrimaryCommunityRole("system"),
+            PrimaryCommunityRole("owner")
+        ]),
+        IfInState("validated", then_=[
+            RecordOwners(),
+            PrimaryCommunityRole("system"),
+            PrimaryCommunityRole("owner")
+        ]),
+        IfInState("published", then_=[
+            PrimaryCommunityRole("system")
+        ]),
     ]
 
     can_delete = [
             PrimaryCommunityRole("system"),
-            IfInState("draft", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
-            IfInState("error", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
-            IfInState("validated", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
-            IfInState("running", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
-            IfInState("published", then_=[RecordOwners(), PrimaryCommunityRole("owner")]), #TODO Remove this permission in future
+            IfInState("draft", then_=[
+                RecordOwners(),
+                PrimaryCommunityRole("owner")
+            ]),
+            IfInState("error", then_=[
+                RecordOwners(),
+                PrimaryCommunityRole("owner")
+            ]),
+            IfInState("validated", then_=[
+                RecordOwners(),
+                PrimaryCommunityRole("owner")
+            ]),
+            IfInState("running", then_=[
+                RecordOwners(),
+                PrimaryCommunityRole("owner")
+            ]),
+            IfInState("published", then_=[
+                RecordOwners(),
+                PrimaryCommunityRole("owner")
+            ]),
     ] + CommunityDefaultWorkflowPermissions.can_delete
 
 
