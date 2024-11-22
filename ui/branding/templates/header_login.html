@@ -23,9 +23,9 @@ under the terms of the MIT License; see LICENSE file for more details.
 
 
 {%- if config.USERPROFILES %}
-<div role="menuitem" id="user-profile-dropdown" class="ui floating dropdown computer only">
+<div role="menuitem" id="user-profile-dropdown" class="ui dropdown">
     <button id="user-profile-dropdown-btn"
-            class="ui right labeled right floated icon button text profile-menu"
+            class="ui right labeled right floated icon button text profile-menu computer tablet only"
             aria-controls="user-profile-menu"
             aria-expanded="false"
             aria-haspopup="menu"
@@ -38,8 +38,17 @@ under the terms of the MIT License; see LICENSE file for more details.
         <i class="dropdown icon"></i>
     </button>
 
+    <div class="profile-menu mobile only icon button"
+            aria-controls="user-profile-menu"
+            aria-expanded="false"
+            aria-haspopup="menu"
+            aria-label="{{ _('My account') }}"
+    >
+        <i class="white icon user large "></i>
+    </div>
+
     <div id="user-profile-menu"
-         class="ui menu"
+         class="ui vertical menu"
          role="menu"
          aria-labelledby="user-profile-dropdown-btn"
     >
@@ -67,34 +76,6 @@ under the terms of the MIT License; see LICENSE file for more details.
             {{ _('Log out') }}
         </a>
     </div>
-</div>
-
-<div class="sub-menu mobile tablet only">
-    <h2 class="ui small header">{{ _("My account") }}</h2>
-
-    {%- for item in current_menu.submenu('settings').children if item.visible %}
-    <a role="menuitem" class="item" href="{{ item.url }}">
-        {{ item.text|safe }}
-    </a>
-    {%- endfor %}
-
-    <div class="ui divider"></div>
-
-    {% set ns = namespace(admin_menu=False) %}
-    {%- for item in current_menu.submenu('profile-admin').children if item.visible %}
-    {% set ns.admin_menu = True %}
-    <a role="menuitem" class="item" href="{{ item.url }}">
-        {{ item.text|safe }}
-    </a>
-    {%- endfor %}
-    {% if ns.admin_menu %}
-    <div class="ui divider"></div>
-    {% endif %}
-
-    <a role="menuitem" class="item" href="{{ url_for_security('logout') }}">
-        <i class="sign-out icon"></i>
-        {{ _('Log out') }}
-    </a>
 </div>
 
 {%- else %}
