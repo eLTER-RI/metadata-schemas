@@ -194,7 +194,7 @@ def add_identification_info(root, metadata, nsmap):
     date = etree.SubElement(ci_citation, "{http://www.isotc211.org/2005/gmd}date")
     ci_date = etree.SubElement(date, "{http://www.isotc211.org/2005/gmd}CI_Date")
     date_element = etree.SubElement(ci_date, "{http://www.isotc211.org/2005/gmd}date")
-    date_element.append(create_element("{http://www.isotc211.org/2005/gco}Date", metadata['publicationDate'], nsmap))
+    date_element.append(create_element("{http://www.isotc211.org/2005/gco}Date", metadata.get('publicationDate', "1970-01-01"), nsmap))
     date_type = etree.SubElement(ci_date, "{http://www.isotc211.org/2005/gmd}dateType")
     ci_date_type_code = etree.SubElement(date_type, "{http://www.isotc211.org/2005/gmd}CI_DateTypeCode",
                                          codeList="http://www.isotc211.org/2005/resources/codeList.xml#CI_DateTypeCode",
@@ -226,12 +226,12 @@ def add_identification_info(root, metadata, nsmap):
         anchor_element.text = site.get("name", "SitesNoName")
         keyword_element.append(anchor_element)
 
-    add_language_code(data_identification, language_table.get(metadata.get('language')),
+    add_language_code(data_identification, language_table.get(metadata.get('language', 'english'), "eng"),
                       metadata.get('language'))
 
     extent = etree.SubElement(data_identification, "{http://www.isotc211.org/2005/gmd}extent")
     ex_extent = etree.SubElement(extent, "{http://www.isotc211.org/2005/gmd}EX_Extent")
-    locations = metadata.get('geoLocations')
+    locations = metadata.get('geoLocations', [])
     for geolocation in locations:
         for locationKey, locationValue in geolocation.items():
             # if locationKey == 'EX_GeographicDescription':
@@ -278,7 +278,10 @@ def add_identification_info(root, metadata, nsmap):
 
 
 def add_geo_server_info(root, geo_server_info, nsmap):
-    geo_service_type = geo_server_info.get('serviceType')
+    if not geo_server_info:
+        return
+
+    geo_service_type = geo_server_info.get('serviceType', None)
     geo_map_data = geo_server_info.get('mapData', [])
     if geo_server_info is None or geo_service_type is None or geo_map_data is None or geo_map_data == []:
         return
@@ -332,32 +335,43 @@ def add_geo_server_info(root, geo_server_info, nsmap):
 
 
 def generate_xml(json_data):
-    metadata = json_data['metadata']
-    nsmap = {
-        "gmd": "http://www.isotc211.org/2005/gmd",
-        "gco": "http://www.isotc211.org/2005/gco",
-        "xsi": "http://www.w3.org/2001/XMLSchema-instance",
-        "xlink": "http://www.w3.org/1999/xlink",
-        "gmx": "http://www.isotc211.org/2005/gmx",
-        "gml": "http://www.opengis.net/gml"
-    }
+    try:
+        metadata = json_data['metadata']
+        nsmap = {
+            "gmd": "http://www.isotc211.org/2005/gmd",
+            "gco": "http://www.isotc211.org/2005/gco",
+            "xsi": "http://www.w3.org/2001/XMLSchema-instance",
+            "xlink": "http://www.w3.org/1999/xlink",
+            "gmx": "http://www.isotc211.org/2005/gmx",
+            "gml": "http://www.opengis.net/gml"
+        }
 
-    root = create_root_element(nsmap)
+        root = create_root_element(nsmap)
 
-    print(metadata)
-    add_file_identifier(root, json_data.get('id'), nsmap)
+        print(metadata)
+        add_file_identifier(root, json_data.get('id'), nsmap)
 
-    add_character_set(root)
-    add_hierarchy_level(root)
-    add_authors(root, metadata.get('authors', []), nsmap)
-    add_date_stamp(root, get_current_datetime())
-    add_identification_info(root, metadata, nsmap)
-    add_license_info(root, metadata.get('licenses', []))
+        add_character_set(root)
+        add_hierarchy_level(root)
+        add_authors(root, metadata.get('authors', []), nsmap)
+        add_date_stamp(root, get_current_datetime())
+        add_identification_info(root, metadata, nsmap)
+        add_license_info(root, metadata.get('licenses', []))
 
-    add_geo_server_info(root, metadata.get('geoServerInfo'), nsmap)
+        add_geo_server_info(root, metadata.get('geoServerInfo'), nsmap)
 
-    tree = etree.ElementTree(root)
-    xml_str = etree.tostring(tree, pretty_print=True, encoding=str)
-    print(xml_str)
-    return xml_str
-    # print(xml_str.decode("UTF-8"))
+        tree = etree.ElementTree(root)
+        xml_str = etree.tostring(tree, pretty_print=True, encoding=str)
+        return xml_str
+    except KeyError as e:
+        print(f"This is error: {e}")
+        root = etree.Element("root")
+        error_element = etree.SubElement(root, "error")
+        error_element.text = f'ISO couldnt be serialized because error: Missing {e}. Please contact administrator'
+        return etree.tostring(etree.ElementTree(root), pretty_print=True, encoding=str)
+    except Exception as e:
+        print(f"Error parsing XML: {e}")
+        root = etree.Element("root")
+        error_element = etree.SubElement(root, "error")
+        error_element.text = f'ISO couldnt be serialized because error: {e}. Please contact administrator'
+        return etree.tostring(etree.ElementTree(root), pretty_print=True, encoding=str)
