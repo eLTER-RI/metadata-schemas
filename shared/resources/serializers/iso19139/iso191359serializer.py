@@ -278,8 +278,6 @@ def add_identification_info(root, metadata, nsmap):
 
 
 def add_geo_server_info(root, geo_server_info, nsmap):
-    if not geo_server_info:
-        return
 
     geo_service_type = geo_server_info.get('serviceType', None)
     geo_map_data = geo_server_info.get('mapData', [])
@@ -358,7 +356,7 @@ def generate_xml(json_data):
         add_identification_info(root, metadata, nsmap)
         add_license_info(root, metadata.get('licenses', []))
 
-        add_geo_server_info(root, metadata.get('geoServerInfo'), nsmap)
+        add_geo_server_info(root, metadata.get('geoServerInfo', {}), nsmap)
 
         tree = etree.ElementTree(root)
         xml_str = etree.tostring(tree, pretty_print=True, encoding=str)
