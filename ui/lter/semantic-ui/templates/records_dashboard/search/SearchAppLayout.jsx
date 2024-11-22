@@ -85,13 +85,6 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
 
     return (
         <div>
-            {/*<div className="page-nav-container">*/}
-            {/*    <div className="page-nav">*/}
-            {/*        <div className="page-title">*/}
-            {/*            Dashboard records*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
             <Container fluid>
                 <Grid
                     columns={columnsAmount}
