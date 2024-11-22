@@ -93,7 +93,7 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
                 >
                     <Grid.Row columns={3}>
                         <Grid.Column only="computer" width={4}/>
-                        <Grid.Column width={6}>
+                        <Grid.Column computer={6} width={8}>
                             <SearchBar buildUID={buildUID} appName={appName}/>
                             {facetsAvailable && (
                                 <ShouldActiveFiltersRender>
@@ -101,7 +101,7 @@ export const SearchAppLayout = ({config, hasButtonSidebar}) => {
                                 </ShouldActiveFiltersRender>
                             )}
                         </Grid.Column>
-                        <Grid.Column width={6}>
+                        <Grid.Column computer={6} width={8}>
                             <Button fluid secondary circular size="large" href={'/lter/_new'}>Create Asset</Button>
                         </Grid.Column>
                     </Grid.Row>
