@@ -1,0 +1,32 @@
+variables:
+    TAG: "latest" 
+
+stages:
+  - build
+  - push
+
+image:
+    name: copas-market.cerit-sc.cz/dai/builder:0.5.2
+    entrypoint: [""]
+
+
+before_script:
+  - echo "{\"auths\":{\"${HARBOR_URL}\":{\"auth\":\"$(printf "%s:%s" "${HARBOR_USERNAME}" "${HARBOR_ROBOT_PASSWORD}" | base64 | tr -d '\n')\"}}}" > ~/.docker/config.json
+
+build_image:
+  stage: build
+  script:
+    - docker buildx build -t ${HARBOR_URL}/${HARBOR_PROJECT}/lter_dar:${TAG} .
+  only:
+    - manual 
+
+
+push_image:
+  stage: push
+  script:
+    - docker push ${HARBOR_URL}/${HARBOR_PROJECT}/lter_dar:${TAG}
+  only:
+    - manual
+  needs:
+    - build_image
+
