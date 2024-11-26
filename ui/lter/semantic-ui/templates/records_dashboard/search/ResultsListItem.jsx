@@ -58,7 +58,7 @@ export const ResultsListItemComponent = ({
     const draftId = _get(result, "id", "error")
     const state = _get(result, "state")
 
-     const isLargeScreen = useMediaQuery({ minWidth: 2560 });
+     const isLargeScreen = useMediaQuery({ minWidth: 2800 });
 
     return (
         <Overridable
