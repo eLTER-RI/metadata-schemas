@@ -85,6 +85,12 @@ class DefaultWorkflowPermissions(CommunityDefaultWorkflowPermissions):
         ]),
     ]
 
+    can_publish = [
+        IfInState("draft", then_=[
+            PrimaryCommunityRole("system")
+        ]),
+    ]
+
     can_delete = [
             PrimaryCommunityRole("system"),
             IfInState("draft", then_=[

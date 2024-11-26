@@ -7,7 +7,7 @@ import {ExternalWorkflowButton} from "../../../templates/records_dashboard/searc
 import {PublishButton} from "../../../templates/records_dashboard/search/components/PublishButton";
 import StateIcon from "../../../templates/components/StateIcon";
 
-export const ActionMenu = ({draftId, state}) => {
+export const ActionMenu = ({draftId, state, isAdmin}) => {
     return (
         <Grid divided>
             <Grid.Row columns={3}>
@@ -23,7 +23,7 @@ export const ActionMenu = ({draftId, state}) => {
             </Grid.Row>
             <Grid.Row>
                 <Grid.Column>
-                    <PublishButton draftId={draftId} disabled={state !== 'validated'}/>
+                    <PublishButton draftId={draftId} disabled={state !== 'validated' && !isAdmin}/>
                 </Grid.Column>
             </Grid.Row>
         </Grid>
@@ -33,4 +33,5 @@ export const ActionMenu = ({draftId, state}) => {
 ActionMenu.propTypes = {
     draftId: PropTypes.string.isRequired,
     state: PropTypes.string.isRequired,
+    isAdmin: PropTypes.bool
 };
