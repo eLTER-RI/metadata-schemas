@@ -17,16 +17,15 @@ build_image:
   stage: build
   script:
     - docker buildx build -t ${HARBOR_URL}/${HARBOR_PROJECT}/lter_dar:${TAG} .
-  only:
-    - manual 
+  rules:
+    - when: manual 
 
 
 push_image:
   stage: push
   script:
     - docker push ${HARBOR_URL}/${HARBOR_PROJECT}/lter_dar:${TAG}
-  only:
-    - manual
   needs:
-    - build_image
-
+    - job: build_image
+  rules:
+    - when: on_success 
