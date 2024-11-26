@@ -2,12 +2,11 @@
 
 {%- extends "invenio_theme/frontpage.html" %}
 
-{# TODO (UI): prepare a proper initial title page !!! #}
 {%- block javascript %}
     {{ super() }}
     {%- if current_user.is_authenticated %}
-        <script src="https://dataspace.elter-ri.eu/static-data-dev/tailwind.js"></script>
-        <script type="module" src="https://dataspace.elter-ri.eu/static-data-dev/page.js"></script>
+        <script src="{{ config.EXTERNAL_STATIC_ASSETS_URL }}/tailwind.js"></script>
+        <script type="module" src="{{ config.EXTERNAL_STATIC_ASSETS_URL }}/page.js"></script>
         <script>
             tailwind.config = {
                 prefix: 'tw-',
