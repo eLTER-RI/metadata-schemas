@@ -5,20 +5,22 @@ stages:
   - build
   - push
 
-image:
-    name: copas-market.cerit-sc.cz/dai/builder:0.5.2
-    entrypoint: [""]
-
-
 # before_script:
 #   - echo "{\"auths\":{\"${HARBOR_URL}\":{\"auth\":\"$(printf "%s:%s" "${HARBOR_USERNAME}" "${HARBOR_ROBOT_PASSWORD}" | base64 | tr -d '\n')\"}}}" > ~/.docker/config.json
 
+
 build_image:
   stage: build
+  
+  image: docker:24.0
+
+  services:
+    - docker:24.0-dind
   script:
     - docker buildx build -t ${HARBOR_URL}/${HARBOR_PROJECT}/lter_dar:${TAG} .
   rules:
     - when: manual 
+
 
 
 # push_image:
