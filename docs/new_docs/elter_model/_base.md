@@ -34,4 +34,7 @@
 - **[externalWorkflows](externalWorkflows.md)**
 - **[files](files.md)**
 
+# Metadata schema
+- **[Actual metadata schema]**
+
 [Back to Menu](../main.md)

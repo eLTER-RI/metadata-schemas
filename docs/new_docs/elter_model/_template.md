@@ -13,7 +13,6 @@
 ## Description
 ### Definition
 ### Multiplicity
-### Required
 ### RDF Property
 ### EML URL
 
