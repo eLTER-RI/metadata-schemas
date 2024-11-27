@@ -3,21 +3,21 @@
     "datasetIds": [
       {
         "sourceName": "eLTER spatial.io",
-        "identifier": "0a8baa2a-33a5-2c7b-919b-df07b91b91c1",
+        "identifier": " 0668b2e8-5e12-1ac1-36ec-5a83c8345f40",
         "type": "PID"
       }
     ],
     "titles": [
       {
         "language": "eng",
-        "text": "Kerkini Lake - Hydroperiod (2017-2018)"
+        "text": "Braila - Phenology SOSV (2020) - with files"
       }
     ],
     "descriptions": [
       {
         "type": "Abstract",
         "language": "eng",
-        "description": "The annual hydroperiod is generated from a series of inundation maps (derived from EO data) by interpolating the inundation status per pixel as follows: if a pixel is inundated at two sequential (selected) dates, then it is assumed inundated for n-days, but n/2 days otherwise. The total number of days of inundation is determined by accumulating the pairwise derived results for all assessed date-pairs within a year."
+        "description": "Vegetation Index value at SOSD. The phenology product was generated from Sentinel-2 Level-2A from Normalized Difference Vegetation Index (NDVI) time-series of year 2020."
       }
     ],
     "keywords": [
@@ -30,27 +30,44 @@
         "url": ""
       },
       {
-        "name": "Hydroperiod",
+        "name": "Phenology",
+        "url": "https://vocabs.lter-europe.net/EnvThes/21647"
+      },
+      {
+        "name": "subvariable: SOSV",
         "url": ""
       },
       {
-        "name": "https://doi.org/10.23728/b2share.1bd8c763c4524168aecafad6d941c5c0",
+        "name": "https://doi.org/10.23728/b2share.58dde320216e41a5a97b8f4b287efb4b",
         "url": ""
       }
     ],
-    "publicationDate": "2024-10-08",
-    "language": "english",
-    "SOReference": null,
     "authors": [
       {
-        "fullName": "Ioannis Manakos",
-        "givenName": "Ioannis",
-        "familyName": "Manakos",
-        "email": "imanakos@iti.gr",
+        "fullName": "Saverio Vicario",
+        "givenName": "Saverio",
+        "familyName": "Vicario",
+        "email": "saverio.vicario@iia.cnr.it",
+        "ids": [
+          {
+            "id": "https://orcid.org/0000-0003-1140-0483",
+            "schema": "Orcid"
+          }
+        ]
+      }
+    ],
+    "publicationDate": "2024-09-03",
+    "language": "english",
+    "contributors": [
+      {
+        "fullName": "Saverio Vicario",
+        "givenName": "Saverio",
+        "familyName": "Vicario",
+        "email": "saverio.vicario@iia.cnr.it",
         "type": "ContactPerson",
         "ids": [
           {
-            "id": "https://orcid.org/0000-0001-6833-294X",
+            "id": "https://orcid.org/0000-0003-1140-0483",
             "schema": "Orcid"
           }
         ]
@@ -58,26 +75,26 @@
     ],
     "geoLocations": [
       {
-        "EX_GeographicDescription": "Lake Kerkini National Park - Greece",
+        "EX_GeographicDescription": "Braila Islands - Romania",
         "Point": {
-          "longitude": 23.149696643978103,
-          "latitude": 41.258212193657485
+          "longitude": 28.020201624894582,
+          "latitude": 44.88887488208617
         }
       },
       {
-        "EX_GeographicDescription": "Lake Kerkini National Park - Greece",
+        "EX_GeographicDescription": "Braila Islands - Romania",
         "EX_GeographicBoundingBox": {
-          "westBoundLongitude": 22.861335656848976,
-          "eastBoundLongitude": 23.43805763110723,
-          "southBoundLatitude": 41.109748102748384,
-          "northBoundLatitude": 41.40667628456658
+          "westBoundLongitude": 27.643992076646786,
+          "eastBoundLongitude": 28.39641117314238,
+          "southBoundLatitude": 44.625761173601425,
+          "northBoundLatitude": 45.15198859057091
         }
       }
     ],
     "temporalCoverages": [
       {
-        "startDate": "2017-01-01",
-        "endDate": "2018-12-31"
+        "startDate": "2020-01-01",
+        "endDate": "2020-12-31"
       }
     ],
     "geoServerInfo": {
@@ -85,11 +102,11 @@
       "mapData": [
         {
           "path": "https://spatialnode.elter.cerit-sc.cz/geoserver/ows?version=1.3.0",
-          "epsgCode": "32634",
+          "epsgCode": 32635,
           "type": "POLYGON",
           "features": {
-            "name": "eshape:kerkini_hydroperiod_2017_2018",
-            "label": "Kerkini Lake - Hydroperiod (2017-2018)",
+            "name": "eshape:Braila Islands_Phenology_SOSV_2020",
+            "label": "Braila - Phenology SOSV (2020)",
             "style": {
               "colour": "#000000"
             }
@@ -104,8 +121,8 @@
     },
     "siteReference": [
       {
-        "name": "Lake Kerkini National Park - Greece",
-        "PID": "a3b78a8e-1ac6-4186-bd09-f721de2590f8"
+        "name": "Braila Islands - Romania",
+        "PID": "https://deims.org/d4854af8-9d9f-42a2-af96-f1ed9cb25712"
       }
     ]
   },

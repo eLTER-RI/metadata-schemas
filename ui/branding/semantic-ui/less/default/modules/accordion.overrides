@@ -1,7 +1,12 @@
 .ui.accordion .active.title .icon:not(.button),
 .ui.accordion .accordion .active.title .icon:not(.button) {
+  &.question.tiny.icon {
+    transform: None !important;
+  }
+  &.caret.down.icon {
+    transform: None !important;
+  }
   color: @carrotOrange;
-  transform: none;
 }
 
 .ui.accordion .title:not(.ui) {

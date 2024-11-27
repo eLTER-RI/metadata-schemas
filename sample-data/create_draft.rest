@@ -1,7 +1,8 @@
 // Dont push tokens from production !!!!
-@authToken = q5fIMi3Hb7kRRSa8f3oanW7Yjs6qWoOG6PGoqTFUzLlnnJVCvVmteOVV8RsG
+@authToken = SLq5REJ4bhxDk4pYby6OebgTQMFbkpCbv5kxq3VwCtNhf8BOcfRkgYJKVPnw
 
-@communityName = "test"
+@communityName = "elter"
+@communityPathName = elter
 @filesEnabled = "False"
 
 // Uncomment one related hostname
@@ -240,5 +241,141 @@ Authorization: Bearer {{authToken}}
         }
       ]
     }
+  }
+}
+
+### Create draft second option
+POST {{hostname}}/api/communities/{{communityPathName}}/lter
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "metadata": {
+    "datasetIds": [
+      {
+        "sourceName": "Deims",
+        "url": "https://deims.org/dataset/4f9bf89d-5ecb-41bf-970a-9c69a02cc51b",
+        "type": "UUID",
+        "identifier": "4f9bf89d-5ecb-41bf-970a-9c69a02cc51b"
+      }
+    ],
+    "shortNames": [
+      {
+        "language": "English",
+        "text": "Vegetation map of the Moor House National Nature Reserve"
+      }
+    ],
+    "titles": [
+      {
+        "language": "eng",
+        "text": "Vegetation map of the Moor House National Nature Reserve"
+      }
+    ],
+    "authors": [
+      {
+        "fullName": "UK Centre for Ecology & Hydrology (UKCEH)",
+        "email": "",
+        "ids": [
+          {
+            "scheme": "url",
+            "url": "https://www.ceh.ac.uk/"
+          },
+          {
+            "scheme": "ror",
+            "url": "https://ror.org/00pggkr55"
+          }
+        ]
+      },
+      {
+        "fullName": "Sue Rennie",
+        "email": "srennie@ceh.ac.uk",
+        "ids": [
+          {
+            "scheme": "orcid",
+            "url": "https://orcid.org/0000-0002-0027-0436"
+          }
+        ]
+      }
+    ],
+    "contributors": [
+      {
+        "type": "MetadataProvider",
+        "fullName": "Sue Rennie",
+        "email": "srennie@ceh.ac.uk",
+        "ids": [
+          {
+            "scheme": "orcid",
+            "url": "https://orcid.org/0000-0002-0027-0436"
+          }
+        ]
+      },
+      {
+        "type": "Other",
+        "fullName": "Sue Rennie",
+        "email": "srennie@ceh.ac.uk",
+        "ids": [
+          {
+            "scheme": "orcid",
+            "url": "https://orcid.org/0000-0002-0027-0436"
+          }
+        ]
+      }
+    ],
+    "publicationDate": "2015-05-22T12:38:08+0200",
+    "language": "English",
+    "descriptions": [
+      {
+        "type": "Abstract",
+        "description": "This is a spatial dataset containing polygons representing areas of vegetation mapped within the Moor House National Nature Reserve in the northern Pennines, England. The map was created by staff of The Nature Conservancy in the 1960s.",
+        "language": "English"
+      }
+    ],
+    "keywords": [
+      {
+        "name": "Habitat mapping",
+        "url": null
+      }
+    ],
+    "propertyRights": [
+      {
+        "name": "",
+        "url": ""
+      }
+    ],
+    "licenses": [
+      {
+        "name": "",
+        "url": ""
+      }
+    ],
+    "geoLocations": [],
+    "temporalCoverages": [],
+    "taxonomicCoverages": [
+      {
+        "description": ""
+      }
+    ],
+    "methods": {},
+    "project": {
+      "name": "",
+      "PID": "",
+      "DOI": ""
+    },
+    "siteReference": [
+      {
+        "name": "Moor House - Upper Teesdale - United Kingdom",
+        "PID": "bf78c96f-0763-4b31-b1a6-6eccef19edd1"
+      }
+    ],
+    "SOReference": {
+      "name": "",
+      "url": ""
+    },
+    "dataLevel": 0,
+    "files": [],
+    "additionalMetadata": []
+  },
+  "files": {
+    "enabled": false
   }
 }
