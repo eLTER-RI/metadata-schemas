@@ -91,7 +91,7 @@
                         <AccordionField label="Actions"
                                         active>
                             <div id="action-menu" draftId='{{ d.id | string }}'
-                                 state='{{ d.state | string }}' isAdmin='{{ extra_context["is_admin"] }}'></div>
+                                 state='{{ d.state | string }}' isAdmin='{{ extra_context["is_admin"] | lower }}'></div>
                         </AccordionField>
                     {% endif %}
                     {% if d.state | string != 'published' %}
