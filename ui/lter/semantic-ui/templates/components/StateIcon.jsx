@@ -9,11 +9,10 @@ const stateIcons = {
     published: {name: 'globe', color: 'blue'}
 };
 
-export default function StateIcon({ state, disabledPopup }) {
+export default function StateIcon({ state }) {
     const iconProps = stateIcons[state] || {};
-
     return (
-        <Popup disabled={disabledPopup ?? false} content={state} trigger={
+        <Popup content={state} trigger={
             state === 'running' ? (
                 <Loader active inline size="mini" indeterminate/>
             ) : (
@@ -25,5 +24,4 @@ export default function StateIcon({ state, disabledPopup }) {
 
 StateIcon.defaultProps = {
     state: PropTypes.string.isRequired,
-    disabledPopup: PropTypes.bool
 };
