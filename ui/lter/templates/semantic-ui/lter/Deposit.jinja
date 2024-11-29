@@ -13,9 +13,19 @@
     <script type="module" src="{{ config.EXTERNAL_STATIC_ASSETS_URL }}/page.js"></script>
     <script>
         tailwind.config = {
-            prefix: 'tw-',
+            prefix: "tw-",
+            content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
             theme: {
                 extend: {
+                    keyframes: {
+                        progressBar: {
+                            "0%": {width: "0%"},
+                            "100%": {width: "100%"},
+                        },
+                    },
+                    animation: {
+                        "progress-bar": "progressBar 1s ease-in-out",
+                    },
                     colors: {
                         "elter-backgroud-blue": "#0A2033",
                         "elter-baclground-light-blue": "#0A5A98",
