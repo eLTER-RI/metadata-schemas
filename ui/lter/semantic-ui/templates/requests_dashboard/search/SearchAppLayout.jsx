@@ -14,6 +14,7 @@ import {
 } from "@js/invenio_search_ui/components";
 import {ResultOptions} from "@js/invenio_search_ui/components/Results";
 import {ShouldActiveFiltersRender, ClearFiltersButton} from "@js/oarepo_ui";
+import UnderDevelopment from "../../components/UnderDevelopment";
 
 const ResultOptionsWithState = withState(ResultOptions);
 
@@ -174,136 +175,141 @@ SearchAppResultsGrid.propTypes = {
     hasButtonSidebar: PropTypes.bool,
     resultSortLayout: PropTypes.object.isRequired,
 };
-export const SearchAppLayout = ({config, hasButtonSidebar}) => {
-    const {appName, buildUID} = useContext(SearchConfigurationContext);
-    const facetsAvailable = !_isEmpty(config.aggs);
-    let columnsAmount;
-    let resultsPaneLayoutFacets;
 
-    if (facetsAvailable) {
-        if (hasButtonSidebar) {
-            columnsAmount = 3;
-            resultsPaneLayoutFacets = {
-                mobile: 16,
-                tablet: 16,
-                computer: 10,
-                largeScreen: 10,
-                widescreen: 10,
-                width: undefined,
-            };
-        } else {
-            columnsAmount = 2;
-            resultsPaneLayoutFacets = {
-                mobile: 16,
-                tablet: 16,
-                computer: 12,
-                largeScreen: 12,
-                widescreen: 12,
-                width: undefined,
-            };
-        }
-    } else {
-        if (hasButtonSidebar) {
-            columnsAmount = 2;
-            resultsPaneLayoutFacets = {
-                mobile: 16,
-                tablet: 16,
-                computer: 12,
-                largeScreen: 12,
-                widescreen: 12,
-                width: undefined,
-            };
-        } else {
-            columnsAmount = 1;
-            resultsPaneLayoutFacets = {
-                mobile: 16,
-                tablet: 16,
-                computer: 16,
-                largeScreen: 16,
-                widescreen: 16,
-                width: undefined,
-            };
-        }
-    }
+export const SearchAppLayout = () => {
+    return <UnderDevelopment/>;
+}
 
-    const resultsSortLayoutFacets = {
-        mobile: 14,
-        tablet: 14,
-        computer: 5,
-        largeScreen: 5,
-        widescreen: 5,
-    };
+// export const SearchAppLayout = ({config, hasButtonSidebar}) => {
+//     const {appName, buildUID} = useContext(SearchConfigurationContext);
+//     const facetsAvailable = !_isEmpty(config.aggs);
+//     let columnsAmount;
+//     let resultsPaneLayoutFacets;
+//
+//     if (facetsAvailable) {
+//         if (hasButtonSidebar) {
+//             columnsAmount = 3;
+//             resultsPaneLayoutFacets = {
+//                 mobile: 16,
+//                 tablet: 16,
+//                 computer: 10,
+//                 largeScreen: 10,
+//                 widescreen: 10,
+//                 width: undefined,
+//             };
+//         } else {
+//             columnsAmount = 2;
+//             resultsPaneLayoutFacets = {
+//                 mobile: 16,
+//                 tablet: 16,
+//                 computer: 12,
+//                 largeScreen: 12,
+//                 widescreen: 12,
+//                 width: undefined,
+//             };
+//         }
+//     } else {
+//         if (hasButtonSidebar) {
+//             columnsAmount = 2;
+//             resultsPaneLayoutFacets = {
+//                 mobile: 16,
+//                 tablet: 16,
+//                 computer: 12,
+//                 largeScreen: 12,
+//                 widescreen: 12,
+//                 width: undefined,
+//             };
+//         } else {
+//             columnsAmount = 1;
+//             resultsPaneLayoutFacets = {
+//                 mobile: 16,
+//                 tablet: 16,
+//                 computer: 16,
+//                 largeScreen: 16,
+//                 widescreen: 16,
+//                 width: undefined,
+//             };
+//         }
+//     }
+//
+//     const resultsSortLayoutFacets = {
+//         mobile: 14,
+//         tablet: 14,
+//         computer: 5,
+//         largeScreen: 5,
+//         widescreen: 5,
+//     };
+//
+//     const resultsSortLayoutNoFacets = {
+//         mobile: 16,
+//         tablet: 16,
+//         computer: 16,
+//         largeScreen: 16,
+//         widescreen: 16,
+//     };
+//
+//     const resultsPaneLayoutNoFacets = resultsPaneLayoutFacets;
+//
+//     // make list full width if no facets available
+//     const resultsPaneLayout = facetsAvailable
+//         ? resultsPaneLayoutFacets
+//         : resultsPaneLayoutNoFacets;
+//
+//     const resultSortLayout = facetsAvailable
+//         ? resultsSortLayoutFacets
+//         : resultsSortLayoutNoFacets;
+//
+//     return (
+//         <div>
+//             {/*<div className="page-nav-container">*/}
+//             {/*    <div className="page-nav">*/}
+//             {/*        <div className="page-title">*/}
+//             {/*            Request Communities*/}
+//             {/*        </div>*/}
+//             {/*    </div>*/}
+//             {/*</div>*/}
+//             <div className="search-result-container">
+//                 <Container fluid>
+//                     <Overridable id={buildUID("SearchApp.searchbarContainer", "", appName)}>
+//                         <Grid relaxed padded>
+//                             <Grid.Row>
+//                                 <Grid.Column width={12} floated="right">
+//                                     <SearchBar buildUID={buildUID} appName={appName}/>
+//                                 </Grid.Column>
+//                             </Grid.Row>
+//                         </Grid>
+//                     </Overridable>
+//                     <SearchAppResultsGrid
+//                         columnsAmount={columnsAmount}
+//                         facetsAvailable={facetsAvailable}
+//                         config={config}
+//                         appName={appName}
+//                         buildUID={buildUID}
+//                         resultsPaneLayout={resultsPaneLayout}
+//                         hasButtonSidebar={hasButtonSidebar}
+//                         resultSortLayout={resultSortLayout}
+//                     />
+//                 </Container>
+//             </div>
+//         </div>
+//     );
+// };
 
-    const resultsSortLayoutNoFacets = {
-        mobile: 16,
-        tablet: 16,
-        computer: 16,
-        largeScreen: 16,
-        widescreen: 16,
-    };
-
-    const resultsPaneLayoutNoFacets = resultsPaneLayoutFacets;
-
-    // make list full width if no facets available
-    const resultsPaneLayout = facetsAvailable
-        ? resultsPaneLayoutFacets
-        : resultsPaneLayoutNoFacets;
-
-    const resultSortLayout = facetsAvailable
-        ? resultsSortLayoutFacets
-        : resultsSortLayoutNoFacets;
-
-    return (
-        <div>
-            {/*<div className="page-nav-container">*/}
-            {/*    <div className="page-nav">*/}
-            {/*        <div className="page-title">*/}
-            {/*            Request Communities*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-            <div className="search-result-container">
-                <Container fluid>
-                    <Overridable id={buildUID("SearchApp.searchbarContainer", "", appName)}>
-                        <Grid relaxed padded>
-                            <Grid.Row>
-                                <Grid.Column width={12} floated="right">
-                                    <SearchBar buildUID={buildUID} appName={appName}/>
-                                </Grid.Column>
-                            </Grid.Row>
-                        </Grid>
-                    </Overridable>
-                    <SearchAppResultsGrid
-                        columnsAmount={columnsAmount}
-                        facetsAvailable={facetsAvailable}
-                        config={config}
-                        appName={appName}
-                        buildUID={buildUID}
-                        resultsPaneLayout={resultsPaneLayout}
-                        hasButtonSidebar={hasButtonSidebar}
-                        resultSortLayout={resultSortLayout}
-                    />
-                </Container>
-            </div>
-        </div>
-    );
-};
-
-SearchAppLayout.propTypes = {
-    config: PropTypes.shape({
-        searchApi: PropTypes.object.isRequired, // same as ReactSearchKit.searchApi
-        initialQueryState: PropTypes.shape({
-            queryString: PropTypes.string,
-            sortBy: PropTypes.string,
-            sortOrder: PropTypes.string,
-            page: PropTypes.number,
-            size: PropTypes.number,
-            hiddenParams: PropTypes.array,
-            layout: PropTypes.oneOf(["list", "grid"]),
-        }),
-        aggs: PropTypes.array,
-    }),
-    hasButtonSidebar: PropTypes.bool,
-};
+// SearchAppLayout.propTypes = {
+//     config: PropTypes.shape({
+//         searchApi: PropTypes.object.isRequired, // same as ReactSearchKit.searchApi
+//         initialQueryState: PropTypes.shape({
+//             queryString: PropTypes.string,
+//             sortBy: PropTypes.string,
+//             sortOrder: PropTypes.string,
+//             page: PropTypes.number,
+//             size: PropTypes.number,
+//             hiddenParams: PropTypes.array,
+//             layout: PropTypes.oneOf(["list", "grid"]),
+//         }),
+//         aggs: PropTypes.array,
+//     }),
+//     hasButtonSidebar: PropTypes.bool,
+// };
 
 export default SearchAppLayout;
