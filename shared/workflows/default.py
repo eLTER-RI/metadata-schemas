@@ -238,25 +238,25 @@ class DefaultWorkflowRequests(WorkflowRequestPolicy):
         ],
     )
 
-    assign_doi = WorkflowRequest(
-        requesters=[
-            RecordOwners(),
-            PrimaryCommunityRole("owner"),
-            UserWithRole("administrator"),
-        ],
-        recipients=[
-            IfRequestedBy(
-                requesters=[
-                    PrimaryCommunityRole("owner"),
-                    UserWithRole("administrator"),
-                ],
-                then_=[AutoApprove()],
-                else_=[PrimaryCommunityRole("owner")],
-            )
-        ],
-        escalations=[
-            WorkflowRequestEscalation(
-                after=timedelta(days=21), recipients=[UserWithRole("administrator")]
-            )
-        ],
-    )
+    # assign_doi = WorkflowRequest(
+    #     requesters=[
+    #         RecordOwners(),
+    #         PrimaryCommunityRole("owner"),
+    #         UserWithRole("administrator"),
+    #     ],
+    #     recipients=[
+    #         IfRequestedBy(
+    #             requesters=[
+    #                 PrimaryCommunityRole("owner"),
+    #                 UserWithRole("administrator"),
+    #             ],
+    #             then_=[AutoApprove()],
+    #             else_=[PrimaryCommunityRole("owner")],
+    #         )
+    #     ],
+    #     escalations=[
+    #         WorkflowRequestEscalation(
+    #             after=timedelta(days=21), recipients=[UserWithRole("administrator")]
+    #         )
+    #     ],
+    # )
