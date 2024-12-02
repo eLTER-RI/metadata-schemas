@@ -191,10 +191,6 @@
       padding-left: 0;
     }
 
-    &:last-of-type {
-      padding-left: 0;
-    }
-
     &.right.menu {
       padding-right: 0;
       display: flex;
