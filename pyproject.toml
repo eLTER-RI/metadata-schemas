@@ -37,6 +37,7 @@ ui_lter = "ui.lter:create_blueprint"
 lter_request_types = "lter.views.request_types.app:create_app_blueprint"
 lter_file = "lter.views.files.app:create_app_blueprint"
 lter_file_draft = "lter.views.draft_files.app:create_app_blueprint"
+ui_lter_dashboard = "ui.lter_dashboard:create_blueprint"
 
 [project.entry-points."invenio_i18n.translations"]
 translations = "i18n"

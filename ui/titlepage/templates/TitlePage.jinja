@@ -4,36 +4,7 @@
 
 {%- block javascript %}
     {{ super() }}
-    {%- if current_user.is_authenticated %}
-        <script src="{{ config.EXTERNAL_STATIC_ASSETS_URL }}/tailwind.js"></script>
-        <script type="module" src="{{ config.EXTERNAL_STATIC_ASSETS_URL }}/page.js"></script>
-        <script>
-            tailwind.config = {
-                prefix: "tw-",
-                content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-                theme: {
-                    extend: {
-                        keyframes: {
-                            progressBar: {
-                                "0%": {width: "0%"},
-                                "100%": {width: "100%"},
-                            },
-                        },
-                        animation: {
-                            "progress-bar": "progressBar 1s ease-in-out",
-                        },
-                        colors: {
-                            "elter-backgroud-blue": "#0A2033",
-                            "elter-baclground-light-blue": "#0A5A98",
-                            "elter-orange": "#ED9632",
-                            "elter-orange-emph": "#FCA035",
-                        },
-                    },
-                },
-            }
-        </script>
-    {%- endif %}
-{%- endblock %}
+{%- endblock javascript %}
 
 {%- block page_header %}
     {% include "header.html" %}
@@ -41,37 +12,29 @@
 
 {%- block page_body %}
     {% block main_column %}
-        {%- if not current_user.is_authenticated %}
-            <div class="ui container full-height">
-                <div class="ui centered aligned">
-                    <div class="ui item">
-                        <img class="title-image" src="{{ url_for('static', filename=config.LOGO) }}" alt="photo 1">
+        <div class="ui container full-height">
+            <div class="ui centered aligned">
+                <div class="ui item">
+                    <img class="title-image" src="{{ url_for('static', filename=config.LOGO) }}" alt="photo 1">
 
-                    </div>
-                    <div class="ui full-width item">
-                        <form action="{{ url_for('lter.search') }}"
-                              class="ui form full-width title-page-container-element" role="search">
-                            <div id="frontpage-search-input" class="ui action input search-input title-page ">
-                                <input type="text" name="q" class="form-control" placeholder="{{ _('Search') }}">
-                                <button type="submit" class="ui icon search button" aria-label="{{ _('Search') }}"><i
-                                        class="search icon"></i>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="ui full-width item">
-                        <a href="{{ url_for('lter.search') }}"
-                           class="oxfordBlue">{{ _('Show all records') }}</a>
-                    </div>
+                </div>
+                <div class="ui full-width item">
+                    <form action="{{ url_for('lter.search') }}"
+                          class="ui form full-width title-page-container-element" role="search">
+                        <div id="frontpage-search-input" class="ui action input search-input title-page ">
+                            <input type="text" name="q" class="form-control" placeholder="{{ _('Search') }}">
+                            <button type="submit" class="ui icon search button" aria-label="{{ _('Search') }}"><i
+                                    class="search icon"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="ui full-width item">
+                    <a href="{{ url_for('lter.search') }}"
+                       class="oxfordBlue">{{ _('Show all records') }}</a>
                 </div>
             </div>
-        {%- endif %}
-
-        {%- if current_user.is_authenticated %}
-            <div class="search-result-container">
-                <div id="ingestRoot"></div>
-            </div>
-        {%- endif %}
+        </div>
 
     {% endblock main_column %}
 

@@ -15,7 +15,7 @@ i18n:
 models:
 - api_prefix: lter
   base_model: empty
-  features: [relations, tests, drafts, files, custom_fields, requests, vocabularies]
+  features: [tests, requests, files, vocabularies, relations, custom_fields, drafts]
   model_description: data model for lter datasets
   model_name: lter
   model_package: lter
@@ -33,3 +33,8 @@ uis:
   model: lter
   name: lter
   ui_serializer_class: lter.resources.records.ui.LterUIJSONSerializer
+- api_service: null
+  endpoint: /dashboard
+  model: null
+  name: lter_dashboard
+  ui_serializer_class: null
