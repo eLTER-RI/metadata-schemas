@@ -3,6 +3,10 @@
 {% extends "oarepo_ui/form.html" %}
 {%- include config.BASE_JS %}
 
+{%- block javascript %}
+    {{ super() }}
+{% endblock javascript %}
+
 {%- block head %}
     {{ super() }}
     <link rel="stylesheet" href="https://unpkg.com/react-datepicker/dist/react-datepicker.css">
