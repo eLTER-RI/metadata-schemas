@@ -4,13 +4,13 @@ import Overridable from "react-overridable";
 
 import _get from "lodash/get";
 
-import {Grid, Item, Label} from "semantic-ui-react";
+import {Divider, Grid, Item, Label} from "semantic-ui-react";
 import {withState, buildUID} from "react-searchkit";
 import {SearchConfigurationContext} from "@js/invenio_search_ui/components";
 import {ActionButton} from "./components/ActionButton";
 import {PublishButton} from "./components/PublishButton";
 
-import { useMediaQuery } from 'react-responsive';
+import {useMediaQuery} from 'react-responsive';
 import StateIcon from "../../components/StateIcon";
 
 
@@ -58,7 +58,7 @@ export const ResultsListItemComponent = ({
     const draftId = _get(result, "id", "error")
     const state = _get(result, "state")
 
-     const isLargeScreen = useMediaQuery({ minWidth: 2800 });
+    const isLargeScreen = useMediaQuery({minWidth: 2800});
 
     return (
         <Overridable
@@ -71,7 +71,7 @@ export const ResultsListItemComponent = ({
             <Item data-testid="dashboardAssetListItem" key={result.id} className="search-listing-item">
                 <Item.Content className="content">
                     <Grid>
-                        <Grid.Row columns={3}>
+                        <Grid.Row columns={3} className="tablet computer only">
                             <Grid.Column width={isLargeScreen ? 13 : 12} className="results-list item-main">
                                 <ItemHeader
                                     titles={titles}
@@ -99,7 +99,44 @@ export const ResultsListItemComponent = ({
                                 {state === 'validated' && <PublishButton draftId={draftId}/>}
                             </Grid.Column>
                             <Grid.Column width={isLargeScreen ? 1 : 2}>
-                                {!['published'].includes(state) && <ActionButton record={result}/> }
+                                {!['published'].includes(state) && <ActionButton record={result}/>}
+                            </Grid.Column>
+                        </Grid.Row>
+                        <Grid.Row className="mobile only">
+                            <Grid.Column width={12} className="results-list item-main">
+                                <ItemHeader
+                                    titles={titles}
+                                    state={state}
+                                    viewLink={result.links.self_html}
+                                />
+                                <Divider />
+                                <Grid>
+                                    <Grid.Row columns={2}>
+                                        <Grid.Column>
+                                            {state === 'validated' && <PublishButton draftId={draftId}/>}
+                                        </Grid.Column>
+                                        <Grid.Column>
+                                            {!['published'].includes(state) && <ActionButton record={result}/>}
+                                        </Grid.Column>
+                                    </Grid.Row>
+                                </Grid>
+                                <Divider/>
+                                <ItemSubheader description={descriptions[0].description}/>
+                                {keywords.length > 0 ? (
+                                    keywords.map((keyword, index) => (
+                                        <Label
+                                            key={index}
+                                            as="a"
+                                            href={`?q=&f=metadata_keywords_name:${keyword.name}`}
+                                            className="ui secondary"
+                                            style={{margin: '5px'}}
+                                        >
+                                            {keyword.name}
+                                        </Label>
+                                    ))
+                                ) : (
+                                    <span>No keywords available</span>
+                                )}
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>
