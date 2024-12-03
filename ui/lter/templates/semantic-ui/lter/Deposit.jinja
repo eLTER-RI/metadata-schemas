@@ -1,42 +1,12 @@
 {#def record, form_config, data, extra_context, ui_links #}
 
 {% extends "oarepo_ui/form.html" %}
+{%- include config.BASE_JS %}
 
 {%- block head %}
     {{ super() }}
     <link rel="stylesheet" href="https://unpkg.com/react-datepicker/dist/react-datepicker.css">
 {%- endblock %}
-
-{%- block javascript %}
-    {{ super() }}
-    <script src="{{ config.EXTERNAL_STATIC_ASSETS_URL }}/tailwind.js"></script>
-    <script type="module" src="{{ config.EXTERNAL_STATIC_ASSETS_URL }}/page.js"></script>
-    <script>
-        tailwind.config = {
-            prefix: "tw-",
-            content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-            theme: {
-                extend: {
-                    keyframes: {
-                        progressBar: {
-                            "0%": {width: "0%"},
-                            "100%": {width: "100%"},
-                        },
-                    },
-                    animation: {
-                        "progress-bar": "progressBar 1s ease-in-out",
-                    },
-                    colors: {
-                        "elter-backgroud-blue": "#0A2033",
-                        "elter-baclground-light-blue": "#0A5A98",
-                        "elter-orange": "#ED9632",
-                        "elter-orange-emph": "#FCA035",
-                    },
-                },
-            },
-        }
-    </script>
-{% endblock javascript %}
 
 {%- block page_body %}
     <div class="search-result-container">
