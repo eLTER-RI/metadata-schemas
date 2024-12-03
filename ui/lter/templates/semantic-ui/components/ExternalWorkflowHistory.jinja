@@ -4,6 +4,7 @@
     <table class="ui celled table">
         <thead>
         <tr>
+            <th>QC Run ID</th>
             <th>Date</th>
             <th>Status</th>
         </tr>
@@ -11,8 +12,9 @@
         <tbody>
         {% for record in array(history) %}
             {% set status = record.status | string %}
-
+            {% set link = '/qc/' ~ record.workflowHandle ~ '/report' %}
             <tr>
+                <td><a href="{{ link }}">{{ record.workflowHandle }}</a></td>
                 <td>{{ record.date }}</td>
                 <td>
                     {% if status == "Running" %}
