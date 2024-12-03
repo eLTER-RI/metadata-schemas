@@ -1,38 +1,5 @@
 {%- extends config.BASE_TEMPLATE %}
 
-{%- block javascript %}
-    {{ super() }}
-    {%- if current_user.is_authenticated %}
-        <script src="{{ config.EXTERNAL_STATIC_ASSETS_URL }}/tailwind.js"></script>
-        <script type="module" src="{{ config.EXTERNAL_STATIC_ASSETS_URL }}/page.js"></script>
-        <script>
-            tailwind.config = {
-                prefix: "tw-",
-                content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-                theme: {
-                    extend: {
-                        keyframes: {
-                            progressBar: {
-                                "0%": {width: "0%"},
-                                "100%": {width: "100%"},
-                            },
-                        },
-                        animation: {
-                            "progress-bar": "progressBar 1s ease-in-out",
-                        },
-                        colors: {
-                            "elter-backgroud-blue": "#0A2033",
-                            "elter-baclground-light-blue": "#0A5A98",
-                            "elter-orange": "#ED9632",
-                            "elter-orange-emph": "#FCA035",
-                        },
-                    },
-                },
-            }
-        </script>
-    {%- endif %}
-{%- endblock javascript %}
-
 {%- block page_body %}
     {% block main_column %}
         <div class="search-result-container">

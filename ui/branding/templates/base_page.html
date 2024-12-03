@@ -1,11 +1,4 @@
-{#def record, form_config, data, extra_context, ui_links #}
-
-{% extends "oarepo_ui/form.html" %}
-
-{%- block head %}
-    {{ super() }}
-    <link rel="stylesheet" href="https://unpkg.com/react-datepicker/dist/react-datepicker.css">
-{%- endblock %}
+{% extends "oarepo_ui/base_page.html" %}
 
 {%- block javascript %}
     {{ super() }}
@@ -36,10 +29,4 @@
             },
         }
     </script>
-{% endblock javascript %}
-
-{%- block page_body %}
-    <div class="search-result-container">
-        <div id="ingestRoot"></div>
-    </div>
-{% endblock %}
+{%- endblock javascript %}
