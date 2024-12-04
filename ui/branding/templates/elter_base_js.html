@@ -1,5 +1,5 @@
 <script src="{{ config.EXTERNAL_STATIC_ASSETS_URL }}/tailwind.js"></script>
-<script type="module" src="{{ config.EXTERNAL_STATIC_ASSETS_URL }}/page.js"></script>
+<script>document.write("<script type='module' src='{{ config.EXTERNAL_STATIC_ASSETS_URL }}/page.js?v=" + Date.now() + "'><\/script>");</script>
 <script>
     tailwind.config = {
         prefix: "tw-",
