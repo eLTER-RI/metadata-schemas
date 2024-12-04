@@ -1,57 +1,129 @@
-{% extends "oarepo_ui/header.html" %}
+{#
+-*- coding: utf-8 -*-
+Copyright (C) 2019-2020 CERN.
+Copyright (C) 2019-2020 Northwestern University.
+Copyright (C) 2021 New York University.
 
-{%- block navbar %}
-<div class="ui invenio-header-container">
-    <nav id="invenio-nav" class="ui menu shadowless borderless p-0">
-        <div class="item computer tablet only logo">
-            {%- if config.THEME_LOGO %}
-            <a class="logo-link" href="/">
-                <img class="ui image"
-                     src="{{ url_for('static', filename=config.THEME_LOGO) }}"
-                     alt="{{ _(config.THEME_SITENAME) }}"/>
-            </a>
-            {%- endif %}
-        </div>
-        <div class="left menu">
-            <a class="ui header_menu_item mobile only item" href="/">Home</a>
-            <a class="ui header_menu_item item" href="/lter">Assets</a>
-            {%- if current_user.is_authenticated %}
-            <a href="/me/records" class="ui header_menu_item item">My assets</a>
-            <a href="/dashboard" class="ui header_menu_item item">Dashboard</a>
-            {%- endif %}
-        </div>
-        {%- block navbar_right %}
-        <div class="right menu item">
-            {%- include "header_login.html" %}
+Invenio App RDM is free software; you can redistribute it and/or modify it
+under the terms of the MIT License; see LICENSE file for more details.
+#}
+<header class="ui page-header">
+    {%- block site_banner %}
+    {%- endblock site_banner %}
+    <div class="outer-navbar">
+        {%- block navbar %}
+        <div class="ui container invenio-header-container">
+            <nav id="invenio-nav" class="ui menu shadowless borderless stackable p-0">
 
-            {%- if config.I18N_LANGUAGES %}
-            <form id="language-code-form" class="lang-select"
-                  action="{{ url_for('invenio_i18n.set_lang')}}"
-                  method="POST">
-                <div>
-                    <select id="lang-code" name="lang_code" class="ui selection dropdown language-selector">
-                        {% for l in current_i18n.get_locales() %}
-                        <option {% if current_i18n.language== l.language %}selected {% endif %}value="{{ l.language }}">
-                            {{ l.get_display_name() }}
-                        </option>
-                        {% endfor %}
-                    </select>
+                {# Main Site logo #}
+                {%- block navbar_header %}
+                <div class="item logo p-0 computer tablet only">
+                    {%- block brand %}
+                    {%- if config.THEME_LOGO %}
+                    <a class="logo-link" href="/">
+                        <img class="ui image"
+                             src="{{ url_for('static', filename=config.THEME_LOGO) }}"
+                             alt="{{ _(config.THEME_SITENAME) }}"/>
+                    </a>
+                    {%- else %}
+                    <a class="logo" href="/">{{ _(config.THEME_SITENAME) }}</a>
+                    {%- endif %}
+                    {%- endblock brand %}
                 </div>
-            </form>
-            {%- endif %}
+                {%- endblock navbar_header %}
+
+
+                {# Burger menu toggle for mobile menu #}
+                <div id="invenio-burger-toggle" class="ui menu_burger">
+                    <button
+                            id="invenio-burger-menu-icon"
+                            class="ui button transparent"
+                            aria-label="{{ _('Menu') }}"
+                            aria-haspopup="menu"
+                            aria-expanded="false"
+                            aria-controls="invenio-menu"
+                    >
+                        <span class="navicon"></span>
+                    </button>
+                </div>
+
+                {# Main menu #}
+                <div
+                        role="menu"
+                        id="invenio-menu"
+                        aria-labelledby="invenio-burger-menu-icon"
+                        class="ui fluid menu borderless mobile-hidden"
+                >
+                    <button
+                            id="invenio-close-burger-menu-icon"
+                            class="ui button transparent"
+                            aria-label="{{ _('Close menu') }}"
+                    >
+                        <span class="navicon"></span>
+                    </button>
+
+                    {# Search bar #}
+
+                    {# Navigation links #}
+                    {%- block navbar_nav %}
+
+                    <!--              {% for item in current_menu.submenu('actions').children|sort(attribute='order') if item.visible recursive %}-->
+                    <!--                <div class="item">-->
+                    <!--                  <a role="menuitem" href="{{ item.url }}">{{ item.text|safe }}</a>-->
+                    <!--                </div>-->
+                    <!--              {% endfor %}-->
+                    <!--                    {%- endblock navbar_nav %}-->
+
+
+                    {# User Account menu #}
+                    {%- block navbar_left %}
+                    <div class="mobile tablet only">
+                        <h3>Navigation</h3>
+                    </div>
+                    <div class="ui divider mobile tablet only"></div>
+                    <div class="left menu item header_menu_item">
+                        <a class="ui header_menu_item mobile tablet only item" href="/">Home</a>
+                        <a class="ui header_menu_item item" href="/lter">Assets</a>
+                        {%- if current_user.is_authenticated %}
+                        <a href="/me/records" class="ui header_menu_item item">My assets</a>
+                        <a href="/dashboard" class="ui header_menu_item item">Dashboard</a>
+                        {%- endif %}
+                    </div>
+                    {%- endblock navbar_left%}
+                    <div class="ui divider mobile tablet only"></div>
+
+                    {%- block navbar_right %}
+                    <div class="right menu item header_menu_item">
+                        {%- include "header_login.html" %}
+                    </div>
+                    {%- endblock navbar_right %}
+                </div>
+            </nav>
         </div>
-        {%- endblock navbar_right %}
-    </nav>
-    <div class="ui negative message">
-        <i class="close icon"></i>
-        <div class="header">
-            <i class="warning sign icon"></i>
-            Warning
-        </div>
-        <div class="content">
-            <p>You are using a development system of the emerging eLTER Research Infrastructure (RI).Please note that this service is still under construction and may not yet be fully functional.</p>
+        {%- endblock navbar %}
+
+        {%- block banner %}
+        {% from 'invenio_banners/banner.html' import banner %} {{ banner() }}
+        {%- endblock banner %}
+
+        <!--        {%- block flashmessages %}-->
+        <!--        {%- from "invenio_theme/macros/messages.html" import flashed_messages with context -%}-->
+        <!--        {{ flashed_messages() }}-->
+        <!--        {%- endblock %}-->
+        <div class="ui negative message">
+            <i class="close icon"></i>
+            <div class="header">
+                <i class="warning sign icon"></i>
+                Warning
+            </div>
+            <div class="content">
+                <p>You are using a development system of the emerging eLTER Research Infrastructure (RI).Please note
+                    that this
+                    service is still under construction and may not yet be fully functional.</p>
+            </div>
         </div>
     </div>
-</div>
-{%- endblock navbar %}
+</header>
 
+{%- block breadcrumbs %}
+{%- endblock breadcrumbs %}
