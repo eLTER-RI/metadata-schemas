@@ -86,7 +86,7 @@ INVENIO_DEV=False
 # INVENIO_JSONSCHEMAS_HOST
 
 # empty value
-INVENIO_EXTERNAL_STATIC_ASSETS_URL='https://dataspace.elter-ri.eu/static-data-dev'
+INVENIO_EXTERNAL_STATIC_ASSETS_URL='https://dataspace.elter-ri.eu/static-data'
 
 
 

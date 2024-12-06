@@ -75,7 +75,7 @@
         <div class="ui segment detail-section">
             <h3 class="ui header">Abstract</h3>
             <div class="content">
-                <p>{{ ns.abstract_description }}</p>
+                <p>{{ ns.abstract_description | sanitize | safe }}</p>
             </div>
         </div>
     {% endif %}
@@ -85,7 +85,7 @@
             <AccordionField label={description.type}
                             accordion_class="detail-section"
                             active=False>
-                {{ description.description }}
+                {{ description.description | sanitize | safe }}
             </AccordionField>
         {% endfor %}
     {% endif %}
