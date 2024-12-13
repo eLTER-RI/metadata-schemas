@@ -10,7 +10,6 @@ class LterSearchOptions(ELterSearchOptions):
     facet_groups = {
         "default": {
             "state": facets.state,
-            "state_timestamp": facets.state_timestamp,
             "metadata_dataLevel": facets.metadata_dataLevel,
             "metadata_keywords_name": facets.metadata_keywords_name,
             "metadata_datasetIds_sourceName": facets.metadata_datasetIds_sourceName,
