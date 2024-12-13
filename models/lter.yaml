@@ -56,7 +56,7 @@ record:
 
   search-options:
     base-classes:
-      - oarepo_runtime.services.search.I18nSearchOptions
+      - shared.services.records.search.ELterSearchOptions
 
 
   # files

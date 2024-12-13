@@ -54,7 +54,6 @@ Title:
       label.en: Language
     text:
       type: fulltext+keyword
-      required: true
       label.en: Title
 
 # endregion

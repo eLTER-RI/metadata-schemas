@@ -1248,7 +1248,6 @@
                             "text": {
                                 "detail": "fulltext+keyword",
                                 "input": "fulltext+keyword",
-                                "required": true,
                                 "help": "metadata/titles/text.help",
                                 "label": "metadata/titles/text.label",
                                 "hint": "metadata/titles/text.hint"
@@ -1310,6 +1309,14 @@
             "label": "state.label",
             "hint": "state.hint",
             "facet": "state"
+        },
+        "state_timestamp": {
+            "detail": "datetime",
+            "input": "datetime",
+            "help": "state_timestamp.help",
+            "label": "state_timestamp.label",
+            "hint": "state_timestamp.hint",
+            "facet": "state_timestamp"
         },
         "substring_search_field": {
             "detail": "fulltext",

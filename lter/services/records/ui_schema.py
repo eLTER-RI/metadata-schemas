@@ -21,6 +21,8 @@ class LterUISchema(UIRequestsSerializationMixin, InvenioUISchema):
 
     state = ma_fields.String(dump_only=True)
 
+    state_timestamp = LocalizedDateTime(dump_only=True)
+
     substring_search_field = ma_fields.String()
 
 

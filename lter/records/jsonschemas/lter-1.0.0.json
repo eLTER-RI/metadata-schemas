@@ -557,6 +557,10 @@
         "state": {
             "type": "string"
         },
+        "state_timestamp": {
+            "type": "string",
+            "format": "date-time"
+        },
         "substring_search_field": {
             "type": "string"
         },

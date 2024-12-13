@@ -12,7 +12,10 @@ from oarepo_communities.records.systemfields.communities import (
 from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
 from oarepo_runtime.records.systemfields.owner import OwnersField
 from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
-from oarepo_workflows.records.systemfields.state import RecordStateField
+from oarepo_workflows.records.systemfields.state import (
+    RecordStateField,
+    RecordStateTimestampField,
+)
 from oarepo_workflows.records.systemfields.workflow import WorkflowField
 
 from lter.files.api import LterFile, LterFileDraft
@@ -60,6 +63,8 @@ class LterRecord(InvenioRecord):
 
     state = RecordStateField(initial="published")
 
+    state_timestamp = RecordStateTimestampField()
+
     versions_model_cls = LterParentState
 
     parent_record_cls = LterParentRecord
@@ -89,6 +94,10 @@ class LterDraft(InvenioDraft):
     dumper = LterDraftDumper()
 
     state = RecordStateField()
+
+    state_timestamp = RecordStateTimestampField()
+
+    external_workflow = DictField()
 
     versions_model_cls = LterParentState
 

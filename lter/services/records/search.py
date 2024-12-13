@@ -1,20 +1,22 @@
-from oarepo_runtime.services.search import I18nSearchOptions
+
+from shared.services.records.search import ELterSearchOptions
 
 from . import facets
 
 
-class LterSearchOptions(I18nSearchOptions):
+class LterSearchOptions(ELterSearchOptions):
     """LterRecord search options."""
 
     facet_groups = {
         "default": {
             "state": facets.state,
+            "state_timestamp": facets.state_timestamp,
             "metadata_dataLevel": facets.metadata_dataLevel,
             "metadata_keywords_name": facets.metadata_keywords_name,
             "metadata_datasetIds_sourceName": facets.metadata_datasetIds_sourceName,
             "metadata_siteReference_name": facets.metadata_siteReference_name,
             "metadata_SOReference_name": facets.metadata_SOReference_name,
-            **getattr(I18nSearchOptions, "facet_groups", {}).get("default", {}),
+            **getattr(ELterSearchOptions, "facet_groups", {}).get("default", {}),
         },
     }
 
@@ -101,7 +103,8 @@ class LterSearchOptions(I18nSearchOptions):
         "metadata_titles_language": facets.metadata_titles_language,
         "metadata_version": facets.metadata_version,
         "state": facets.state,
-        **getattr(I18nSearchOptions, "facets", {}),
+        "state_timestamp": facets.state_timestamp,
+        **getattr(ELterSearchOptions, "facets", {}),
         "record_status": facets.record_status,
         "has_draft": facets.has_draft,
     }

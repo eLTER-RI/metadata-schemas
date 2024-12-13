@@ -27,6 +27,8 @@ class LterSchema(BaseRecordSchema):
     metadata = ma_fields.Nested(lambda: LterMetadataSchema())
 
     state = ma_fields.String(dump_only=True)
+
+    state_timestamp = ma_fields.String(dump_only=True, validate=[validate_datetime])
     parent = ma.fields.Nested(GeneratedParentSchema)
     files = ma.fields.Nested(
         lambda: FilesOptionsSchema(), load_default={"enabled": True}

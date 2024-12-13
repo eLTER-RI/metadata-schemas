@@ -12,11 +12,11 @@ language-data==1.3.0
 marisa-trie==1.2.1
 nr-vocabularies==2.1.3
 oarepo-communities==5.1.1
-oarepo-dashboard==1.0.16
+oarepo-dashboard==1.0.17
 oarepo-global-search==1.0.29
 oarepo-oidc-einfra==1.0.3
 oarepo-published-service==1.0.3
-oarepo-requests==2.3.9
+oarepo-requests==2.3.12
 oarepo-runtime==1.5.82
 oarepo-ui==5.2.31
 oarepo-vocabularies==2.1.10

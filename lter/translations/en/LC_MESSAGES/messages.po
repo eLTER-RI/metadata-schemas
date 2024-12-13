@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-11-06T11:36:16.038299\n"
-"PO-Revision-Date: 2024-11-06T11:36:16.038313\n"
+"POT-Creation-Date: 2024-12-13T12:15:13.905193\n"
+"PO-Revision-Date: 2024-12-13T12:15:13.905202\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1343,6 +1343,15 @@ msgid "state.label"
 msgstr ""
 
 msgid "state.hint"
+msgstr ""
+
+msgid "state_timestamp.help"
+msgstr ""
+
+msgid "state_timestamp.label"
+msgstr ""
+
+msgid "state_timestamp.hint"
 msgstr ""
 
 msgid "substring_search_field.help"

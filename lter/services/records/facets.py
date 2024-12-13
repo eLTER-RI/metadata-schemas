@@ -372,6 +372,10 @@ metadata_version = TermsFacet(
 
 state = TermsFacet(field="state", label=_("Asset State"))
 
+state_timestamp = DateTimeFacet(
+    field="state_timestamp", label=_("state_timestamp.label")
+)
+
 
 record_status = TermsFacet(field="record_status", label=_("record_status"))
 
