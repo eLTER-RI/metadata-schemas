@@ -4,7 +4,7 @@ import Overridable from "react-overridable";
 
 import _get from "lodash/get";
 
-import {Divider, Grid, Item, Label} from "semantic-ui-react";
+import {Button, Divider, Grid, Header, Item, Label} from "semantic-ui-react";
 import {withState, buildUID} from "react-searchkit";
 import {SearchConfigurationContext} from "@js/invenio_search_ui/components";
 import {ActionButton} from "./components/ActionButton";
@@ -25,22 +25,20 @@ const ItemHeader = ({titles, state, viewLink}) => {
     return (
         <Item.Header>
             <StateIcon state={state}/>
-            <a href={viewLink}>{title}</a>
+            <Header as='h3' className="oxfordBlue" href={viewLink} style={{marginLeft: '0.3rem'}}>{title}</Header>
         </Item.Header>
     );
 };
 
 const ItemSubheader = ({description}) => {
     return (
-        <>
-            <Item.Meta>
-                <Grid columns={1}>
-                    <Grid.Column>
-                        <Grid.Row className="ui double separated creatibutors">{description}</Grid.Row>
-                    </Grid.Column>
-                </Grid>
-            </Item.Meta>
-        </>
+        <Item.Meta>
+            <Grid columns={1}>
+                <Grid.Column>
+                    <Grid.Row className="ui double separated creatibutors">{description}</Grid.Row>
+                </Grid.Column>
+            </Grid>
+        </Item.Meta>
     );
 };
 
@@ -59,6 +57,27 @@ export const ResultsListItemComponent = ({
     const state = _get(result, "state")
 
     const isLargeScreen = useMediaQuery({minWidth: 2800});
+
+    const getKeywords = () => {
+        return keywords.length > 0 ? (
+            keywords.map((keyword, index) => (
+                keyword.name === '' ?
+                    <Button className="disabled" size="small">Empty keyword</Button> :
+                    <Button
+                        key={index}
+                        size="small"
+                        as="a"
+                        href={`?q=&f=metadata_keywords_name:${keyword.name}`}
+                        className="ui bg-lightBlue"
+                        style={{margin: '2px'}}
+                    >
+                        {keyword.name}
+                    </Button>
+            ))
+        ) : (
+            <span>No keywords available</span>
+        );
+    }
 
     return (
         <Overridable
@@ -79,21 +98,9 @@ export const ResultsListItemComponent = ({
                                     viewLink={result.links.self_html}
                                 />
                                 <ItemSubheader description={descriptions[0].description}/>
-                                {keywords.length > 0 ? (
-                                    keywords.map((keyword, index) => (
-                                        <Label
-                                            key={index}
-                                            as="a"
-                                            href={`?q=&f=metadata_keywords_name:${keyword.name}`}
-                                            className="ui secondary"
-                                            style={{margin: '5px'}}
-                                        >
-                                            {keyword.name === '' ? "empty keyword - fix/remove me" : keyword.name}
-                                        </Label>
-                                    ))
-                                ) : (
-                                    <span>No keywords available</span>
-                                )}
+                                <Item.Extra>
+                                    {getKeywords()}
+                                </Item.Extra>
                             </Grid.Column>
                             <Grid.Column width={2}>
                                 {state === 'validated' && <PublishButton draftId={draftId}/>}
@@ -124,21 +131,9 @@ export const ResultsListItemComponent = ({
                                 </Grid>
                                 <Divider/>
                                 <ItemSubheader description={descriptions[0].description}/>
-                                {keywords.length > 0 ? (
-                                    keywords.map((keyword, index) => (
-                                        <Label
-                                            key={index}
-                                            as="a"
-                                            href={`?q=&f=metadata_keywords_name:${keyword.name}`}
-                                            className="ui secondary"
-                                            style={{margin: '5px'}}
-                                        >
-                                            {keyword.name}
-                                        </Label>
-                                    ))
-                                ) : (
-                                    <span>No keywords available</span>
-                                )}
+                                <Item.Extra>
+                                    {getKeywords()}
+                                </Item.Extra>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>

@@ -10,13 +10,13 @@
                     "label": keyword.name
                 } %}
                     {% set searchFacet = "metadata_keywords" %}
-                    <div class="ui white button ">
+                    <button class="ui white button">
                         <SearchLink search_link={search_link} className="keyword-link" searchFacet={searchFacet}
                                     data={data}></SearchLink>
-                    </div>
+                    </button>
                 </div>
             {% else %}
-                <div class="ui red button">Empty Keyword - Remove/Fix me</div>
+                <button class="ui disabled button">Empty Keyword</button>
             {% endif %}
         {% endfor %}
     </div>
