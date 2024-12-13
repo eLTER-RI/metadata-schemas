@@ -12,6 +12,7 @@ theme = WebpackThemeBundle(
                 "lter_geomap": "./js/lter/geomap/index.js",
                 "lter_deposit_form": "./js/lter/forms/index.js",
                 "lter_actionmenu": "./js/lter/actionmenu/index.js",
+                "lter_smallScreenDisclaimer": "./js/lter/disclaimers/index.js",
             },
             dependencies={
                 "leaflet": "^1.9.4",
@@ -27,6 +28,7 @@ theme = WebpackThemeBundle(
                 "@lter_search": "js/lter/search",
                 "@lter_geomap": "js/lter/geomap",
                 "@lter_actionmenu": "js/lter/actionmenu",
+                "@lter_disclaimers": "js/lter/disclaimers",
             },
         )
     },
