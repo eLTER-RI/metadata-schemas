@@ -71,7 +71,7 @@ export const ResultsListItemComponent = ({
             <Item data-testid="dashboardAssetListItem" key={result.id} className="search-listing-item">
                 <Item.Content className="content">
                     <Grid>
-                        <Grid.Row columns={3} className="tablet computer only">
+                        <Grid.Row columns={3} className="computer only">
                             <Grid.Column width={isLargeScreen ? 13 : 12} className="results-list item-main">
                                 <ItemHeader
                                     titles={titles}
@@ -102,19 +102,21 @@ export const ResultsListItemComponent = ({
                                 {!['published'].includes(state) && <ActionButton record={result}/>}
                             </Grid.Column>
                         </Grid.Row>
-                        <Grid.Row className="mobile only">
+                        <Grid.Row className="tablet mobile only">
                             <Grid.Column width={12} className="results-list item-main">
                                 <ItemHeader
                                     titles={titles}
                                     state={state}
                                     viewLink={result.links.self_html}
                                 />
-                                <Divider />
+                                <Divider/>
                                 <Grid>
                                     <Grid.Row columns={2}>
-                                        <Grid.Column>
-                                            {state === 'validated' && <PublishButton draftId={draftId}/>}
-                                        </Grid.Column>
+                                        {
+                                            state === 'validated' && <Grid.Column>
+                                                <PublishButton draftId={draftId}/>
+                                            </Grid.Column>
+                                        }
                                         <Grid.Column>
                                             {!['published'].includes(state) && <ActionButton record={result}/>}
                                         </Grid.Column>

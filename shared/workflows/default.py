@@ -1,26 +1,3 @@
-#
-# Roles within the workflow:
-#
-# administrator == administrator for the whole repository
-#
-# Community roles:
-#
-# CommunityRole("submitter") == people who can create new records
-# CommunityRole("owner")     == person who owns the community
-# CommunityMembers()         == member of the community
-#
-# Synthetic roles:
-#
-# RecordOwners() == actual owner of the record (person who created it)
-#
-# Record states:
-#
-# draft == record is being created
-# submitted == record is submitted for approval/publishing but not yet accepted
-# published == record is published
-# deleting == record is in the process of being deleted (request filed but not yet accepted)
-#
-
 from datetime import timedelta
 
 from invenio_records_permissions.generators import AnyUser
@@ -42,19 +19,22 @@ from oarepo_workflows import (
 )
 from oarepo_requests.services.permissions.workflow_policies import RequestBasedWorkflowPermissions
 
+from shared.requests.external_workflow_transitions import ExternalWorkflowTransitions
+
+# Community roles: member, submitter, external, uploader, owner ,system
 
 class DefaultWorkflowPermissions(CommunityDefaultWorkflowPermissions):
     can_create = [
         PrimaryCommunityRole("submitter"),
+        PrimaryCommunityRole("uploader"),
+        PrimaryCommunityRole("uploader"),
         PrimaryCommunityRole("owner"),
         PrimaryCommunityRole("system"),
-        PrimaryCommunityRole("uploader"),
         UserWithRole("administrator"),
     ]
 
     can_read = [
         RecordOwners(),
-        # administrator can see everything
         PrimaryCommunityRole("owner"),
         PrimaryCommunityRole("system"),
         PrimaryCommunityRole("uploader"),
@@ -87,31 +67,26 @@ class DefaultWorkflowPermissions(CommunityDefaultWorkflowPermissions):
 
     can_publish = [
         IfInState("draft", then_=[
-            PrimaryCommunityRole("system")
+            PrimaryCommunityRole("system"),
+            PrimaryCommunityRole("uploader"),
         ]),
     ]
 
     can_delete = [
             PrimaryCommunityRole("system"),
+            PrimaryCommunityRole("owner"),
+
             IfInState("draft", then_=[
                 RecordOwners(),
-                PrimaryCommunityRole("owner")
             ]),
             IfInState("error", then_=[
                 RecordOwners(),
-                PrimaryCommunityRole("owner")
             ]),
             IfInState("validated", then_=[
                 RecordOwners(),
-                PrimaryCommunityRole("owner")
             ]),
             IfInState("running", then_=[
                 RecordOwners(),
-                PrimaryCommunityRole("owner")
-            ]),
-            IfInState("published", then_=[
-                RecordOwners(),
-                PrimaryCommunityRole("owner")
             ]),
     ] + CommunityDefaultWorkflowPermissions.can_delete
 
@@ -119,27 +94,22 @@ class DefaultWorkflowPermissions(CommunityDefaultWorkflowPermissions):
 class DefaultWorkflowRequests(WorkflowRequestPolicy):
     run_external_workflow = WorkflowRequest(
         requesters=[
-            IfInState("draft", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
-            IfInState("error", then_=[RecordOwners(),PrimaryCommunityRole("owner")]),
-            IfInState("validated", then_=[RecordOwners(),PrimaryCommunityRole("owner")]),
+            IfInState("draft", then_=[RecordOwners(), PrimaryCommunityRole("owner"), PrimaryCommunityRole("system")]),
+            IfInState("error", then_=[RecordOwners(),PrimaryCommunityRole("owner"), PrimaryCommunityRole("system")]),
+            IfInState("validated", then_=[RecordOwners(),PrimaryCommunityRole("owner"), PrimaryCommunityRole("system")]),
+            IfInState("canceled", then_=[RecordOwners(),PrimaryCommunityRole("owner"), PrimaryCommunityRole("system")]),
         ],
         recipients=[
+            # TODO This is uncompleted
             PrimaryCommunityRole("owner")
-            # AutoApprove(),
-            # if the requester is the curator of the community, auto approve the request
-            # IfRequestedBy(
-            #     requesters=PrimaryCommunityRole("curator"),
-            #     then_=[AutoApprove()],
-            #     else_=[PrimaryCommunityRole("curator"), PrimaryCommunityRole("owner")],
-            # )
         ],
-        transitions=WorkflowTransitions(
-            submitted="running", accepted="validated", declined="error"
+        transitions=ExternalWorkflowTransitions(
+            submitted="running", accepted="validated", declined="error", canceled="canceled"
         ),
         # if the request is not resolved in 21 days, escalate it to the administrator
         escalations=[
             WorkflowRequestEscalation(
-                after=timedelta(days=21), recipients=[UserWithRole("administrator")]
+                after=timedelta(days=21), recipients=[PrimaryCommunityRole("system")]
             )
         ],
     )
@@ -148,16 +118,10 @@ class DefaultWorkflowRequests(WorkflowRequestPolicy):
         # if the record is in draft state, the owner or curator can request publishing
         requesters=[
             IfInState("validated", then_=[RecordOwners(), PrimaryCommunityRole("owner")]),
-            IfInState("draft", then_=[PrimaryCommunityRole("system")])
+            IfInState("draft", then_=[PrimaryCommunityRole("system"), PrimaryCommunityRole("uploader")])
         ],
         recipients=[
             AutoApprove(),
-            # if the requester is the curator of the community, auto approve the request
-            # IfRequestedBy(
-            #     requesters=PrimaryCommunityRole("curator"),
-            #     then_=[AutoApprove()],
-            #     else_=[PrimaryCommunityRole("curator"), PrimaryCommunityRole("owner")],
-            # )
         ],
         transitions=WorkflowTransitions(
             submitted="submitted", accepted="published", declined="draft"
@@ -177,12 +141,11 @@ class DefaultWorkflowRequests(WorkflowRequestPolicy):
                 then_=[
                     RecordOwners(),
                     PrimaryCommunityRole("owner"),
+                    PrimaryCommunityRole("system"),
                     UserWithRole("administrator"),
                 ],
             )
         ],
-        # the request is auto-approve, we do not limit the owner of the record to create a new
-        # draft version.
         recipients=[AutoApprove()],
     )
 

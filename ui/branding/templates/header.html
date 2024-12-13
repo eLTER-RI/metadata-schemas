@@ -17,7 +17,7 @@ under the terms of the MIT License; see LICENSE file for more details.
 
                 {# Main Site logo #}
                 {%- block navbar_header %}
-                <div class="item logo p-0 computer tablet only">
+                <div class="item logo p-0">
                     {%- block brand %}
                     {%- if config.THEME_LOGO %}
                     <a class="logo-link" href="/">
@@ -78,7 +78,7 @@ under the terms of the MIT License; see LICENSE file for more details.
                     {# User Account menu #}
                     {%- block navbar_left %}
                     <div class="mobile tablet only">
-                        <h3>Navigation</h3>
+                        <h2 class="ui medium header">Navigation</h2>
                     </div>
                     <div class="ui divider mobile tablet only"></div>
                     <div class="left menu item header_menu_item">

@@ -294,7 +294,7 @@ export const SearchAppLayout = () => {
 //         </div>
 //     );
 // };
-
+//
 // SearchAppLayout.propTypes = {
 //     config: PropTypes.shape({
 //         searchApi: PropTypes.object.isRequired, // same as ReactSearchKit.searchApi
@@ -311,5 +311,5 @@ export const SearchAppLayout = () => {
 //     }),
 //     hasButtonSidebar: PropTypes.bool,
 // };
-
+//
 export default SearchAppLayout;
