@@ -2,18 +2,22 @@
 {% if keywords %}
     <div role="list" class="ui horizontal medium keywords list">
         {% for keyword in array(keywords) %}
-            <div role="listitem" class="item">
-                {% set data = {
+            {% if keyword.name | string != '' %}
+                <div role="listitem" class="item">
+                    {% set data = {
                     "value": keyword.name,
                     "title": _("Find more records with this keyword"),
                     "label": keyword.name
                 } %}
-                {% set searchFacet = "metadata_keywords" %}
-                <div class="ui white button ">
-                    <SearchLink search_link={search_link} className="keyword-link" searchFacet={searchFacet}
-                                data={data}/>
+                    {% set searchFacet = "metadata_keywords" %}
+                    <div class="ui white button ">
+                        <SearchLink search_link={search_link} className="keyword-link" searchFacet={searchFacet}
+                                    data={data}></SearchLink>
+                    </div>
                 </div>
-            </div>
+            {% else %}
+                <div class="ui red button">Empty Keyword - Remove/Fix me</div>
+            {% endif %}
         {% endfor %}
     </div>
 {% endif %}

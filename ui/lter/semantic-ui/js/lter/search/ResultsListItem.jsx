@@ -70,7 +70,7 @@ export const ResultsListItemComponent = ({
                                             className="ui secondary"
                                             style={{margin: '5px'}}
                                         >
-                                            {keyword.name}
+                                            {keyword.name ?? "empty keyword - fix/remove me"}
                                         </Label>
                                     ))
                                 ) : (
