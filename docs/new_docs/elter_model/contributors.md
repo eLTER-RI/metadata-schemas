@@ -46,8 +46,8 @@
           }
         },
         "type": {
-          "type": "string",
-          "valueFrom": [
+          "type": "enum",
+          "enumValue": [
             "ContactPerson",
             "DataCollector",
             "DataCurator",

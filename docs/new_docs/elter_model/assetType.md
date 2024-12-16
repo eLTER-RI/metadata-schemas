@@ -6,12 +6,18 @@
 - **[Description](#description)**
 - **[JSON Example](#json-example)**
 - **[ISO Mapping](#iso-mapping)**
-- **[Ingest form mapping](#ingest-form-mapping)**
 ---
 ## Schema
-
+```json
+{
+  "assetType": {
+    "type": "string"
+  }
+}
+```
 ## Description
 ### Definition
+Type of asset.
 ### Multiplicity
 ### Required
 ### RDF Property
@@ -19,7 +25,6 @@
 
 ## JSON Example
 ## ISO Mapping
-## Ingest Form Mapping
 
 
 [Back to model](_base.md)
