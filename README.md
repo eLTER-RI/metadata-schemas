@@ -246,3 +246,5 @@ the page to the flask application.
 
 If you run the command with `--react` option, it will also create
 react endpoint for the page and reference it from the jinjax template.
+
+Test
