@@ -11,13 +11,15 @@
 ## Schema
 ```json
 {
-  "authors": {
+  "creators": {
     "type": "array",
     "items": {
       "type": "object",
       "properties": {
         "email": {
-          "type": "string"
+          "type": "string",
+          "label": "eMail",
+          "tooltip": "Mailaddress of the author"
         },
         "familyName": {
           "type": "string"
@@ -37,7 +39,8 @@
                 "type": "string"
               },
               "schema": {
-                "type": "string"
+                "type": "enum",
+                "values": ["orcid", "ror"],
               },
               "url": {
                 "type": "string"
