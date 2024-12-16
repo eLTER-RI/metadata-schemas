@@ -12,7 +12,7 @@
 ```json
 {
   "datasetIds": {
-    "visibelInForm": False,
+    "visibleInForm": False,
     "type": "array",
     "items": {
       "type": "object",
