@@ -62,10 +62,9 @@
               },
               "schemeUri": {
                 "type": "string [uri]",
-                "label": Scheme URI",
+                "label": "Scheme URI",
                 "tooltip": "The URI pointing to the scheme.",
-                "default": ""url": "https://orcidXYZ.com"
-                "
+                "default": "https://orcidXYZ.com"
               }
             }
           }
@@ -87,17 +86,32 @@ https://eml.ecoinformatics.org/schema/eml-resource_xsd.html#ResourceGroup_creato
 ## JSON Example
 ```json
 {
-  "authors": [
+  "creators": [
     {
-      "fullName": "GivenName MiddleName FamilyName",
-      "givenName": "Name1",
-      "familyName": "Name2",
+      "fullName": "Johannes Peterseil",
+      "givenName": "Johannes",
+      "familyName": "Peterseil",
       "nameType": "Personal",
       "nameIdentifiers": [
         {
           "id": "https://orcid.org/0000-0003-0631-8231",
           "schema": "Orcid",
           "url": "https://orcidXYZ.com"
+        }
+      ]
+    }
+  ]
+}
+{
+  "creators": [
+    {
+      "fullName": "Umweltbundesamt GmbH",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "id": "https://ror.org/013vyke20",
+          "schema": "ROR",
+          "url": "https://ror.com"
         }
       ]
     }
