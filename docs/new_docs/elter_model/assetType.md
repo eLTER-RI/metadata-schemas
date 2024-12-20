@@ -11,7 +11,11 @@
 ```json
 {
   "assetType": {
-    "type": "string"
+    "type": "enum",
+    "label": "Standard observation",
+    "tooltip": "Please provide the corresponding eLTER standard observation for the dataset.",
+    "required": true,
+    "enum": ##see https://vocabs.lter-europe.net/so/en/
   }
 }
 ```
