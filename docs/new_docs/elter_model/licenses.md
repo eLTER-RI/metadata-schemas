@@ -20,11 +20,11 @@
       "properties": {
         "name": {
           "type": "string",
-          "placeholder": "For example CC BY-SA 4.0"
+          "tooltip": "For example CC BY-SA 4.0"
         },
         "url": {
           "type": "string",
-          "placeholder": "For example https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+          "tooltip": "For example https://creativecommons.org/licenses/by-sa/4.0/deed.en",
         }
       }
     }
