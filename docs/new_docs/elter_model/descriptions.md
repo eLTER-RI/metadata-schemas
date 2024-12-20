@@ -23,7 +23,7 @@
           "min-length": 200,
           "max-length": 4000,
           "comment-on-length": "number of characters",
-          "placeholder": "Please describe the dataset with an abstract of at least 200 characters. Please consider giving the description more structure by adding additional description fields.",
+          "tooltip": "Please describe the dataset with an abstract of at least 200 characters. Please consider giving the description more structure by adding additional description fields.",
         },
         "type": {
           "type": "enum",
