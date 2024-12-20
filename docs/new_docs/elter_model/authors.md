@@ -42,7 +42,7 @@
           "required": true,
           "default": "Personal"
         },
-        "ids": {
+        "nameIdentifiers": {
           "type": "array",
           "required": false,
           "items": {
@@ -93,9 +93,9 @@ https://eml.ecoinformatics.org/schema/eml-resource_xsd.html#ResourceGroup_creato
       "givenName": "Name1",
       "familyName": "Name2",
       "nameType": "Personal",
-      "ids": [
+      "nameIdentifiers": [
         {
-          "id": "[12345](https://orcid.org/0000-0003-0631-8231)",
+          "id": "https://orcid.org/0000-0003-0631-8231",
           "schema": "Orcid",
           "url": "https://orcidXYZ.com"
         }
