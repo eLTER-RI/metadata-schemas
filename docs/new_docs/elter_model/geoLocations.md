@@ -28,13 +28,13 @@
                     "type": "number",
                     "maximum": 90,
                     "minimum": -90,
-                    "placeholder": "Please use WGS 84 notation with a dot as decimal separator, i.e. 51.340199.",
+                    "tooltip": "Please use WGS 84 notation with a dot as decimal separator, i.e. 51.340199.",
                   },
                   "longitude": {
                     "type": "number",
                     "maximum": 180,
                     "minimum": -180,
-                    "placeholder": "Please use WGS84 notation with a dot as decimal separator, i.e. 12.360103.",
+                    "tooltip": "Please use WGS84 notation with a dot as decimal separator, i.e. 12.360103.",
                   }
                 }
               },
@@ -47,13 +47,13 @@
                       "type": "number",
                       "maximum": 90,
                       "minimum": -90,
-                      "placeholder": "Please use WGS84 notation with a dot as decimal separator, i.e. 51.340199.",
+                      "tooltip": "Please use WGS84 notation with a dot as decimal separator, i.e. 51.340199.",
                     },
                     "longitude": {
                       "type": "number",
                       "maximum": 180,
                       "minimum": -180,
-                      "placeholder": "Please use WGS84 notation with a dot as decimal separator, i.e. 12.360103.",
+                      "tooltip": "Please use WGS84 notation with a dot as decimal separator, i.e. 12.360103.",
                     }
                   }
                 }
@@ -68,25 +68,25 @@
               "type": "number",
               "maximum": 180,
               "minimum": -180,
-              "placeholder": "Please use WGS84 notation with a dot as decimal separator, i.e. 12.360103.",
+              "tooltip": "Please use WGS84 notation with a dot as decimal separator, i.e. 12.360103.",
             },
             "northBoundLatitude": {
               "type": "number",
               "maximum": 90,
               "minimum": -90,
-              "placeholder": "Please use WGS84 notation with a dot as decimal separator, i.e. 51.340199.",
+              "tooltip": "Please use WGS84 notation with a dot as decimal separator, i.e. 51.340199.",
             },
             "southBoundLatitude": {
               "type": "number",
               "maximum": 90,
               "minimum": -90,
-              "placeholder": "Please use WGS84 notation with a dot as decimal separator, i.e. 51.340199.",
+              "tooltip": "Please use WGS84 notation with a dot as decimal separator, i.e. 51.340199.",
             },
             "westBoundLongitude": {
               "type": "number",
               "maximum": 180,
               "minimum": -180,
-              "placeholder": "Please use WGS84 notation with a dot as decimal separator, i.e. 12.360103.",
+              "tooltip": "Please use WGS84 notation with a dot as decimal separator, i.e. 12.360103.",
             }
           }
         },
@@ -100,13 +100,13 @@
               "type": "number",
               "maximum": 90,
               "minimum": -90,
-              "placeholder": "Please use WGS84 notation with a dot as decimal separator, i.e. 51.340199.",
+              "tooltip": "Please use WGS84 notation with a dot as decimal separator, i.e. 51.340199.",
             },
             "longitude": {
               "type": "number",
               "maximum": 180,
               "minimum": -180,
-              "placeholder": "Please use WGS84 notation with a dot as decimal separator, i.e. 12.360103.",
+              "tooltip": "Please use WGS84 notation with a dot as decimal separator, i.e. 12.360103.",
             }
           }
         }
