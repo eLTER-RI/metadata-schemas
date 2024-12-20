@@ -16,34 +16,56 @@
     "items": {
       "type": "object",
       "properties": {
-        "email": {
-          "type": "string",
-          "label": "eMail",
-          "tooltip": "Mailaddress of the author"
-        },
         "familyName": {
-          "type": "string"
-        },
-        "fullName": {
-          "type": "string"
+          "type": "string",
+          "label": "Family name",
+          "tooltip": "The family name given to this entity.",
+          "required": false
         },
         "givenName": {
-          "type": "string"
+          "type": "string",
+          "label": "Given name",
+          "tooltip": "The first name given to the entity.",
+          "required": false
+        },
+        "fullName": {
+          "type": "string",
+          "label": "Full name",
+          "tooltip": "The full name of the entity or in case of an organisation the name of the organisation.",
+          "required": true
+        },
+        "nameType": {
+          "type": "enum",
+          "label": "Name type",
+          "tooltip": "The type of the name described.",
+          "enum": ["Personal", "Organizational"],
+          "required": true,
+          "default": "Personal"
         },
         "ids": {
           "type": "array",
+          "required": false,
           "items": {
             "type": "object",
             "properties": {
-              "id": {
-                "type": "string"
+              "name_identifier": {
+                "type": "string [uri]",
+                "label": "Name identifier",
+                "tooltip": "The unique identifier of the entity, according to various identifier schemes."                
               },
-              "schema": {
+              "scheme": {
                 "type": "enum",
-                "values": ["orcid", "ror"],
+                "label": "Scheme",
+                "tooltip": "The scheme used for the identifier.",
+                "default": "orcid",
+                "enum": ["orcid", "ror"],
               },
-              "url": {
-                "type": "string"
+              "schemeUri": {
+                "type": "string [uri]",
+                "label": Scheme URI",
+                "tooltip": "The URI pointing to the scheme.",
+                "default": ""url": "https://orcidXYZ.com"
+                "
               }
             }
           }
@@ -70,10 +92,10 @@ https://eml.ecoinformatics.org/schema/eml-resource_xsd.html#ResourceGroup_creato
       "fullName": "GivenName MiddleName FamilyName",
       "givenName": "Name1",
       "familyName": "Name2",
-      "email": "randomEmail@gmail.com",
+      "nameType": "Personal",
       "ids": [
         {
-          "id": "12345",
+          "id": "[12345](https://orcid.org/0000-0003-0631-8231)",
           "schema": "Orcid",
           "url": "https://orcidXYZ.com"
         }
