@@ -14,14 +14,27 @@
   "titles": {
     "type": "array",
     "items": {
+      "title": {
+          "type": "string",
+          "label": "Title",
+          "required": true},
+      "titleType": {
+        "type": "enum",
+        "label": "Type",
+        "tooltip": "The type of title.",
+        "enum": enum [Title, Alternative Title, Subtitle, Translated Title, Other],
+        "required": true,
+        "default": "Title"},
       "type": "object",
       "properties": {
         "language": {
-          "type": "string"
-        },
-        "text": {
           "type": "string",
-          "required": true
+          "enum": [en, de, ...] ## values should be taken from ISO 639-1 and 639-3 language codes,
+          "required": "true",
+          "tooltip": "Set language for the title",
+          "default": "en"
+        },
+
         }
       }
     }
@@ -44,8 +57,9 @@ https://eml.ecoinformatics.org/schema/eml-resource_xsd.html#ResourceGroup_title
 {
   "titles": [
     {
-      "language": "eng",
-      "text": "This is a title of the "
+      "text": "This is a title of the ",
+      "titletype": "Title",
+      "language": "eng"
     }
   ]
 }
