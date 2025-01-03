@@ -42,7 +42,7 @@ invenio users create -a -c admin@elter.com --password testtest && invenio roles 
 
 Deployment:
 
-invenio users create -a -c external@elter.com --password thisisadminspassword && invenio oarepo communities members add elter external@elter.com "owner" && invenio tokens create -n ingest_token -u external@elter.com -i
+invenio users create -a -c external@elter.com --password <pw> && invenio oarepo communities members add elter external@elter.com "owner" && invenio tokens create -n ingest_token -u external@elter.com -i
 
-invenio users create -a -c creator@elter.com --password elteristhebest && invenio oarepo communities members add elter creator@elter.com "submitter" && invenio tokens create -n create_token -u creator@elter.com -i
-invenio users create -a -c michal@elter.com --password elteristhebest && invenio oarepo communities members add elter michal@elter.com "submitter" && invenio tokens create -n create_token -u michal@elter.com -i
+invenio users create -a -c creator@elter.com --password <pw> && invenio oarepo communities members add elter creator@elter.com "submitter" && invenio tokens create -n create_token -u creator@elter.com -i
+invenio users create -a -c michal@elter.com --password <pw> && invenio oarepo communities members add elter michal@elter.com "submitter" && invenio tokens create -n create_token -u michal@elter.com -i
