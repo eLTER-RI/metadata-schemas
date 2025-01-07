@@ -20,25 +20,39 @@
           "type": "string",
           "label": "Family name",
           "tooltip": "The family name given to this entity.",
-          "required": false
+          "required": true
         },
         "givenName": {
           "type": "string",
           "label": "Given name",
           "tooltip": "The first name given to the entity.",
-          "required": false
-        },
-        "fullName": {
-          "type": "string",
-          "label": "Full name",
-          "tooltip": "The full name of the entity or in case of an organisation the name of the organisation.",
           "required": true
+        },
+        "affiliation": {
+          "type": "object",
+          "properties": {
+            "affiliation_name": {
+              "type": "string",
+              "label": "Affiliation",
+              "tooltip": "Name of the (current) organisation of the author.",
+              "required": true
+            },
+            "affiliation_ror": {
+              "type": "string",
+              "label": "ROR Identifier",
+              "placeholder": "https://ror.org/000h6jb29",
+              "tooltip": "Query https://ror.org/ for the ROR of the organisation",
+              "required": true
+          }
         },
         "nameType": {
           "type": "enum",
           "label": "Name type",
           "tooltip": "The type of the name described.",
-          "enum": ["Personal", "Organizational"],
+          "enum": [
+            "Personal",
+            "Organizational"
+          ],
           "required": true,
           "default": "Personal"
         },
@@ -51,14 +65,17 @@
               "name_identifier": {
                 "type": "string [uri]",
                 "label": "Name identifier",
-                "tooltip": "The unique identifier of the entity, according to various identifier schemes."                
+                "tooltip": "The unique identifier of the entity, according to various identifier schemes."
               },
               "scheme": {
                 "type": "enum",
                 "label": "Scheme",
                 "tooltip": "The scheme used for the identifier.",
                 "default": "orcid",
-                "enum": ["orcid", "ror"],
+                "enum": [
+                  "orcid",
+                  "ror"
+                ]
               },
               "schemeUri": {
                 "type": "string [uri]",
