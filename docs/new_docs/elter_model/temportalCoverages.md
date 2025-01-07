@@ -11,6 +11,7 @@
 ```json
 {
   "temporalCoverages": {
+    "required": "once",
     "type": "array",
     "items": {
       "type": "object",
@@ -22,6 +23,29 @@
         "startDate": {
           "type": "string",
           "format": "date"
+        }
+      }
+    }
+  },
+  "temporalResolution": {
+    "required": "once",
+    "label": "Temporal Resolution",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "resolution": {
+          "required": true,
+          "label": "Resolution value",
+          "type": "numeric"
+        },
+        "unit": {
+          "required": true,
+          "label": "Unit",
+          "type": "enum",
+          "enum": [
+            "Hz", "Minutes", "Hours", "Days", "Weeks", "Months", "Years"
+          ]
         }
       }
     }
