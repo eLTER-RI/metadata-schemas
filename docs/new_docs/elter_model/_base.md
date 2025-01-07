@@ -23,6 +23,8 @@
 - **[dataLevel](dataLevel.md)**
 - **[temporalResolution](temporalResolution.md)**
 - **[ecosystem](ecosystem.md)**
+- **[habitatReference](habitatReference.md)**
+- **[instrumentation](instrumentation.md)**
 - **[files](externalFiles.md)**
 - **[additionalMetadata](additionalMetadata.md)**
 - **[geoServerInfo](geoServerInfo.md)**
