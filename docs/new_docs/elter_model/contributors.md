@@ -22,11 +22,25 @@
         "familyName": {
           "type": "string"
         },
-        "fullName": {
-          "type": "string"
-        },
         "givenName": {
           "type": "string"
+        },
+        "affiliation": {
+          "type": "object",
+          "properties": {
+            "affiliation_name": {
+              "type": "string",
+              "label": "Affiliation",
+              "tooltip": "Name of the (current) organisation of the author.",
+              "required": true
+            },
+            "affiliation_ror": {
+              "type": "string",
+              "label": "ROR Identifier",
+              "placeholder": "https://ror.org/000h6jb29",
+              "tooltip": "Query https://ror.org/ for the ROR of the organisation",
+              "required": true
+          }
         },
         "ids": {
           "type": "array",
