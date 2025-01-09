@@ -15,7 +15,13 @@
     "items": {
       "type": "object",
       "properties": {
-        "comment": "one of Polygon/Box/Point",
+        "comment": "one of Polygon/Box/Point/DEIMS Observation Location ID",
+        "DEIMS_Observation_ID"{
+          "type": "String",
+          "label: "DEIMS Observation Location ID",
+          "required": false
+          "placeholder": "i.e. d16ba1ca-b5d7-40b5-8fae-8657543c450b"
+        },
         "EX_BoundingPolygon": {
           "type": "array",
           "items": {
