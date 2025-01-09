@@ -28,7 +28,7 @@
     }
   },
   "temporalResolution": {
-    "required": "once",
+    "required": false,
     "label": "Temporal Resolution",
     "type": "array",
     "items": {
