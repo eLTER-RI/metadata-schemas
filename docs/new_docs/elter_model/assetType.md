@@ -28,10 +28,15 @@
 ```
 ## Description
 ### Definition
-Type of asset.
+Type of asset based on the list of the eLTER Standard Observations.
 ### Multiplicity
+1
 ### Required
+true
 ### Enumeration
+based on the list of eLTER Standard Observations --> https://vocabs.lter-europe.net/so/en/
+
+For the current implementation the following 6 eLTER Standard Observations are implemented as enumeration (name & url):
 "SOGEO_001 Soil inventory – geological characterization" (https://vocabs.lter-europe.net/so/001)
 "SOATM_027 Meteorology" (https://vocabs.lter-europe.net/so/027)
 "SOBIO_017 Vegetation composition" (https://vocabs.lter-europe.net/so/017)
