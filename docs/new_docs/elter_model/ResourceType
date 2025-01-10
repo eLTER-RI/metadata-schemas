@@ -8,6 +8,7 @@
 - **[ISO Mapping](#iso-mapping)**
 ---
 ## Schema
+```json
 {
   "resource_type_general"": {
     "type": "object",
