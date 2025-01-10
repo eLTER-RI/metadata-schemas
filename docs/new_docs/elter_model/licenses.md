@@ -12,6 +12,8 @@
 {
   "licenses": {
     "type": "array",
+    "label": "License",
+    "tooltip": "The license under which this data set is available to the users (e.g. GPL, Apache v2 or Commercial). Please use the License Selector for help and additional information.",
     "items": {
       "type": "object",
       "properties": {
