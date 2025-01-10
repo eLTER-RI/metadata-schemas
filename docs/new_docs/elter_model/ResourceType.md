@@ -65,7 +65,9 @@
 
 ## Description
 ### Definition
+A description of the resource.
 ### Multiplicity
+1
 ### RDF Property
 ### EML URL
 
