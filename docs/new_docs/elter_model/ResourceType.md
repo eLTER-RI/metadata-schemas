@@ -52,8 +52,10 @@
           "Other"
         ]
         },
-        "reseource_type_description": {
+        "resource_type_description": {
           "type": "string",
+          "label": "Description",
+          "tooltip": "An optional description of the resource type.",
           "required": false
         }
      }
