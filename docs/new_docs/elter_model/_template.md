@@ -20,7 +20,7 @@
         "type": "string"
       },
       "prop2": {
-        "type": "string
+        "type": "string"
       }
     }
   }
