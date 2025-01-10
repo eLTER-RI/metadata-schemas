@@ -13,6 +13,8 @@
 {
   "creators": {
     "type": "array",
+    "label": "Creators",
+    "tooltip": "The full name of the creators and/or owners of the dataset. The personal name format should be: family, given (e.g.: Smith, John).",
     "items": {
       "type": "object",
       "properties": {
