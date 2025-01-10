@@ -16,19 +16,33 @@
     "items": {
       "type": "object",
       "properties": {
+        "givenName": {
+          "type": "string",
+          "label": "Given name",
+          "tooltip": "The first names given to this entity."
+        },
+        "familyName": {
+          "type": "string",
+          "label": "Family name",
+          "tooltip": "The family names given to this entity."
+        },
+        "fullName": {
+          "type": "string",
+          "label": "Full name",
+          "tooltip": "The full name of the person or the name of the organisation."
+        },
         "email": {
           "type": "string",
           "label": "eMail",
-          "tooltip": "Mailaddress of the author"
+          "tooltip": "Contact email address of the author."
         },
-        "familyName": {
-          "type": "string"
-        },
-        "fullName": {
-          "type": "string"
-        },
-        "givenName": {
-          "type": "string"
+        "nameType": {
+          "type": "enum",
+          "delfaultValue": "Personal",
+          "enumValues":[
+            "Personal",
+            "Organizational"
+          ]
         },
         "ids": {
           "type": "array",
@@ -40,7 +54,10 @@
               },
               "schema": {
                 "type": "enum",
-                "values": ["orcid", "ror"],
+                "enumValues": [
+                  "orcid",
+                  "ror"
+                ],
               },
               "url": {
                 "type": "string"
