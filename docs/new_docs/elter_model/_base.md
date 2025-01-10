@@ -26,6 +26,8 @@
 - **[ecosystem](ecosystem.md)**
 - **[files](externalFiles.md)**
 - **[additionalMetadata](additionalMetadata.md)**
+- **[alternateIdentifiers](alternateIdentifiers.md)**
+- **[relatedIdentifiers](relatedIdentifiers.md)**
 - **[geoServerInfo](geoServerInfo.md)**
 
 ---
