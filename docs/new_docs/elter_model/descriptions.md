@@ -12,11 +12,14 @@
 {
   "descriptions": {
     "type": "array",
+    "label": "Descriptions",
     "items": {
       "type": "object",
       "properties": {
         "description": {
           "type": "string",
+          "label": "Description",
+          "tooltip": "The more elaborate description of the resource. Focus on a content description that makes it easy for others to find, and to interpret its relevance.",
           "required": true
         },
         "language": {
@@ -24,6 +27,8 @@
         },
         "type": {
           "type": "enum",
+          "label": "Type",
+          "tooltip": "The type of description.",
           "required": true,
           "enumValues": [
             "Abstract",
@@ -42,7 +47,9 @@
 ```
 ## Description
 ### Definition
+A brief overview of the resource (e.g. abstract, method). The abstract should include basic information that summarizes the resource
 ### Multiplicity
+1
 ### RDF Property
 ### EML URL
 
