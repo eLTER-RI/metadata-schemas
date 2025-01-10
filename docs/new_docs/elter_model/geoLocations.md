@@ -12,12 +12,34 @@
 {
   "geoLocations": {
     "type": "array",
+    "label": "Spatial coverage",
+    "tooltip": "The spatial coverages of the contents of the resource.",
     "items": {
       "type": "object",
       "properties": {
         "comment": "one of Polygon/Box/Point",
+        "EX_GeographicDescription": {
+          "type": "string",
+          "label": "Place",
+          "tooltip": "The name of a place or location."
+        },
+        "EX_ObservationLocation": {
+          "type": "object",
+          "label": "Observation location",
+          "tooltip": "The related observation location for the eLTER site or platform as defined in DEIMS-SDR.",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "PID": {
+              "type": "string"
+            }
+          }
+        },
         "EX_BoundingPolygon": {
           "type": "array",
+          "label": "Polygons",
+          "tooltip": "One or more drawn polygon areas, defined by a set of points and lines connecting the points in a closed chain.",
           "items": {
             "type": "object",
             "properties": {
@@ -57,6 +79,8 @@
         },
         "EX_GeographicBoundingBox": {
           "type": "object",
+          "label": "Boxes",
+          "tooltip": "A bounding box defined by two points.",
           "properties": {
             "eastBoundLongitude": {
               "type": "number",
@@ -80,11 +104,10 @@
             }
           }
         },
-        "EX_GeographicDescription": {
-          "type": "string"
-        },
         "Point": {
           "type": "object",
+          "label": "Point",
+          "tooltip": "A point contains a single latitude-longitude pair.",
           "properties": {
             "latitude": {
               "type": "number",
@@ -105,6 +128,7 @@
 ```
 ## Description
 ### Definition
+The spatial coverages of the contents of the resource.
 ### Multiplicity
 ### RDF Property
 ### EML URL
