@@ -10,14 +10,51 @@
 ## Schema
 ```json
 {
-  "resource_type_general"": {
+  "resource_type": {
     "type": "object",
-    "label": "Resource type",
-    "tooltip": "The type of ressource",
+    "label": "Resource type(s)",
+    "tooltip": "The type of ressource(s)",
     "required": true,
     "properties": {
-        "name": {
-        "type": "string"
+        "resource_type_general": {
+        "type": "enum",
+        "label": "Resource type",
+        "tooltip": "The type of the resource documented.",
+        "defaultValue": "Dataset",
+        "enumValues": [
+          "Audiovisual",
+          "Book",
+          "BookChapter",
+          "Collection",
+          "ComputationalNotebook",
+          "ConferencePaper",
+          "ConferenceProceeding",
+          "DataPaper",
+          "Dataset",
+          "Dissertation",
+          "Event",
+          "Image",
+          "InteractiveResource",
+          "Journal",
+          "JournalArticle",
+          "Model",
+          "OutputManagementPlan",
+          "PeerReview",
+          "PhysicalObject",
+          "Preprint",
+          "Report",
+          "Service",
+          "Software",
+          "Sound",
+          "Standard",
+          "Text",
+          "Workflow",
+          "Other"
+        ]
+        },
+        "reseource_type_description": {
+          "type": "string",
+          "required": false
         }
      }
   }
