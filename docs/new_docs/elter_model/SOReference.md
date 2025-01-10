@@ -36,6 +36,15 @@ Reference to the Standard Observation using the eLTER SO vocabulary
 ### RDF Property
 ### EML URL
 https://vocabs.lter-europe.net/so/en/
+examples
+SO Reference           //            eLTER Vocabulary URI
+SOGEO_001 Soil inventory – geological characterization                 https://vocabs.lter-europe.net/so/001 
+SOATM_027 Meteorology           https://vocabs.lter-europe.net/so/027   
+SOBIO_017 Vegetation composition        https://vocabs.lter-europe.net/so/017 
+SOBIO_096 Surface water – Algae             https://vocabs.lter-europe.net/so/096 
+SOHYD_004 Physical/chemical characteristics standing waters     https://vocabs.lter-europe.net/so/004 
+SOHYD_168 Soil water content and temperature               https://vocabs.lter-europe.net/so/168 
+
 ## JSON Example
 ## ISO Mapping
 
