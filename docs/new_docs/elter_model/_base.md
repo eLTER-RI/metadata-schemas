@@ -21,6 +21,7 @@
 - **[siteReference](siteReference.md)**
 - **[SOReference](SOReference.md)**
 - **[dataLevel](dataLevel.md)**
+- **[resourceType](ResourceType.md)**
 - **[temporalResolution](temporalResolution.md)**
 - **[ecosystem](ecosystem.md)**
 - **[files](externalFiles.md)**
