@@ -8,6 +8,19 @@
 - **[ISO Mapping](#iso-mapping)**
 ---
 ## Schema
+{
+  "resource_type_general"": {
+    "type": "object",
+    "label": "Resource type",
+    "tooltip": "The type of ressource",
+    "required": true,
+    "properties": {
+        "name": {
+        "type": "string"
+        }
+     }
+  }
+}
 
 ## Description
 ### Definition
