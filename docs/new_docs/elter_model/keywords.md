@@ -30,10 +30,15 @@
 ```
 ## Description
 ### Definition
+A keyword or tag describing the resource.
+### Required
+mandatory
 ### Multiplicity
+1-n
 ### RDF Property
+dcat:keyword
 ### EML URL
-
+https://eml.ecoinformatics.org/schema/eml-resource_xsd.html#ResourceGroup_keywordSet
 ## JSON Example
 ## ISO Mapping
 
