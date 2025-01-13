@@ -149,10 +149,14 @@
 ## Description
 ### Definition
 The spatial coverages of the contents of the resource.
+### Required
+mandatory
 ### Multiplicity
+1-n / still needs to be discussed
 ### RDF Property
+dcterms:spatial
 ### EML URL
-
+https://eml.ecoinformatics.org/schema/eml-coverage_xsd#Coverage_geographicCoverage
 ## JSON Example
 ## ISO Mapping
 
