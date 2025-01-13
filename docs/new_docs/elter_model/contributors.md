@@ -47,7 +47,7 @@
               "label": "Affiliation ID",
               "placeholder": "https://ror.org/000h6jb29",
               "tooltip": "Query https://ror.org/ for the ROR of the organisation",
-              "required": true
+              "required": false
           }
         },
         "ids": {
