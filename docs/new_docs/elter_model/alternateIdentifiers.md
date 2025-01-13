@@ -36,7 +36,7 @@
 ## Description
 ### Definition
 ### Discussion
-see also [datasetIds.md] which is describing the same MD element. so one of them could be deleted.
+see also [datasetIds.md](datasetIds.md) which is describing the same MD element. so one of them could be deleted.
 ### Required
 optional
 ### Multiplicity
