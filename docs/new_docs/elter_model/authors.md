@@ -61,7 +61,7 @@
               "name_identifier": {
                 "TODO": "id looks better, shorter -> it is under the nameIdentifiers...",
                 "type": "string [uri]",
-                "label": "Name identifier",
+                "label": "Identifier",
                 "tooltip": "The unique identifier of the entity, according to various identifier schemes."
               },
               "schema": {
