@@ -45,6 +45,7 @@
 ```
 ## Description
 ### Definition
+Is the identifier of a resource to which this item is related in some way (it is derived, it is a subset, etc.).
 ### Required
 optional
 ### Multiplicity
