@@ -52,8 +52,8 @@ _None_
   "datasetIds": [
       {
         "sourceName": "b2share",
-        "identifier": "id",
-        "url": "https://b2share.com",
+        "identifier": "<ANY_ID>",
+        "url": "https://b2share.com/<id>",
         "type": "PID"
       }
     ]
