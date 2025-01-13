@@ -45,11 +45,15 @@
 ```
 ## Description
 ### Definition
+### Required
+optional
 ### Multiplicity
+[0-n]
 ### RDF Property
 ### EML URL
 
 ## JSON Example
+
 ## ISO Mapping
 
 [Back to model](_base.md)
