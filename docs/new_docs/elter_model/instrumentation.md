@@ -16,15 +16,16 @@
     "label": "Instrumentation",
     "properties": {
       "description": {
-          "type": "string",
-          "required": false,
-          "min-length": 0,
-          "max-length": 4000,
-          "comment-on-length": "number of characters",
-          "tooltip": "Please describe the instrumentation."
+        "type": "string",
+        "required": false,
+        "min-length": 0,
+        "max-length": 4000,
+        "comment-on-length": "number of characters",
+        "tooltip": "Please describe the instrumentation."
       }
+    }
   }
-}
+}\
 ```
 
 ## Description

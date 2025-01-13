@@ -15,31 +15,43 @@
     "type": "array",
     "items": {
       "title": {
-          "type": "string",
-          "label": "Title",
-          "required": true},
+        "type": "string",
+        "label": "Title",
+        "required": true
+      },
       "titleType": {
         "type": "enum",
         "label": "Type",
         "tooltip": "The type of title.",
-        "enum": enum [Title, Alternative Title, Subtitle, Translated Title, Other],
+        "enum": [
+          "Title",
+          "Alternative Title",
+          "Subtitle",
+          "Translated Title",
+          "Other"
+        ],
         "required": true,
-        "default": "Title"},
+        "default": "Title"
+      },
       "type": "object",
       "properties": {
         "language": {
           "type": "string",
-          "enum": [en, de, ...] ## values should be taken from ISO 639-1 and 639-3 language codes,
+          "enum": [
+            "en",
+            "de",
+            "..."
+          ],
+          "comment": "values should be taken from ISO 639-1 and 639-3 language codes",
           "required": "true",
           "tooltip": "Set language for the title",
           "default": "en"
-        },
-
         }
       }
     }
   }
 }
+
 ```
 
 ## Description

@@ -11,7 +11,7 @@
 ```json
 {
   "ecosystem": {
-    "type" "array",
+    "type": "array",
     "label": "Ecosystem(s)",
     "tooltip": "Provide informaiton on the ecosystem for which the datasource was created.",
     "required": true,
