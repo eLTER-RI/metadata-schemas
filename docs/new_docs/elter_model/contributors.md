@@ -14,7 +14,8 @@
   "contributors": {
     "type": "array",
     "label": "Contributor(s)",
-    "tooltip": "The list of all other contributors. Please mention all persons that were relevant in the creation of the resource."
+    "tooltip": "The list of all other contributors. Please mention all persons that were relevant in the creation of the resource.",
+    "required": false,
     "items": {
       "type": "object",
       "properties": {
@@ -92,7 +93,9 @@
 ```
 ## Description
 ### Definition
-Entities that contributes to the dataset. 
+Entities that contributes to the resource. 
+### Required
+optional
 ### Multiplicity
 0 - n
 ### RDF Property
