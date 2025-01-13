@@ -53,12 +53,24 @@
 ## Description
 ### Definition
 A brief overview of the resource (e.g. abstract, method). The abstract should include basic information that summarizes the resource
+### Required
+mandatory
 ### Multiplicity
 1-n
 ### RDF Property
+dcterms:description
 ### EML URL
-
+https://eml.ecoinformatics.org/schema/eml-resource_xsd.html#ResourceGroup_abstract
 ## JSON Example
+```json
+{
+  "descriptions": {
+    "description": "lorem ipsum ...",
+    "language": "en",
+    "type": "Abstract"
+  }
+}
+```
 ## ISO Mapping
 
 [Back to model](_base.md)
