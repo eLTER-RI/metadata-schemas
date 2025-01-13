@@ -68,6 +68,11 @@ https://eml.ecoinformatics.org/schema/eml-resource_xsd.html#ResourceGroup_abstra
     "description": "lorem ipsum ...",
     "language": "en",
     "type": "Abstract"
+  },
+  {
+    "description": "the data was collected by ...",
+    "language": "en",
+    "type": "Method"
   }
 }
 ```
