@@ -95,7 +95,9 @@
 ```
 ## Description
 ### Definition
-The entity (person/people/organisation(s)) responsible for creating the dataset
+The entity (person/people/organisation(s)) responsible for creating the resource.
+### Required
+mandatory
 ### Multiplicity
 1 - n
 ### RDF Property
