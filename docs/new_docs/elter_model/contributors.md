@@ -42,7 +42,7 @@
               "tooltip": "Name of the (current) organisation of the author.",
               "required": true
             },
-            "affiliation_ror": {
+            "affiliation_identifier": {
               "type": "string",
               "label": "ROR Identifier",
               "placeholder": "https://ror.org/000h6jb29",
