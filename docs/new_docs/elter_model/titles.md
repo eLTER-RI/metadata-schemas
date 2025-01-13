@@ -56,9 +56,11 @@
 
 ## Description
 ### Definition
-Titles possible in multiple languages of the dataset. 
+A name given to the resource. 
+### Required
+mandatory
 ### Multiplicity
-1 - n
+1
 ### RDF Property
 dcterms:title
 ### EML URL
