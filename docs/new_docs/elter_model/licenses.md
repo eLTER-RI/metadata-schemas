@@ -35,7 +35,11 @@
 ```
 ## Description
 ### Definition
+A legal document under which the resource is made available.
+### Required
+mandatory
 ### Multiplicity
+1
 ### RDF Property
 ### EML URL
 
