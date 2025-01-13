@@ -35,6 +35,7 @@
 ```
 ## Description
 ### Definition
+An identifier of other resource related with the one described here.
 ### Discussion
 see also [datasetIds.md](datasetIds.md) which is describing the same MD element. so one of them could be deleted.
 ### Required
