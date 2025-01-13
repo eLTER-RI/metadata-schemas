@@ -40,7 +40,7 @@ prov:Activity
 ### EML URL
 https://eml.ecoinformatics.org/schema/eml-dataset_xsd.html#DatasetType_project
 ## JSON Example
-````json
+```json
 "projects": [
   {
   "name": "project1",
@@ -51,6 +51,7 @@ https://eml.ecoinformatics.org/schema/eml-dataset_xsd.html#DatasetType_project
   "id": "https://www.project2.org"
   }
 ```
+
 ## ISO Mapping
 
 [Back to model](_base.md)
