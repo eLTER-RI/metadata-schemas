@@ -12,14 +12,13 @@
 {
   "project": {
     "type": "object",
+    "label": "Project",
+    "tooltip": "Information on the project or funding source for the resource."
     "properties": {
-      "DOI": {
-        "type": "string"
-      },
-      "PID": {
-        "type": "string"
-      },
       "name": {
+        "type": "string"
+      }
+      "url": {
         "type": "string"
       }
     }

@@ -12,6 +12,8 @@
 {
   "keywords": {
     "type": "array",
+    "label": "Keywords",
+    "tooltip": "The keywords or key phrases describing the resource.",
     "items": {
       "type": "object",
       "properties": {

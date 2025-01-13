@@ -1,5 +1,7 @@
 [Back to model](_base.md)
 
+**COMMENT**: Maybe not needed, as the license.md defines the license and usage of the data
+
 # Name
 
 - **[Schema](#schema)**

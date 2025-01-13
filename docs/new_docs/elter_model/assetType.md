@@ -11,7 +11,8 @@
 ```json
 {  "assetType": {
     "type": "enum",
-    "label": "Standard observation",
+    "label1": "Standard observation",
+    "label2 TODO": "Assent type",
     "tooltip": "Please provide the corresponding eLTER standard observation for the dataset.",
     "required": true,
     "enum": [
@@ -87,9 +88,22 @@
 ```
 ## Description
 ### Definition
-Type of asset.
+Type of asset based on the list of the eLTER Standard Observations.
 ### Multiplicity
+1
 ### Required
+true
+### Enumeration
+based on the list of eLTER Standard Observations --> https://vocabs.lter-europe.net/so/en/
+
+For the current implementation the following 6 eLTER Standard Observations are implemented as enumeration (name & url):
+"SOGEO_001 Soil inventory – geological characterization" (https://vocabs.lter-europe.net/so/001)
+"SOATM_027 Meteorology" (https://vocabs.lter-europe.net/so/027)
+"SOBIO_017 Vegetation composition" (https://vocabs.lter-europe.net/so/017)
+"SOBIO_096 Surface water – Algae" (https://vocabs.lter-europe.net/so/096)
+"SOHYD_004 Physical/chemical characteristics standing waters" (https://vocabs.lter-europe.net/so/004) 
+"SOHYD_168 Soil water content and temperature" (https://vocabs.lter-europe.net/so/168)
+"Other"
 ### RDF Property
 ### EML URL
 

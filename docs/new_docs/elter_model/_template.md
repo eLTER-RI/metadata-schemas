@@ -8,7 +8,24 @@
 - **[ISO Mapping](#iso-mapping)**
 ---
 ## Schema
-
+```json
+{
+  "element": {
+    "type" "object",
+    "label": "label",
+    "tooltip": "text shown in the form.",
+    "required": true,
+    "properties": {
+      "prop1":{
+        "type": "string"
+      },
+      "prop2": {
+        "type": "string"
+      }
+    }
+  }
+}
+```
 ## Description
 ### Definition
 ### Multiplicity

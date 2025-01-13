@@ -13,6 +13,8 @@
   "comment": "Maybe we can consider to use SPDX licence identifier in the future: https://spdx.org/licenses/",
   "licenses": {
     "type": "array",
+    "label": "License",
+    "tooltip": "The license under which this data set is available to the users (e.g. GPL, Apache v2 or Commercial). Please use the License Selector for help and additional information.",
     "required": "once",
     "comment-on-required": "Required once but more than one occurence is allowed."
     "items": {

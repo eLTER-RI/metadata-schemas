@@ -12,7 +12,10 @@
 {
   "publicationDate": {
     "type": "string",
-    "format": "TODO"
+    "label": "Publication date",
+    "tooltip": "The date when the data was or will be made publicly available (e.g. 2018-07-13).",
+    "required": true,
+    "format": "YYYY-MM-DD"
   }
 }
 ```

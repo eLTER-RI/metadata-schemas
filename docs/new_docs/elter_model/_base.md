@@ -21,12 +21,15 @@
 - **[siteReference](siteReference.md)**
 - **[SOReference](SOReference.md)**
 - **[dataLevel](dataLevel.md)**
+- **[resourceType](ResourceType.md)**
 - **[temporalResolution](temporalResolution.md)**
 - **[ecosystem](ecosystem.md)**
 - **[habitatReference](habitatReference.md)**
 - **[instrumentation](instrumentation.md)**
 - **[files](externalFiles.md)**
 - **[additionalMetadata](additionalMetadata.md)**
+- **[alternateIdentifiers](alternateIdentifiers.md)**
+- **[relatedIdentifiers](relatedIdentifiers.md)**
 - **[geoServerInfo](geoServerInfo.md)**
 
 ---

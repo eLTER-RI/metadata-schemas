@@ -13,17 +13,24 @@
 {
   "contributors": {
     "type": "array",
+    "label": "Contributor(s)",
+    "tooltip": "The list of all other contributors. Please mention all persons that were relevant in the creation of the resource."
     "items": {
       "type": "object",
       "properties": {
         "email": {
-          "type": "string"
+          "type": "string",
+          "required": true
         },
         "familyName": {
-          "type": "string"
+          "type": "string",
+          "label": "Family name",
+          "tooltip": "The family names given to this entity."
         },
         "givenName": {
-          "type": "string"
+          "type": "string",
+          "label": "Given name",
+          "tooltip": "The first names given to this entity."
         },
         "affiliation": {
           "type": "object",

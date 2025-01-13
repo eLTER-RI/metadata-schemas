@@ -13,19 +13,26 @@
 {
   "creators": {
     "type": "array",
+    "label": "Creators",
+    "tooltip": "The full name of the creators and/or owners of the dataset. The personal name format should be: family, given (e.g.: Smith, John).",
     "items": {
       "type": "object",
       "properties": {
-        "familyName": {
-          "type": "string",
-          "label": "Family name",
-          "tooltip": "The family name given to this entity.",
-          "required": true
-        },
         "givenName": {
           "type": "string",
           "label": "Given name",
-          "tooltip": "The first name given to the entity.",
+          "tooltip": "The first names given to this entity."
+        },
+        "familyName": {
+          "type": "string",
+          "label": "Family name",
+          "tooltip": "The family names given to this entity.",
+          "required": true
+        },
+        "email": {
+          "type": "string",
+          "label": "eMail",
+          "tooltip": "Contact email address of the author.",
           "required": true
         },
         "affiliation": {
@@ -45,37 +52,32 @@
               "required": true
           }
         },
-        "nameType": {
-          "type": "enum",
-          "label": "Name type",
-          "tooltip": "The type of the name described.",
-          "enum": [
-            "Personal",
-            "Organizational"
-          ],
-          "required": true,
-          "default": "Personal"
-        },
         "nameIdentifiers": {
           "type": "array",
           "required": false,
           "items": {
             "type": "object",
             "properties": {
-              "name_identifier": {
+              "id / name_identifier": {
+                "TODO": "id looks better, shorter -> it is under the nameIdentifiers...",
                 "type": "string [uri]",
                 "label": "Name identifier",
                 "tooltip": "The unique identifier of the entity, according to various identifier schemes."
               },
-              "scheme": {
+              "schema": {
                 "type": "enum",
                 "label": "Scheme",
                 "tooltip": "The scheme used for the identifier.",
                 "default": "orcid",
                 "enum": [
                   "orcid",
-                  "ror"
+                  "wob",
+                  "scopus"
                 ]
+              },
+              "url": {
+                "type": "string",
+                "TODO": "This is better to save whole url - no need to parse"
               },
               "schemeUri": {
                 "type": "string [uri]",
@@ -103,32 +105,17 @@ https://eml.ecoinformatics.org/schema/eml-resource_xsd.html#ResourceGroup_creato
 ## JSON Example
 ```json
 {
-  "creators": [
+  "authors/creators": [
     {
-      "fullName": "Johannes Peterseil",
-      "givenName": "Johannes",
-      "familyName": "Peterseil",
-      "nameType": "Personal",
-      "nameIdentifiers": [
+      "givenName": "Name1",
+      "familyName": "Name2",
+      "email": "randomEmail@gmail.com",
+      "ids": [
         {
-          "id": "https://orcid.org/0000-0003-0631-8231",
+          "TODO": "Check bellow",
+          "id": "12345 / https://orcid.org/0000-0003-0631-8231 -- NO!!!",
           "schema": "Orcid",
-          "url": "https://orcidXYZ.com"
-        }
-      ]
-    }
-  ]
-}
-{
-  "creators": [
-    {
-      "fullName": "Umweltbundesamt GmbH",
-      "nameType": "Organizational",
-      "nameIdentifiers": [
-        {
-          "id": "https://ror.org/013vyke20",
-          "schema": "ROR",
-          "url": "https://ror.com"
+          "url": "https://orcidXYZ.com -- https://orcid.org/0000-0003-0631-8231 -- YES"
         }
       ]
     }
