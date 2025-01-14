@@ -9,34 +9,48 @@
 ---
 ## Schema
 ```json
+```json
 {
-    "HabitatReference": {
+  "habitatReference": {
+    "type": "array",
+    "label": "Related habitats",
+    "tooltip": "Provide informaiton on the habitats for which the datasource was created.",
+    "required": true,
+    "items": {
       "type": "object",
-      "label": "Habitat",
       "properties": {
-        "so_habitat": {
-          "required": true,
-          "label": "eLTER Standard Observeation (SO) Habitat",
-          "type": "enum",
-          "enum": [
-            "Wetlands (mires, bogs, fens)",
-            "Grasslands and lands dominated by forbs, mosses or lichens",
-            "Heathlands, shrub and tundra",
-            "Forests and other wooded land",
-            "Vegetated man-made habitats (agricultural, horticultural, domestic)",
-            "Inland surface standing waters",
-            "Coastal (transitional) waters including coastal littoral zones",
-            "Sparsely vegetated habitats and deserts"
-          ]
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
         }
       }
     }
   }
+}
+```
+
+
+
 ```
 
 ## Description
 ### Definition
 ### Multiplicity
+### Enumeration
+```json
+"enum": [
+    "Wetlands (mires, bogs, fens)",
+    "Grasslands and lands dominated by forbs, mosses or lichens",
+    "Heathlands, shrub and tundra",
+    "Forests and other wooded land",
+    "Vegetated man-made habitats (agricultural, horticultural, domestic)",
+    "Inland surface standing waters",
+    "Coastal (transitional) waters including coastal littoral zones",
+    "Sparsely vegetated habitats and deserts"
+]
+```
 ### RDF Property
 ### EML URL
 
