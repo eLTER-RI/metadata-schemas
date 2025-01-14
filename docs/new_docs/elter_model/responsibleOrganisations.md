@@ -52,4 +52,7 @@ Responsible organisation and contact information owning the resource.
 ## JSON Example
 ## ISO Mapping
 
+## Discussion
+The responsibleOrganisation is defining the organisation responsible and owning the resource (e.g. dataset) including the provision of an email as contact information for the resource. In the contributor there is also a role "contact point" which is not clear at the moment if that is used.
+
 [Back to model](_base.md)
