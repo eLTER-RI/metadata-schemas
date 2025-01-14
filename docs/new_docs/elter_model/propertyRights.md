@@ -1,7 +1,7 @@
 [Back to model](_base.md)
 
-**DEPRECATED - not needed, as reflected in the license**
-**COMMENT**: Maybe not needed, as the license.md defines the license and usage of the data
+- **DEPRECATED - not needed, as reflected in the license**
+- **COMMENT**: Maybe not needed, as the license.md defines the license and usage of the data
 
 # Name
 - **[Schema](#schema)**
