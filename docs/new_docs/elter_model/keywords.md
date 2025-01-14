@@ -35,6 +35,9 @@ A keyword or tag describing the resource.
 mandatory
 ### Multiplicity
 1-n
+### Enumeration
+https://vocabs.lter-europe.net/envthes/en/
+https://vocabs.lter-europe.net/elter_cl/en/
 ### RDF Property
 dcat:keyword
 ### EML URL
