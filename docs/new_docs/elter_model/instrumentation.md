@@ -21,7 +21,7 @@
         "min-length": 0,
         "max-length": 4000,
         "comment-on-length": "number of characters",
-        "tooltip": "Please describe the instrumentation."
+        "tooltip": "Please describe the instrumentation used for the data collection from the resource."
       }
     }
   }
