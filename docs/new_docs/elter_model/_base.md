@@ -3,6 +3,8 @@
 # Base record metadata model
 - **[assetType](assetType.md)**
 - **[datasetIds](datasetIds.md)**
+- **[alternateIdentifiers](alternateIdentifiers.md)**
+- **[relatedIdentifiers](relatedIdentifiers.md)**
 - **[shortNames](shortNames.md)**
 - **[titles](titles.md)**
 - **[authors](authors.md)**
@@ -23,13 +25,10 @@
 - **[dataLevel](dataLevel.md)**
 - **[resourceType](ResourceType.md)**
 - **[temporalResolution](temporalResolution.md)**
-- **[ecosystem](ecosystem.md)**
 - **[habitatReference](habitatReference.md)**
 - **[instrumentation](instrumentation.md)**
 - **[files](externalFiles.md)**
 - **[additionalMetadata](additionalMetadata.md)**
-- **[alternateIdentifiers](alternateIdentifiers.md)**
-- **[relatedIdentifiers](relatedIdentifiers.md)**
 - **[geoServerInfo](geoServerInfo.md)**
 
 ---
