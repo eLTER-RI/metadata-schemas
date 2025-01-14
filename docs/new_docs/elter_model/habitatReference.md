@@ -32,8 +32,11 @@
 
 ## Description
 ### Definition
+Reference to the habitat/ecosystem in which the data source was collected.
 ### Multiplicity
+1-n
 ### Enumeration
+Based on the eLTER CL vocabulary --> https://vocabs.lter-europe.net/elter_cl/en/page/10597
 ```json
 "enum": [
     "Wetlands (mires, bogs, fens)",
