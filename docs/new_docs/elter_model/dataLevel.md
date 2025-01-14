@@ -12,23 +12,28 @@
 {
   "dataLevel": {
     "label": "Data Level",
-    "type": "enum",
+    "required": true,
     "TODO": "this will be done with vocabs in the future",
-    "enum": [
-      "0 - raw data",
-      "1 - observation data",
-      "2 - cleaned data",
-      "3 - derived data"
-    ],
-    "enumValues": [
-      "0",
-      "1a",
-      "1b",
-      "2",
-      "3"
-    ],
     "tooltip": "Data level according to the eLTER defined data levels.",
     "tooltip2": "TBD - see https://elter.atlassian.net/wiki/spaces/EC/pages/918749186/eLTER+Data+Levels"
+    "type": "object" {
+      "properties": {
+        "name": {
+          "type": "enum",
+          "enumValues": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "tooltip": "Provide url to the concept in the eLTER vocabularies.",
+          "TODO": "this will be taken automatically from the vocabulary in future"
+        }
+      }
+    }
   }
 }
 ```
