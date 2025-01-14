@@ -17,12 +17,16 @@
     "items": {
       "type" "object",
       "properties": {
+        "sourceName": {
+          "type": "string",
+          "label": "Name of the original source (e.g. B2SHARE, zenodo) for the resource documented."
+        },
         "alternateIdentifier": {
           "type": "string",
           "label": "Alternate identifier",
           "tooltip": "Please provide the reference/identifier to the related resource."
         },
-        "relatedIdentifierType": {
+        "alternateIdentifierType": {
           "type": "enum",
           "label": "Related Identifier Type",
           "tooltip": "The type of identifier.",
