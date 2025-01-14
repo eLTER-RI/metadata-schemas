@@ -2,7 +2,6 @@
 
 # Base record metadata model
 - **[assetType](assetType.md)**
-- **[datasetIds](datasetIds.md)**
 - **[alternateIdentifiers](alternateIdentifiers.md)**
 - **[relatedIdentifiers](relatedIdentifiers.md)**
 - **[shortNames](shortNames.md)**
