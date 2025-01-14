@@ -9,7 +9,6 @@
 ---
 ## Schema
 ```json
-```json
 {
   "habitatReference": {
     "type": "array",
@@ -29,10 +28,6 @@
     }
   }
 }
-```
-
-
-
 ```
 
 ## Description
