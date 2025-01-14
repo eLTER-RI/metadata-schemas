@@ -14,7 +14,7 @@
   "title": {
     "type": "string",
     "label": "Title",
-    "tooltip": "Title for the resource."
+    "tooltip": "Title for the resource.",
     "required": true
   }
 }
