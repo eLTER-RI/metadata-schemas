@@ -45,6 +45,7 @@ Based on the eLTER CL vocabulary --> https://vocabs.lter-europe.net/elter_cl/en/
     "Forests and other wooded land",
     "Vegetated man-made habitats (agricultural, horticultural, domestic)",
     "Inland surface standing waters",
+    "Inland standing waters",
     "Coastal (transitional) waters including coastal littoral zones",
     "Sparsely vegetated habitats and deserts"
 ]
