@@ -11,52 +11,18 @@
 ## Schema
 ```json
 {
-  "titles": {
-    "type": "array",
-    "items": {
-      "title": {
-        "type": "string",
-        "label": "Title",
-        "required": true
-      },
-      "titleType": {
-        "type": "enum",
-        "label": "Type",
-        "tooltip": "The type of title.",
-        "enum": [
-          "Title",
-          "Alternative Title",
-          "Subtitle",
-          "Translated Title",
-          "Other"
-        ],
-        "required": true,
-        "default": "Title"
-      },
-      "type": "object",
-      "properties": {
-        "language": {
-          "type": "string",
-          "enum": [
-            "en",
-            "de",
-            "..."
-          ],
-          "comment": "values should be taken from ISO 639-1 and 639-3 language codes",
-          "required": "true",
-          "tooltip": "Set language for the title",
-          "default": "en"
-        }
-      }
-    }
+  "title": {
+    "type": "string",
+    "label": "Title",
+    "tooltip": "Title for the resource."
+    "required": true
   }
 }
-
 ```
 
 ## Description
 ### Definition
-A name given to the resource. 
+A title given to the resource. 
 ### Required
 mandatory
 ### Multiplicity
@@ -69,13 +35,7 @@ https://eml.ecoinformatics.org/schema/eml-resource_xsd.html#ResourceGroup_title
 ## JSON Example
 ```json
 {
-  "titles": [
-    {
-      "text": "This is a title of the ",
-      "titletype": "Title",
-      "language": "eng"
-    }
-  ]
+  "title": "This is the title of the resource."
 }
 ```
 
