@@ -19,7 +19,7 @@
     "items": {
       "type": "object",
       "properties": {
-        "organisationName": {
+        "organisation_name": {
           "type": "string",
           "label": "Organisation name",
           "tooltip": "Provide the name of the responsible organisation"
