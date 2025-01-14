@@ -12,6 +12,7 @@
 {
   "projects": {
     "type": "array",
+    "required": false,
     "items": {
       "type": "object",
       "label": "Project",
@@ -19,9 +20,15 @@
       "properties": {
         "name": {
           "type": "string"
-        }
+        },
         "url": {
           "type": "string"
+        },
+        "project_identifier": {
+          "type": "string",
+          "label": "Project identifier",
+          "tooltip": "Persistent identifier (e.g. CORDIS-ID, DOI) for the project.",
+          "required": false
         }
       }
     }
