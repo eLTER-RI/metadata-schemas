@@ -1,5 +1,7 @@
 [Back to model](_base.md)
 
+**DEPRECATED - needs to be deleted**
+
 # Dataset Ids
 
 - **[Schema](#schema)**
