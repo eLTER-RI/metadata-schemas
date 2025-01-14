@@ -30,10 +30,13 @@
 
 ## Description
 ### Definition
+The scientific instruments the data was generated or captured on.
 ### Multiplicity
+1-n
 ### RDF Property
+sosa:Sensor and prov:Entity
 ### EML URL
-
+https://eml.ecoinformatics.org/schema/eml-methods_xsd#ProcedureStepType_instrumentation
 ## JSON Example
 ## ISO Mapping
 
