@@ -7,7 +7,9 @@
 - **[JSON Example](#json-example)**
 - **[ISO Mapping](#iso-mapping)**
 - **[Ingest form mapping](#ingest-form-mapping)**
+
 ---
+
 ## Schema
 ```json
 {
@@ -25,12 +27,20 @@
 A title given to the resource. 
 ### Required
 mandatory
+
 ### Multiplicity
-1
+[1]
+
 ### RDF Property
-dcterms:title
-### EML URL
-https://eml.ecoinformatics.org/schema/eml-resource_xsd.html#ResourceGroup_title
+[dcterms:title](https://www.w3.org/TR/vocab-dcat-3/#Property:resource_relation)
+
+### EML Element
+[title](https://eml.ecoinformatics.org/schema/eml-resource_xsd.html#ResourceGroup_title)
+
+## ISO Mapping
+
+## Provenance
+_None_
 
 ## JSON Example
 ```json
@@ -39,7 +49,6 @@ https://eml.ecoinformatics.org/schema/eml-resource_xsd.html#ResourceGroup_title
 }
 ```
 
-## ISO Mapping
 ## Ingest Form Mapping
 
 

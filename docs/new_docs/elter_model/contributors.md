@@ -4,10 +4,13 @@
 
 - **[Schema](#schema)**
 - **[Description](#description)**
-- **[JSON Example](#json-example)**
 - **[ISO Mapping](#iso-mapping)**
+- **[Provenance](#provenance)**
+- **[JSON Example](#json-example)**
 - **[Ingest form mapping](#ingest-form-mapping)**
+
 ---
+
 ## Schema
 ```json
 {
@@ -91,15 +94,26 @@
   }
 }
 ```
+
 ## Description
 ### Definition
 Entities that contributes to the resource. 
 ### Required
 optional
+
 ### Multiplicity
-0 - n
+[0..n]
+
 ### RDF Property
-### EML URL
+_None_
+
+### EML Element
+_None_
+
+## ISO Mapping
+
+## Provenance
+_None_
 
 ## JSON Example
 ```json
@@ -122,8 +136,7 @@ optional
   ]
 }
 ```
-## ISO Mapping
-## Ingest Form Mapping
 
+## Ingest Form Mapping
 
 [Back to model](_base.md)

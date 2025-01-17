@@ -4,10 +4,13 @@
 
 - **[Schema](#schema)**
 - **[Description](#description)**
-- **[JSON Example](#json-example)**
 - **[ISO Mapping](#iso-mapping)**
+- **[Provenance](#provenance)**
+- **[JSON Example](#json-example)**
 - **[Ingest form mapping](#ingest-form-mapping)**
+
 ---
+
 ## Schema
 ```json
 {
@@ -93,17 +96,27 @@
   }
 }
 ```
+
 ## Description
 ### Definition
 The entity (person/people/organisation(s)) responsible for creating the resource.
 ### Required
 mandatory
+
 ### Multiplicity
-1 - n
+[1..n]
+
 ### RDF Property
-dcterms:creator
-### EML URL
-https://eml.ecoinformatics.org/schema/eml-resource_xsd.html#ResourceGroup_creator
+[dcterms:creator](https://www.w3.org/TR/vocab-dcat-3/#Property:resource_creator)
+
+### EML Element
+[creator](https://eml.ecoinformatics.org/schema/eml-resource_xsd.html#ResourceGroup_creator)
+
+## ISO Mapping
+
+## Provenance
+This element can be used to capture provenance information by establishing relationships between the dataset and its creator using the property [prov:wasAttributedTo](https://www.w3.org/TR/prov-o/#wasAttributedTo).
+
 ## JSON Example
 ```json
 {
@@ -124,8 +137,7 @@ https://eml.ecoinformatics.org/schema/eml-resource_xsd.html#ResourceGroup_creato
   ]
 }
 ```
-## ISO Mapping
-## Ingest Form Mapping
 
+## Ingest Form Mapping
 
 [Back to model](_base.md)

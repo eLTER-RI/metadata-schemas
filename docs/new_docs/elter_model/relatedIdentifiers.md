@@ -4,9 +4,13 @@
 
 - **[Schema](#schema)**
 - **[Description](#description)**
-- **[JSON Example](#json-example)**
 - **[ISO Mapping](#iso-mapping)**
+- **[Provenance](#provenance)**
+- **[JSON Example](#json-example)**
+- **[Ingest form mapping](#ingest-form-mapping)**
+
 ---
+
 ## Schema
 ```json
 {
@@ -43,18 +47,54 @@
   }
 }
 ```
+
 ## Description
 ### Definition
 Is the identifier of a resource to which this item is related in some way (it is derived, it is a subset, etc.).
 ### Required
 optional
+
 ### Multiplicity
-[0-n]
+[0..n]
+
 ### RDF Property
-### EML URL
+[dcterms:relation](https://www.w3.org/TR/vocab-dcat-3/#Property:resource_relation)
+
+### EML Element
+_None_
+
+## ISO Mapping
+
+## Provenance
+This property can be used to capture provenance information by establishing relationships between the dataset and other datasets. For instance, you can use the property prov:wasDerivedFrom (as defined in [PROV-O](https://www.w3.org/TR/prov-o/#wasDerivedFrom)) or other properties provided by [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), such as:
+
+- dct:hasPart
+- dct:isPartOf
+- dct:conformsTo
+- dct:isFormatOf
+- dct:hasFormat
+- dct:isVersionOf
+- dct:hasVersion
+- dct:replaces
+- dct:isReplacedBy
+- dct:references
+- dct:isReferencedBy
+- dct:requires
+- dct:isRequiredBy
+
+Additionally, you can leverage other [PROV-O](https://www.w3.org/TR/prov-o/#wasDerivedFrom) properties, such as:
+
+- prov:wasInfluencedBy
+- prov:wasQuotedFrom
+- prov:wasRevisionOf
+- prov:hadPrimarySource
+- prov:alternateOf
+- prov:specializationOf
+
+These properties collectively enable detailed documentation of relationships and dependencies, fostering better provenance tracking.
 
 ## JSON Example
 
-## ISO Mapping
+## Ingest Form Mapping
 
 [Back to model](_base.md)

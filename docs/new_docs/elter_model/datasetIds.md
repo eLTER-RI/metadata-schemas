@@ -9,7 +9,9 @@
 - **[JSON Example](#json-example)**
 - **[ISO Mapping](#iso-mapping)**
 - **[Ingest form mapping](#ingest-form-mapping)**
+
 ---
+
 ## Schema
 ```json
 {
@@ -37,6 +39,7 @@
   }
 }
 ```
+
 ## Description
 
 ## Description
