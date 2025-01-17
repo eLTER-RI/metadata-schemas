@@ -21,7 +21,8 @@
           "type": "string"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "required": false
         }
       }
     }
