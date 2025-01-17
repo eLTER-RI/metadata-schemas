@@ -12,7 +12,6 @@
 - **[language](language.md)**
 - **[descriptions](descriptions.md)**
 - **[keywords](keywords.md)**
-- **[propertyRights](propertyRights.md)**
 - **[licenses](licenses.md)**
 - **[geoLocations](geoLocations.md)**
 - **[temporalCoverages](temportalCoverages.md)**
