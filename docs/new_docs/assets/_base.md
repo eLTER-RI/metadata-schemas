@@ -21,7 +21,6 @@
 - **[dataLevel](dataLevel.md)**
 - **[temporalResolution](temporalResolution.md)**
 - **[habitatReference](habitatReference.md)**
-- **[instrumentation](instrumentation.md)**
 - **[additionalMetadata](additionalMetadata.md)**
 
 ---
