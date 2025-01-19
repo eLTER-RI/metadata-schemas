@@ -23,9 +23,7 @@
 - **[temporalResolution](temporalResolution.md)**
 - **[habitatReference](habitatReference.md)**
 - **[instrumentation](instrumentation.md)**
-- **[files](externalFiles.md)**
 - **[additionalMetadata](additionalMetadata.md)**
-- **[geoServerInfo](geoServerInfo.md)**
 
 ---
 
