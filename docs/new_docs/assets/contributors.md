@@ -22,56 +22,58 @@
     "items": {
       "type": "object",
       "properties": {
-        "email": {
+        "contributorEmail": {
           "type": "string",
           "required": false
         },
-        "familyName": {
+        "contributorFamilyName": {
           "type": "string",
           "label": "Family name",
           "tooltip": "The family names given to this entity."
         },
-        "givenName": {
+        "contributorGivenName": {
           "type": "string",
           "label": "Given name",
           "tooltip": "The first names given to this entity."
         },
-        "affiliation": {
+        "contributorAffiliation": {
           "type": "object",
           "properties": {
-            "affiliation_name": {
+            "entityName": {
               "type": "string",
               "label": "Affiliation name",
               "tooltip": "Name of the (current) organisation of the author.",
               "required": true
             },
-            "affiliation_identifier": {
-              "type": "string",
-              "label": "Affiliation ID",
-              "placeholder": "https://ror.org/000h6jb29",
-              "tooltip": "Query https://ror.org/ for the ROR of the organisation",
-              "required": false
+            "entityID": {
+              "type": "object",
+              "properties": {
+                "entityID": {
+                  "type": "string"
+                },
+                "entityIDSchema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         },
-        "ids": {
+        "contributorIDs": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "id": {
+              "entityID": {
                 "type": "string"
               },
-              "schema": {
-                "type": "string"
-              },
-              "url": {
+              "entityIDSchema": {
                 "type": "string"
               }
             }
           }
         },
-        "type": {
-          "type": "enum",
+        "contributorType": {
+          "type": "string",
           "enumValue": [
             "ContactPerson",
             "DataCollector",
