@@ -17,10 +17,10 @@
     "items": {
       "type": "object",
       "properties": {
-        "name": {
+        "keywordLabel": {
           "type": "string"
         },
-        "url": {
+        "keywordURI": {
           "type": "string",
           "required": false
         }
