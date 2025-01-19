@@ -20,11 +20,11 @@
     "items": {
       "type": "object",
       "properties": {
-        "name": {
+        "licenseCode": {
           "type": "string",
           "tooltip": "For example CC BY-SA 4.0"
         },
-        "url": {
+        "licenseURI": {
           "type": "string",
           "tooltip": "For example https://creativecommons.org/licenses/by-sa/4.0/deed.en",
         }
