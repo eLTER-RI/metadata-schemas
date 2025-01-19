@@ -11,7 +11,7 @@
 ```json
 {
   "element": {
-    "type" "object",
+    "type": "object",
     "label": "label",
     "tooltip": "text shown in the form.",
     "required": true,
