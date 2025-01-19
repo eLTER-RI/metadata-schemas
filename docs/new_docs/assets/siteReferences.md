@@ -10,18 +10,18 @@
 ## Schema
 ```json
 {
-  "siteReference": {
+  "siteReferences": {
     "type": "array",
     "label": "eLTER site and platform(s)",
     "tooltip": "Provide the list of site(s) or platform(s) where the dataset has been collected.",
-    "requried": true,
+    "required": true,
     "items": {
       "type": "object",
       "properties": {
-        "name": {
+        "siteName": {
           "type": "string"
         },
-        "PID": {
+        "siteID": {
           "type": "string"
         }
       }

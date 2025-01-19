@@ -17,7 +17,7 @@
 - **[taxonomicCoverages](taxonomicCoverages.md)**
 - **[methods](methods.md)**
 - **[projects](projects.md)**
-- **[siteReference](siteReference.md)**
+- **[siteReferences](siteReferences.md)**
 - **[SOReference](SOReference.md)**
 - **[dataLevel](dataLevel.md)**
 - **[resourceType](ResourceType.md)**
