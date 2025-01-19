@@ -4,572 +4,622 @@
 
 ```json
 {
-    "type": "object",
-    "properties": {
-        "$schema": {
-            "type": "string"
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "deletion_status": {
+      "type": "string"
+    },
+    "externalWorkflow": {
+      "type": "object",
+      "properties": {
+        "defaultWorkflowTemplateId": {
+          "type": "string"
         },
-        "created": {
-            "type": "string",
-            "format": "date-time"
-        },
-        "externalWorkflow": {
+        "history": {
+          "type": "array",
+          "items": {
             "type": "object",
             "properties": {
-                "defaultWorkflowTemplateId": {
-                    "type": "string"
-                },
-                "history": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "date": {
-                                "type": "string",
-                                "format": "date-time"
-                            },
-                            "status": {
-                                "type": "string"
-                            },
-                            "workflowHandle": {
-                                "type": "string"
-                            },
-                            "workflowTemplateId": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                }
+              "date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "status": {
+                "type": "string"
+              },
+              "workflowHandle": {
+                "type": "string"
+              },
+              "workflowTemplateId": {
+                "type": "string"
+              }
             }
-        },
-        "id": {
-            "type": "string"
-        },
-        "metadata": {
-            "type": "object",
-            "properties": {
-                "SOReference": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "url": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "additionalMetadata": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "name": {
-                                "type": "string"
-                            },
-                            "value": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "assetType": {
-                    "type": "string"
-                },
-                "authors": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "email": {
-                                "type": "string"
-                            },
-                            "familyName": {
-                                "type": "string"
-                            },
-                            "fullName": {
-                                "type": "string"
-                            },
-                            "givenName": {
-                                "type": "string"
-                            },
-                            "ids": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "id": {
-                                            "type": "string"
-                                        },
-                                        "schema": {
-                                            "type": "string"
-                                        },
-                                        "url": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "contributors": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "email": {
-                                "type": "string"
-                            },
-                            "familyName": {
-                                "type": "string"
-                            },
-                            "fullName": {
-                                "type": "string"
-                            },
-                            "givenName": {
-                                "type": "string"
-                            },
-                            "ids": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "id": {
-                                            "type": "string"
-                                        },
-                                        "schema": {
-                                            "type": "string"
-                                        },
-                                        "url": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            },
-                            "type": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "dataLevel": {
-                    "type": "integer"
-                },
-                "datasetIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "identifier": {
-                                "type": "string"
-                            },
-                            "sourceName": {
-                                "type": "string"
-                            },
-                            "type": {
-                                "type": "string"
-                            },
-                            "url": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "descriptions": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "description": {
-                                "type": "string"
-                            },
-                            "language": {
-                                "type": "string"
-                            },
-                            "type": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "ecosystem": {
-                    "type": "object",
-                    "properties": {
-                        "PID": {
-                            "type": "string"
-                        },
-                        "name": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "files": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "format": {
-                                "type": "string"
-                            },
-                            "md5": {
-                                "type": "string"
-                            },
-                            "name": {
-                                "type": "string"
-                            },
-                            "size": {
-                                "type": "string"
-                            },
-                            "sourceUrl": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "geoLocations": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "EX_BoundingPolygon": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "inPolygonPoint": {
-                                            "type": "object",
-                                            "properties": {
-                                                "latitude": {
-                                                    "type": "number"
-                                                },
-                                                "longitude": {
-                                                    "type": "number"
-                                                }
-                                            }
-                                        },
-                                        "points": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "latitude": {
-                                                        "type": "number"
-                                                    },
-                                                    "longitude": {
-                                                        "type": "number"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            "EX_GeographicBoundingBox": {
-                                "type": "object",
-                                "properties": {
-                                    "eastBoundLongitude": {
-                                        "type": "number"
-                                    },
-                                    "northBoundLatitude": {
-                                        "type": "number"
-                                    },
-                                    "southBoundLatitude": {
-                                        "type": "number"
-                                    },
-                                    "westBoundLongitude": {
-                                        "type": "number"
-                                    }
-                                }
-                            },
-                            "EX_GeographicDescription": {
-                                "type": "string"
-                            },
-                            "Point": {
-                                "type": "object",
-                                "properties": {
-                                    "latitude": {
-                                        "type": "number"
-                                    },
-                                    "longitude": {
-                                        "type": "number"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "geoServerInfo": {
-                    "type": "object",
-                    "properties": {
-                        "mapData": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "bytetype": {
-                                        "type": "boolean"
-                                    },
-                                    "epsgCode": {
-                                        "type": "integer"
-                                    },
-                                    "features": {
-                                        "type": "object",
-                                        "properties": {
-                                            "label": {
-                                                "type": "string"
-                                            },
-                                            "name": {
-                                                "type": "string"
-                                            },
-                                            "style": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "colour": {
-                                                        "type": "string"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    },
-                                    "path": {
-                                        "type": "string"
-                                    },
-                                    "type": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        },
-                        "serviceType": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "keywords": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "name": {
-                                "type": "string"
-                            },
-                            "url": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "language": {
-                    "type": "string"
-                },
-                "licenses": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "name": {
-                                "type": "string"
-                            },
-                            "url": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "methods": {
-                    "type": "object",
-                    "properties": {
-                        "PID": {
-                            "type": "string"
-                        },
-                        "instrumentationDescription": {
-                            "type": "string"
-                        },
-                        "qualityControlDescription": {
-                            "type": "string"
-                        },
-                        "sampling": {
-                            "type": "object",
-                            "properties": {
-                                "samplingDescription": {
-                                    "type": "string"
-                                },
-                                "studyDescription": {
-                                    "type": "string"
-                                }
-                            }
-                        },
-                        "steps": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "description": {
-                                        "type": "string"
-                                    },
-                                    "title": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "project": {
-                    "type": "object",
-                    "properties": {
-                        "DOI": {
-                            "type": "string"
-                        },
-                        "PID": {
-                            "type": "string"
-                        },
-                        "name": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "propertyRights": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "name": {
-                                "type": "string"
-                            },
-                            "url": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "publicationDate": {
-                    "type": "string",
-                    "format": "date"
-                },
-                "shortNames": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "language": {
-                                "type": "string"
-                            },
-                            "text": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "siteReference": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "PID": {
-                                "type": "string"
-                            },
-                            "name": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "taxonomicCoverages": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "classification": {
-                                "type": "object",
-                                "properties": {
-                                    "commonName": {
-                                        "type": "string"
-                                    },
-                                    "id": {
-                                        "type": "string"
-                                    },
-                                    "rankName": {
-                                        "type": "string"
-                                    },
-                                    "rankValue": {
-                                        "type": "string"
-                                    }
-                                }
-                            },
-                            "description": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "temporalCoverages": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "endDate": {
-                                "type": "string",
-                                "format": "date"
-                            },
-                            "startDate": {
-                                "type": "string",
-                                "format": "date"
-                            }
-                        }
-                    }
-                },
-                "temporalResolution": {
-                    "type": "integer"
-                },
-                "titles": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "language": {
-                                "type": "string"
-                            },
-                            "text": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "version": {
-                    "type": "string"
-                }
-            }
-        },
-        "pid": {
-            "type": "object",
-            "properties": {
-                "obj_type": {
-                    "type": "string"
-                },
-                "pid_type": {
-                    "type": "string"
-                },
-                "pk": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "string"
-                }
-            }
-        },
-        "state": {
-            "type": "string"
-        },
-        "substring_search_field": {
-            "type": "string"
-        },
-        "updated": {
-            "type": "string",
-            "format": "date-time"
+          }
         }
+      }
+    },
+    "id": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean"
+    },
+    "is_published": {
+      "type": "boolean"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "additionalMetadata": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "alternateIdentifiers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "alternateID": {
+                "type": "string"
+              },
+              "alternateIDType": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "assetType": {
+          "type": "object",
+          "properties": {
+            "assetTypeCode": {
+              "type": "string"
+            },
+            "assetTypeURI": {
+              "type": "string"
+            }
+          }
+        },
+        "contactPoints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "contactEmail": {
+                "type": "string"
+              },
+              "contactName": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "contributors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "contributorAffiliation": {
+                "type": "object",
+                "properties": {
+                  "entityID": {
+                    "type": "object",
+                    "properties": {
+                      "entityID": {
+                        "type": "string"
+                      },
+                      "entityIDSchema": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "entityName": {
+                    "type": "string"
+                  }
+                }
+              },
+              "contributorEmail": {
+                "type": "string"
+              },
+              "contributorFamilyName": {
+                "type": "string"
+              },
+              "contributorGivenName": {
+                "type": "string"
+              },
+              "contributorIDs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "entityID": {
+                      "type": "string"
+                    },
+                    "entityIDSchema": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "contributorType": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "creators": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "creatorAffiliation": {
+                "type": "object",
+                "properties": {
+                  "entityID": {
+                    "type": "object",
+                    "properties": {
+                      "entityID": {
+                        "type": "string"
+                      },
+                      "entityIDSchema": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "entityName": {
+                    "type": "string"
+                  }
+                }
+              },
+              "creatorEmail": {
+                "type": "string"
+              },
+              "creatorFamilyName": {
+                "type": "string"
+              },
+              "creatorGivenName": {
+                "type": "string"
+              },
+              "creatorIDs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "entityID": {
+                      "type": "string"
+                    },
+                    "entityIDSchema": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "dataLevel": {
+          "type": "object",
+          "properties": {
+            "dataLevelCode": {
+              "type": "string"
+            },
+            "dataLevelURI": {
+              "type": "string"
+            }
+          }
+        },
+        "descriptions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "descriptionText": {
+                "type": "string"
+              },
+              "descriptionType": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "geoLocations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "boundingBox": {
+                "type": "object",
+                "properties": {
+                  "eastBoundLongitude": {
+                    "type": "number"
+                  },
+                  "northBoundLatitude": {
+                    "type": "number"
+                  },
+                  "southBoundLatitude": {
+                    "type": "number"
+                  },
+                  "westBoundLongitude": {
+                    "type": "number"
+                  }
+                }
+              },
+              "boundingPolygon": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "inPolygonPoint": {
+                      "type": "object",
+                      "properties": {
+                        "latitude": {
+                          "type": "number"
+                        },
+                        "longitude": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "points": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "latitude": {
+                            "type": "number"
+                          },
+                          "longitude": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "geographicDescription": {
+                "type": "string"
+              },
+              "observationLocation": {
+                "type": "object",
+                "properties": {
+                  "deimsLocationID": {
+                    "type": "string"
+                  },
+                  "deimsLocationName": {
+                    "type": "string"
+                  }
+                }
+              },
+              "point": {
+                "type": "object",
+                "properties": {
+                  "latitude": {
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "habitatReferences": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "soHabitatCode": {
+                "type": "string"
+              },
+              "soHabitatURI": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "keywordLabel": {
+                "type": "string"
+              },
+              "keywordURI": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "language": {
+          "type": "string"
+        },
+        "licenses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "licenseCode": {
+                "type": "string"
+              },
+              "licenseURI": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "methods": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "instrumentationDescription": {
+                "type": "string"
+              },
+              "methodID": {
+                "type": "string"
+              },
+              "qualityControlDescription": {
+                "type": "string"
+              },
+              "sampling": {
+                "type": "object",
+                "properties": {
+                  "samplingDescription": {
+                    "type": "string"
+                  },
+                  "studyDescription": {
+                    "type": "string"
+                  }
+                }
+              },
+              "steps": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "stepDescription": {
+                      "type": "string"
+                    },
+                    "stepTitle": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "projectID": {
+                "type": "string"
+              },
+              "projectName": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "publicationDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "relatedIdentifiers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "relatedID": {
+                "type": "string"
+              },
+              "relatedIDType": {
+                "type": "string"
+              },
+              "relatedResourceType": {
+                "type": "string"
+              },
+              "relationType": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responsibleOrganizations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "organizationEmail": {
+                "type": "string"
+              },
+              "organizationIDs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "entityID": {
+                      "type": "string"
+                    },
+                    "entityIDSchema": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "organizationName": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "siteReferences": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "siteID": {
+                "type": "string"
+              },
+              "siteName": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "taxonomicCoverages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "taxonomicClassification": {
+                "type": "object",
+                "properties": {
+                  "commonName": {
+                    "type": "string"
+                  },
+                  "rankName": {
+                    "type": "string"
+                  },
+                  "rankValue": {
+                    "type": "string"
+                  },
+                  "taxonomicClassificationID": {
+                    "type": "string"
+                  }
+                }
+              },
+              "taxonomicDescription": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "temporalCoverages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "endDate": {
+                "type": "string",
+                "format": "date"
+              },
+              "startDate": {
+                "type": "string",
+                "format": "date"
+              }
+            }
+          }
+        },
+        "temporalResolution": {
+          "type": "object",
+          "properties": {
+            "temporalResolutionUnit": {
+              "type": "string"
+            },
+            "temporalResolutionValue": {
+              "type": "integer"
+            }
+          }
+        },
+        "titles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "titleLanguage": {
+                "type": "string"
+              },
+              "titleText": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "pid": {
+      "type": "object",
+      "properties": {
+        "obj_type": {
+          "type": "string"
+        },
+        "pid_type": {
+          "type": "string"
+        },
+        "pk": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "state": {
+      "type": "string"
+    },
+    "state_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "substring_search_field": {
+      "type": "string"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "version_id": {
+      "type": "integer"
+    },
+    "versions": {
+      "type": "object",
+      "properties": {
+        "index": {
+          "type": "integer"
+        },
+        "is_latest": {
+          "type": "boolean"
+        },
+        "is_latest_draft": {
+          "type": "boolean"
+        },
+        "latest_id": {
+          "type": "string"
+        },
+        "latest_index": {
+          "type": "integer"
+        },
+        "next_draft_id": {
+          "type": "string"
+        }
+      }
     }
+  }
 }
 ```
 
