@@ -17,15 +17,15 @@
     "items": {
       "type": "object",
       "properties": {
-        "resolution": {
+        "temporalResolutionValue": {
           "required": true,
           "label": "Resolution value",
-          "type": "numeric"
+          "type": "integer"
         },
-        "unit": {
+        "temporalResolutionUnit": {
           "required": true,
           "label": "Unit",
-          "type": "enum",
+          "type": "string",
           "enum": [
             "Hz", "Minutes", "Hours", "Days", "Weeks", "Months", "Years"
           ]
