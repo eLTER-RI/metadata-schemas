@@ -5,7 +5,7 @@
 - **[alternateIdentifiers](alternateIdentifiers.md)**
 - **[relatedIdentifiers](relatedIdentifiers.md)**
 - **[titles](titles.md)**
-- **[authors](authors.md)**
+- **[creators](creators.md)**
 - **[contributors](contributors.md)**
 - **[publicationDate](publicationDate.md)**
 - **[language](language.md)**

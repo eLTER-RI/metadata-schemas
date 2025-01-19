@@ -21,72 +21,67 @@
     "items": {
       "type": "object",
       "properties": {
-        "givenName": {
+        "creatorGivenName": {
           "type": "string",
           "label": "Given name",
           "tooltip": "The first names given to this entity."
         },
-        "familyName": {
+        "creatorFamilyName": {
           "type": "string",
           "label": "Family name",
           "tooltip": "The family names given to this entity.",
           "required": true
         },
-        "email": {
+        "creatorEmail": {
           "type": "string",
           "label": "eMail",
           "tooltip": "Contact email address of the author.",
           "required": true
         },
-        "affiliation": {
+        "creatorAffiliation": {
           "type": "object",
           "properties": {
-            "affiliation_name": {
+            "entityName": {
               "type": "string",
-              "label": "Affiliation name",
+              "label": "Organization/Group name",
               "tooltip": "Name of the (current) organisation of the author.",
               "required": true
             },
-            "affiliation_identifier": {
-              "type": "string",
-              "label": "Affiliation ID",
-              "placeholder": "https://ror.org/000h6jb29",
-              "tooltip": "Query https://ror.org/ for the ROR of the organisation",
-              "required": true
-          }
-        },
-        "nameIdentifiers": {
-          "type": "array",
-          "required": false,
-          "items": {
-            "type": "object",
-            "properties": {
-              "name_identifier": {
-                "TODO": "id looks better, shorter -> it is under the nameIdentifiers...",
-                "type": "string [uri]",
-                "label": "Identifier",
-                "tooltip": "The unique identifier of the entity, according to various identifier schemes."
-              },
-              "schema": {
-                "type": "enum",
-                "label": "Scheme",
-                "tooltip": "The scheme used for the identifier.",
-                "default": "orcid",
-                "enum": [
-                  "orcid",
-                  "wob",
-                  "scopus"
-                ]
-              },
-              "url": {
-                "type": "string",
-                "TODO": "This is better to save whole url - no need to parse"
-              },
-              "schemeUri": {
-                "type": "string [uri]",
-                "label": "Scheme URI",
-                "tooltip": "The URI pointing to the scheme.",
-                "default": "https://orcidXYZ.com"
+            "entityID": {
+              "type": "object",
+              "properties": {
+                "entityID": {
+                  "type": "string"
+                },
+                "entityIDSchema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "creatorIDs": {
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "object",
+              "properties": {
+                "entityID": {
+                  "TODO": "id looks better, shorter -> it is under the nameIdentifiers...",
+                  "type": "string [uri]",
+                  "label": "Identifier",
+                  "tooltip": "The unique identifier of the entity, according to various identifier schemes."
+                },
+                "entityIDSchema": {
+                  "type": "enum",
+                  "label": "Scheme",
+                  "tooltip": "The scheme used for the identifier.",
+                  "default": "orcid",
+                  "enum": [
+                    "orcid",
+                    "wob",
+                    "scopus"
+                  ]
+                }
               }
             }
           }
