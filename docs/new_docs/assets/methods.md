@@ -11,38 +11,41 @@
 ```json
 {
   "methods": {
-    "type": "object",
-    "properties": {
-      "PID": {
-        "type": "string"
-      },
-      "instrumentationDescription": {
-        "type": "string"
-      },
-      "qualityControlDescription": {
-        "type": "string"
-      },
-      "sampling": {
-        "type": "object",
-        "properties": {
-          "samplingDescription": {
-            "type": "string"
-          },
-          "studyDescription": {
-            "type": "string"
-          }
-        }
-      },
-      "steps": {
-        "type": "array",
-        "items": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "instrumentationDescription": {
+          "type": "string"
+        },
+        "methodID": {
+          "type": "string"
+        },
+        "qualityControlDescription": {
+          "type": "string"
+        },
+        "sampling": {
           "type": "object",
           "properties": {
-            "description": {
+            "samplingDescription": {
               "type": "string"
             },
-            "title": {
+            "studyDescription": {
               "type": "string"
+            }
+          }
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "stepDescription": {
+                "type": "string"
+              },
+              "stepTitle": {
+                "type": "string"
+              }
             }
           }
         }
