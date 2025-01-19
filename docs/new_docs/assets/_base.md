@@ -6,6 +6,7 @@
 - **[relatedIdentifiers](relatedIdentifiers.md)**
 - **[titles](titles.md)**
 - **[creators](creators.md)**
+- **[contactPoint](contactPoint.md)**
 - **[contributors](contributors.md)**
 - **[publicationDate](publicationDate.md)**
 - **[language](language.md)**
