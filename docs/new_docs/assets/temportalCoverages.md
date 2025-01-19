@@ -18,16 +18,16 @@
     "items": {
       "type": "object",
       "properties": {
+        "startDate": {
+          "type": "string",
+          "label": "Start date",
+          "tooltip": "The start date and time of the range covered by the resource.",
+          "format": "date"
+        },
         "endDate": {
           "type": "string",
           "label": "End date",
           "tooltip": "The end date and time of the range covered by the resource.",
-          "format": "date"
-        },
-        "startDate": {
-          "type": "string",
-          "label": "Start date",
-          "tooltip": "The start date and time of the range covered by the resource.", 
           "format": "date"
         }
       }
