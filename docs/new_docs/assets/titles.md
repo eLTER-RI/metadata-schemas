@@ -12,14 +12,23 @@
 
 ## Schema
 ```json
-{
-  "title": {
-    "type": "string",
-    "label": "Title",
-    "tooltip": "Title for the resource.",
-    "required": true
+ {
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "titleLanguage": {
+        "type": "string"
+      },
+      "titleText": {
+        "label": "Title",
+        "tooltip": "Title for the resource.",
+        "required": true,
+        "type": "string"
+      }
+    }
   }
-}
+},
 ```
 
 ## Description

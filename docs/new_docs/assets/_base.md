@@ -4,7 +4,6 @@
 - **[assetType](assetType.md)**
 - **[alternateIdentifiers](alternateIdentifiers.md)**
 - **[relatedIdentifiers](relatedIdentifiers.md)**
-- **[shortNames](shortNames.md)**
 - **[titles](titles.md)**
 - **[authors](authors.md)**
 - **[contributors](contributors.md)**
