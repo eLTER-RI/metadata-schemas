@@ -18,32 +18,25 @@
       "type": "object",
       "properties": {
         "comment": "one of Polygon/Box/Point/DEIMS Observation Location ID",
-        "EX_GeographicDescription": {
-          "type": "string",
-          "label": "Place",
-          "tooltip": "The name of a place or location."
-        },
-        "DEIMS_Observation_ID": {
-          "type": "String",
-          "label": "DEIMS Observation Location ID",
-          "required": false,
-          "placeholder": "i.e. d16ba1ca-b5d7-40b5-8fae-8657543c450b"
-        },
-        "EX_ObservationLocation": {
-          "TODO": "This is the field above, the name is stored in the description",
+        "observationLocation": {
           "type": "object",
-          "label": "Observation location",
-          "tooltip": "The related observation location for the eLTER site or platform as defined in DEIMS-SDR.",
+          "label": "DEIMS Observation Location ID",
           "properties": {
-            "name": {
-              "type": "string"
+            "deimsLocationID": {
+              "type": "string",
+              "placeholder": "i.e. d16ba1ca-b5d7-40b5-8fae-8657543c450b"
             },
-            "PID": {
+            "deimsLocationName": {
               "type": "string"
             }
           }
         },
-        "EX_BoundingPolygon": {
+        "geographicDescription": {
+          "type": "string",
+          "label": "Place",
+          "tooltip": "The name of a place or location."
+        },
+        "boundingPolygon": {
           "type": "array",
           "label": "Polygons",
           "tooltip": "One or more drawn polygon areas, defined by a set of points and lines connecting the points in a closed chain.",
@@ -76,13 +69,13 @@
                       "type": "number",
                       "maximum": 90,
                       "minimum": -90,
-                      "tooltip": "Please use WGS84 notation with a dot as decimal separator, i.e. 51.340199.",
+                      "tooltip": "Please use WGS84 notation with a dot as decimal separator, i.e. 51.340199."
                     },
                     "longitude": {
                       "type": "number",
                       "maximum": 180,
                       "minimum": -180,
-                      "tooltip": "Please use WGS84 notation with a dot as decimal separator, i.e. 12.360103.",
+                      "tooltip": "Please use WGS84 notation with a dot as decimal separator, i.e. 12.360103."
                     }
                   }
                 }
@@ -90,7 +83,7 @@
             }
           }
         },
-        "EX_GeographicBoundingBox": {
+        "boundingBox": {
           "type": "object",
           "label": "Box",
           "tooltip": "A bounding box defined by two points.",
@@ -121,7 +114,7 @@
             }
           }
         },
-        "Point": {
+        "point": {
           "type": "object",
           "label": "Point",
           "tooltip": "A point contains a single latitude-longitude pair.",
