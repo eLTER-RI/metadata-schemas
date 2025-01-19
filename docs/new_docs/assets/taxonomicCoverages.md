@@ -15,13 +15,13 @@
     "items": {
       "type": "object",
       "properties": {
-        "classification": {
+        "taxonomicClassification": {
           "type": "object",
           "properties": {
             "commonName": {
               "type": "string"
             },
-            "id": {
+            "taxonomicClassificationID": {
               "type": "string"
             },
             "rankName": {
@@ -32,7 +32,7 @@
             }
           }
         },
-        "description": {
+        "taxonomicDescription": {
           "type": "string"
         }
       }
