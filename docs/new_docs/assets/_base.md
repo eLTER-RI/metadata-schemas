@@ -16,7 +16,7 @@
 - **[temporalCoverages](temportalCoverages.md)**
 - **[taxonomicCoverages](taxonomicCoverages.md)**
 - **[methods](methods.md)**
-- **[project](project.md)**
+- **[projects](projects.md)**
 - **[siteReference](siteReference.md)**
 - **[SOReference](SOReference.md)**
 - **[dataLevel](dataLevel.md)**

@@ -18,13 +18,10 @@
       "label": "Project",
       "tooltip": "Information on the project or funding source for the resource."
       "properties": {
-        "name": {
+        "projectName": {
           "type": "string"
         },
-        "url": {
-          "type": "string"
-        },
-        "project_identifier": {
+        "projectID": {
           "type": "string",
           "label": "Project identifier",
           "tooltip": "Persistent identifier (e.g. CORDIS-ID, DOI) for the project.",
