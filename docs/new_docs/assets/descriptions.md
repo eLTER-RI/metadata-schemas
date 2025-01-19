@@ -16,7 +16,7 @@
     "items": {
       "type": "object",
       "properties": {
-        "description": {
+        "descriptionText": {
           "type": "string",
           "label": "Description",
           "min-length": 200,
@@ -27,11 +27,8 @@
           "tooltip2": "Please describe the dataset with an abstract of at least 200 characters. Please consider giving the description more structure by adding additional description fields.",
           "required": true
         },
-        "language": {
-          "type": "string"
-        },
-        "type": {
-          "type": "enum",
+        "descriptionType": {
+          "type": "string",
           "label": "Type",
           "tooltip": "The type of description.",
           "required": true,
