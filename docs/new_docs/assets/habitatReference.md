@@ -18,10 +18,10 @@
     "items": {
       "type": "object",
       "properties": {
-        "name": {
+        "soHabitatCode": {
           "type": "string"
         },
-        "url": {
+        "soHabitatURI": {
           "type": "string"
         }
       }
