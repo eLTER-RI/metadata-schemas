@@ -19,7 +19,6 @@
 - **[projects](projects.md)**
 - **[siteReferences](siteReferences.md)**
 - **[dataLevel](dataLevel.md)**
-- **[resourceType](ResourceType.md)**
 - **[temporalResolution](temporalResolution.md)**
 - **[habitatReference](habitatReference.md)**
 - **[instrumentation](instrumentation.md)**
