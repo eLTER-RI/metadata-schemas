@@ -7,6 +7,7 @@
   - [Database init commands](db.md)
 - **[Models](models.md)**
   - [Assets](assets/_base.md)
+  - [External Assets](external_assets/_base.md)
 - **[Problems](problems.md)**
   - [Inotify watch limit reached](problems.md#inotify-watch-limit-reached)
 - **[Code](code.md)**
