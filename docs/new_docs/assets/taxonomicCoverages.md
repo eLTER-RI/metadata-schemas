@@ -18,16 +18,16 @@
         "taxonomicClassification": {
           "type": "object",
           "properties": {
-            "commonName": {
-              "type": "string"
-            },
             "taxonomicClassificationID": {
               "type": "string"
             },
-            "rankName": {
+            "taxonomicCommonName": {
               "type": "string"
             },
-            "rankValue": {
+            "taxonomicRankName": {
+              "type": "string"
+            },
+            "taxonomicRankValue": {
               "type": "string"
             }
           }

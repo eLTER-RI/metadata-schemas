@@ -496,16 +496,16 @@
               "taxonomicClassification": {
                 "type": "object",
                 "properties": {
-                  "commonName": {
-                    "type": "string"
-                  },
-                  "rankName": {
-                    "type": "string"
-                  },
-                  "rankValue": {
-                    "type": "string"
-                  },
                   "taxonomicClassificationID": {
+                    "type": "string"
+                  },
+                  "taxonomicCommonName": {
+                    "type": "string"
+                  },
+                  "taxonomicRankName": {
+                    "type": "string"
+                  },
+                  "taxonomicRankValue": {
                     "type": "string"
                   }
                 }
