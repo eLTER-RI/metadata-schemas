@@ -1,0 +1,17 @@
+{
+  "$id": "subschemas/keywords.json",
+  "keywords": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "keywordLabel": {
+          "type": "string"
+        },
+        "keywordURI": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

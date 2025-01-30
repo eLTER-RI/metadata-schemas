@@ -1,0 +1,17 @@
+{
+  "titles": {
+    "$id": "subschemas/titles.json",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "titleLanguage": {
+                "type": "string"
+              },
+              "titleText": {
+                "type": "string"
+              }
+            }
+          }
+        }
+}

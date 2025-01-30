@@ -1,0 +1,17 @@
+{
+  "$id": "subschemas/licenses.json",
+  "licenses": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "licenseCode": {
+          "type": "string"
+        },
+        "licenseURI": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "contactPoints": {
+    "$id": "subschemas/contactPoints.json",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "contactEmail": {
+          "type": "string"
+        },
+        "contactName": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

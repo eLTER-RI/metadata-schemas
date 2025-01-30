@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "$id": "subschemas/projects.json",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "projectID": {
+          "type": "string"
+        },
+        "projectName": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

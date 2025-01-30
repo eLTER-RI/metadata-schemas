@@ -1,0 +1,17 @@
+{
+  "$id": "subschemas/habitatReferences.json",
+  "habitatReferences": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "soHabitatCode": {
+          "type": "string"
+        },
+        "soHabitatURI": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "relatedIdentifiers": {
+    "$id": "subschemas/relatedIdentifiers.json",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "relatedID": {
+          "type": "string"
+        },
+        "relatedIDType": {
+          "type": "string"
+        },
+        "relatedResourceType": {
+          "type": "string"
+        },
+        "relationType": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

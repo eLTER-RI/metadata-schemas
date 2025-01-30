@@ -1,0 +1,56 @@
+{
+  "contributors": {
+    "$id": "subschemas/contributors.json",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "contributorAffiliation": {
+          "type": "object",
+          "properties": {
+            "entityID": {
+              "type": "object",
+              "properties": {
+                "entityID": {
+                  "type": "string"
+                },
+                "entityIDSchema": {
+                  "type": "string"
+                }
+              }
+            },
+            "entityName": {
+              "type": "string"
+            }
+          }
+        },
+        "contributorEmail": {
+          "type": "string"
+        },
+        "contributorFamilyName": {
+          "type": "string"
+        },
+        "contributorGivenName": {
+          "type": "string"
+        },
+        "contributorIDs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "entityID": {
+                "type": "string"
+              },
+              "entityIDSchema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "contributorType": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

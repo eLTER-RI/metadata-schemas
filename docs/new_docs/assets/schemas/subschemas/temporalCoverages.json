@@ -1,0 +1,19 @@
+{
+  "temporalCoverages": {
+    "$id": "subschemas/temporalCoverages.json",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "endDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    }
+  }
+}

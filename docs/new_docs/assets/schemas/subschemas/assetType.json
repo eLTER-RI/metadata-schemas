@@ -1,0 +1,14 @@
+{
+  "assetType": {
+    "$id": "subschemas/assetType.json",
+    "type": "object",
+    "properties": {
+      "assetTypeCode": {
+        "type": "string"
+      },
+      "assetTypeURI": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "responsibleOrganizations": {
+    "$id": "subschemas/responsibleOrganizations.json",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "organizationEmail": {
+          "type": "string"
+        },
+        "organizationIDs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "entityID": {
+                "type": "string"
+              },
+              "entityIDSchema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "organizationName": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

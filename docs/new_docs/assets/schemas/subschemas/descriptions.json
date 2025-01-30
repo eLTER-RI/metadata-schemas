@@ -1,0 +1,17 @@
+{
+  "$id": "subschemas/descriptions.json",
+  "descriptions": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "descriptionText": {
+          "type": "string"
+        },
+        "descriptionType": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

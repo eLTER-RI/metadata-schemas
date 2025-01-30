@@ -1,0 +1,14 @@
+{
+  "temporalResolution": {
+    "$id": "subschemas/temporalResolution.json",
+    "type": "object",
+    "properties": {
+      "temporalResolutionUnit": {
+        "type": "string"
+      },
+      "temporalResolutionValue": {
+        "type": "integer"
+      }
+    }
+  }
+}

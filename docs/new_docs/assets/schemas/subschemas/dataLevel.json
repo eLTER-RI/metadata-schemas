@@ -1,0 +1,14 @@
+{
+  "$id": "subschemas/dataLevel.json",
+  "dataLevel": {
+    "type": "object",
+    "properties": {
+      "dataLevelCode": {
+        "type": "string"
+      },
+      "dataLevelURI": {
+        "type": "string"
+      }
+    }
+  }
+}

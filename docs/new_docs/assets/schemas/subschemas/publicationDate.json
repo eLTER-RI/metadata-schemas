@@ -1,0 +1,7 @@
+{
+  "publicationDate": {
+    "$id": "subschemas/publicationDate.json",
+    "type": "string",
+    "format": "date"
+  }
+}

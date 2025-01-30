@@ -1,0 +1,6 @@
+{
+  "version": {
+    "$id": "subschemas/version.json",
+    "type": "string"
+  }
+}

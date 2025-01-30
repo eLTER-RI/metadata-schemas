@@ -1,0 +1,17 @@
+{
+  "alternateIdentifiers": {
+    "$id": "subschemas/alternateIdentifiers.json",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "alternateID": {
+          "type": "string"
+        },
+        "alternateIDType": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

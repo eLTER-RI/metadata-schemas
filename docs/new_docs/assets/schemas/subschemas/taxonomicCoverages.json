@@ -1,0 +1,31 @@
+{
+  "taxonomicCoverages": {
+    "$id": "subschemas/taxonomicCoverages.json",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "taxonomicClassification": {
+          "type": "object",
+          "properties": {
+            "taxonomicClassificationID": {
+              "type": "string"
+            },
+            "taxonomicCommonName": {
+              "type": "string"
+            },
+            "taxonomicRankName": {
+              "type": "string"
+            },
+            "taxonomicRankValue": {
+              "type": "string"
+            }
+          }
+        },
+        "taxonomicDescription": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "siteReferences": {
+    "$id": "subschemas/siteReferences.json",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "siteID": {
+          "type": "string"
+        },
+        "siteName": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
