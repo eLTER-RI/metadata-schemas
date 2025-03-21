@@ -1,9 +1,9 @@
 {
   "$id": "https://https://dar.elter-ri.eu/schemas/elter-metadata.schema.v1.0.json",
-  "_comment_on_$id": "We need to setup a location to store the schema file as URI-reference that resolves as retrieval-uri.",
+  "$comment": "re. $id: We need to setup a location to store the schema file as URI-reference that resolves as retrieval-uri.",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "The eLTER Metadata Schema for external third party data sources.",
-  "authors": [
+  "x-authors": [
     {"givenName":  "Alessandro", "familyName":  "Oggioni", "affiliation": "CNR"},
     {"givenName":  "D*********", "familyName":  "D*********", "affiliation": "MUNI"},
     {"givenName":  "Johannes", "familyName":  "Peterseil", "affiliation": "EAA"},
