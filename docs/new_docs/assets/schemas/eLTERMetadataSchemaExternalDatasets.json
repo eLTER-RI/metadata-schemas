@@ -69,8 +69,8 @@
           "$ref": "subschemas/alternateIdentifiers.json"
         },
         "assetType": {
-          "$ref": "subschemas/assetType.json"
-          "_comment": "Optional as 'Other' will be allowed in frontend"
+          "$ref": "subschemas/assetType.json",
+          "comment": "Optional as 'Other' will be allowed in frontend"
         },
         "contactPoints": {
           "$ref": "subschemas/contactPoints.json"
@@ -91,8 +91,8 @@
           "$ref": "subschemas/geoLocations.json"
         },
         "habitatReferences": {
-          "$ref": "subschemas/habitatReferences.json"
-          "required": false
+          "$ref": "subschemas/habitatReferences.json",
+          "required": ["soHabitatCode", "soHabitatURI"]
         },
         "keywords": {
           "$ref": "subschemas/keywords.json"
