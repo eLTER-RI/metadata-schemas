@@ -1,7 +1,7 @@
 {
-  "$id": "https://https://dar.elter-ri.eu/schemas/elter-metadata.schema.v1.0.json",
-  "$comment": "re. $id: We need to setup a location to store the schema file as URI-reference that resolves as retrieval-uri.",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "elter://metadata.schemas/datasets",
+  "$comment": "re. $id: We need to setup a location to store the schema file as URI-reference that resolves as retrieval-uri.",
   "description": "The eLTER Metadata Schema for all digital assets of the eLTER Research Infrastructure",
   "x-authors": [
     {"givenName":  "Alessandro", "familyName":  "Oggioni", "affiliation": "CNR"},
@@ -65,6 +65,10 @@
     },
     "metadata": {
       "type": "object",
+      "required" : [
+        "assetType", "dataLevel", "habitatReferences",
+        "licenses", "publicationDate", "responsibleOrganizations"
+      ],
       "properties": {
         "alternateIdentifiers": {
           "$ref": "subschemas/alternateIdentifiers.json"
