@@ -1,7 +1,4 @@
 {
-  "$id": "subschemas/language.json",
-  "language": {
-    "type": "string"
-  }
+  "$id": "elter://metadata.schemas/subschemas/language.json",
+  "type": "string"
 }
-

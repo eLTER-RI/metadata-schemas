@@ -1,41 +1,38 @@
 {
-  "contributors": {
-    "$id": "subschemas/contributors.json",
-    "type": "array",
-    "items": {
-      "type": "object",
-      "properties": {
-        "contributorAffiliation": {
-          "type": "object",
-          "properties": {
-            "entityID": {
-              "type": "object",
-              "properties": {
-                "entityID": {
-                  "type": "string"
-                },
-                "entityIDSchema": {
-                  "type": "string"
-                }
-              }
-            },
-            "entityName": {
-              "type": "string"
-            }
-          }
-        },
-        "contributorEmail": {
-          "type": "string"
-        },
-        "contributorFamilyName": {
-          "type": "string"
-        },
-        "contributorGivenName": {
-          "type": "string"
-        },
-        "contributorIDs": {
-          "type": "array",
-          "items": {
+  "$id": "elter://metadata.schemas/subschemas/contributors.json",
+  "type": "object",
+  "properties": {
+    "creators": {
+      "type": "array",
+      "x-label": "Creators",
+      "x-tooltip": "The full name of the creators and/or owners of the dataset. The personal name format should be: family, given (e.g.: Smith, John).",
+      "items": {
+        "type": "object",
+        "properties": {
+          "creatorGivenName": {
+            "type": "string",
+            "x-label": "Given name",
+            "x-tooltip": "The first names given to this entity."
+          },
+          "creatorFamilyName": {
+            "type": "string",
+            "x-label": "Family name",
+            "x-tooltip": "The family names given to this entity.",
+            "required": true
+          },
+          "creatorEmail": {
+            "type": "string",
+            "x-label": "eMail",
+            "x-tooltip": "Contact email address of the author.",
+            "required": true
+          },
+          "creatorAffiliation": {
+            "type": "string",
+            "x-label": "Organization/Group name",
+            "x-tooltip": "Name of the (current) organisation of the author.",
+            "required": true
+          },
+          "entityID": {
             "type": "object",
             "properties": {
               "entityID": {
@@ -47,11 +44,33 @@
             }
           }
         },
-        "contributorType": {
-          "type": "string"
+        "creatorIDs": {
+          "type": "array",
+          "required": false,
+          "items": {
+            "type": "object",
+            "properties": {
+              "entityID": {
+                "TODO": "id looks better, shorter -> it is under the nameIdentifiers...",
+                "type": "string [uri]",
+                "x-label": "Identifier",
+                "x-tooltip": "The unique identifier of the entity, according to various identifier schemes."
+              },
+              "entityIDSchema": {
+                "type": "enum",
+                "x-label": "Scheme",
+                "x-tooltip": "The scheme used for the identifier.",
+                "default": "orcid",
+                "enum": [
+                  "orcid",
+                  "wob",
+                  "scopus"
+                ]
+              }
+            }
+          }
         }
       }
     }
   }
 }
-

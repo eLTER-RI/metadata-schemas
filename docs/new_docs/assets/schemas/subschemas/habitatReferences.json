@@ -1,18 +1,18 @@
 {
-  "$id": "subschemas/habitatReferences.json",
-  "habitatReferences": {
-    "type": "array",
-    "items": {
-      "type": "object",
-      "properties": {
-        "soHabitatCode": {
-          "type": "string"
-        },
-        "soHabitatURI": {
-          "type": "string"
-        }
+  "$id": "elter://metadata.schemas/subschemas/habitatReferences.json",
+  "type": "array",
+  "x-label": "Related habitats",
+  "x-tooltip": "Provide informaiton on the habitats for which the datasource was created.",
+  "x-required": true,
+  "items": {
+    "type": "object",
+    "properties": {
+      "soHabitatCode": {
+        "type": "string"
+      },
+      "soHabitatURI": {
+        "type": "string"
       }
     }
   }
 }
-

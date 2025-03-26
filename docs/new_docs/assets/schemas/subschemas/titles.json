@@ -1,18 +1,21 @@
 {
-  "titles": {
-    "$id": "subschemas/titles.json",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "titleLanguage": {
-                "type": "string"
-              },
-              "titleText": {
-                "type": "string"
-              }
-            }
-          }
-        }
+  "$id": "elter://metadata.schemas/subschemas/titles.json",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "titleText"
+    ],
+    "properties": {
+      "titleLanguage": {
+        "type": "string"
+      },
+      "titleText": {
+        "x-label": "Title",
+        "x-tooltip": "Title for the resource.",
+        "x-required": true,
+        "type": "string"
+      }
+    }
+  }
 }
-

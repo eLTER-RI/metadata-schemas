@@ -1,18 +1,20 @@
 {
-  "projects": {
-    "$id": "subschemas/projects.json",
-    "type": "array",
-    "items": {
-      "type": "object",
-      "properties": {
-        "projectID": {
-          "type": "string"
-        },
-        "projectName": {
-          "type": "string"
-        }
+  "$id": "elter://metadata.schemas/subschemas/projects.json",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "x-label": "Project",
+    "x-tooltip": "Information on the project or funding source for the resource.",
+    "properties": {
+      "projectName": {
+        "type": "string"
+      },
+      "projectID": {
+        "type": "string",
+        "x-label": "Project identifier",
+        "x-tooltip": "Persistent identifier (e.g. CORDIS-ID, DOI) for the project.",
+        "required": false
       }
     }
   }
 }
-

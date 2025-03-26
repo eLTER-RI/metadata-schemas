@@ -1,19 +1,43 @@
 {
-  "alternateIdentifiers": {
-    "$id": "subschemas/alternateIdentifiers.json",
-    "type": "array",
-    "items": {
-      "type": "object",
-      "properties": {
-        "alternateID": {
-          "type": "string"
-        },
-        "alternateIDType": {
-          "type": "string"
-        }
+  "$id": "elter://metadata.schemas/subschemas/alternateIdentifiers.json",
+  "x-label": "Alternate identifier(s)",
+  "x-tooltip": "The alternative identifiers for this resource such as a URN, URI or an ISBN number.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "alternateID": {
+        "type": "string",
+        "x-label": "Alternate identifier",
+        "x-tooltip": "Please provide the reference/identifier to the related resource."
+      },
+      "alternateIDType": {
+        "type": "string",
+        "x-label": "Related Identifier Type",
+        "x-tooltip": "The type of identifier.",
+        "enumValues": [
+          "ARK",
+          "arXiv",
+          "bibcode",
+          "DOI",
+          "EAN13",
+          "EISSN",
+          "Handle",
+          "ISBN",
+          "ISSN",
+          "ISTC",
+          "LISSN",
+          "LSID",
+          "ORCID",
+          "PMID",
+          "PURL",
+          "UPC",
+          "URL",
+          "URN",
+          "w3id",
+          "URI"
+        ]
       }
     }
   }
 }
-
-

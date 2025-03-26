@@ -1,6 +1,6 @@
 {
+  "$id": "elter://metadata.schemas/subschemas/taxonomicCoverages.json",
   "taxonomicCoverages": {
-    "$id": "subschemas/taxonomicCoverages.json",
     "type": "array",
     "items": {
       "type": "object",
@@ -29,4 +29,3 @@
     }
   }
 }
-

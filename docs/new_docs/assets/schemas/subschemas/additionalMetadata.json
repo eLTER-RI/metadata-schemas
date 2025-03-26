@@ -1,13 +1,13 @@
 {
-  "$id": "elter://metadata.schemas/subschemas/contactPoints.json",
+  "$id": "elter://metadata.schemas/subschemas/additionalMetadata.json",
   "type": "array",
   "items": {
     "type": "object",
     "properties": {
-      "contactEmail": {
+      "name": {
         "type": "string"
       },
-      "contactName": {
+      "value": {
         "type": "string"
       }
     }

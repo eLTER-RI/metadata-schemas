@@ -1,33 +1,45 @@
 {
-  "$id": "subschemas/geoLocations.json",
-  "geoLocations": {
-    "type": "array",
-    "items": {
-      "type": "object",
-      "properties": {
-        "boundingBox": {
+  "$id": "elter://metadata.schemas/subschemas/geoLocations.json",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "boundingBox": {
+        "type": "object",
+        "properties": {
+          "eastBoundLongitude": {
+            "type": "number"
+          },
+          "northBoundLatitude": {
+            "type": "number"
+          },
+          "southBoundLatitude": {
+            "type": "number"
+          },
+          "westBoundLongitude": {
+            "type": "number"
+          }
+        }
+      },
+      "boundingPolygon": {
+        "type": "array",
+        "items": {
           "type": "object",
           "properties": {
-            "eastBoundLongitude": {
-              "type": "number"
+            "inPolygonPoint": {
+              "type": "object",
+              "properties": {
+                "latitude": {
+                  "type": "number"
+                },
+                "longitude": {
+                  "type": "number"
+                }
+              }
             },
-            "northBoundLatitude": {
-              "type": "number"
-            },
-            "southBoundLatitude": {
-              "type": "number"
-            },
-            "westBoundLongitude": {
-              "type": "number"
-            }
-          }
-        },
-        "boundingPolygon": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "inPolygonPoint": {
+            "points": {
+              "type": "array",
+              "items": {
                 "type": "object",
                 "properties": {
                   "latitude": {
@@ -37,51 +49,36 @@
                     "type": "number"
                   }
                 }
-              },
-              "points": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "latitude": {
-                      "type": "number"
-                    },
-                    "longitude": {
-                      "type": "number"
-                    }
-                  }
-                }
               }
             }
           }
-        },
-        "geographicDescription": {
-          "type": "string"
-        },
-        "observationLocation": {
-          "type": "object",
-          "properties": {
-            "deimsLocationID": {
-              "type": "string"
-            },
-            "deimsLocationName": {
-              "type": "string"
-            }
+        }
+      },
+      "geographicDescription": {
+        "type": "string"
+      },
+      "observationLocation": {
+        "type": "object",
+        "properties": {
+          "deimsLocationID": {
+            "type": "string"
+          },
+          "deimsLocationName": {
+            "type": "string"
           }
-        },
-        "point": {
-          "type": "object",
-          "properties": {
-            "latitude": {
-              "type": "number"
-            },
-            "longitude": {
-              "type": "number"
-            }
+        }
+      },
+      "point": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
           }
         }
       }
     }
   }
 }
-

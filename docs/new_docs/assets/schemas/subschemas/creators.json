@@ -1,54 +1,7 @@
 {
-  "creators": {
-    "$id": "subschemas/creators.json",
-    "type": "array",
-    "items": {
-      "type": "object",
-      "properties": {
-        "creatorAffiliation": {
-          "type": "object",
-          "properties": {
-            "entityID": {
-              "type": "object",
-              "properties": {
-                "entityID": {
-                  "type": "string"
-                },
-                "entityIDSchema": {
-                  "type": "string"
-                }
-              }
-            },
-            "entityName": {
-              "type": "string"
-            }
-          }
-        },
-        "creatorEmail": {
-          "type": "string"
-        },
-        "creatorFamilyName": {
-          "type": "string"
-        },
-        "creatorGivenName": {
-          "type": "string"
-        },
-        "creatorIDs": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "entityID": {
-                "type": "string"
-              },
-              "entityIDSchema": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      }
-    }
+  "$id": "elter://metadata.schemas/subschemas/creators.json",
+  "type": "object",
+  "properties": {
+    "a": "b"
   }
 }
-

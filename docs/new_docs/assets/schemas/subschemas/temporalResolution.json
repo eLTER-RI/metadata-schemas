@@ -1,15 +1,34 @@
 {
-  "temporalResolution": {
-    "$id": "subschemas/temporalResolution.json",
+  "$id": "elter://metadata.schemas/subschemas/temporalResolution.json",
+  "x-required": false,
+  "x-label": "Temporal Resolution",
+  "type": "array",
+  "items": {
     "type": "object",
+    "required": [
+      "temporalResolutionValue",
+      "temporalResolutionUnit"
+    ],
     "properties": {
-      "temporalResolutionUnit": {
-        "type": "string"
-      },
       "temporalResolutionValue": {
+        "x-required": true,
+        "x-label": "Resolution value",
         "type": "integer"
+      },
+      "temporalResolutionUnit": {
+        "x-required": true,
+        "x-label": "Unit",
+        "type": "string",
+        "enum": [
+          "Hz",
+          "Minutes",
+          "Hours",
+          "Days",
+          "Weeks",
+          "Months",
+          "Years"
+        ]
       }
     }
   }
 }
-

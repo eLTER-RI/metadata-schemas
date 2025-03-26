@@ -1,7 +1,6 @@
 {
+  "$id": "elter://metadata.schemas/subschemas/version.json",
   "version": {
-    "$id": "subschemas/version.json",
     "type": "string"
   }
 }
-

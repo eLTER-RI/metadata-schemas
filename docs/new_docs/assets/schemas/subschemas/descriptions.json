@@ -1,18 +1,40 @@
 {
-  "$id": "subschemas/descriptions.json",
-  "descriptions": {
-    "type": "array",
-    "items": {
-      "type": "object",
-      "properties": {
-        "descriptionText": {
-          "type": "string"
-        },
-        "descriptionType": {
-          "type": "string"
-        }
+  "$id": "elter://metadata.schemas/subschemas/descriptions.json",
+  "x-label": "Descriptions",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "descriptionText",
+      "descriptionType"
+    ],
+    "properties": {
+      "descriptionText": {
+        "type": "string",
+        "x-label": "Description",
+        "min-length": 200,
+        "max-length": 4000,
+        "comment-on-length": "number of characters",
+        "TODO": "Choose x-tooltip",
+        "x-tooltip": "The more elaborate description of the resource. Focus on a content description that makes it easy for others to find, and to interpret its relevance.",
+        "x-tooltip2": "Please describe the dataset with an abstract of at least 200 characters. Please consider giving the description more structure by adding additional description fields.",
+        "x-required": true
+      },
+      "descriptionType": {
+        "type": "string",
+        "x-label": "Type",
+        "x-tooltip": "The type of description.",
+        "x-required": true,
+        "enumValues": [
+          "Abstract",
+          "AdditionalInfo",
+          "Methods",
+          "SeriesInformation",
+          "TableOfContents",
+          "TechnicalInfo",
+          "Other"
+        ]
       }
     }
   }
 }
-
