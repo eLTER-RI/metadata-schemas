@@ -1,0 +1,29 @@
+{
+  "$id": "elter://metadata.schemas/subschemas/responsibleOrganizations.json",
+  "type": "array",
+  "x-label": "Responsible Organisations",
+  "definition": "Responsible organisation and contact information owning the resource.",
+  "x-tooltip": "Responsible organisation and contact information owning the resource.",
+  "x-required": true,
+  "items": {
+    "type": "object",
+    "properties": {
+      "organisation_name": {
+        "type": "string",
+        "x-label": "Organisation name",
+        "x-tooltip": "Provide the name of the responsible organisation"
+      },
+      "email": {
+        "type": "string",
+        "x-label": "Contact information",
+        "x-tooltip": "Contact email for the resource."
+      },
+      "organisation_identifier": {
+        "type": "string",
+        "x-label": "Organisation ID",
+        "placeholder": "https://ror.org/000h6jb29",
+        "x-tooltip": "Provide identifier (e.g. ROR) for the organisation, e.g. https://ror.org/"
+      }
+    }
+  }
+}

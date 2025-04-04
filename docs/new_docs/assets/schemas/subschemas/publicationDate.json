@@ -1,0 +1,8 @@
+{
+  "$id": "elter://metadata.schemas/subschemas/publicationDate.json",
+  "type": "string",
+  "x-label": "Publication date",
+  "x-tooltip": "The date when the data was or will be made publicly available (e.g. 2018-07-13).",
+  "x-required": true,
+  "format": "YYYY-MM-DD"
+}

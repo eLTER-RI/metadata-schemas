@@ -1,0 +1,21 @@
+{
+  "$id": "elter://metadata.schemas/subschemas/licenses.json",
+  "type": "array",
+  "x-label": "License",
+  "x-tooltip": "The license under which this data set is available to the users (e.g. GPL, Apache v2 or Commercial). Please use the License Selector for help and additional information.",
+  "x-required": true,
+  "$comment": "Required once but more than one occurence is allowed.",
+  "items": {
+    "type": "object",
+    "properties": {
+      "licenseCode": {
+        "type": "string",
+        "x-tooltip": "For example CC BY-SA 4.0"
+      },
+      "licenseURI": {
+        "type": "string",
+        "x-tooltip": "For example https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "elter://metadata.schemas/subschemas/propertyRights.json",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string"
+      }
+    }
+  }
+}

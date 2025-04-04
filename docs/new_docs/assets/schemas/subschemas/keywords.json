@@ -1,0 +1,17 @@
+{
+  "$id": "elter://metadata.schemas/subschemas/keywords.json",
+  "type": "array",
+  "x-label": "Keywords",
+  "x-tooltip": "The keywords or key phrases describing the resource.",
+  "items": {
+    "type": "object",
+    "properties": {
+      "keywordLabel": {
+        "type": "string"
+      },
+      "keywordURI": {
+        "type": "string"
+      }
+    }
+  }
+}

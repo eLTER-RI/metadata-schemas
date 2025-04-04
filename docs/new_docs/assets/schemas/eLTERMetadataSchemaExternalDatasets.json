@@ -1,0 +1,199 @@
+{
+  "$id": "elter://metadata.schemas/external-datasets",
+  "$comment": "re. $id: We need to setup a location to store the schema file as URI-reference that resolves as retrieval-uri.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The eLTER Metadata Schema for external third party data sources.",
+  "x-authors": [
+    {"givenName":  "Alessandro", "familyName":  "Oggioni", "affiliation": "CNR"},
+    {"givenName":  "D*********", "familyName":  "D*********", "affiliation": "MUNI"},
+    {"givenName":  "Johannes", "familyName":  "Peterseil", "affiliation": "EAA"},
+    {"givenName": "H*********", "familyName": "K*********", "affiliation": "CSC - IT"},
+    {"givenName": "C*********", "familyName": "W*********,", "affiliation": "EEA"},
+    {"givenName": "H*********", "familyName": "V*********", "affiliation": "SLU"},
+    {"givenName":  "Martin", "familyName":  "Abbrent", "affiliation": "UFZ"}
+  ],
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "deletion_status": {
+      "type": "string"
+    },
+    "externalWorkflow": {
+      "type": "object",
+      "properties": {
+        "defaultWorkflowTemplateId": {
+          "type": "string"
+        },
+        "history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "status": {
+                "type": "string"
+              },
+              "workflowHandle": {
+                "type": "string"
+              },
+              "workflowTemplateId": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "id": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean"
+    },
+    "is_published": {
+      "type": "boolean"
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["assetType", "dataLevel", "habitatReferences",
+      "licenses", "publicationDate", "responsibleOrganizations"
+    ],
+    "properties": {
+      "alternateIdentifiers": {
+        "$ref": "subschemas/alternateIdentifiers.json"
+      },
+      "assetType": {
+        "$ref": "subschemas/assetType.json",
+        "comment": "Optional as 'Other' will be allowed in frontend"
+      },
+      "contactPoints": {
+        "$ref": "subschemas/contactPoints.json"
+      },
+      "contributors": {
+        "$ref": "subschemas/contributors.json"
+      },
+      "creators": {
+        "$ref": "subschemas/creators.json"
+      },
+      "dataLevel": {
+        "$ref": "subschemas/dataLevel.json"
+      },
+      "descriptions": {
+        "$ref": "subschemas/descriptions.json"
+      },
+      "geoLocations": {
+        "$ref": "subschemas/geoLocations.json"
+      },
+      "habitatReferences": {
+        "$ref": "subschemas/habitatReferences.json",
+        "required": ["soHabitatCode", "soHabitatURI"]
+      },
+      "keywords": {
+        "$ref": "subschemas/keywords.json"
+      },
+      "language": {
+        "$ref": "subschemas/language.json"
+      },
+      "licenses": {
+        "$ref": "subschemas/licenses.json"
+      },
+      "methods": {
+        "$ref": "subschemas/methods.json"
+      },
+      "projects": {
+        "$ref": "subschemas/projects.json"
+      },
+      "publicationDate": {
+        "$ref": "subschemas/publicationDate.json"
+      },
+      "relatedIdentifiers": {
+        "$ref": "subschemas/relatedIdentifiers.json"
+      },
+      "responsibleOrganizations": {
+        "$ref": "subschemas/responsibleOrganizations.json"
+      },
+      "taxonomicCoverages": {
+        "$ref": "subschemas/taxonomicCoverages.json"
+      },
+      "temporalCoverages": {
+        "$ref": "subschemas/temporalCoverages.json"
+      },
+      "temporalResolution": {
+        "$ref": "subschemas/temporalResolution.json"
+      },
+      "titles": {
+        "$ref": "subschemas/titles.json"
+      },
+      "version": {
+        "$ref": "subschemas/version.json"
+      }
+    }
+  },
+  "pid": {
+    "type": "object",
+    "properties": {
+      "obj_type": {
+        "type": "string"
+      },
+      "pid_type": {
+        "type": "string"
+      },
+      "pk": {
+        "type": "integer"
+      },
+      "status": {
+        "type": "string"
+      }
+    }
+  },
+  "state": {
+    "type": "string"
+  },
+  "state_timestamp": {
+    "type": "string",
+    "format": "date-time"
+  },
+  "substring_search_field": {
+    "type": "string"
+  },
+  "updated": {
+    "type": "string",
+    "format": "date-time"
+  },
+  "version_id": {
+    "type": "integer"
+  },
+  "versions": {
+    "type": "object",
+    "properties": {
+      "index": {
+        "type": "integer"
+      },
+      "is_latest": {
+        "type": "boolean"
+      },
+      "is_latest_draft": {
+        "type": "boolean"
+      },
+      "latest_id": {
+        "type": "string"
+      },
+      "latest_index": {
+        "type": "integer"
+      },
+      "next_draft_id": {
+        "type": "string"
+      }
+    }
+  }
+}
+}
