@@ -8,7 +8,7 @@
     "type": "object",
     "properties": {
       "onlineDistributionLinkType": {
-        "type": "string"
+        "type": "string",
         "enumValues": [
           "WMS",
           "WFS",
@@ -16,11 +16,10 @@
           "SOS",
           "Grafana"
         ]
-    },
-      },
-      "onlineDistributionLinkURI": {
-        "type": "string"
       }
+    },
+    "onlineDistributionLinkURI": {
+      "type": "string"
     }
   }
 }
