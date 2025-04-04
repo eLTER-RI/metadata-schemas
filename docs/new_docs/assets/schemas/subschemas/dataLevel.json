@@ -1,0 +1,25 @@
+{
+  "$id": "elter://metadata.schemas/subschemas/dataLevel.json",
+  "x-label": "Data Level",
+  "x-required": true,
+  "type": "object",
+  "$comment": "TODO: this will be done with vocabs in the future",
+  "x-tooltip": "Data level according to the eLTER defined data levels.",
+  "x-tooltip2": "TBD - see https://elter.atlassian.net/wiki/spaces/EC/pages/918749186/eLTER+Data+Levels",
+  "properties": {
+    "dataLevelCode": {
+      "type": "string",
+      "enumValues": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    "dataLevelURI": {
+      "type": "string",
+      "x-tooltip": "Provide url to the concept in the eLTER vocabularies.",
+      "$comment": "TODO: this will be taken automatically from the vocabulary in future"
+    }
+  }
+}

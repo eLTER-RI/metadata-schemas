@@ -1,0 +1,18 @@
+{
+  "$id": "elter://metadata.schemas/subschemas/siteReferences.json",
+  "type": "array",
+  "x-label": "eLTER site and platform(s)",
+  "x-tooltip": "Provide the list of site(s) or platform(s) where the dataset has been collected.",
+  "required": true,
+  "items": {
+    "type": "object",
+    "properties": {
+      "siteName": {
+        "type": "string"
+      },
+      "siteID": {
+        "type": "string"
+      }
+    }
+  }
+}

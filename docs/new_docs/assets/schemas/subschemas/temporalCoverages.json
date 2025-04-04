@@ -1,0 +1,24 @@
+{
+  "$id": "elter://metadata.schemas/subschemas/temporalCoverages.json",
+  "x-required": "once",
+  "type": "array",
+  "x-label": "Temporal coverage(s)",
+  "x-tooltip": "The temporal coverage of the contents of the resource.",
+  "items": {
+    "type": "object",
+    "properties": {
+      "startDate": {
+        "type": "string",
+        "x-label": "Start date",
+        "x-tooltip": "The start date and time of the range covered by the resource.",
+        "format": "date"
+      },
+      "endDate": {
+        "type": "string",
+        "x-label": "End date",
+        "x-tooltip": "The end date and time of the range covered by the resource.",
+        "format": "date"
+      }
+    }
+  }
+}

@@ -6,7 +6,8 @@
   - [Dev - nrp](nrp.md#nrp-tool-basic-commands)
   - [Database init commands](db.md)
 - **[Models](models.md)**
-  - [eLTER Base](elter_model/_base.md)
+  - [Assets](assets/_base.md)
+  - [External Assets](external_assets/_base.md)
 - **[Problems](problems.md)**
   - [Inotify watch limit reached](problems.md#inotify-watch-limit-reached)
 - **[Code](code.md)**
