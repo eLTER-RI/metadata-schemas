@@ -19,7 +19,16 @@
       }
     },
     "onlineDistributionLinkURI": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
+    },
+    "onlineDistributionLinkExpirationDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "onlineDistributionLinkLastChecked": {
+      "type": "string",
+      "format": "date-time"
     }
   }
 }
