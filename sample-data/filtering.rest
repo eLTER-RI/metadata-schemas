@@ -1,7 +1,0 @@
-// Change the draft id
-@draftId = csn3c-ewh37
-
-// Uncomment one related hostname
-@hostname = https://127.0.0.1:5000
-#@hostname = https://catalog.elter.cerit-sc.cz/
-#@hostname = https://catalog.elter-ri.eu/

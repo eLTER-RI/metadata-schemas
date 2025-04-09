@@ -1,9 +1,0 @@
-facets:
-  facet-groups:
-    default:
-      state: 1
-      metadata.dataLevel: 2
-      metadata.keywords.name: 3
-      metadata.datasetIds.sourceName: 4
-      metadata.siteReference.name: 5
-      metadata.SOReference.name: 6
