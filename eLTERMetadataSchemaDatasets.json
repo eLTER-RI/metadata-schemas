@@ -4,15 +4,42 @@
   "$comment": "re. $id: We need to setup a location to store the schema file as URI-reference that resolves as retrieval-uri.",
   "description": "The eLTER Metadata Schema for all digital assets of the eLTER Research Infrastructure",
   "x-authors": [
-    {"givenName":  "Alessandro", "familyName":  "Oggioni", "affiliation": "CNR"},
-    {"givenName":  "D*********", "familyName":  "D*********", "affiliation": "MUNI"},
-    {"givenName":  "Johannes", "familyName":  "Peterseil", "affiliation": "EAA"},
-    {"givenName": "H*********", "familyName": "K*********", "affiliation": "CSC - IT"},
-    {"givenName": "C*********", "familyName": "W*********,", "affiliation": "EEA"},
-    {"givenName": "H*********", "familyName": "V*********", "affiliation": "SLU"},
-    {"givenName":  "Martin", "familyName":  "Abbrent", "affiliation": "UFZ"}
-  ]
-  ,
+    {
+      "givenName": "Alessandro",
+      "familyName": "Oggioni",
+      "affiliation": "CNR"
+    },
+    {
+      "givenName": "D*********",
+      "familyName": "D*********",
+      "affiliation": "MUNI"
+    },
+    {
+      "givenName": "Johannes",
+      "familyName": "Peterseil",
+      "affiliation": "EAA"
+    },
+    {
+      "givenName": "H*********",
+      "familyName": "K*********",
+      "affiliation": "CSC - IT"
+    },
+    {
+      "givenName": "C*********",
+      "familyName": "W*********,",
+      "affiliation": "EEA"
+    },
+    {
+      "givenName": "H*********",
+      "familyName": "V*********",
+      "affiliation": "SLU"
+    },
+    {
+      "givenName": "Martin",
+      "familyName": "Abbrent",
+      "affiliation": "UFZ"
+    }
+  ],
   "type": "object",
   "properties": {
     "$schema": {
@@ -65,9 +92,13 @@
     },
     "metadata": {
       "type": "object",
-      "required" : [
-        "assetType", "dataLevel", "habitatReferences",
-        "licenses", "publicationDate", "responsibleOrganizations"
+      "required": [
+        "assetType",
+        "dataLevel",
+        "habitatReferences",
+        "licenses",
+        "publicationDate",
+        "responsibleOrganizations"
       ],
       "properties": {
         "alternateIdentifiers": {
@@ -75,6 +106,9 @@
         },
         "assetType": {
           "$ref": "subschemas/assetType.json"
+        },
+        "datasetType": {
+          "$ref": "subschemas/datasetType.json"
         },
         "contactPoints": {
           "$ref": "subschemas/contactPoints.json"
