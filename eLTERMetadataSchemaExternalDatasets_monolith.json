@@ -101,7 +101,7 @@
         "responsibleOrganizations"
       ],
       "properties": {
-        "alternateIdentifiers": {
+        "alternateIdentifiersTest": {
           "$id": "elter://metadata.schemas/subschemas/alternateIdentifiers.json",
           "x-label": "Alternate identifier(s)",
           "x-tooltip": "The alternative identifiers for this resource such as a URN, URI or an ISBN number.",
