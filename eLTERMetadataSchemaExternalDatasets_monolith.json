@@ -446,90 +446,87 @@
           "items": {
             "type": "object",
             "properties": {
-              "type": "object",
-              "properties": {
-                "creatorGivenName": {
-                  "type": "string",
-                  "x-label": "Given name",
-                  "x-tooltip": "The first names given to this entity."
-                },
-                "creatorFamilyName": {
-                  "type": "string",
-                  "x-label": "Family name",
-                  "x-tooltip": "The family names given to this entity.",
-                  "x-required": true
-                },
-                "creatorEmail": {
-                  "type": "string",
-                  "x-label": "eMail",
-                  "x-tooltip": "Contact email address of the author.",
-                  "x-required": true
-                },
-                "creatorAffiliation": {
-                  "type": "object",
-                  "x-label": "Organization/Group name",
-                  "x-tooltip": "Name of the (current) organisation of the author.",
-                  "x-description": "The information about the organisation or group to which the creator belongs.",
-                  "x-required": true,
-                  "properties": {
-                    "entityName": {
-                      "type": "string",
-                      "x-label": "Affiliation name",
-                      "x-tooltip": "The name of the organisation or group to which the creator belongs.",
-                      "x-description": "The name of the organisation."
-                    },
-                    "entityID": {
-                      "type": "object",
-                      "properties": {
-                        "entityID": {
-                          "type": "string",
-                          "x-label": "Identifier of the organisation",
-                          "x-tooltip": "The unique identifier of the organisation, according to various identifier schemes.",
-                          "x-description": "The unique identifier of the organisation, according to various identifier schemes."
-                        },
-                        "entityIDSchema": {
-                          "type": "string",
-                          "x-label": "Identifier scheme",
-                          "x-tooltip": "The scheme used for the identifier.",
-                          "x-description": "The scheme used for the identifier.",
-                          "enum": [
-                            "ror",
-                            "orcid",
-                            "wos",
-                            "scopus"
-                          ]
-                        }
+              "creatorGivenName": {
+                "type": "string",
+                "x-label": "Given name",
+                "x-tooltip": "The first names given to this entity."
+              },
+              "creatorFamilyName": {
+                "type": "string",
+                "x-label": "Family name",
+                "x-tooltip": "The family names given to this entity.",
+                "x-required": true
+              },
+              "creatorEmail": {
+                "type": "string",
+                "x-label": "eMail",
+                "x-tooltip": "Contact email address of the author.",
+                "x-required": true
+              },
+              "creatorAffiliation": {
+                "type": "object",
+                "x-label": "Organization/Group name",
+                "x-tooltip": "Name of the (current) organisation of the author.",
+                "x-description": "The information about the organisation or group to which the creator belongs.",
+                "x-required": true,
+                "properties": {
+                  "entityName": {
+                    "type": "string",
+                    "x-label": "Affiliation name",
+                    "x-tooltip": "The name of the organisation or group to which the creator belongs.",
+                    "x-description": "The name of the organisation."
+                  },
+                  "entityID": {
+                    "type": "object",
+                    "properties": {
+                      "entityID": {
+                        "type": "string",
+                        "x-label": "Identifier of the organisation",
+                        "x-tooltip": "The unique identifier of the organisation, according to various identifier schemes.",
+                        "x-description": "The unique identifier of the organisation, according to various identifier schemes."
+                      },
+                      "entityIDSchema": {
+                        "type": "string",
+                        "x-label": "Identifier scheme",
+                        "x-tooltip": "The scheme used for the identifier.",
+                        "x-description": "The scheme used for the identifier.",
+                        "enum": [
+                          "ror",
+                          "orcid",
+                          "wos",
+                          "scopus"
+                        ]
                       }
                     }
                   }
                 }
-              },
-              "creatorIDs": {
-                "type": "array",
-                "x-label": "Creator identifiers",
-                "x-tooltip": "The information of the alternate resource of the creator.",
-                "x-description": "The information of the resource, where can be found more information about the creator.",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "entityID": {
-                      "type": "string",
-                      "x-label": "Identifier",
-                      "x-tooltip": "The identifier of the resource, where can be found more information about the creator.",
-                      "x-description": "The identifier of the resource, where can be found more information about the creator."
-                    },
-                    "entityIDSchema": {
-                      "type": "string",
-                      "x-label": "Scheme",
-                      "x-tooltip": "The scheme used for the identifier.",
-                      "x-description": "The scheme used for the identifier.",
-                      "default": "orcid",
-                      "enum": [
-                        "orcid",
-                        "wob",
-                        "scopus"
-                      ]
-                    }
+              }
+            },
+            "creatorIDs": {
+              "type": "array",
+              "x-label": "Creator identifiers",
+              "x-tooltip": "The information of the alternate resource of the creator.",
+              "x-description": "The information of the resource, where can be found more information about the creator.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "entityID": {
+                    "type": "string",
+                    "x-label": "Identifier",
+                    "x-tooltip": "The identifier of the resource, where can be found more information about the creator.",
+                    "x-description": "The identifier of the resource, where can be found more information about the creator."
+                  },
+                  "entityIDSchema": {
+                    "type": "string",
+                    "x-label": "Scheme",
+                    "x-tooltip": "The scheme used for the identifier.",
+                    "x-description": "The scheme used for the identifier.",
+                    "default": "orcid",
+                    "enum": [
+                      "orcid",
+                      "wob",
+                      "scopus"
+                    ]
                   }
                 }
               }
