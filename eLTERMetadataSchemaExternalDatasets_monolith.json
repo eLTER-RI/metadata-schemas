@@ -614,7 +614,7 @@
         },
         "contributors": {
           "$id": "elter://metadata.schemas/subschemas/contributors.json",
-          "type": "object",
+          "type": "array",
           "x-label": "Contributors",
           "x-description": "Information about the people who contribute to the asset.",
           "items": {
