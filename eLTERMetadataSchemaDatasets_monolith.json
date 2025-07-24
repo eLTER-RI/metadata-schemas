@@ -182,6 +182,8 @@
         "datasetType": {
           "$id": "elter://metadata.schemas/subschemas/datasetType.json",
           "type": "object",
+          "x-label": "asset type",
+          "x-tooltip": "Please provide the corresponding eLTER standard observation for the dataset.",
           "properties": {
             "datasetTypeCode": {
               "type": "string",
@@ -896,9 +898,7 @@
           "type": "array",
           "items": {
             "type": "object",
-            "required": [
-              "titleText"
-            ],
+            "required": "titleText",
             "properties": {
               "titleLanguage": {
                 "type": "string"
