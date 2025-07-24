@@ -1,28 +1,28 @@
 # bakes all subschemas into the main schema
 name: make monolith
 on:
-  push:
+  push: ## run when new main or subschema is pushed
     paths:
       - '/subschemas'
       - 'eLTERMetadataSchemaDatasets.json'
       - 'eLTERMetadataSchemaExternalDatasets.json'
-
   workflow_dispatch: ## allow manual triggering
-  jobs:
-    make-monolith:
-      runs-on: ubuntu-latest
+
+jobs:
+  make-monolith:
+    runs-on: ubuntu-latest
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
         
-      steps:
-        - name: Checkout repository
-          uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
           
-        - name: Set up Node.js
-          uses: actions/setup-node@v4
-          with:
-            node-version: '20'
-            
-        - name: Install dependencies (if needed)
-          run: npm ci || true
-            
-        - name: Run JavaScript compilation
-          run: node make-monolith.js
+      - name: Install dependencies (if needed)
+        run: npm ci || true
+          
+      - name: Run JavaScript compilation
+        run: node make-monolith.js
