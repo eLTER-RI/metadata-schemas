@@ -1,0 +1,22 @@
+{
+  "name": "metadata-schemas",
+  "version": "1.0.0",
+  "description": "## Description This repository contains the eLTER metadata schemas for the eLTER network. The schemas are used to describe datasets, data products, and other related information.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eLTER-RI/metadata-schemas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eLTER-RI/metadata-schemas/issues"
+  },
+  "homepage": "https://github.com/eLTER-RI/metadata-schemas#readme",
+  "dependencies": {
+    "@apidevtools/json-schema-ref-parser": "^14.1.1"
+  }
+}
