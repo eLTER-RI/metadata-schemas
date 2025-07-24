@@ -9,7 +9,7 @@ on:
 
   workflow_dispatch: ## allow manual triggering
   jobs:
-    compile:
+    make-monolith:
       runs-on: ubuntu-latest
         
       steps:
