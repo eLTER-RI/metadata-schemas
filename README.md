@@ -25,5 +25,5 @@ These artifacts can be retrieved like so:
 5. click the workflow title
 6. scroll down to the "artifacts" card and download desired monolith(s) as zip-archive
 
-Alternatively, use this [direct link](https://github.com/eLTER-RI/metadata-schemas/actions/runs/16500240115/job/46657377323) to trigger
+Alternatively, use this [direct link](https://github.com/eLTER-RI/metadata-schemas/actions/runs/16500240115/job/) to trigger
 the workflow (as of 2025-07-24).
