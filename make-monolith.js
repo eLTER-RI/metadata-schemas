@@ -12,7 +12,7 @@ const files_main = [
 // dereference main files, stringify json result, save as "..._monolith.json":
 await Promise.all(
     files_main.map(async (stub_filename) => {
-        let outfile_name = `${stub_filename}_monolith.json`        
+        let outfile_name = `${stub_filename}_monolith_test.json`        
         let o_json = await $RefParser.dereference(`${stub_filename}.json`)
         fs.writeFile(outfile_name,
             JSON.stringify(o_json, null, 2),
