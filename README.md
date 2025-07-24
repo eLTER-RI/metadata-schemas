@@ -14,7 +14,7 @@ A human readable representation of the schema is available using the Atlassian J
 
 ## Get a monolith
 
-Monoliths (*dereferenced* main schemas with inlined subschemas content rather than mere `$ref`erences) are created whenever an update is 
+Monoliths (*dereferenced* main schemas with inlined subschema content rather than mere `$ref`erences) are created whenever an update is 
 pushed as or to a) `/subschemas`, b) `eLTERMetadataSchemaDatasets.json` or c) `eLTERMetadataSchemaExternalDatasets.json`
 
 These artifacts can be retrieved like so:
