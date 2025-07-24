@@ -30,13 +30,14 @@ jobs:
       - name: Run JavaScript compilation
         run: node make-monolith.js
       
-      - name: Show contents of output directory
-        run: |
-          echo "Contents of workspace root:"
-          ls -l
-
       - name: save datasets_monolith 
         uses: actions/upload-artifact@v4
         with:
           name: eLTERMetadataSchemaDatasets_monolith.json
           path: eLTERMetadataSchemaDatasets_monolith.json
+
+      - name: save externalDatasets_monolith 
+        uses: actions/upload-artifact@v4
+        with:
+          name: eLTERMetadataSchemaExternalDatasets_monolith.json
+          path: eLTERMetadataSchemaExternalDatasets_monolith.json          
