@@ -2,6 +2,9 @@
 name: make monolith
 on:
   push: ## run when new main or subschema is pushed
+    branches:
+      - dereference
+      - main
     paths:
       - '/subschemas'
       - 'eLTERMetadataSchemaDatasets.json'
