@@ -6,7 +6,7 @@ on:
       - '/subschemas'
       - 'eLTERMetadataSchemaDatasets.json'
       - 'eLTERMetadataSchemaExternalDatasets.json'
-  workflow_dispatch: ## allow manual triggering
+  workflow_dispatch: ## allow a manual triggering
 
 jobs:
   make-monolith:
