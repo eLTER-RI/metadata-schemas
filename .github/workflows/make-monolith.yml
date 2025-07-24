@@ -7,22 +7,22 @@ on:
       - 'eLTERMetadataSchemaDatasets.json'
       - 'eLTERMetadataSchemaExternalDatasets.json'
 
-  workflow_dispatch:
-    jobs:
-      compile:
-        runs-on: ubuntu-latest
+  workflow_dispatch: ## allow manual triggering
+  jobs:
+    compile:
+      runs-on: ubuntu-latest
+        
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
           
-        steps:
-          - name: Checkout repository
-            uses: actions/checkout@v4
+        - name: Set up Node.js
+          uses: actions/setup-node@v4
+          with:
+            node-version: '20'
             
-          - name: Set up Node.js
-            uses: actions/setup-node@v4
-            with:
-              node-version: '20'
-              
-          - name: Install dependencies (if needed)
-            run: npm ci || true
-              
-          - name: Run JavaScript compilation
-            run: node make-monolith.js
+        - name: Install dependencies (if needed)
+          run: npm ci || true
+            
+        - name: Run JavaScript compilation
+          run: node make-monolith.js
