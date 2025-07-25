@@ -19,7 +19,7 @@ Monoliths (*dereferenced* main schemas with inlined subschema content rather tha
 pushed as or to a) `/subschemas`, b) `eLTERMetadataSchemaDatasets.json` or c) `eLTERMetadataSchemaExternalDatasets.json`
 
 These artifacts can be retrieved like so:
-1. select "Actions" from the top menu
+1. go to [Actions](https://github.com/eLTER-RI/metadata-schemas/actions) (top menu)
 2. select workflow "make monolith" from the left sidebar
 3. in the main panel, select "Run workflow" from the "Run workflow" dropdown on the right (branch: main)
 4. wait a couple of seconds until the workflow starts, and another 10-15 s until done
