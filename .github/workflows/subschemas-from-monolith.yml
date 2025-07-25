@@ -1,0 +1,29 @@
+# bakes all subschemas into the main schema
+name: create subschemas from monolith
+on:
+  workflow_dispatch: ## manual trigger only
+
+jobs:
+  make-subschemas:
+    runs-on: ubuntu-latest
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install dependencies (if needed)
+        run: npm ci || true
+          
+      - name: run subschemas-from-monolith.js
+        run: node subschemas-from-monolith.js
+      
+      - name: save subschemas for download
+        uses: actions/upload-artifact@v4
+        with:
+          name: subschemas
+          path: subschemas
