@@ -12,7 +12,8 @@ A human readable representation of the schema is available using the Atlassian J
 
 [https://json-schema.app/view/%23/%23%2Fproperties%2Fmetadata?url=https%3A%2F%2Fraw.githubusercontent.com%2FeLTER-RI%2Fmetadata-schemas%2Frefs%2Fheads%2Fmain%2FeLTERMetadataSchemaDatasets_monolith.json](https://json-schema.app/view/%23/%23%2Fproperties%2Fmetadata?url=https%3A%2F%2Fraw.githubusercontent.com%2FeLTER-RI%2Fmetadata-schemas%2Frefs%2Fheads%2Fmain%2FeLTERMetadataSchemaDatasets_monolith.json)
 
-## Get a monolith
+## Converting between monoliths and subschemas
+### Bake a monolith
 
 Monoliths (*dereferenced* main schemas with inlined subschema content rather than mere `$ref`erences) are created whenever an update is 
 pushed as or to a) `/subschemas`, b) `eLTERMetadataSchemaDatasets.json` or c) `eLTERMetadataSchemaExternalDatasets.json`
@@ -26,4 +27,9 @@ These artifacts can be retrieved like so:
 6. scroll down to the "artifacts" card and download desired monolith(s) as zip-archive
 
 The names of the main schemas getting dereferenced are hardcoded in `make-monolith.js` (which does the work) and [`make-monolith.yml`](https://github.com/eLTER-RI/metadata-schemas/blob/main/.github/workflows/make-monolith.yml) which configures the automated workflow.
+
+ℹ️ This action *does not automatically update the repository*. If desired, download the output (click the action's title, scroll down and download the output from the "artifacts" card) and commit. 
+
+### Extract subschemas from monolith(s)
+If, conversely, you want to extract subschemas from an updated monolith, trigger the action "create subschemas from monolith". The new subschemas *are not written* to the repository. Remember to download the artifacts and commit them to update the repo (see above).
 
