@@ -31,5 +31,5 @@ The names of the main schemas getting dereferenced are hardcoded in `make-monoli
 ℹ️ This action *does not automatically update the repository*. If desired, download the output (click the action's title, scroll down and download the output from the "artifacts" card) and commit. 
 
 ### Extract subschemas from monolith(s)
-If, conversely, you want to extract subschemas from an updated monolith, trigger the action "create subschemas from monolith". Remember to download the artifacts and commit them to update the repo (see above).
+If, conversely, you want to extract subschemas from an updated monolith, trigger the workflow [`create subschemas from monolith`](https://github.com/eLTER-RI/metadata-schemas/actions/workflows/subschemas-from-monolith.yml). Remember to download the artifacts and commit them to update the repo (see above).
 
