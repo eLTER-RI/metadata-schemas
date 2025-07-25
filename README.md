@@ -25,3 +25,5 @@ These artifacts can be retrieved like so:
 5. click the workflow title
 6. scroll down to the "artifacts" card and download desired monolith(s) as zip-archive
 
+The names of the main schemas getting dereferenced are hardcoded in `make-monolith.js` (which does the work) and [`make-monolith.yml`](https://github.com/eLTER-RI/metadata-schemas/blob/main/.github/workflows/make-monolith.yml) which configures the automated workflow.
+
