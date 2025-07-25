@@ -20,7 +20,7 @@ pushed as or to a) `/subschemas`, b) `eLTERMetadataSchemaDatasets.json` or c) `e
 
 These artifacts can be retrieved like so:
 1. go to [Actions](https://github.com/eLTER-RI/metadata-schemas/actions) (top menu)
-2. select workflow "make monolith" from the left sidebar
+2. go to workflow [`make monolith`](https://github.com/eLTER-RI/metadata-schemas/actions/workflows/make-monolith.yml) (left sidebar)
 3. in the main panel, select "Run workflow" from the "Run workflow" dropdown on the right (branch: main)
 4. wait a couple of seconds until the workflow starts, and another 10-15 s until done
 5. click the workflow title
