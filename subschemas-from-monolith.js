@@ -5,7 +5,7 @@ const infile_names = [
     'eLTERMetadataSchemaExternalDatasets_monolith.json'
 ]
 
-// dereference main files, stringify json result, save as "..._monolith.json":
+// run for each monolith specified in infile_names:
 Promise.all(
     infile_names.map(async (infile_name) => {
         // read infile and parse content as JSON object:
