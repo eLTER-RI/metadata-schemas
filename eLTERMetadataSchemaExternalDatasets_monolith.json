@@ -101,6 +101,52 @@
         "responsibleOrganizations"
       ],
       "properties": {
+        "alternateIdentifiers": {
+          "$id": "elter://metadata.schemas/subschemas/alternateIdentifiers.json",
+          "x-label": "Alternate identifier(s)",
+          "x-tooltip": "The alternative identifiers for this resource such as a URN, URI or an ISBN number.",
+          "x-description": "Identification of the resource located on different source.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "alternateID": {
+                "type": "string",
+                "x-label": "Alternate identifier",
+                "x-tooltip": "Please provide the reference/identifier to the related resource.",
+                "x-description": "The unique identifier of the alternate resource, according to various identifier schemes."
+              },
+              "alternateIDType": {
+                "type": "string",
+                "x-label": "Related Identifier Type",
+                "x-tooltip": "The type of identifier.",
+                "x-description": "The type of alternate identifier.",
+                "enumValues": [
+                  "ARK",
+                  "arXiv",
+                  "bibcode",
+                  "DOI",
+                  "EAN13",
+                  "EISSN",
+                  "Handle",
+                  "ISBN",
+                  "ISSN",
+                  "ISTC",
+                  "LISSN",
+                  "LSID",
+                  "ORCID",
+                  "PMID",
+                  "PURL",
+                  "UPC",
+                  "URL",
+                  "URN",
+                  "w3id",
+                  "URI"
+                ]
+              }
+            }
+          }
+        },
         "assetType": {
           "$id": "elter://metadata.schemas/subschemas/assetType.json",
           "type": "string",
@@ -219,373 +265,6 @@
             "datasetTypeURI": {
               "type": "string",
               "x-description": "URL to the concept in the eLTER vocabularies."
-            }
-          }
-        },
-        "externalSourceInformation": {
-          "$id": "elter://metadata.schemas/subschemas/externalSourceInformation.json",
-          "type": "object",
-          "x-label": "External source information",
-          "x-tooltip": "Information about the external source of the data.",
-          "x-description": "Information about the primary source of the data, who is responsible for the data and how to access it.",
-          "properties": {
-            "externalSourceName": {
-              "type": "string",
-              "x-label": "External source name",
-              "x-description": "The name of the external source, e.g. a repository or a data provider."
-            },
-            "externalSourceURI": {
-              "type": "string",
-              "x-label": "External source URI",
-              "x-tooltip": "The URI of the external source, e.g. a URL or a DOI.",
-              "x-description": "The URI of the external source, e.g. a URL or a DOI."
-            },
-            "externalSourceInfo": {
-              "type": "string",
-              "x-label": "External source information",
-              "x-tooltip": "Additional information about the external source.",
-              "x-description": "Additional information about the external source"
-            }
-          }
-        },
-        "alternateIdentifiers": {
-          "$id": "elter://metadata.schemas/subschemas/alternateIdentifiers.json",
-          "x-label": "Alternate identifier(s)",
-          "x-tooltip": "The alternative identifiers for this resource such as a URN, URI or an ISBN number.",
-          "x-description": "Identification of the resource located on different source.",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "alternateID": {
-                "type": "string",
-                "x-label": "Alternate identifier",
-                "x-tooltip": "Please provide the reference/identifier to the related resource.",
-                "x-description": "The unique identifier of the alternate resource, according to various identifier schemes."
-              },
-              "alternateIDType": {
-                "type": "string",
-                "x-label": "Related Identifier Type",
-                "x-tooltip": "The type of identifier.",
-                "x-description": "The type of alternate identifier.",
-                "enumValues": [
-                  "ARK",
-                  "arXiv",
-                  "bibcode",
-                  "DOI",
-                  "EAN13",
-                  "EISSN",
-                  "Handle",
-                  "ISBN",
-                  "ISSN",
-                  "ISTC",
-                  "LISSN",
-                  "LSID",
-                  "ORCID",
-                  "PMID",
-                  "PURL",
-                  "UPC",
-                  "URL",
-                  "URN",
-                  "w3id",
-                  "URI"
-                ]
-              }
-            }
-          }
-        },
-        "relatedIdentifiers": {
-          "$id": "elter://metadata.schemas/subschemas/relatedIdentifiers.json",
-          "type": "array",
-          "x-label": "Related identifiers",
-          "x-tooltip": "The identifiers of other resources related to the resource such as a URN, URI or an ISBN number.",
-          "x-description": "Identification of the resources that are related somehow to this asset.",
-          "items": {
-            "type": "object",
-            "properties": {
-              "relatedID": {
-                "type": "string",
-                "x-label": "Related identifier",
-                "x-tooltip": "Please provide the reference/identifier to the related resource.",
-                "x-description": "The unique identifier of the related resource, according to various identifier schemes."
-              },
-              "relatedResourceType": {
-                "type": "enum",
-                "x-label": "Related Resource Type",
-                "x-tooltip": "The type of the related resource.",
-                "x-description": "The type of the related resource.",
-                "enumValues": [
-                  "Audiovisual",
-                  "Book",
-                  "BookChapter",
-                  "Collection",
-                  "ComputationalNotebook",
-                  "ConferencePaper",
-                  "ConferenceProceeding",
-                  "DataPaper",
-                  "Dataset",
-                  "Dissertation",
-                  "Event",
-                  "Image",
-                  "InteractiveResource",
-                  "Journal",
-                  "JournalArticle",
-                  "Model",
-                  "OutputManagementPlan",
-                  "PeerReview",
-                  "PhysicalObject",
-                  "Preprint",
-                  "Report",
-                  "Service",
-                  "Software",
-                  "Sound",
-                  "Standard",
-                  "Text",
-                  "Workflow",
-                  "Other"
-                ]
-              },
-              "relatedIDType": {
-                "type": "enum",
-                "x-label": "Related Identifier Type",
-                "x-tooltip": "The type of identifier.",
-                "x-description": "The type of related identifier.",
-                "enumValues": [
-                  "ARK",
-                  "arXiv",
-                  "bibcode",
-                  "DOI",
-                  "EAN13",
-                  "EISSN",
-                  "Handle",
-                  "ISBN",
-                  "ISSN",
-                  "ISTC",
-                  "LISSN",
-                  "LSID",
-                  "ORCID",
-                  "PMID",
-                  "PURL",
-                  "UPC",
-                  "URL",
-                  "URN",
-                  "w3id",
-                  "URI"
-                ]
-              },
-              "relationType": {
-                "type": "enum",
-                "x-label": "Relation",
-                "x-tooltip": "The relation type of the described reference.",
-                "enumValues": [
-                  "IsCitedBy",
-                  "Cites",
-                  "IsSupplementTo",
-                  "IsPublishedIn",
-                  "IsSupplementedBy",
-                  "IsContinuedBy",
-                  "Continues",
-                  "HasMetadata",
-                  "IsMetadataFor",
-                  "IsNewVersionOf",
-                  "IsPreviousVersionOf",
-                  "IsPartOf",
-                  "HasPart",
-                  "IsReferencedBy",
-                  "References",
-                  "IsDocumentedBy",
-                  "Documents",
-                  "isCompiledBy",
-                  "Compiles",
-                  "IsVariantFormOf",
-                  "IsOriginalFormOf",
-                  "IsIdenticalTo",
-                  "IsReviewedBy",
-                  "Reviews",
-                  "IsDerivedFrom",
-                  "IsSourceOf",
-                  "Describes",
-                  "IsDescribedBy",
-                  "HasVersion",
-                  "IsVersionOf",
-                  "Requires",
-                  "IsRequiredBy",
-                  "Obsoletes",
-                  "IsObsoletedBy"
-                ]
-              }
-            }
-          }
-        },
-        "titles": {
-          "$id": "elter://metadata.schemas/subschemas/titles.json",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "titleLanguage": {
-                "type": "string",
-                "x-label": "Title language",
-                "x-tooltip": "The language of the title.",
-                "x-description": "The language of the title. By default, the language is set to English."
-              },
-              "titleText": {
-                "x-label": "Title",
-                "x-tooltip": "Title for the resource.",
-                "x-description": "The title of the resource. It is displayed in the search result.",
-                "x-required": true,
-                "type": "string"
-              }
-            }
-          }
-        },
-        "creators": {
-          "type": "array",
-          "x-label": "Creators",
-          "x-tooltip": "The full name of the creators and/or owners of the dataset. The personal name format should be: family, given (e.g.: Smith, John).",
-          "items": {
-            "type": "object",
-            "properties": {
-              "creatorGivenName": {
-                "type": "string",
-                "x-label": "Given name",
-                "x-tooltip": "The first names given to this entity."
-              },
-              "creatorFamilyName": {
-                "type": "string",
-                "x-label": "Family name",
-                "x-tooltip": "The family names given to this entity.",
-                "x-required": true
-              },
-              "creatorEmail": {
-                "type": "string",
-                "x-label": "eMail",
-                "x-tooltip": "Contact email address of the author.",
-                "x-required": true
-              },
-              "creatorAffiliation": {
-                "type": "object",
-                "x-label": "Organization/Group name",
-                "x-tooltip": "Name of the (current) organisation of the author.",
-                "x-description": "The information about the organisation or group to which the creator belongs.",
-                "x-required": true,
-                "properties": {
-                  "entityName": {
-                    "type": "string",
-                    "x-label": "Affiliation name",
-                    "x-tooltip": "The name of the organisation or group to which the creator belongs.",
-                    "x-description": "The name of the organisation."
-                  },
-                  "entityID": {
-                    "type": "object",
-                    "properties": {
-                      "entityID": {
-                        "type": "string",
-                        "x-label": "Identifier of the organisation",
-                        "x-tooltip": "The unique identifier of the organisation, according to various identifier schemes.",
-                        "x-description": "The unique identifier of the organisation, according to various identifier schemes."
-                      },
-                      "entityIDSchema": {
-                        "type": "string",
-                        "x-label": "Identifier scheme",
-                        "x-tooltip": "The scheme used for the identifier.",
-                        "x-description": "The scheme used for the identifier.",
-                        "enum": [
-                          "ror",
-                          "orcid",
-                          "wos",
-                          "scopus"
-                        ]
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "creatorIDs": {
-              "type": "array",
-              "x-label": "Creator identifiers",
-              "x-tooltip": "The information of the alternate resource of the creator.",
-              "x-description": "The information of the resource, where can be found more information about the creator.",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "entityID": {
-                    "type": "string",
-                    "x-label": "Identifier",
-                    "x-tooltip": "The identifier of the resource, where can be found more information about the creator.",
-                    "x-description": "The identifier of the resource, where can be found more information about the creator."
-                  },
-                  "entityIDSchema": {
-                    "type": "string",
-                    "x-label": "Scheme",
-                    "x-tooltip": "The scheme used for the identifier.",
-                    "x-description": "The scheme used for the identifier.",
-                    "default": "orcid",
-                    "enum": [
-                      "orcid",
-                      "wob",
-                      "scopus"
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responsibleOrganizations": {
-          "$id": "elter://metadata.schemas/subschemas/responsibleOrganizations.json",
-          "type": "array",
-          "x-label": "Responsible Organisations",
-          "x-description": "The information about the responsible organization of the asset.",
-          "x-tooltip": "The information about the responsible organization of the asset.",
-          "x-required": true,
-          "items": {
-            "type": "object",
-            "properties": {
-              "organizationName": {
-                "type": "string",
-                "x-label": "Organisation name",
-                "x-tooltip": "Provide the name of the responsible organisation",
-                "x-description": "The name of the responsible organisation for the resource."
-              },
-              "organizationEmail": {
-                "type": "string",
-                "x-label": "Contact information",
-                "x-tooltip": "Contact email for the resource.",
-                "x-description": "The contact email address of the responsible organisation."
-              },
-              "organizationIDs": {
-                "type": "array",
-                "x-label": "Organisation ID",
-                "placeholder": "https://ror.org/000h6jb29",
-                "x-tooltip": "Provide identifiers (e.g. ROR) for the organisation, e.g. https://ror.org/",
-                "x-description": "The references of the organisation, where can be found more information about them.",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "entityID": {
-                      "type": "string",
-                      "x-label": "Organisation identifier",
-                      "x-tooltip": "The unique identifier of the organisation, according to various identifier schemes.",
-                      "x-description": "The unique identifier of the organisation, according to various identifier schemes."
-                    },
-                    "entityIDSchema": {
-                      "type": "string",
-                      "x-label": "Organisation identifier scheme",
-                      "x-tooltip": "The scheme used for the identifier.",
-                      "x-description": "The scheme used for the identifier.",
-                      "default": "ror",
-                      "enum": [
-                        "ror",
-                        "orcid",
-                        "wos",
-                        "scopus"
-                      ]
-                    }
-                  }
-                }
-              }
             }
           }
         },
@@ -726,21 +405,124 @@
             }
           }
         },
-        "publicationDate": {
-          "$id": "elter://metadata.schemas/subschemas/publicationDate.json",
-          "type": "string",
-          "x-label": "Publication date",
-          "x-tooltip": "The date when the data was or will be made publicly available (e.g. 2018-07-13).",
-          "x-description": "The date when the data was or will be made publicly available.",
-          "x-required": true,
-          "format": "YYYY-MM-DD"
+        "creators": {
+          "type": "array",
+          "x-label": "Creators",
+          "x-tooltip": "The full name of the creators and/or owners of the dataset. The personal name format should be: family, given (e.g.: Smith, John).",
+          "items": {
+            "type": "object",
+            "properties": {
+              "creatorGivenName": {
+                "type": "string",
+                "x-label": "Given name",
+                "x-tooltip": "The first names given to this entity."
+              },
+              "creatorFamilyName": {
+                "type": "string",
+                "x-label": "Family name",
+                "x-tooltip": "The family names given to this entity.",
+                "x-required": true
+              },
+              "creatorEmail": {
+                "type": "string",
+                "x-label": "eMail",
+                "x-tooltip": "Contact email address of the author.",
+                "x-required": true
+              },
+              "creatorAffiliation": {
+                "type": "object",
+                "x-label": "Organization/Group name",
+                "x-tooltip": "Name of the (current) organisation of the author.",
+                "x-description": "The information about the organisation or group to which the creator belongs.",
+                "x-required": true,
+                "properties": {
+                  "entityName": {
+                    "type": "string",
+                    "x-label": "Affiliation name",
+                    "x-tooltip": "The name of the organisation or group to which the creator belongs.",
+                    "x-description": "The name of the organisation."
+                  },
+                  "entityID": {
+                    "type": "object",
+                    "properties": {
+                      "entityID": {
+                        "type": "string",
+                        "x-label": "Identifier of the organisation",
+                        "x-tooltip": "The unique identifier of the organisation, according to various identifier schemes.",
+                        "x-description": "The unique identifier of the organisation, according to various identifier schemes."
+                      },
+                      "entityIDSchema": {
+                        "type": "string",
+                        "x-label": "Identifier scheme",
+                        "x-tooltip": "The scheme used for the identifier.",
+                        "x-description": "The scheme used for the identifier.",
+                        "enum": [
+                          "ror",
+                          "orcid",
+                          "wos",
+                          "scopus"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "creatorIDs": {
+              "type": "array",
+              "x-label": "Creator identifiers",
+              "x-tooltip": "The information of the alternate resource of the creator.",
+              "x-description": "The information of the resource, where can be found more information about the creator.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "entityID": {
+                    "type": "string",
+                    "x-label": "Identifier",
+                    "x-tooltip": "The identifier of the resource, where can be found more information about the creator.",
+                    "x-description": "The identifier of the resource, where can be found more information about the creator."
+                  },
+                  "entityIDSchema": {
+                    "type": "string",
+                    "x-label": "Scheme",
+                    "x-tooltip": "The scheme used for the identifier.",
+                    "x-description": "The scheme used for the identifier.",
+                    "default": "orcid",
+                    "enum": [
+                      "orcid",
+                      "wob",
+                      "scopus"
+                    ]
+                  }
+                }
+              }
+            }
+          }
         },
-        "language": {
-          "$id": "elter://metadata.schemas/subschemas/language.json",
-          "type": "string",
-          "x-label": "Language",
-          "x-tooltip": "The language of the resource.",
-          "x-description": "The language of the data. By default, the language is set to English."
+        "dataLevel": {
+          "$id": "elter://metadata.schemas/subschemas/dataLevel.json",
+          "x-label": "Data Level",
+          "x-required": true,
+          "type": "object",
+          "x-tooltip": "Data level according to the eLTER defined data levels.",
+          "x-description": "Data level according to the eLTER defined data levels. The data level is used to classify the data according to its granularity and complexity.",
+          "properties": {
+            "dataLevelCode": {
+              "type": "string",
+              "enum": [
+                "0",
+                "1",
+                "2",
+                "3"
+              ]
+            },
+            "dataLevelURI": {
+              "type": "string",
+              "x-tooltip": "Provide url to the concept in the eLTER vocabularies.",
+              "x-label": "Data level URI",
+              "x-description": "The URI of the data level concept in the eLTER vocabularies."
+            }
+          }
         },
         "descriptions": {
           "$id": "elter://metadata.schemas/subschemas/descriptions.json",
@@ -754,8 +536,10 @@
               "descriptionText": {
                 "type": "string",
                 "x-label": "Description",
-                "x-tooltip": "The more elaborate description of the resource. Focus on a content description that makes it easy for others to find, and to interpret its relevance.",
-                "x-description": "The text of the description",
+                "min-length": 200,
+                "max-length": 4000,
+                "comment-on-length": "number of characters",
+                "x-tooltip": "Please describe the dataset with an abstract of at least 200 characters. Please consider giving the description more structure by adding additional description fields.",
                 "x-required": true
               },
               "descriptionType": {
@@ -772,56 +556,6 @@
                   "TechnicalInfo",
                   "Other"
                 ]
-              }
-            }
-          }
-        },
-        "keywords": {
-          "$id": "elter://metadata.schemas/subschemas/keywords.json",
-          "type": "array",
-          "x-label": "Keywords",
-          "x-tooltip": "The keywords or key phrases describing the resource.",
-          "x-description": "The keywords or key phrases describing the resource. Keywords are used to improve the searchability of the resource.",
-          "items": {
-            "type": "object",
-            "properties": {
-              "keywordLabel": {
-                "type": "string",
-                "x-label": "Keyword",
-                "x-tooltip": "The keyword or key phrase describing the resource.",
-                "x-description": "Label of the keyword displayed on the detail page",
-                "x-required": true
-              },
-              "keywordURI": {
-                "type": "string",
-                "x-label": "Keyword URI",
-                "x-tooltip": "The URI of the keyword navigating to the vocabulary.",
-                "x-description": "The URI of the keyword navigating to the vocabulary."
-              }
-            }
-          }
-        },
-        "licenses": {
-          "$id": "elter://metadata.schemas/subschemas/licenses.json",
-          "type": "array",
-          "x-label": "License",
-          "x-tooltip": "The license under which this data set is available to the users (e.g. GPL, Apache v2 or Commercial). Please use the License Selector for help and additional information.",
-          "x-description": "The license under which this data set is available to the users.",
-          "x-required": true,
-          "items": {
-            "type": "object",
-            "properties": {
-              "licenseCode": {
-                "type": "string",
-                "x-label": "License code",
-                "x-tooltip": "For example CC BY-SA 4.0",
-                "x-description": "The code of the license, e.g. CC BY-SA 4.0."
-              },
-              "licenseURI": {
-                "type": "string",
-                "x-label": "License URI",
-                "x-tooltip": "For example https://creativecommons.org/licenses/by-sa/4.0/deed.en",
-                "x-description": "The URI of the license, e.g. https://creativecommons.org/licenses/by-sa/4.0/deed.en"
               }
             }
           }
@@ -966,109 +700,100 @@
             }
           }
         },
-        "temporalCoverages": {
-          "$id": "elter://metadata.schemas/subschemas/temporalCoverages.json",
+        "habitatReferences": {
+          "required": [
+            "soHabitatCode",
+            "soHabitatURI"
+          ],
+          "$id": "elter://metadata.schemas/subschemas/habitatReferences.json",
+          "type": "array",
+          "x-label": "Related habitats",
+          "x-tooltip": "Provide informaiton on the habitats for which the datasource was created.",
           "x-required": true,
-          "type": "array",
-          "x-label": "Temporal coverage(s)",
-          "x-tooltip": "The temporal coverage of the contents of the resource.",
-          "x-description": "The temporal coverage of the contents of the resource.",
           "items": {
             "type": "object",
             "properties": {
-              "startDate": {
+              "soHabitatCode": {
                 "type": "string",
-                "x-label": "Start date",
-                "x-tooltip": "The start date and time of the range covered by the resource.",
-                "x-description": "The start date and time of the range covered by the resource.",
-                "format": "date"
-              },
-              "endDate": {
-                "type": "string",
-                "x-label": "End date",
-                "x-tooltip": "The end date and time of the range covered by the resource.",
-                "x-description": "The end date and time of the range covered by the resource.",
-                "format": "date"
-              }
-            }
-          }
-        },
-        "temporalResolution": {
-          "$id": "elter://metadata.schemas/subschemas/temporalResolution.json",
-          "x-required": false,
-          "x-label": "Temporal Resolution",
-          "x-tooltip": "The temporal resolution of the data, e.g. 1 hour, 1 day, etc.",
-          "x-description": "The temporal resolution of the data, e.g. 1 hour, 1 day, etc.",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "temporalResolutionValue": {
+                "x-label": "Habitat code",
+                "x-tooltip": "The code of the habitat.",
+                "x-description": "The code of the habitat.",
                 "x-required": true,
-                "x-label": "Resolution value",
-                "x-tooltip": "The value of the temporal resolution.",
-                "x-description": "The value of the temporal resolution, e.g. 1, 24, etc.",
-                "type": "integer"
-              },
-              "temporalResolutionUnit": {
-                "x-required": true,
-                "x-label": "Unit",
-                "x-tooltip": "The unit of the temporal resolution.",
-                "x-description": "The unit of the temporal resolution, e.g. hours, days, etc.",
-                "type": "string",
                 "enum": [
-                  "Hz",
-                  "Minutes",
-                  "Hours",
-                  "Days",
-                  "Weeks",
-                  "Months",
-                  "Years"
+                  "A",
+                  "B",
+                  "C1",
+                  "C2",
+                  "D",
+                  "E",
+                  "F",
+                  "G",
+                  "H",
+                  "I"
                 ]
               }
+            },
+            "soHabitatURI": {
+              "type": "string",
+              "x-label": "Habitat URI",
+              "x-tooltip": "The URI of the habitat concept in the eLTER vocabularies.",
+              "x-description": "The URI of the habitat concept in the eLTER vocabularies."
             }
           }
         },
-        "taxonomicCoverages": {
-          "$id": "elter://metadata.schemas/subschemas/taxonomicCoverages.json",
+        "keywords": {
+          "$id": "elter://metadata.schemas/subschemas/keywords.json",
           "type": "array",
+          "x-label": "Keywords",
+          "x-tooltip": "The keywords or key phrases describing the resource.",
+          "x-description": "The keywords or key phrases describing the resource. Keywords are used to improve the searchability of the resource.",
           "items": {
             "type": "object",
             "properties": {
-              "taxonomicClassification": {
-                "type": "object",
-                "properties": {
-                  "taxonomicClassificationID": {
-                    "type": "string",
-                    "x-label": "Taxonomic classification ID",
-                    "x-tooltip": "The unique identifier of the taxonomic classification.",
-                    "x-description": "The unique identifier of the taxonomic classification."
-                  },
-                  "taxonomicCommonName": {
-                    "type": "string",
-                    "x-label": "Taxonomic common name",
-                    "x-tooltip": "The common name of the taxonomic classification.",
-                    "x-description": "The common name of the taxonomic classification."
-                  },
-                  "taxonomicRankName": {
-                    "type": "string",
-                    "x-label": "Taxonomic rank name",
-                    "x-tooltip": "The name of the taxonomic rank.",
-                    "x-description": "The name of the taxonomic rank."
-                  },
-                  "taxonomicRankValue": {
-                    "type": "string",
-                    "x-label": "Taxonomic rank value",
-                    "x-tooltip": "The value of the taxonomic rank.",
-                    "x-description": "The value of the taxonomic rank."
-                  }
-                }
-              },
-              "taxonomicDescription": {
+              "keywordLabel": {
                 "type": "string",
-                "x-label": "Taxonomic description",
-                "x-tooltip": "A description of the taxonomic coverage of the resource.",
-                "x-description": "A description of the taxonomic coverage of the resource."
+                "x-label": "Keyword",
+                "x-tooltip": "The keyword or key phrase describing the resource.",
+                "x-description": "Label of the keyword displayed on the detail page",
+                "x-required": true
+              },
+              "keywordURI": {
+                "type": "string",
+                "x-label": "Keyword URI",
+                "x-tooltip": "The URI of the keyword navigating to the vocabulary.",
+                "x-description": "The URI of the keyword navigating to the vocabulary."
+              }
+            }
+          }
+        },
+        "language": {
+          "$id": "elter://metadata.schemas/subschemas/language.json",
+          "type": "string",
+          "x-label": "Language",
+          "x-tooltip": "The language of the resource.",
+          "x-description": "The language of the data. By default, the language is set to English."
+        },
+        "licenses": {
+          "$id": "elter://metadata.schemas/subschemas/licenses.json",
+          "type": "array",
+          "x-label": "License",
+          "x-tooltip": "The license under which this data set is available to the users (e.g. GPL, Apache v2 or Commercial). Please use the License Selector for help and additional information.",
+          "x-description": "The license under which this data set is available to the users.",
+          "x-required": true,
+          "items": {
+            "type": "object",
+            "properties": {
+              "licenseCode": {
+                "type": "string",
+                "x-label": "License code",
+                "x-tooltip": "For example CC BY-SA 4.0",
+                "x-description": "The code of the license, e.g. CC BY-SA 4.0."
+              },
+              "licenseURI": {
+                "type": "string",
+                "x-label": "License URI",
+                "x-tooltip": "For example https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+                "x-description": "The URI of the license, e.g. https://creativecommons.org/licenses/by-sa/4.0/deed.en"
               }
             }
           }
@@ -1162,164 +887,327 @@
             }
           }
         },
-        "siteReferences": {
-          "$id": "elter://metadata.schemas/subschemas/siteReferences.json",
-          "type": "array",
-          "x-label": "Deims Sites",
-          "x-tooltip": "Provide information on the DEIMS sites for which the datasource was created.",
-          "x-description": "The DEIMS sites on which the datasource was created.",
-          "items": {
-            "type": "object",
-            "properties": {
-              "siteName": {
-                "type": "string",
-                "x-required": true,
-                "x-label": "Site name",
-                "x-tooltip": "The name of the DEIMS site.",
-                "x-description": "The name of the DEIMS site for which the datasource was created."
-              },
-              "siteID": {
-                "type": "string",
-                "x-required": true,
-                "x-label": "Site ID",
-                "x-tooltip": "The DEIMS site ID.",
-                "x-description": "The DEIMS site ID for which the datasource was created."
-              }
-            }
-          }
-        },
-        "habitatReferences": {
-          "$id": "elter://metadata.schemas/subschemas/habitatReferences.json",
-          "type": "array",
-          "x-label": "Related habitats",
-          "x-tooltip": "Provide informaiton on the habitats for which the datasource was created.",
+        "publicationDate": {
+          "$id": "elter://metadata.schemas/subschemas/publicationDate.json",
+          "type": "string",
+          "x-label": "Publication date",
+          "x-tooltip": "The date when the data was or will be made publicly available (e.g. 2018-07-13).",
+          "x-description": "The date when the data was or will be made publicly available.",
           "x-required": true,
+          "format": "YYYY-MM-DD"
+        },
+        "relatedIdentifiers": {
+          "$id": "elter://metadata.schemas/subschemas/relatedIdentifiers.json",
+          "type": "array",
+          "x-label": "Related identifiers",
+          "x-tooltip": "The identifiers of other resources related to the resource such as a URN, URI or an ISBN number.",
+          "x-description": "Identification of the resources that are related somehow to this asset.",
           "items": {
             "type": "object",
             "properties": {
-              "soHabitatCode": {
+              "relatedID": {
                 "type": "string",
-                "x-label": "Habitat code",
-                "x-tooltip": "The code of the habitat.",
-                "x-description": "The code of the habitat.",
-                "x-required": true,
-                "enum": [
-                  "A",
-                  "B",
-                  "C1",
-                  "C2",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H",
-                  "I"
+                "x-label": "Related identifier",
+                "x-tooltip": "Please provide the reference/identifier to the related resource.",
+                "x-description": "The unique identifier of the related resource, according to various identifier schemes."
+              },
+              "relatedResourceType": {
+                "type": "enum",
+                "x-label": "Related Resource Type",
+                "x-tooltip": "The type of the related resource.",
+                "x-description": "The type of the related resource.",
+                "enumValues": [
+                  "Audiovisual",
+                  "Book",
+                  "BookChapter",
+                  "Collection",
+                  "ComputationalNotebook",
+                  "ConferencePaper",
+                  "ConferenceProceeding",
+                  "DataPaper",
+                  "Dataset",
+                  "Dissertation",
+                  "Event",
+                  "Image",
+                  "InteractiveResource",
+                  "Journal",
+                  "JournalArticle",
+                  "Model",
+                  "OutputManagementPlan",
+                  "PeerReview",
+                  "PhysicalObject",
+                  "Preprint",
+                  "Report",
+                  "Service",
+                  "Software",
+                  "Sound",
+                  "Standard",
+                  "Text",
+                  "Workflow",
+                  "Other"
+                ]
+              },
+              "relatedIDType": {
+                "type": "enum",
+                "x-label": "Related Identifier Type",
+                "x-tooltip": "The type of identifier.",
+                "x-description": "The type of related identifier.",
+                "enumValues": [
+                  "ARK",
+                  "arXiv",
+                  "bibcode",
+                  "DOI",
+                  "EAN13",
+                  "EISSN",
+                  "Handle",
+                  "ISBN",
+                  "ISSN",
+                  "ISTC",
+                  "LISSN",
+                  "LSID",
+                  "ORCID",
+                  "PMID",
+                  "PURL",
+                  "UPC",
+                  "URL",
+                  "URN",
+                  "w3id",
+                  "URI"
+                ]
+              },
+              "relationType": {
+                "type": "enum",
+                "x-label": "Relation",
+                "x-tooltip": "The relation type of the described reference.",
+                "enumValues": [
+                  "IsCitedBy",
+                  "Cites",
+                  "IsSupplementTo",
+                  "IsPublishedIn",
+                  "IsSupplementedBy",
+                  "IsContinuedBy",
+                  "Continues",
+                  "HasMetadata",
+                  "IsMetadataFor",
+                  "IsNewVersionOf",
+                  "IsPreviousVersionOf",
+                  "IsPartOf",
+                  "HasPart",
+                  "IsReferencedBy",
+                  "References",
+                  "IsDocumentedBy",
+                  "Documents",
+                  "isCompiledBy",
+                  "Compiles",
+                  "IsVariantFormOf",
+                  "IsOriginalFormOf",
+                  "IsIdenticalTo",
+                  "IsReviewedBy",
+                  "Reviews",
+                  "IsDerivedFrom",
+                  "IsSourceOf",
+                  "Describes",
+                  "IsDescribedBy",
+                  "HasVersion",
+                  "IsVersionOf",
+                  "Requires",
+                  "IsRequiredBy",
+                  "Obsoletes",
+                  "IsObsoletedBy"
                 ]
               }
-            },
-            "soHabitatURI": {
-              "type": "string",
-              "x-label": "Habitat URI",
-              "x-tooltip": "The URI of the habitat concept in the eLTER vocabularies.",
-              "x-description": "The URI of the habitat concept in the eLTER vocabularies."
             }
           }
         },
-        "dataLevel": {
-          "$id": "elter://metadata.schemas/subschemas/dataLevel.json",
-          "x-label": "Data Level",
+        "responsibleOrganizations": {
+          "$id": "elter://metadata.schemas/subschemas/responsibleOrganizations.json",
+          "type": "array",
+          "x-label": "Responsible Organisations",
+          "x-description": "The information about the responsible organization of the asset.",
+          "x-tooltip": "The information about the responsible organization of the asset.",
           "x-required": true,
-          "type": "object",
-          "x-tooltip": "Data level according to the eLTER defined data levels.",
-          "x-description": "Data level according to the eLTER defined data levels. The data level is used to classify the data according to its granularity and complexity.",
-          "properties": {
-            "dataLevelCode": {
-              "type": "string",
-              "enum": [
-                "0",
-                "1",
-                "2",
-                "3"
-              ]
-            },
-            "dataLevelURI": {
-              "type": "string",
-              "x-tooltip": "Provide url to the concept in the eLTER vocabularies.",
-              "x-label": "Data level URI",
-              "x-description": "The URI of the data level concept in the eLTER vocabularies."
-            }
-          }
-        },
-        "files": {
-          "$id": "elter://metadata.schemas/subschemas/files.json",
-          "type": "array",
-          "x-label": "Files",
-          "x-tooltip": "The files associated with the resource.",
-          "x-description": "The files associated with the external resource.",
           "items": {
             "type": "object",
             "properties": {
-              "md5": {
+              "organizationName": {
                 "type": "string",
-                "x-label": "MD5 checksum",
-                "x-tooltip": "The MD5 checksum of the file.",
-                "x-description": "The MD5 checksum of the file, used to verify the integrity of the file."
+                "x-label": "Organisation name",
+                "x-tooltip": "Provide the name of the responsible organisation",
+                "x-description": "The name of the responsible organisation for the resource."
               },
-              "format": {
+              "organizationEmail": {
                 "type": "string",
-                "x-label": "File format",
-                "x-tooltip": "The format of the file.",
-                "x-description": "The format of the file, e.g. CSV, JSON, XML, etc."
+                "x-label": "Contact information",
+                "x-tooltip": "Contact email for the resource.",
+                "x-description": "The contact email address of the responsible organisation."
               },
-              "size": {
-                "type": "string",
-                "x-label": "File size",
-                "x-tooltip": "The size of the file.",
-                "x-description": "The value size of the file."
-              },
-              "sizeMeasureType": {
-                "type": "string",
-                "x-label": "Size measure type",
-                "x-tooltip": "The unit of the file size.",
-                "x-description": "The unit of the file size, e.g. bytes, kilobytes, megabytes, etc."
-              },
-              "name": {
-                "type": "string",
-                "x-label": "File name",
-                "x-tooltip": "The name of the file.",
-                "x-description": "The name of the file, e.g. data.csv."
-              },
-              "sourceUrl": {
-                "type": "string",
-                "x-label": "Source URL",
-                "x-tooltip": "The URL of the file.",
-                "x-description": "The URL of the file, where it can be accessed or downloaded."
+              "organizationIDs": {
+                "type": "array",
+                "x-label": "Organisation ID",
+                "placeholder": "https://ror.org/000h6jb29",
+                "x-tooltip": "Provide identifiers (e.g. ROR) for the organisation, e.g. https://ror.org/",
+                "x-description": "The references of the organisation, where can be found more information about them.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "entityID": {
+                      "type": "string",
+                      "x-label": "Organisation identifier",
+                      "x-tooltip": "The unique identifier of the organisation, according to various identifier schemes.",
+                      "x-description": "The unique identifier of the organisation, according to various identifier schemes."
+                    },
+                    "entityIDSchema": {
+                      "type": "string",
+                      "x-label": "Organisation identifier scheme",
+                      "x-tooltip": "The scheme used for the identifier.",
+                      "x-description": "The scheme used for the identifier.",
+                      "default": "ror",
+                      "enum": [
+                        "ror",
+                        "orcid",
+                        "wos",
+                        "scopus"
+                      ]
+                    }
+                  }
+                }
               }
             }
           }
         },
-        "additionalMetadata": {
-          "$id": "elter://metadata.schemas/subschemas/additionalMetadata.json",
+        "taxonomicCoverages": {
+          "$id": "elter://metadata.schemas/subschemas/taxonomicCoverages.json",
           "type": "array",
-          "x-label": "Additional metadata",
-          "x-tooltip": "Additional metadata fields that are not covered by the  schema.",
-          "x-description": "Additional metadata fields that are not covered by the schema.",
           "items": {
             "type": "object",
             "properties": {
-              "name": {
-                "type": "string",
-                "x-label": "Field name",
-                "x-tooltip": "The name of the additional metadata field.",
-                "x-description": "The name of the additional metadata field."
+              "taxonomicClassification": {
+                "type": "object",
+                "properties": {
+                  "taxonomicClassificationID": {
+                    "type": "string",
+                    "x-label": "Taxonomic classification ID",
+                    "x-tooltip": "The unique identifier of the taxonomic classification.",
+                    "x-description": "The unique identifier of the taxonomic classification."
+                  },
+                  "taxonomicCommonName": {
+                    "type": "string",
+                    "x-label": "Taxonomic common name",
+                    "x-tooltip": "The common name of the taxonomic classification.",
+                    "x-description": "The common name of the taxonomic classification."
+                  },
+                  "taxonomicRankName": {
+                    "type": "string",
+                    "x-label": "Taxonomic rank name",
+                    "x-tooltip": "The name of the taxonomic rank.",
+                    "x-description": "The name of the taxonomic rank."
+                  },
+                  "taxonomicRankValue": {
+                    "type": "string",
+                    "x-label": "Taxonomic rank value",
+                    "x-tooltip": "The value of the taxonomic rank.",
+                    "x-description": "The value of the taxonomic rank."
+                  }
+                }
               },
-              "value": {
+              "taxonomicDescription": {
                 "type": "string",
-                "x-label": "Field value",
-                "x-tooltip": "The value of the additional metadata field.",
-                "x-description": "The value of the additional metadata field."
+                "x-label": "Taxonomic description",
+                "x-tooltip": "A description of the taxonomic coverage of the resource.",
+                "x-description": "A description of the taxonomic coverage of the resource."
               }
             }
+          }
+        },
+        "temporalCoverages": {
+          "$id": "elter://metadata.schemas/subschemas/temporalCoverages.json",
+          "x-required": true,
+          "type": "array",
+          "x-label": "Temporal coverage(s)",
+          "x-tooltip": "The temporal coverage of the contents of the resource.",
+          "x-description": "The temporal coverage of the contents of the resource.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "startDate": {
+                "type": "string",
+                "x-label": "Start date",
+                "x-tooltip": "The start date and time of the range covered by the resource.",
+                "x-description": "The start date and time of the range covered by the resource.",
+                "format": "date"
+              },
+              "endDate": {
+                "type": "string",
+                "x-label": "End date",
+                "x-tooltip": "The end date and time of the range covered by the resource.",
+                "x-description": "The end date and time of the range covered by the resource.",
+                "format": "date"
+              }
+            }
+          }
+        },
+        "temporalResolution": {
+          "$id": "elter://metadata.schemas/subschemas/temporalResolution.json",
+          "x-required": false,
+          "x-label": "Temporal Resolution",
+          "x-tooltip": "The temporal resolution of the data, e.g. 1 hour, 1 day, etc.",
+          "x-description": "The temporal resolution of the data, e.g. 1 hour, 1 day, etc.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "temporalResolutionValue": {
+                "x-required": true,
+                "x-label": "Resolution value",
+                "x-tooltip": "The value of the temporal resolution.",
+                "x-description": "The value of the temporal resolution, e.g. 1, 24, etc.",
+                "type": "integer"
+              },
+              "temporalResolutionUnit": {
+                "x-required": true,
+                "x-label": "Unit",
+                "x-tooltip": "The unit of the temporal resolution.",
+                "x-description": "The unit of the temporal resolution, e.g. hours, days, etc.",
+                "type": "string",
+                "enum": [
+                  "Hz",
+                  "Minutes",
+                  "Hours",
+                  "Days",
+                  "Weeks",
+                  "Months",
+                  "Years"
+                ]
+              }
+            }
+          }
+        },
+        "titles": {
+          "$id": "elter://metadata.schemas/subschemas/titles.json",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "titleLanguage": {
+                "type": "string",
+                "x-label": "Title language",
+                "x-tooltip": "The language of the title.",
+                "x-description": "The language of the title. By default, the language is set to English."
+              },
+              "titleText": {
+                "x-label": "Title",
+                "x-tooltip": "Title for the resource.",
+                "x-description": "The title of the resource. It is displayed in the search result.",
+                "x-required": true,
+                "type": "string"
+              }
+            }
+          }
+        },
+        "version": {
+          "$id": "elter://metadata.schemas/subschemas/version.json",
+          "version": {
+            "type": "string"
           }
         }
       }
