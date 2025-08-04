@@ -3,14 +3,22 @@
   "type": "array",
   "x-label": "Keywords",
   "x-tooltip": "The keywords or key phrases describing the resource.",
+  "x-description": "The keywords or key phrases describing the resource. Keywords are used to improve the searchability of the resource.",
   "items": {
     "type": "object",
     "properties": {
       "keywordLabel": {
-        "type": "string"
+        "type": "string",
+        "x-label": "Keyword",
+        "x-tooltip": "The keyword or key phrase describing the resource.",
+        "x-description": "Label of the keyword displayed on the detail page",
+        "x-required": true
       },
       "keywordURI": {
-        "type": "string"
+        "type": "string",
+        "x-label": "Keyword URI",
+        "x-tooltip": "The URI of the keyword navigating to the vocabulary.",
+        "x-description": "The URI of the keyword navigating to the vocabulary."
       }
     }
   }

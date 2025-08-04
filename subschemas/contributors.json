@@ -1,75 +1,116 @@
 {
   "$id": "elter://metadata.schemas/subschemas/contributors.json",
-  "type": "object",
-  "properties": {
-    "creators": {
-      "type": "array",
-      "x-label": "Creators",
-      "x-tooltip": "The full name of the creators and/or owners of the dataset. The personal name format should be: family, given (e.g.: Smith, John).",
-      "items": {
+  "type": "array",
+  "x-label": "Contributors",
+  "x-description": "Information about the people who contribute to the asset.",
+  "items": {
+    "type": "object",
+    "properties": {
+      "contributorFamilyName": {
+        "type": "string",
+        "x-label": "Family name",
+        "x-tooltip": "The family names given to this entity.",
+        "x-description": "The family names given to this entity."
+      },
+      "contributorGivenName": {
+        "type": "string",
+        "x-label": "Given name",
+        "x-tooltip": "The first names given to this entity.",
+        "x-description": "The first names given to this entity."
+      },
+      "contributorEmail": {
+        "type": "string",
+        "x-label": "eMail",
+        "x-tooltip": "Contact email address of the contributor.",
+        "x-description": "The contact email address of the contributor."
+      },
+      "contributorAffiliation": {
         "type": "object",
+        "x-label": "Organization/Group name",
+        "x-tooltip": "Name of the (current) organisation of the contributor.",
+        "x-description": "The information about the organisation or group to which the contributor belongs.",
         "properties": {
-          "creatorGivenName": {
+          "entityName": {
             "type": "string",
-            "x-label": "Given name",
-            "x-tooltip": "The first names given to this entity."
-          },
-          "creatorFamilyName": {
-            "type": "string",
-            "x-label": "Family name",
-            "x-tooltip": "The family names given to this entity.",
-            "required": true
-          },
-          "creatorEmail": {
-            "type": "string",
-            "x-label": "eMail",
-            "x-tooltip": "Contact email address of the author.",
-            "required": true
-          },
-          "creatorAffiliation": {
-            "type": "string",
-            "x-label": "Organization/Group name",
-            "x-tooltip": "Name of the (current) organisation of the author.",
-            "required": true
+            "x-label": "Affiliation name",
+            "x-tooltip": "The name of the organisation or group to which the contributor belongs.",
+            "x-description": "The name of the organisation."
           },
           "entityID": {
             "type": "object",
             "properties": {
               "entityID": {
-                "type": "string"
+                "type": "string",
+                "x-label": "Identifier of the organisation",
+                "x-tooltip": "The unique identifier of the organisation, according to various identifier schemes.",
+                "x-description": "The unique identifier of the organisation, according to various identifier schemes."
               },
               "entityIDSchema": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "creatorIDs": {
-          "type": "array",
-          "required": false,
-          "items": {
-            "type": "object",
-            "properties": {
-              "entityID": {
-                "TODO": "id looks better, shorter -> it is under the nameIdentifiers...",
-                "type": "string [uri]",
-                "x-label": "Identifier",
-                "x-tooltip": "The unique identifier of the entity, according to various identifier schemes."
-              },
-              "entityIDSchema": {
-                "type": "enum",
-                "x-label": "Scheme",
+                "type": "string",
+                "x-label": "Identifier scheme",
                 "x-tooltip": "The scheme used for the identifier.",
-                "default": "orcid",
+                "x-description": "The scheme used for the identifier.",
                 "enum": [
+                  "ror",
                   "orcid",
-                  "wob",
+                  "wos",
                   "scopus"
                 ]
               }
             }
           }
         }
+      },
+      "contributorIDs": {
+        "type": "array",
+        "x-label": "Contributor identifiers",
+        "x-tooltip": "The information of the alternate resource of the contributor.",
+        "x-description": "The information of the resource, where can be found more information about the contributor.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "entityID": {
+              "type": "string",
+              "x-label": "Identifier",
+              "x-tooltip": "The identifier of the resource, where can be found more information about the contributor.",
+              "x-description": "The identifier of the resource, where can be found more information about the contributor."
+            },
+            "entityIDSchema": {
+              "type": "string",
+              "x-label": "Scheme",
+              "x-tooltip": "The scheme used for the identifier.",
+              "x-description": "The scheme used for the identifier.",
+              "default": "orcid",
+              "enum": [
+                "orcid",
+                "wob",
+                "scopus"
+              ]
+            }
+          }
+        }
+      },
+      "contributorType": {
+        "type": "string",
+        "x-label": "Contributor type",
+        "x-tooltip": "The type of the contributor.",
+        "x-description": "The type of the contributor.",
+        "enumValues": [
+          "ContactPerson",
+          "DataCollector",
+          "DataCurator",
+          "DataManager",
+          "MetadataProvider",
+          "Producer",
+          "ProjectLeader",
+          "ProjectManager",
+          "ProjectMember",
+          "RegistrationAuthority",
+          "RelatedPerson",
+          "Researcher",
+          "ResearchGroup",
+          "Other"
+        ]
       }
     }
   }

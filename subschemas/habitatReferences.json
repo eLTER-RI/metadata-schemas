@@ -8,11 +8,30 @@
     "type": "object",
     "properties": {
       "soHabitatCode": {
-        "type": "string"
-      },
-      "soHabitatURI": {
-        "type": "string"
+        "type": "string",
+        "x-label": "Habitat code",
+        "x-tooltip": "The code of the habitat.",
+        "x-description": "The code of the habitat.",
+        "x-required": true,
+        "enum": [
+          "A",
+          "B",
+          "C1",
+          "C2",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I"
+        ]
       }
+    },
+    "soHabitatURI": {
+      "type": "string",
+      "x-label": "Habitat URI",
+      "x-tooltip": "The URI of the habitat concept in the eLTER vocabularies.",
+      "x-description": "The URI of the habitat concept in the eLTER vocabularies."
     }
   }
 }

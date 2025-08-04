@@ -1,14 +1,19 @@
 {
   "$id": "elter://metadata.schemas/subschemas/contactPoints.json",
   "type": "array",
+  "x-description": "Main contact point of the asset.",
   "items": {
     "type": "object",
     "properties": {
       "contactEmail": {
-        "type": "string"
+        "type": "string",
+        "x-label": "Contact eMail",
+        "x-description": "The contact email address of the contact point."
       },
       "contactName": {
-        "type": "string"
+        "type": "string",
+        "x-label": "Contact name",
+        "x-description": "The (full) name of the contact point."
       }
     }
   }

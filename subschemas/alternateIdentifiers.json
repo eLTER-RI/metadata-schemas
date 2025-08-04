@@ -2,6 +2,7 @@
   "$id": "elter://metadata.schemas/subschemas/alternateIdentifiers.json",
   "x-label": "Alternate identifier(s)",
   "x-tooltip": "The alternative identifiers for this resource such as a URN, URI or an ISBN number.",
+  "x-description": "Identification of the resource located on different source.",
   "type": "array",
   "items": {
     "type": "object",
@@ -9,12 +10,14 @@
       "alternateID": {
         "type": "string",
         "x-label": "Alternate identifier",
-        "x-tooltip": "Please provide the reference/identifier to the related resource."
+        "x-tooltip": "Please provide the reference/identifier to the related resource.",
+        "x-description": "The unique identifier of the alternate resource, according to various identifier schemes."
       },
       "alternateIDType": {
         "type": "string",
         "x-label": "Related Identifier Type",
         "x-tooltip": "The type of identifier.",
+        "x-description": "The type of alternate identifier.",
         "enumValues": [
           "ARK",
           "arXiv",

@@ -1,3 +1,48 @@
 {
-  "TODO": "TODO"
+  "$id": "elter://metadata.schemas/subschemas/files.json",
+  "type": "array",
+  "x-label": "Files",
+  "x-tooltip": "The files associated with the resource.",
+  "x-description": "The files associated with the external resource.",
+  "items": {
+    "type": "object",
+    "properties": {
+      "md5": {
+        "type": "string",
+        "x-label": "MD5 checksum",
+        "x-tooltip": "The MD5 checksum of the file.",
+        "x-description": "The MD5 checksum of the file, used to verify the integrity of the file."
+      },
+      "format": {
+        "type": "string",
+        "x-label": "File format",
+        "x-tooltip": "The format of the file.",
+        "x-description": "The format of the file, e.g. CSV, JSON, XML, etc."
+      },
+      "size": {
+        "type": "string",
+        "x-label": "File size",
+        "x-tooltip": "The size of the file.",
+        "x-description": "The value size of the file."
+      },
+      "sizeMeasureType": {
+        "type": "string",
+        "x-label": "Size measure type",
+        "x-tooltip": "The unit of the file size.",
+        "x-description": "The unit of the file size, e.g. bytes, kilobytes, megabytes, etc."
+      },
+      "name": {
+        "type": "string",
+        "x-label": "File name",
+        "x-tooltip": "The name of the file.",
+        "x-description": "The name of the file, e.g. data.csv."
+      },
+      "sourceUrl": {
+        "type": "string",
+        "x-label": "Source URL",
+        "x-tooltip": "The URL of the file.",
+        "x-description": "The URL of the file, where it can be accessed or downloaded."
+      }
+    }
+  }
 }
