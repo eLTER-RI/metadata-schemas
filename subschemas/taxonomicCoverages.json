@@ -1,30 +1,43 @@
 {
   "$id": "elter://metadata.schemas/subschemas/taxonomicCoverages.json",
-  "taxonomicCoverages": {
-    "type": "array",
-    "items": {
-      "type": "object",
-      "properties": {
-        "taxonomicClassification": {
-          "type": "object",
-          "properties": {
-            "taxonomicClassificationID": {
-              "type": "string"
-            },
-            "taxonomicCommonName": {
-              "type": "string"
-            },
-            "taxonomicRankName": {
-              "type": "string"
-            },
-            "taxonomicRankValue": {
-              "type": "string"
-            }
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "taxonomicClassification": {
+        "type": "object",
+        "properties": {
+          "taxonomicClassificationID": {
+            "type": "string",
+            "x-label": "Taxonomic classification ID",
+            "x-tooltip": "The unique identifier of the taxonomic classification.",
+            "x-description": "The unique identifier of the taxonomic classification."
+          },
+          "taxonomicCommonName": {
+            "type": "string",
+            "x-label": "Taxonomic common name",
+            "x-tooltip": "The common name of the taxonomic classification.",
+            "x-description": "The common name of the taxonomic classification."
+          },
+          "taxonomicRankName": {
+            "type": "string",
+            "x-label": "Taxonomic rank name",
+            "x-tooltip": "The name of the taxonomic rank.",
+            "x-description": "The name of the taxonomic rank."
+          },
+          "taxonomicRankValue": {
+            "type": "string",
+            "x-label": "Taxonomic rank value",
+            "x-tooltip": "The value of the taxonomic rank.",
+            "x-description": "The value of the taxonomic rank."
           }
-        },
-        "taxonomicDescription": {
-          "type": "string"
         }
+      },
+      "taxonomicDescription": {
+        "type": "string",
+        "x-label": "Taxonomic description",
+        "x-tooltip": "A description of the taxonomic coverage of the resource.",
+        "x-description": "A description of the taxonomic coverage of the resource."
       }
     }
   }

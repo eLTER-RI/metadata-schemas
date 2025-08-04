@@ -2,22 +2,24 @@
   "$id": "elter://metadata.schemas/subschemas/temporalResolution.json",
   "x-required": false,
   "x-label": "Temporal Resolution",
+  "x-tooltip": "The temporal resolution of the data, e.g. 1 hour, 1 day, etc.",
+  "x-description": "The temporal resolution of the data, e.g. 1 hour, 1 day, etc.",
   "type": "array",
   "items": {
     "type": "object",
-    "required": [
-      "temporalResolutionValue",
-      "temporalResolutionUnit"
-    ],
     "properties": {
       "temporalResolutionValue": {
         "x-required": true,
         "x-label": "Resolution value",
+        "x-tooltip": "The value of the temporal resolution.",
+        "x-description": "The value of the temporal resolution, e.g. 1, 24, etc.",
         "type": "integer"
       },
       "temporalResolutionUnit": {
         "x-required": true,
         "x-label": "Unit",
+        "x-tooltip": "The unit of the temporal resolution.",
+        "x-description": "The unit of the temporal resolution, e.g. hours, days, etc.",
         "type": "string",
         "enum": [
           "Hz",

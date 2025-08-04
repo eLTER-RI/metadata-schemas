@@ -1,17 +1,25 @@
 {
   "$id": "elter://metadata.schemas/subschemas/siteReferences.json",
   "type": "array",
-  "x-label": "eLTER site and platform(s)",
-  "x-tooltip": "Provide the list of site(s) or platform(s) where the dataset has been collected.",
-  "required": true,
+  "x-label": "Deims Sites",
+  "x-tooltip": "Provide information on the DEIMS sites for which the datasource was created.",
+  "x-description": "The DEIMS sites on which the datasource was created.",
   "items": {
     "type": "object",
     "properties": {
       "siteName": {
-        "type": "string"
+        "type": "string",
+        "x-required": true,
+        "x-label": "Site name",
+        "x-tooltip": "The name of the DEIMS site.",
+        "x-description": "The name of the DEIMS site for which the datasource was created."
       },
       "siteID": {
-        "type": "string"
+        "type": "string",
+        "x-required": true,
+        "x-label": "Site ID",
+        "x-tooltip": "The DEIMS site ID.",
+        "x-description": "The DEIMS site ID for which the datasource was created."
       }
     }
   }

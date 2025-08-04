@@ -3,18 +3,22 @@
   "type": "array",
   "x-label": "License",
   "x-tooltip": "The license under which this data set is available to the users (e.g. GPL, Apache v2 or Commercial). Please use the License Selector for help and additional information.",
+  "x-description": "The license under which this data set is available to the users.",
   "x-required": true,
-  "$comment": "Required once but more than one occurence is allowed.",
   "items": {
     "type": "object",
     "properties": {
       "licenseCode": {
         "type": "string",
-        "x-tooltip": "For example CC BY-SA 4.0"
+        "x-label": "License code",
+        "x-tooltip": "For example CC BY-SA 4.0",
+        "x-description": "The code of the license, e.g. CC BY-SA 4.0."
       },
       "licenseURI": {
         "type": "string",
-        "x-tooltip": "For example https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+        "x-label": "License URI",
+        "x-tooltip": "For example https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+        "x-description": "The URI of the license, e.g. https://creativecommons.org/licenses/by-sa/4.0/deed.en"
       }
     }
   }

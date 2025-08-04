@@ -2,6 +2,8 @@
   "$id": "elter://metadata.schemas/subschemas/assetType.json",
   "type": "string",
   "x-required": true,
+  "x-label": "Asset type",
+  "x-description": "The type of the asset.",
   "enum": [
     "Audiovisual",
     "Book",
