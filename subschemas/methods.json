@@ -6,22 +6,37 @@
     "type": "object",
     "properties": {
       "instrumentationDescription": {
-        "type": "string"
+        "type": "string",
+        "x-label": "Instrumentation description",
+        "x-tooltip": "A description of the instrumentation used in the resource.",
+        "x-description": "A description of the instrumentation used in the resource."
       },
       "methodID": {
-        "type": "string"
+        "type": "string",
+        "x-label": "Method ID",
+        "x-tooltip": "The unique identifier of the method.",
+        "x-description": "The unique identifier of the method used in the resource."
       },
       "qualityControlDescription": {
-        "type": "string"
+        "type": "string",
+        "x-label": "Quality control description",
+        "x-tooltip": "A description of the quality control measures applied to the data.",
+        "x-description": "A description of the quality control measures applied to the data."
       },
       "sampling": {
         "type": "object",
         "properties": {
           "samplingDescription": {
-            "type": "string"
+            "type": "string",
+            "x-label": "Sampling description",
+            "x-tooltip": "A description of the sampling method used in the resource.",
+            "x-description": "A description of the sampling method used in the resource."
           },
           "studyDescription": {
-            "type": "string"
+            "type": "string",
+            "x-label": "Study description",
+            "x-tooltip": "A description of the study design or experimental setup.",
+            "x-description": "A description of the study design or experimental setup."
           }
         }
       },
@@ -31,10 +46,16 @@
           "type": "object",
           "properties": {
             "stepDescription": {
-              "type": "string"
+              "type": "string",
+              "x-label": "Step description",
+              "x-tooltip": "A description of the step in the method.",
+              "x-description": "A description of the step in the method."
             },
             "stepTitle": {
-              "type": "string"
+              "type": "string",
+              "x-label": "Step title",
+              "x-tooltip": "The title of the step in the method.",
+              "x-description": "The title of the step in the method."
             }
           }
         }

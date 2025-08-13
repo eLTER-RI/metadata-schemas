@@ -3,6 +3,7 @@
   "type": "string",
   "x-label": "Publication date",
   "x-tooltip": "The date when the data was or will be made publicly available (e.g. 2018-07-13).",
+  "x-description": "The date when the data was or will be made publicly available.",
   "x-required": true,
   "format": "YYYY-MM-DD"
 }

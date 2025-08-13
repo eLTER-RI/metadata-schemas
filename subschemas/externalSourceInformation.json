@@ -1,3 +1,26 @@
 {
-  "TODO": "TODO"
+  "$id": "elter://metadata.schemas/subschemas/externalSourceInformation.json",
+  "type": "object",
+  "x-label": "External source information",
+  "x-tooltip": "Information about the external source of the data.",
+  "x-description": "Information about the primary source of the data, who is responsible for the data and how to access it.",
+  "properties": {
+    "externalSourceName": {
+      "type": "string",
+      "x-label": "External source name",
+      "x-description": "The name of the external source, e.g. a repository or a data provider."
+    },
+    "externalSourceURI": {
+      "type": "string",
+      "x-label": "External source URI",
+      "x-tooltip": "The URI of the external source, e.g. a URL or a DOI.",
+      "x-description": "The URI of the external source, e.g. a URL or a DOI."
+    },
+    "externalSourceInfo": {
+      "type": "string",
+      "x-label": "External source information",
+      "x-tooltip": "Additional information about the external source.",
+      "x-description": "Additional information about the external source"
+    }
+  }
 }

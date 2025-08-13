@@ -1,52 +1,89 @@
 {
   "$id": "elter://metadata.schemas/subschemas/geoLocations.json",
   "type": "array",
+  "x-description": "The geographic location(s) of the resource. Every item in the list is separate location and do not mix multiple types in one item.",
   "items": {
     "type": "object",
     "properties": {
       "boundingBox": {
         "type": "object",
+        "x-label": "Bounding box",
+        "x-tooltip": "The bounding box of the geographic location.",
+        "x-description": "The bounding box of the geographic location. The bounding box is defined by the coordinates of the southwest and northeast corners.",
         "properties": {
           "eastBoundLongitude": {
-            "type": "number"
+            "type": "number",
+            "x-label": "East bound longitude",
+            "x-tooltip": "The easternmost longitude of the bounding box.",
+            "x-description": "The easternmost longitude of the bounding box in decimal degrees."
           },
           "northBoundLatitude": {
-            "type": "number"
+            "type": "number",
+            "x-label": "North bound latitude",
+            "x-tooltip": "The northernmost latitude of the bounding box.",
+            "x-description": "The northernmost latitude of the bounding box in decimal degrees."
           },
           "southBoundLatitude": {
-            "type": "number"
+            "type": "number",
+            "x-label": "South bound latitude",
+            "x-tooltip": "The southernmost latitude of the bounding box.",
+            "x-description": "The southernmost latitude of the bounding box in decimal degrees."
           },
           "westBoundLongitude": {
-            "type": "number"
+            "type": "number",
+            "x-label": "West bound longitude",
+            "x-tooltip": "The westernmost longitude of the bounding box.",
+            "x-description": "The westernmost longitude of the bounding box in decimal degrees."
           }
         }
       },
       "boundingPolygon": {
         "type": "array",
+        "x-label": "Bounding polygon",
+        "x-tooltip": "The bounding polygon of the geographic location.",
+        "x-description": "The bounding polygon of the geographic location. The polygon is defined by a list of polygons defined by list of points.",
         "items": {
           "type": "object",
           "properties": {
             "inPolygonPoint": {
               "type": "object",
+              "x-label": "In polygon point",
+              "x-tooltip": "A point within the polygon.",
+              "x-description": "A point within the polygon defined by latitude and longitude.",
               "properties": {
                 "latitude": {
-                  "type": "number"
+                  "type": "number",
+                  "x-label": "Latitude",
+                  "x-tooltip": "The latitude of the point.",
+                  "x-description": "The latitude of the point in decimal degrees."
                 },
                 "longitude": {
-                  "type": "number"
+                  "type": "number",
+                  "x-label": "Longitude",
+                  "x-tooltip": "The longitude of the point.",
+                  "x-description": "The longitude of the point in decimal degrees."
                 }
               }
             },
             "points": {
               "type": "array",
+              "x-label": "Points",
+              "x-tooltip": "The points defining the polygon.",
+              "x-description": "The points defining the polygon.",
               "items": {
                 "type": "object",
                 "properties": {
                   "latitude": {
-                    "type": "number"
+                    "type": "number",
+                    "x-label": "Latitude",
+                    "x-tooltip": "The latitude of the point.",
+                    "x-description": "The latitude of the point in polygon."
                   },
                   "longitude": {
-                    "type": "number"
+                    "type": "number",
+                    "x-label": "Longitude",
+                    "x-tooltip": "The longitude of the point.",
+                    "x-description": "The longitude of the point in polygon."
                   }
                 }
               }
@@ -55,16 +92,29 @@
         }
       },
       "geographicDescription": {
-        "type": "string"
+        "type": "string",
+        "x-label": "Geographic description",
+        "x-tooltip": "A description of the geographic location of the resource.",
+        "x-description": "A description of the geographic location of the resource."
       },
       "observationLocation": {
         "type": "object",
+        "x-label": "Observation location",
+        "x-tooltip": "The location of the observation.",
+        "x-description": "Observation location is reference to the deims site, where the geolocation is described.",
         "properties": {
           "deimsLocationID": {
-            "type": "string"
+            "type": "string",
+            "x-required": true,
+            "x-label": "DEIMS location ID",
+            "x-tooltip": "The DEIMS location ID of the observation location.",
+            "x-description": "The DEIMS site ID of the observation location."
           },
           "deimsLocationName": {
-            "type": "string"
+            "type": "string",
+            "x-label": "DEIMS location name",
+            "x-tooltip": "The DEIMS location name of the observation location.",
+            "x-description": "The DEIMS site name of the observation location."
           }
         }
       },
@@ -72,10 +122,16 @@
         "type": "object",
         "properties": {
           "latitude": {
-            "type": "number"
+            "type": "number",
+            "x-label": "Latitude",
+            "x-tooltip": "The latitude of the point.",
+            "x-description": "The latitude of the point in decimal degrees."
           },
           "longitude": {
-            "type": "number"
+            "type": "number",
+            "x-label": "Longitude",
+            "x-tooltip": "The longitude of the point.",
+            "x-description": "The longitude of the point in decimal degrees."
           }
         }
       }

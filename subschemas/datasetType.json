@@ -1,6 +1,9 @@
 {
   "$id": "elter://metadata.schemas/subschemas/datasetType.json",
   "type": "object",
+  "x-label": "asset type",
+  "x-tooltip": "Please provide the corresponding eLTER standard observation for the dataset.",
+  "x-description": "The type of the dataset according to the eLTER standard observations.",
   "properties": {
     "datasetTypeCode": {
       "type": "string",
@@ -74,7 +77,8 @@
       ]
     },
     "datasetTypeURI": {
-      "type": "string"
+      "type": "string",
+      "x-description": "URL to the concept in the eLTER vocabularies."
     }
   }
 }

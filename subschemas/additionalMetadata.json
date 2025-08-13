@@ -1,14 +1,23 @@
 {
   "$id": "elter://metadata.schemas/subschemas/additionalMetadata.json",
   "type": "array",
+  "x-label": "Additional metadata",
+  "x-tooltip": "Additional metadata fields that are not covered by the  schema.",
+  "x-description": "Additional metadata fields that are not covered by the schema.",
   "items": {
     "type": "object",
     "properties": {
       "name": {
-        "type": "string"
+        "type": "string",
+        "x-label": "Field name",
+        "x-tooltip": "The name of the additional metadata field.",
+        "x-description": "The name of the additional metadata field."
       },
       "value": {
-        "type": "string"
+        "type": "string",
+        "x-label": "Field value",
+        "x-tooltip": "The value of the additional metadata field.",
+        "x-description": "The value of the additional metadata field."
       }
     }
   }

@@ -3,16 +3,21 @@
   "type": "array",
   "x-label": "Related identifiers",
   "x-tooltip": "The identifiers of other resources related to the resource such as a URN, URI or an ISBN number.",
+  "x-description": "Identification of the resources that are related somehow to this asset.",
   "items": {
     "type": "object",
     "properties": {
       "relatedID": {
         "type": "string",
         "x-label": "Related identifier",
-        "x-tooltip": "Please provide the reference/identifier to the related resource."
+        "x-tooltip": "Please provide the reference/identifier to the related resource.",
+        "x-description": "The unique identifier of the related resource, according to various identifier schemes."
       },
       "relatedResourceType": {
         "type": "enum",
+        "x-label": "Related Resource Type",
+        "x-tooltip": "The type of the related resource.",
+        "x-description": "The type of the related resource.",
         "enumValues": [
           "Audiovisual",
           "Book",
@@ -48,6 +53,7 @@
         "type": "enum",
         "x-label": "Related Identifier Type",
         "x-tooltip": "The type of identifier.",
+        "x-description": "The type of related identifier.",
         "enumValues": [
           "ARK",
           "arXiv",
