@@ -110,6 +110,9 @@
         "datasetType": {
           "$ref": "subschemas/datasetType.json"
         },
+        "externalSourceInformation": {
+          "$ref": "subschemas/externalSourceInformation.json"
+        },
         "contactPoints": {
           "$ref": "subschemas/contactPoints.json"
         },
@@ -124,6 +127,9 @@
         },
         "descriptions": {
           "$ref": "subschemas/descriptions.json"
+        },
+        "files": {
+          "$ref": "subschemas/files.json"
         },
         "geoLocations": {
           "$ref": "subschemas/geoLocations.json"
